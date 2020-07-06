@@ -1,0 +1,22 @@
+{
+  "name": "dueno-directo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "postcss.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HelixInCode/Dueno-Directo.git"
+  },
+  "author": "HelixInCode",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HelixInCode/Dueno-Directo/issues"
+  },
+  "homepage": "https://github.com/HelixInCode/Dueno-Directo#readme",
+  "devDependencies": {
+    "postcss": "^7.0.32"
+  }
+}
