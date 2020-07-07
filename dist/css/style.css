@@ -1,7 +1,4 @@
 :root{
-  --PrimarioClaro: #0075BE;
-  --PrimarioOscuro: #004489;
-  --SecundarioClaro: #E9EBF5;
   /* --SecundarioOscuro: #0075BE; */
 }
 a{
@@ -16,7 +13,7 @@ nav{
   right: 0;
   display: flex;
   justify-content: space-between;
-  background-color: color(var(--PrimarioOscuro) alpha(-50%));
+  background-color: rgba(0, 68, 137, 0.5);
   color: #fff;
 }
 nav > .img-container{
@@ -42,11 +39,11 @@ nav > .menu-items > li > a{
   color: #fff;
 }
 nav > .menu-items > li > a:hover{
-  color: var(--PrimarioOscuro);
+  color: #004489;
   background-color: #fff;
 }
 nav > .menu-items > li:nth-of-type(5) > a{
-  color: var(--PrimarioOscuro);
+  color: #004489;
   background-color: #fff;
 }
 

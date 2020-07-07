@@ -8,7 +8,7 @@ module.exports = {
           flexbox: false,
           grid: false
         },
-        customProperties: false,
+        customProperties: true,
       }
     })
   ]
