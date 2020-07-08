@@ -1,4 +1,4 @@
-:root{
+:root{ /*italica*/ /*medium*/ /*Bold*//*regular*/
   /* --SecundarioOscuro: #0075BE; */
 }
 a{
@@ -8,6 +8,7 @@ a{
 nav{
   position: absolute;
   z-index: 9999;
+  height: 60px;
   top: 0;
   left: 0;
   right: 0;
@@ -37,6 +38,7 @@ nav > .menu-items > li > a{
   padding: 5px 12px 5px 10px;
   font-weight: bold;
   color: #fff;
+  font-family: 'Ubuntu', sans-serif;
 }
 nav > .menu-items > li > a:hover{
   color: #004489;
