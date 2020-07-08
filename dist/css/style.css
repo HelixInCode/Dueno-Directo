@@ -97,11 +97,10 @@ nav > .menu-items > li:nth-of-type(5) > a:hover{
   background-color: #004489;
   -webkit-box-shadow: 3px 3px 3px grey;
           box-shadow: 3px 3px 3px grey;
-  -webkit-transition: all .3s;
-  transition: all .3s;
   display: grid;
   visibility: visible;
-  opacity: 1;
+  -webkit-transition: all 2s;
+  transition: all 2s;
 }
 
 /*modal sub-menu*/
@@ -119,7 +118,6 @@ nav > .menu-items > li:nth-of-type(5) > a:hover{
   top:200px;
   border-radius: 5px;
   visibility: hidden;
-  opacity: 0;
 }
 #modal-servicios > #submenu > div{
   background-color: rgb(206, 205, 207);
