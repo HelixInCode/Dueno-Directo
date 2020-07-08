@@ -6,7 +6,7 @@ a{
 }
 
 nav{
-  position: absolute;
+  position: fixed;
   z-index: 9999;
   height: 60px;
   top: 0;
@@ -37,21 +37,26 @@ nav > .menu-items > li{
 nav > .menu-items > li > a{
   padding: 5px 12px 5px 10px;
   font-weight: bold;
-  color: #fff;
+  color: #E9EBF5;
   font-family: 'Ubuntu', sans-serif;
 }
 nav > .menu-items > li > a:hover{
   color: #004489;
-  background-color: #fff;
+  background-color: #E9EBF5;
 }
 nav > .menu-items > li:nth-of-type(5) > a{
   color: #004489;
-  background-color: #fff;
+  background-color: #E9EBF5;
+}
+nav > .menu-items > li:nth-of-type(5) > a:hover{
+  color:#E9EBF5 ;
+  background-color: #004489;
 }
 
 .carousel > .carousel-inner > .carousel-item{
   height: 100vh;
   position: relative;
+  z-index: 6;
 }
 .carousel > .carousel-inner > .carousel-item > img{
   position: absolute;
@@ -61,4 +66,62 @@ nav > .menu-items > li:nth-of-type(5) > a{
   left: 0;
   width: 100%;
   height: 100%;
+}
+/*Ralla derecha*/
+#modal-servicios{
+  position: fixed;
+  z-index: 5;
+  top:200px;
+  right: 0;
+  bottom: 100px;
+  width: 60px;
+  height: 400px;
+  background-color: #0075BE;
+  border: 2px solid #004489;
+  border-radius: 10px;
+  text-align: center;
+  -webkit-box-shadow: 2px 2px 2px grey;
+          box-shadow: 2px 2px 2px grey;
+}
+#modal-servicios:hover{
+  background-color: #004489;
+  border: 2px solid #E9EBF5;
+  color: #E9EBF5;
+}
+
+#modal-servicios>a{
+  font-family: 'Ubuntu', sans-serif;
+  color: #E9EBF5;
+  font-size: 20px;
+  -webkit-writing-mode: vertical-lr;
+      -ms-writing-mode: tb-lr;
+          writing-mode: vertical-lr;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  margin-top: 40px
+}
+
+/*PUBLICACIONES DESTACADAS*/
+#publicaciones{
+  display: grid;
+  grid-template-columns: minmax(600px, 1000px);
+  justify-content: center;
+}
+#publicaciones > h1{
+  text-align: center;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: bold;
+  color: #0075BE;
+}
+#publicaciones > .contenedor-publicaciones{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(300px, 600px));
+  justify-self: center;
+  gap: 50px;
+}
+
+#publicaciones > .contenedor-publicaciones > div{ 
+  width: 300px;
+  height: 200px;
+  background-color: #0075BE;
 }

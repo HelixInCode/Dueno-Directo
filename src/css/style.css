@@ -13,7 +13,7 @@ a{
 }
 
 nav{
-  position: absolute;
+  position: fixed;
   z-index: 9999;
   height: 60px;
   top: 0;
@@ -44,21 +44,26 @@ nav > .menu-items > li{
 nav > .menu-items > li > a{
   padding: 5px 12px 5px 10px;
   font-weight: bold;
-  color: #fff;
+  color: var(--SecundarioClaro);
   font-family: var(--UbuntuEnlaces);
 }
 nav > .menu-items > li > a:hover{
   color: var(--PrimarioOscuro);
-  background-color: #fff;
+  background-color: var(--SecundarioClaro);
 }
 nav > .menu-items > li:nth-of-type(5) > a{
   color: var(--PrimarioOscuro);
-  background-color: #fff;
+  background-color: var(--SecundarioClaro);
+}
+nav > .menu-items > li:nth-of-type(5) > a:hover{
+  color:var(--SecundarioClaro) ;
+  background-color: var(--PrimarioOscuro);
 }
 
 .carousel > .carousel-inner > .carousel-item{
   height: 100vh;
   position: relative;
+  z-index: 6;
 }
 .carousel > .carousel-inner > .carousel-item > img{
   position: absolute;
@@ -67,4 +72,58 @@ nav > .menu-items > li:nth-of-type(5) > a{
   left: 0;
   width: 100%;
   height: 100%;
+}
+/*Ralla derecha*/
+#modal-servicios{
+  position: fixed;
+  z-index: 5;
+  top:200px;
+  right: 0;
+  bottom: 100px;
+  width: 60px;
+  height: 400px;
+  background-color: var(--PrimarioClaro);
+  border: 2px solid var(--PrimarioOscuro);
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 2px 2px 2px grey;
+}
+#modal-servicios:hover{
+  background-color: var(--PrimarioOscuro);
+  border: 2px solid var(--SecundarioClaro);
+  color: var(--SecundarioClaro);
+}
+
+#modal-servicios>a{
+  font-family: var(--UbuntuEnlaces);
+  color: var(--SecundarioClaro);
+  font-size: 20px;
+  writing-mode: vertical-lr;
+  transform: rotate(180deg);
+  margin-top: 40px
+}
+
+/*PUBLICACIONES DESTACADAS*/
+#publicaciones{
+  display: grid;
+  grid-template-columns: minmax(600px, 1000px);
+  justify-content: center;
+}
+#publicaciones > h1{
+  text-align: center;
+  font-family: var(--UbuntuTitulosPrincipales);
+  font-weight: bold;
+  color: var(--PrimarioClaro);
+}
+#publicaciones > .contenedor-publicaciones{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(300px, 600px));
+  justify-self: center;
+  gap: 50px;
+}
+
+#publicaciones > .contenedor-publicaciones > div{ 
+  width: 300px;
+  height: 200px;
+  background-color: var(--PrimarioClaro);
 }
