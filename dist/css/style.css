@@ -169,30 +169,6 @@ nav > .menu-items > li:nth-of-type(5) > a:hover{
   color: #E9EBF5;
   background-color: #0075BE;
 }
-/*PUBLICACIONES DESTACADAS*/
-#publicaciones{
-  display: grid;
-  grid-template-columns: minmax(600px, 1200px);
-  justify-content: center;
-}
-#publicaciones > h1{
-  font-family: 'Ubuntu', sans-serif;
-  font-weight: bold;
-  color: #0075BE;
-  text-align: center;
-}
-#publicaciones > .contenedor-publicaciones{
-  display: grid;
-  grid-template-columns: repeat(3, minmax(300px, 600px));
-  justify-self: center;
-  gap: 50px;
-}
-
-#publicaciones > .contenedor-publicaciones > div{ 
-  width: 300px;
-  height: 200px;
-  background-color: #0075BE;
-}
 
 #publications{
   text-align: center;
@@ -322,6 +298,38 @@ nav > .menu-items > li:nth-of-type(5) > a:hover{
   right: 0;
 }
 
+/*Seccion Primera-vez*/
+#primera-vez{
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: center;
+}
+#primera-vez > h1{
+  text-align: center;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: bold;
+  color: #0075BE;
+}
+#primera-vez > .contenedor-opciones{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+#primera-vez > .contenedor-opciones > a{
+  position: relative;
+}
+#primera-vez > .contenedor-opciones > a > img{
+  width: 100%;
+}
+#primera-vez > .contenedor-opciones > a > p{
+  position: absolute;
+  top: 50%;
+  left: 45%;/*AREGLAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARRRRRRRRRRRRRRRRRRRr*/
+  color: #E9EBF5;
+  font-size: 35px;
+  font-weight: bold;
+  text-shadow: 2px 2px 2px #004489;
+}
+
 @media screen and (min-width: 650px){
   nav > .menu-items{
     display: grid;
@@ -344,36 +352,4 @@ nav > .menu-items > li:nth-of-type(5) > a:hover{
   #publications > .publications-container{
     grid-template-columns: repeat(3, minmax(100px, 400px));
   }
-}
-/*Seccion Primera-vez*/
-#primera-vez{
-  display: grid;
-  grid-template-columns: 1fr;
-  justify-content: center;
-}
-#primera-vez > h1{
-  text-align: center;
-  font-family: 'Ubuntu', sans-serif;
-  font-weight: bold;
-  color: #0075BE;
-}
-#primera-vez > .contenedor-opciones{
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-}
-#primera-vez > .contenedor-opciones > a{
-  position: relative;
-}
-#primera-vez > .contenedor-opciones > a > img{
-  width: 50vw;
-  height: 450px;
-}
-#primera-vez > .contenedor-opciones > a > p{
-  position: absolute;
-  top: 50%;
-  left: 45%;/*AREGLAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARRRRRRRRRRRRRRRRRRRr*/
-  color: #E9EBF5;
-  font-size: 35px;
-  font-weight: bold;
-  text-shadow: 2px 2px 2px #004489;
 }
