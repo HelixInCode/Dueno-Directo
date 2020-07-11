@@ -178,6 +178,7 @@ nav > .menu-items > li:nth-of-type(5) > a:hover{
   font-weight: bold;
   color: #0075BE;
   text-align: center;
+  font-size: 25px;
 }
 #publications > .publications-container{
   display: grid;
@@ -309,10 +310,11 @@ nav > .menu-items > li:nth-of-type(5) > a:hover{
   font-family: 'Ubuntu', sans-serif;
   font-weight: bold;
   color: #0075BE;
+  font-size: 25px;
 }
 #primera-vez > .contenedor-opciones{
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns:  1fr;
 }
 #primera-vez > .contenedor-opciones > a{
   position: relative;
@@ -343,9 +345,17 @@ nav > .menu-items > li:nth-of-type(5) > a:hover{
   #modal-servicios:hover > #submenu{
     right: 60px;
   }
-
+  #publications h1{  
+    font-size: 35px;
+  }
   #publications > .publications-container{
     grid-template-columns: repeat(2, minmax(100px, 450px));
+  }
+  #primera-vez > h1{
+    font-size: 35px;
+  }
+  #primera-vez > .contenedor-opciones{
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 @media (min-width: 992px){
