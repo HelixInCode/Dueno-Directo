@@ -6,7 +6,7 @@ module.exports = {
       features: {
         autoprefixer: {
           flexbox: false,
-          grid: false
+          grid: false,
         },
         customProperties: true,
       }
