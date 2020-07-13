@@ -304,6 +304,9 @@ nav > .menu-items > li:nth-of-type(5) > a:hover{
 }
 #primera-vez > .contenedor-opciones > a{
   position: relative;
+/*   display: flex;
+  align-items: center;
+  justify-content: center; */
 }
 #primera-vez > .contenedor-opciones > a > img{
   width: 100%;
@@ -319,7 +322,7 @@ nav > .menu-items > li:nth-of-type(5) > a:hover{
   font-size: 35px;
   font-weight: bold;
   text-shadow: 2px 2px 2px var(--PrimarioOscuro);
-}
+} 
 
 
 
@@ -406,7 +409,7 @@ nav > .menu-items > li:nth-of-type(5) > a:hover{
 #cover-services > .contenedor-cover{
   background-image: linear-gradient(to bottom right, #0075bee3, #E9EBF5);
   display: grid;
-  grid-template-columns: repeat(3, minmax(200px, 400px));
+  grid-template-columns: minmax(120px, 300px);
   justify-content: center;
   justify-items: center;
   gap: 20px;
@@ -414,11 +417,35 @@ nav > .menu-items > li:nth-of-type(5) > a:hover{
   padding-bottom: 30px;
 }
 #cover-services > .contenedor-cover > h2{
-  grid-column: 1/4;
+  text-align: center;
   color: white;
   font-family: var(--UbuntuSubtitulos);
   font-weight: 600;
   text-shadow: 2px 2px 2px var(--PrimarioOscuro);
+}
+#cover-services > .contenedor-cover > .item-cover{
+  position: relative;
+  text-align: center;
+  margin: 20px;
+}
+#cover-services > .contenedor-cover > .item-cover > .marco{
+  border: 4px solid white;
+  color: white;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#cover-services > .contenedor-cover > .item-cover > .marco > a{
+  color: white;
+  font-family: var(--UbuntuEnlaces);
+  font-size: 30px;
+  font-weight: 600;
+  text-shadow: 2px 2px 2px var(--PrimarioClaro);
 }
 
 @custom-media --medium (width >= 768px);
@@ -446,6 +473,13 @@ nav > .menu-items > li:nth-of-type(5) > a:hover{
   #primera-vez > .contenedor-opciones{
     grid-template-columns: repeat(2, 1fr);
   }
+  /*------------------------Servivios.html-----------------*/
+  #cover-services > .contenedor-cover{
+    grid-template-columns: repeat(3, minmax(200px, 400px));
+  }
+  #cover-services > .contenedor-cover > h2{
+    grid-column: 1/4;
+  }  
 }
 @media (--medium){
   #contact{
