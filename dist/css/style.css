@@ -188,7 +188,8 @@ nav > .menu-items > li:nth-of-type(5) > a:hover{
 }
 #publications > .publications-container > .publications-item{
   color: #000;
-  background-color: #fff;
+  font-style: normal;
+  background-color: #004489;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: minmax(200px, 254px);
@@ -260,7 +261,7 @@ nav > .menu-items > li:nth-of-type(5) > a:hover{
   -webkit-transition: .3s;
   transition: .3s;
 }
-#publications > .publications-container > .publications-item > .img-container > .publications-features a{
+#publications > .publications-container > .publications-item > .img-container > .publications-features div{
   font-family: 'Ubuntu', sans-serif;
   font-weight: bold;
   color: #0075BE;
@@ -312,6 +313,7 @@ nav > .menu-items > li:nth-of-type(5) > a:hover{
 #primera-vez > .contenedor-opciones{
   display: grid;
   grid-template-columns:  1fr;
+  justify-content: center;
 }
 #primera-vez > .contenedor-opciones > a{
   position: relative;
@@ -322,15 +324,24 @@ nav > .menu-items > li:nth-of-type(5) > a:hover{
 #primera-vez > .contenedor-opciones > a > img{
   width: 100%;
 }
-#primera-vez > .contenedor-opciones > a > img:hover{
-  filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feComponentTransfer color-interpolation-filters="sRGB"><feFuncA type="table" tableValues="0 0.7" /></feComponentTransfer></filter></svg>#filter');
-  -webkit-filter: opacity(.7);
-          filter: opacity(.7);
-}
-#primera-vez > .contenedor-opciones > a > p{
+#primera-vez > .contenedor-opciones > a > .description-container{
   position: absolute;
-  top: 50%;
-  left: 45%;/*AREGLAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARRRRRRRRRRRRRRRRRRRr*/
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-transition: .1s;
+  transition: .1s;
+  -webkit-transition-timing-function: linear;
+          transition-timing-function: linear;
+}
+#primera-vez > .contenedor-opciones > a:hover > .description-container{
+  background-color: rgba(255, 255, 255, 0.2);  
+}
+#primera-vez > .contenedor-opciones > a > .description-container  > p{
   color: #E9EBF5;
   font-size: 35px;
   font-weight: bold;
@@ -493,7 +504,7 @@ nav > .menu-items > li:nth-of-type(5) > a:hover{
     font-size: 35px;
   }
   #primera-vez > .contenedor-opciones{
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(150px, 500px))
   }
   /*------------------------Servivios.html-----------------*/
   #cover-services > .contenedor-cover{
