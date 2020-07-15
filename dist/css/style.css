@@ -323,6 +323,8 @@ nav > .menu-items > li:nth-of-type(5) > a:hover{
 }
 #primera-vez > .contenedor-opciones > a > img{
   width: 100%;
+  -webkit-box-shadow: 5px 5px 5px grey;
+          box-shadow: 5px 5px 5px grey;
 }
 #primera-vez > .contenedor-opciones > a > .description-container{
   position: absolute;
@@ -339,7 +341,9 @@ nav > .menu-items > li:nth-of-type(5) > a:hover{
           transition-timing-function: linear;
 }
 #primera-vez > .contenedor-opciones > a:hover > .description-container{
-  background-color: rgba(255, 255, 255, 0.2);  
+  background-color: rgba(255, 255, 255, 0.2);
+  -webkit-box-shadow: 8px 8px 8px rgb(102, 101, 101);
+          box-shadow: 8px 8px 8px rgb(102, 101, 101);  
 }
 #primera-vez > .contenedor-opciones > a > .description-container  > p{
   color: #E9EBF5;
