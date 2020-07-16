@@ -1,4 +1,7 @@
-
+*{
+    list-style: none;
+    font-family: 'Ubuntu', sans-serif;
+}
 #registro{
     margin-top: 60px;
     padding: 5px;
@@ -26,7 +29,7 @@
 }
 #registro > .contenedor > form{
     display: grid;
-    grid-template-columns: 1fr
+    grid-template-columns: 1fr;
     gap: 5px;
     justify-content: center;
     padding-top: 10px;
@@ -54,6 +57,38 @@
     background-color: #E9EBF5;
     box-shadow: 4px 4px 4px #004489;
     
+}
+/*---------------------Panel-Usuario------------------------------*/
+nav > .menu-items > .usuario > a {
+    border-radius: 50px;
+}
+nav > .menu-items > .usuario > a > img{
+    width: 35px;
+}
+nav > .menu-items > .usuario{
+    position: relative;
+}
+nav > .menu-items .usuario > ul{
+    position: absolute;
+    top: -150px;
+    left: -70px;
+    transition: 0.4s;
+}
+nav > .menu-items .usuario > ul > li{
+    width: 130px;
+    padding: 10px;
+    background-color:#004489da;
+    box-shadow: 2px 2px 2px grey;
+}
+nav > .menu-items .usuario > ul > li:hover{
+    background-color:#0075BE;
+}
+nav > .menu-items .usuario > ul > li > a{
+    color: white;
+}
+nav > .menu-items > .usuario:hover > ul{
+    display: block;
+    top: 50px;
 }
 
 @media screen and (min-width: 650px){
