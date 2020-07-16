@@ -1,0 +1,79 @@
+
+#registro{
+    margin-top: 60px;
+    padding: 5px;
+    font-family: 'Ubuntu', sans-serif;
+    /* display: grid;
+    grid-template-columns: minmax(300px, 1000px);
+    justify-content: center; */
+}
+
+#registro > .contenedor{
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    background-image: linear-gradient(to bottom right, #004489, #E9EBF5);
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px grey;
+}
+#registro > .contenedor > h3{
+   color: white;
+   font-size: 20px;
+   text-shadow: 2px 2px 2px #004489;
+   padding-top: 20px;
+   text-align: center;
+}
+#registro > .contenedor > form{
+    display: grid;
+    grid-template-columns: 1fr
+    gap: 5px;
+    justify-content: center;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+#registro > .contenedor > form > div{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+#registro > .contenedor > form > div > label{
+    color: white;
+    font-size: 20px;
+}
+#registro > .contenedor > form > div > .button1{
+    background-color: #E9EBF5;
+    font-family: 'Ubuntu', sans-serif;
+    font-style: italic;
+    color: #004489;
+    font-size: 20px;
+    padding: 5px 60px;
+    font-weight: 600;
+}
+#registro > .contenedor > form > div > .button1:hover{
+    background-color: #E9EBF5;
+    box-shadow: 4px 4px 4px #004489;
+    
+}
+
+@media screen and (min-width: 650px){
+    #registro{
+        margin-top: 40px;
+        padding: 80px;
+    }
+    #registro > .contenedor{
+        grid-template-columns: minmax(300px, 1000px);
+        padding: 20px;
+        
+    }
+    #registro > .contenedor > h3{
+        font-size: 30px;
+    }
+    #registro > .contenedor > form{
+        
+        grid-template-columns: repeat(2, minmax(250px, 450px));
+        gap: 5px;
+        padding-top: 10px;
+        padding-bottom: 20px;
+    }
+}
