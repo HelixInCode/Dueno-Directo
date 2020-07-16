@@ -90,6 +90,81 @@ nav > .menu-items > .usuario:hover > ul{
     display: block;
     top: 50px;
 }
+/*PANEL--------------------*/
+#panel-usuario{
+    background-image: linear-gradient(to bottom right, #004489 , #E9EBF5);
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: minmax(30px, 40px) auto;
+    margin: 150px 80px;
+    width: auto;
+    height:auto;
+    border-radius: 10px;
+}
+#panel-usuario > .tab {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    width: 50%;
+    height: auto;
+    align-content: center;
+    border-radius: 5px;
+}
+#panel-usuario > .tab > button{
+    margin-left: 30px;
+    color: white;
+    font-weight: 600;
+    background-color: #00448900;
+    border: none;
+    font-style: italic;
+}
+#panel-usuario > .tab > .active{
+    border-top: 2px solid #E9EBF5;
+}
+#panel-usuario > .tab > button:hover{
+    border-top: 2px solid #E9EBF5;
+}
+#panel-usuario > .tabcontent{
+    display: none;
+}
+#panel-usuario > .tabcontent.active{
+    display: block;
+    border-top: 2px solid #E9EBF5;
+}
+
+/*----------TABS-----------------*/
+#perfil > .contenedor-perfil{
+    display: grid;
+    grid-template-columns: repeat(2,minmax(250px, 600px));
+}
+#perfil >.contenedor-perfil > .columna1, #perfil > .contenedor-perfil > .columna2{
+    display: grid;
+    grid-template-rows: repeat(2, auto);
+    justify-content: center;
+    padding: 40px;
+}
+#perfil > .contenedor-perfil > .columna1 > .datos-personales > label,
+#perfil > .contenedor-perfil > .columna1 > .categoria > label{
+    padding-bottom: 15px;
+    padding-top: 15px;
+    color: white;
+    font-size: 20px;
+    text-shadow: 1px 1px 1px #004489;
+}
+#perfil > .contenedor-perfil > .columna1 > div > form > input,
+#perfil > .contenedor-perfil > .columna1 > div > form > select{
+    padding: 5px;
+    margin: 10px;
+    border-radius: 5px;
+}
+#perfil > .contenedor-perfil > .columna2 > .imagen > img{
+    width: 250px;
+    height: 250px;
+    padding: 10px;
+    border: 2px dashed black;
+    margin: 10px;
+} 
+
+
 
 @media screen and (min-width: 650px){
     #registro{

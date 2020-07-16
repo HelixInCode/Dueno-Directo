@@ -43,6 +43,9 @@
             <li style="display: none;">
               <a id="ingresar" class="waves-effect waves-light" href="#?">Ingresar</a>
             </li>
+            <li>
+                <a class="waves-effect waves-light" href="#?">Publicar</a>
+            </li>
             <li class="usuario">
                 <a href="">
                     <img src="./dist/img/icons/user.png" alt="">
@@ -57,7 +60,68 @@
     </header>
     <main>
         <section id="panel-usuario">
+            <div class="tab">
+                <button class="tablinks active">Perfil</button>
+                <button class="tablinks">Publicaciones</button>
+                <button class="tablinks">Planes</button>
+                <button class="tablinks ">Estadisticas</button>
+            </div>
+            <!-- Contenido de Pestañas -->
+            <div id="perfil" class="tabcontent active" data-index="0">
+                <div class="contenedor-perfil">
+                    <div class="columna1">
+                        <div class="datos-personales">
+                            <label for="">Datos Personales</label>
+                            <form action="" method="post">
+                                <input type="text" id="nombre" name="nombre" placeholder="Nombres"><br>
+                                <input type="text" id="apellido" name="apellido" placeholder="Apellidos"><br>
+                                <input type="text" id="dni" name="dni" placeholder="DNI"><br>
+                                <input type="text" id="correo" name="correo" placeholder="Correo"><br>
+                                <input type="text" id="telefono" name="telefono" placeholder="Teléfono"><br>
+                            </form>
+                        </div>
+                        <div class="categoria">
+                            <label for="categoria">Categoría</label><br>
+                            <form action="">
+                                <select name="categorias" id="categorias">
+                                    <option value="">Selecciona una Categoría...</option>
+                                    <option value="propietario">Propietario</option>
+                                    <option value="profesional">Profesional</option>
+                                    <option value="otro">Otro...</option>
+                                </select>
+                            </form>
+                        </div>
+                       
+    
+                    </div>
+                    <div class="columna2">
+                        <div class="imagen">
+                            <img src="./dist/img/icons/camera.png" alt=""><br>
+                            <button>Cargar Imagen</button>
+                        </div>
+                        <div class="descripcion">
 
+                        </div>
+
+                    </div>
+                </div>
+                
+                
+            </div>
+            
+            <div id="publicaciones" class="tabcontent" data-index="1">
+                <h3>Paris</h3>
+                <p>Paris is the capital of France.</p>
+            </div>
+            
+            <div id="planes" class="tabcontent" data-index="2">
+                <h3>Tokyo</h3>
+                <p>Tokyo is the capital of Japan.</p>
+            </div>
+            <div id="estadisticas" class="tabcontent" data-index="3">
+                <h3>Tokyo</h3>
+                <p>Tokyo is the capital of Japan.</p>
+            </div>
         </section>
     </main>
     <footer></footer>
@@ -73,5 +137,6 @@
   <script type="text/javascript" src="src/js/svg.js"></script>
   <script type="text/javascript" src="src/js/login.js"></script>
   <script type="text/javascript" src="dist/js/myscript.js"></script>
+  <script type="text/javascript" src="src/js/panel-usuario.js"></script>
 </body>
 </html>
