@@ -1,3 +1,7 @@
+<?php
+session_start();
+include ('conexion.php');
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -22,6 +26,41 @@
   <link rel="stylesheet" href="dist/css/style.css">
 </head>
 <body>
+  <?php
+
+  if(isset($_POST['Enviar'])) { // comprobamos que se hayan enviado los datos del formulario
+
+      if(isset($_POST['email'])&& !empty($_POST['email']) && 
+      isset($_POST['password']) && !empty($_POST['password'])){ 
+          $usuario= mysqli_real_escape_string($conexion,$_POST['email']);
+          $clave = mysqli_real_escape_string($conexion,$_POST['password']);
+          $clave = crypt($clave,"pass");
+
+          // comprobamos que los datos ingresados en el formulario coincidan con los de la BD
+          $sql = mysqli_query($conexion,"SELECT id, email, clave FROM user WHERE email='$usuario' AND clave='$clave'") or die(mysqli_error($conexion));
+          $resultado=mysqli_num_rows($sql);//cuento el número de coincidencias
+          $row = mysqli_fetch_array($sql);
+          //echo "todavia no entro en el if";
+              
+
+              if($resultado==1) {
+                  $_SESSION['id'] = $row['id']; // creamos la sesion "usuario_id" y le asignamos como valor el campo usuario_id
+                  $_SESSION['usuario'] = $row["usuario"]; // creamos la sesion "usuario_nombre" y le asignamos como valor el campo 
+                  header("Location: home.php");
+              }else {
+              
+?>
+              <div class="alerta-error">Usuario o contraseña incorrectos</div>                    
+              <?php
+              }
+          
+      }else{
+        echo "Falta completar campos";
+      }
+  }
+
+?>
+
   <header>
     <nav class="py-2 px-4">
       <div class="img-container">
@@ -99,6 +138,11 @@
       </div>
 
     </div>
+
+
+
+
+
     
     <section id="modal-login">
       <div class="login">
@@ -106,7 +150,7 @@
           <h5>Ingresar</h5>
           <i id="close-login" class="fa fa-times"></i>
         </div>
-        <form class="main-container p-3">
+        <form class="main-container p-3" action="" method="POST">
   
           <div class="input-container">
             <label for="email">Correo</label>
@@ -125,7 +169,7 @@
           
           <div class="login-container">
     
-            <button>Iniciar Sesión</button>
+            <button name="Enviar">Iniciar Sesión</button>
             <a href="#?">¿No te has registrado todavía?</a>
             
           </div>
