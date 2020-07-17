@@ -96,18 +96,28 @@ nav > .menu-items > .usuario:hover > ul{
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: minmax(30px, 40px) auto;
-    margin: 150px 80px;
+    margin: 110px 10px;
     width: auto;
     height:auto;
     border-radius: 10px;
 }
+#panel-usuario > h3{
+    text-align: center;
+    color: white;
+    text-shadow: 1px 1px 1px #004489;
+    padding: 10px;
+    font-size: 15px;
+    font-family: 'Ubuntu', sans-serif;
+}
 #panel-usuario > .tab {
     display: grid;
-    grid-template-columns: repeat(4, auto);
-    width: 50%;
+    grid-template-columns: repeat(2, auto);
+    width: 100%;
     height: auto;
     align-content: center;
     border-radius: 5px;
+    padding-top: 10px;
+    font-size: 15px;
 }
 #panel-usuario > .tab > button{
     margin-left: 30px;
@@ -134,7 +144,7 @@ nav > .menu-items > .usuario:hover > ul{
 /*----------TABS-----------------*/
 #perfil > .contenedor-perfil{
     display: grid;
-    grid-template-columns: repeat(2,minmax(250px, 500px));
+    grid-template-columns: minmax(250px, 500px);
     justify-content: center;
 }
 #perfil >.contenedor-perfil > .columna1, #perfil > .contenedor-perfil > .columna2{
@@ -206,20 +216,21 @@ nav > .menu-items > .usuario:hover > ul{
 #publicaciones > .contenedor-publicaciones {
     margin-top: 10px;
     display: grid;
-    grid-template-columns: minmax(250px, 1200px);
+    grid-template-columns: minmax(200px, 350px);
 }
 #publicaciones > .contenedor-publicaciones > h4{
     text-align: center;
     color: white;
+    font-size: 18px;
     text-shadow: 2px 2px 2px #004489;
 }
 #publicaciones > .contenedor-publicaciones > .publicaciones{
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(250px, 350px);
 }
 #publicaciones > .contenedor-publicaciones > .publicaciones > .item-publicacion{
     display: grid;
-    grid-template-columns: minmax(100px,250px) minmax(250px, 700px) minmax(100px,250px);
+    grid-template-columns: auto;
     padding: 10px 20px;
     border: 2px solid #E9EBF5;
     border-radius: 10px;
@@ -230,12 +241,11 @@ nav > .menu-items > .usuario:hover > ul{
     width: 100%;
     height: 150px;
     padding-right: 20px;
-    border-right: 2px solid #E9EBF5;
 }
 #publicaciones > .contenedor-publicaciones > .publicaciones > .item-publicacion > p{
     padding: 10px;
     color: white;
-    font-size: 18px;
+    font-size: 15px;
 }
 #publicaciones > .contenedor-publicaciones > .publicaciones > .item-publicacion > .acciones{
     display: grid;
@@ -265,18 +275,19 @@ nav > .menu-items > .usuario:hover > ul{
 #planes > .contenedor-planes > h4{
     text-align: center;
     color: white;
+    font-size: 15px;
     text-shadow: 2px 2px 2px #004489;
 }
 #planes > .contenedor-planes > .planes{
     display: grid;
     grid-template-columns: minmax(250px, 1200px);
+    overflow: auto;
+    white-space: nowrap;
 }
 #planes > .contenedor-planes > .planes > table{
-    margin: 20px;
     text-align: center;
     border: 2px solid #E9EBF5;
     border-radius: 5px;
-    
 }
 #planes > .contenedor-planes > .planes > table > thead{
     background-color: #E9EBF5;
@@ -285,7 +296,7 @@ nav > .menu-items > .usuario:hover > ul{
 }
 #planes > .contenedor-planes > .planes > table > thead > tr > th{
     color: #004489;
-    font-size: 20px;
+    font-size: 15px;
 }
 #planes > .contenedor-planes > .planes > table > tbody > tr{
     border-bottom: 1px solid #E9EBF5;
@@ -328,5 +339,82 @@ nav > .menu-items > .usuario:hover > ul{
         gap: 5px;
         padding-top: 10px;
         padding-bottom: 20px;
+    }
+    #panel-usuario{
+        background-image: linear-gradient(to bottom right, #004489 , #E9EBF5);
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: minmax(30px, 40px) auto;
+        margin: 150px 80px;
+        width: auto;
+        height:auto;
+        border-radius: 10px;
+    }
+    #panel-usuario > h3{
+        text-align: center;
+        color: white;
+        text-shadow: 1px 1px 1px #004489;
+        padding: 10px;
+        font-size: 25px;
+    }
+    #panel-usuario > .tab {
+        grid-template-columns: repeat(4, auto);
+        border-radius: 5px;
+        padding-top: 10px;
+        font-size: 18px;
+    }
+    #perfil >.contenedor-perfil > .columna1, #perfil > .contenedor-perfil > .columna2{
+        display: grid;
+        grid-template-rows: repeat(2, auto);
+        justify-content: center;
+        padding: 40px;
+    }
+    #publicaciones > .contenedor-publicaciones {
+        margin-top: 10px;
+        grid-template-columns: minmax(250px, 1200px);
+    }
+    #publicaciones > .contenedor-publicaciones > h4{
+        text-align: center;
+        color: white;
+        font-size: 25px;
+        text-shadow: 2px 2px 2px #004489;
+    }
+    #publicaciones > .contenedor-publicaciones > .publicaciones{
+        grid-template-columns: 1fr;
+    }
+    #publicaciones > .contenedor-publicaciones > .publicaciones > .item-publicacion{
+        display: grid;
+        grid-template-columns: minmax(100px,250px) minmax(250px, 700px) minmax(100px,250px);
+        padding: 10px 20px;
+        border: 2px solid #E9EBF5;
+        border-radius: 10px;
+        margin: 10px;
+        justify-content: center;
+    }
+    #publicaciones > .contenedor-publicaciones > .publicaciones > .item-publicacion > img{
+        border-right: 2px solid #E9EBF5;
+    }
+    #publicaciones > .contenedor-publicaciones > .publicaciones > .item-publicacion > p{
+        font-size: 18px;
+    }
+    #planes > .contenedor-planes > h4{
+        font-size: 20px;
+        
+    }
+    #planes > .contenedor-planes > .planes > table > thead > tr > th{
+        color: #004489;
+        font-size: 20px;
+    }
+    #planes > .contenedor-planes > .planes{
+        overflow: none;
+        white-space: normal;
+    }
+    #planes > .contenedor-planes > .planes > table{
+        margin: 20px;
+    }
+}
+@media screen and (min-width: 820px){
+    #perfil > .contenedor-perfil{
+        grid-template-columns: repeat(2,minmax(250px, 500px));
     }
 }
