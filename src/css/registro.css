@@ -134,7 +134,8 @@ nav > .menu-items > .usuario:hover > ul{
 /*----------TABS-----------------*/
 #perfil > .contenedor-perfil{
     display: grid;
-    grid-template-columns: repeat(2,minmax(250px, 600px));
+    grid-template-columns: repeat(2,minmax(250px, 500px));
+    justify-content: center;
 }
 #perfil >.contenedor-perfil > .columna1, #perfil > .contenedor-perfil > .columna2{
     display: grid;
@@ -156,16 +157,158 @@ nav > .menu-items > .usuario:hover > ul{
     margin: 10px;
     border-radius: 5px;
 }
+#perfil > .contenedor-perfil > .columna2 > .imagen{
+    display: grid;
+    grid-template-columns: auto;
+    justify-content: center;
+}
 #perfil > .contenedor-perfil > .columna2 > .imagen > img{
     width: 250px;
     height: 250px;
-    padding: 10px;
-    border: 2px dashed black;
-    margin: 10px;
+    padding: 30px;
+    border: 2px dashed white;
+    margin-top: 30px;
+
 } 
-
-
-
+#perfil > .contenedor-perfil > .columna2 > .imagen > a{
+    background-color: #E9EBF5;
+    color: #0075BE;
+    margin: 20px 50px;
+    text-align: center;
+    align-self: center;
+    padding: 10px;
+    font-weight: 600;
+    box-shadow: 2px 2px 2px #0075BE;
+}
+#perfil > .contenedor-perfil > .columna2 > .imagen > a:hover{
+    background-color: #0075BE;
+    color: #E9EBF5;
+    box-shadow: 4px 4px 4px #0075BE;
+}
+#perfil > .contenedor-perfil > .columna2 > .descripcion > label{
+    color: white;
+    font-size: 20px;
+    text-shadow: 1px 1px 1px #004489;
+}
+#perfil > .contenedor-perfil > .columna2 > .descripcion > form > textarea{
+    border-radius: 10px;
+    width: 300px;
+    max-height: 90px;
+}
+#perfil >.guardar > a{
+    background-color: #E9EBF5;
+    color: #004489;
+    font-weight: 700;
+    font-size: 20px;
+    padding: 10px;
+    text-align: center;
+}
+#publicaciones > .contenedor-publicaciones {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: minmax(250px, 1200px);
+}
+#publicaciones > .contenedor-publicaciones > h4{
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 2px #004489;
+}
+#publicaciones > .contenedor-publicaciones > .publicaciones{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+#publicaciones > .contenedor-publicaciones > .publicaciones > .item-publicacion{
+    display: grid;
+    grid-template-columns: minmax(100px,250px) minmax(250px, 700px) minmax(100px,250px);
+    padding: 10px 20px;
+    border: 2px solid #E9EBF5;
+    border-radius: 10px;
+    margin: 10px;
+    justify-content: center;
+}
+#publicaciones > .contenedor-publicaciones > .publicaciones > .item-publicacion > img{
+    width: 100%;
+    height: 150px;
+    padding-right: 20px;
+    border-right: 2px solid #E9EBF5;
+}
+#publicaciones > .contenedor-publicaciones > .publicaciones > .item-publicacion > p{
+    padding: 10px;
+    color: white;
+    font-size: 18px;
+}
+#publicaciones > .contenedor-publicaciones > .publicaciones > .item-publicacion > .acciones{
+    display: grid;
+    grid-template-columns: auto;
+    padding: 20px;
+    text-align: center;
+    align-content: center;
+}
+#publicaciones > .contenedor-publicaciones > .publicaciones > .item-publicacion > .acciones > a{
+    background-color: #E9EBF5;
+    color: #004489;
+    font-weight: 600;
+    font-size: 20px;
+    margin: 10px;
+    box-shadow: 2px 2px 2px #0075BE;
+}
+#publicaciones > .contenedor-publicaciones > .publicaciones > .item-publicacion > .acciones > a:hover{
+    background-color: #0075BE;
+    color: #E9EBF5;
+    box-shadow: 4px 4px 4px #0075BE;
+}
+#planes > .contenedor-planes {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: minmax(250px, 1200px);
+}
+#planes > .contenedor-planes > h4{
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 2px #004489;
+}
+#planes > .contenedor-planes > .planes{
+    display: grid;
+    grid-template-columns: minmax(250px, 1200px);
+}
+#planes > .contenedor-planes > .planes > table{
+    margin: 20px;
+    text-align: center;
+    border: 2px solid #E9EBF5;
+    border-radius: 5px;
+    
+}
+#planes > .contenedor-planes > .planes > table > thead{
+    background-color: #E9EBF5;
+    padding: 5px;
+    box-shadow: 2px 2px 2px #004489;
+}
+#planes > .contenedor-planes > .planes > table > thead > tr > th{
+    color: #004489;
+    font-size: 20px;
+}
+#planes > .contenedor-planes > .planes > table > tbody > tr{
+    border-bottom: 1px solid #E9EBF5;
+}
+#planes > .contenedor-planes > .planes > table > tbody > tr > td{
+    padding: 15px;
+    color: white;
+    text-shadow: 1px 1px 1px #004489;
+    font-weight: 600;
+}
+#planes > .contenedor-planes > .planes > table > tbody > tr > td > a{
+    background-color: #E9EBF5;
+    color: #004489;
+    font-weight: 400;
+    font-size: 15px;
+    padding: 10px;
+    box-shadow: 2px 2px 2px #0075BE;
+}
+#planes > .contenedor-planes > .planes > table > tbody > tr > td > a:hover{
+    background-color: #0075BE;
+    color: #E9EBF5;
+    box-shadow: 4px 4px 4px #0075BE;
+}
 @media screen and (min-width: 650px){
     #registro{
         margin-top: 40px;
