@@ -170,7 +170,7 @@ include ('conexion.php');
           <div class="login-container">
     
             <button name="Enviar">Iniciar Sesión</button>
-            <a href="#?">¿No te has registrado todavía?</a>
+            <a href="registro.php">¿No te has registrado todavía?</a>
             
           </div>
         </form>

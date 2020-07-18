@@ -22,23 +22,23 @@ include ('conexion.php');
 
     if(isset($_POST['Enviar'])) { // comprobamos que se hayan enviado los datos del formulario
 
-        if(isset($_POST['username'])&& !empty($_POST['username']) && 
+        if(isset($_POST['email'])&& !empty($_POST['email']) && 
         isset($_POST['password']) && !empty($_POST['password'])){ 
-            $usuario= mysqli_real_escape_string($conexion,$_POST['username']);
+            $email= mysqli_real_escape_string($conexion,$_POST['email']);
             $clave = mysqli_real_escape_string($conexion,$_POST['password']);
-            $clave = crypt($clave,"pass");
+            $clave = crypt($clave,"masteradmins");
 
             // comprobamos que los datos ingresados en el formulario coincidan con los de la BD
-            $sql = mysqli_query($conexion,"SELECT id, usuario, clave FROM user WHERE usuario='$usuario' AND clave='$clave'") or die(mysqli_error($conexion));
+            $sql = mysqli_query($conexion,"SELECT idMaster, Nombre, clave FROM masteradmin WHERE email='$email' AND clave='$clave'") or die(mysqli_error($conexion));
             $resultado=mysqli_num_rows($sql);//cuento el número de coincidencias
             $row = mysqli_fetch_array($sql);
-            //echo "todavia no entro en el if";
+         
                 
 
                 if($resultado==1) {
                     $_SESSION['id'] = $row['id']; // creamos la sesion "usuario_id" y le asignamos como valor el campo usuario_id
                     $_SESSION['usuario'] = $row["usuario"]; // creamos la sesion "usuario_nombre" y le asignamos como valor el campo 
-                    header("Location: home.php");
+                    header("Location: master.php");
                 }else {
                 
  ?>
@@ -62,8 +62,8 @@ include ('conexion.php');
                         <form id="login-form" class="form" action="" method="post">
                             <h3 class="text-center text-info">Login</h3>
                             <div class="form-group">
-                                <label for="username" class="text-info">Usuario:</label><br>
-                                <input type="text" name="username" id="username" class="form-control">
+                                <label for="email" class="text-info">Usuario:</label><br>
+                                <input type="mail" name="email" id="email" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="password" class="text-info">Contraseña:</label><br>
