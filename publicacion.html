@@ -31,21 +31,6 @@
           </div>
     
           <ul class="menu-items">
-            <li>
-              <a class="waves-effect waves-light" href="index.html">Home</a>
-            </li>
-            <li>
-              <a class="waves-effect waves-light" href="./servicios.html">Servicios</a>
-            </li>
-            <li>
-              <a class="waves-effect waves-light" href="#?">Contacto</a>
-            </li>
-            <li style="display: none;">
-              <a id="ingresar" class="waves-effect waves-light" href="#?">Ingresar</a>
-            </li>
-            <li>
-                <a class="waves-effect waves-light" href="./publicacion.html">Publicar</a>
-            </li>
             <li class="usuario">
                 <a href="">
                     <img src="./dist/img/icons/user.png" alt="">
@@ -58,6 +43,176 @@
           </ul>
         </nav>
     </header>
+    <main>
+        <section id="nueva-publicacion">
+            <h3>Nueva Publicación</h3>
+            <div class="contenedor-tipo">
+                <form action="">
+                    <p>¿Que publicarás?</p>
+                    <select name="tipo" id="tipo">
+                        <option value="propiedad">Propiedad</option>
+                        <option value="profesional">Profesional</option>
+                        <option value="servicio">Servicio</option>
+                    </select>
+                </form>
+            </div>
+            <div id="propiedad" class="panelcontent active">
+                <form action="">
+                    <div class="titulo-publicacion">
+                        <input type="text" name="" id="" placeholder="Nombre de la Publicación">
+                        <p>Este nombre aparecerá en la lista de publicaciones</p>
+                    </div>
+
+                    <div class="contenedor-tipo">
+                        <label for="tipo-propiedad">¿Que tipo de Propiedad vas a publicar?</label>
+                        <select name="tipo-propiedad" id="">
+                            <option value="">Seleccione...</option>
+                            <option value="departamento">Departamento</option>
+                            <option value="casa">Casa</option>
+                            <option value="lote">Lote</option>
+                            <option value="local">Local</option>
+                        </select>
+                    </div>
+                    
+                    <div class="container-moneda">
+                        <input type="number" id="" name="" placeholder="Precio de la propiedad">
+                        <div class="contenedor-check">
+                            <div class="peso">
+                                <input type="checkbox" name="moneda" id="peso"><label for="">Pesos Argentinos</label>
+                            </div>
+                            <div class="usd">
+                                <input type="checkbox" name="moneda-usd" id="dolar"><label for="">Dolares Americanos</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-finalidad">
+                        <label for="tipo-propiedad">¿Que finalidad deseas con la publicación?</label>
+                        <select name="" id="">
+                            <option value="">Seleccione...</option>
+                            <option value="alquiler">Alquilar</option>
+                            <option value="venta">Vender</option>
+                        </select>
+                    </div>
+                    
+                    <textarea name="" id="" cols="30" rows="10" placeholder="Descripción"></textarea>
+                    <div class="contenedor-area">
+                        <input type="text" name="" id="" placeholder="Area total en m2">
+                        <input type="text" name="" id="" placeholder="Area cubierta en m2">
+                    </div>
+                    
+                    <div class="imagenes">
+                        <!-- Agregar imagenes -->
+                        imagenes
+                    </div>
+                    <div class="contenedor-varios">
+                        <div class="contenedor-hab">
+                            <p>Cantidad de habitaciones</p>
+                            <select name="habitaciones" id="habitaciones">
+                                <option value="">Seleccione</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4mas">4 o más</option>
+                            </select>
+                        </div>
+                        <div class="contenedor-banos">
+                            <p>Cantidad de Baños</p>
+                            <select name="banos" id="banos">
+                                <option value="">Seleccione</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4mas">4 o más</option>
+                            </select>
+                        </div>
+                        <div class="mascotas">
+                            <label for="mascotas-si">¿Se permiten mascotas?</label>
+                            <div class="contenedor">
+                                <input id="mascotas-si" type="checkbox" value="si"><label for="mascotas-si">Si</label>
+                                <input id="mascotas-no" type="checkbox" value="no"><label for="mascotas-no">No</label>
+                            </div>
+                        </div>
+                        <div class="cochera">
+                            <label for="cochera-si">Disponibilidad de Cochera</label>
+                            <div class="contenedor">
+                                <input type="checkbox" name="cochera-si" id="cochera-si"><label for="cochera-si">Si</label>
+                            <input type="checkbox" name="cochera-no" id="cochera-no"><label for="cochera-no">No</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="ubicacion-container">
+                        <p>Ubicación de la propiedad</p>
+                        <select name="" id="">
+                            <option value="">Provincia...</option>
+                            <option value="">Cargar provincias</option>
+                        </select>
+                        <select name="" id="">
+                            <option value="">Municipalidad...</option>
+                            <option value="">Cargar Municipalidad</option>
+                        </select>
+                        <input type="text" name="" id="" placeholder="Calle">
+                        <input type="number" id="" placeholder="Numero">
+                    </div>
+                    <div class="contenedor-tiempo-contacto">
+                        <div class="contacto-container">
+                            <p>Datos de Contacto</p>
+                            <input type="number" id="" name="" placeholder="Teléfono de Contacto">
+                        </div>
+                        <div class="tiempo-publicacion">
+                            <p>Duración de la publicacion</p>
+                            <select name="" id="" >
+                                <option value="">Seleccione...</option>
+                                <option value="1">1 Mes</option>
+                                <option value="2">2 Meses</option>
+                                <option value="3">3 Meses</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="btn-precarga">
+                        <button class="btn" type="submit">Precargar Publicación</button>
+                    </div>
+                    
+                </form>
+            </div>
+            <div id="profesional" class="panelcontent">
+                <form action="">
+                    <div class="contenedor-titulo">
+                        <p>Tipo de profesional</p>
+                        <select name="profesional" id="">
+                            <option value="">Selecciona...</option>
+                            <option value="arquitecto">Arquitecto</option>
+                            <option value="fontanero">Fontanero</option>
+                            <option value="...">otros...</option>
+                        </select>
+                    </div>
+                    <div class="container-datos">
+                        <input type="text" placeholder="Titulación">
+                        <input type="text" placeholder="Teléfono">
+                    </div>
+                    <div class="imagenes">
+                        <!-- Agregar imagenes -->
+                        imagenes
+                    </div>
+                    <div class="container-ubicacion">
+                        <p>Indicanos tu ubicación, para mostrar a los visitantes</p>
+                        <select name="" id="">
+                            <option value="">Provincia...</option>
+                            <option value="">Cargar provincias</option>
+                        </select>
+                        <select name="" id="">
+                            <option value="">Municipalidad...</option>
+                            <option value="">Cargar Municipalidad</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div id="servicio" class="panelcontent">
+                servicio
+            </div>
+
+        </section>
+    </main>
     <footer>
 
     </footer>
@@ -73,6 +228,6 @@
   <script type="text/javascript" src="src/js/svg.js"></script>
   <script type="text/javascript" src="src/js/login.js"></script>
   <script type="text/javascript" src="dist/js/myscript.js"></script>
-  <script type="text/javascript" src="src/js/panel-usuario.js"></script>
+  <script type="text/javascript" src="src/js/panel-publicacion.js"></script>
 </body>
 </html>
