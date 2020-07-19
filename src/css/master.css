@@ -77,3 +77,27 @@
 .tituloLista{
   color: #0075bf;
 }
+
+
+.categoria {
+  margin: 20px auto;
+  display: grid;
+  grid-gap: 20px;
+
+  grid-template-columns: 1fr 2fr 2fr 1fr;
+  grid-template-rows: repeat(4, auto);
+  
+}
+
+.categoria > .cargar-categoria {
+  grid-column: 2/3;
+}
+
+.categoria > .lista-categoria {
+  grid-column: 2/4;
+}
+
+.thead {
+  background: #33b5e5;
+  color: #ffffff;
+}

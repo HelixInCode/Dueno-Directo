@@ -266,10 +266,132 @@
 
     </div>
   </div>
-  
+ 
     
       <div class="tab-pane fade" id="clientes" role="tabpanel" aria-labelledby="clientes-tab"></div>
-      <div class="tab-pane fade" id="categorias" role="tabpanel" aria-labelledby="categorias-tab">Bon dia</div>
+      <div class="tab-pane fade" id="categorias" role="tabpanel" aria-labelledby="categorias-tab">
+      <div class="categoria">
+        <div class="cargar-categoria">
+          <div class="card">
+            <h5 class="card-header info-color white-text text-center py-4">
+              <strong>Cargar Categoria</strong>
+            </h5>
+
+            <!--Card -->
+            <div class="card-body px-lg-5 pt-0">
+
+              <!-- Form -->
+              <form class="text-center" style="color: #757575;" action="#!">
+
+                <div class="md-form mt-0">
+                  <input type="text" id="categoria" class="form-control">
+                  <label for="nombre">Categoria</label>
+                </div>
+
+                <div class="md-form mt-0">
+                  <input type="text" id="descripcion" class="form-control">
+                  <label for="email">Descripcion</label>
+                </div>
+
+                <div class="md-form">
+                  <input type="password" id="contraseña" class="form-control"
+                    aria-describedby="materialRegisterFormPhoneHelpBlock">
+                  <label for="telefono">Contraseña</label>
+                </div>
+
+
+
+                <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0"
+                  type="submit">Guardar</button>
+
+                <hr>
+
+
+              </form>
+              <!-- Form -->
+
+
+            </div>
+
+          </div>
+        </div>
+
+        <div class="borrar-categoria">
+          <div class="card">
+
+            <h5 class="card-header info-color white-text text-center py-4">
+              <strong>Eliminar Categoria</strong>
+            </h5>
+
+            <div class="card-body px-lg-5 pt-0">
+
+              <form class="text-center" style="color: #757575;" action="#!">
+
+                <div class="form-group">
+                  <label for="exampleFormControlSelect1">Administrador</label>
+                  <select class="form-control" id="exampleFormControlSelect1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+
+                <div class="md-form">
+                  <input type="password" id="contraseña" class="form-control"
+                    aria-describedby="materialRegisterFormPhoneHelpBlock">
+                  <label for="telefono">Contraseña</label>
+                  <small id="clave" class="form-text text-muted mb-4">
+                    Ingrese su contraseña para que se apruebe la acción.
+                  </small>
+                </div>
+
+                <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0"
+                  type="submit">Borrar</button>
+
+                <hr>
+
+
+              </form>
+
+            </div>
+
+          </div>
+        </div>
+
+        <div class="lista-categoria">
+
+          <table class="table">
+            <thead class="thead">
+              <tr>
+                <th scope="col">Admin</th>
+                <th scope="col">Categoria</th>
+                <th scope="col">Descripcion</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Larry</td>
+                <td>the Bird</td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+    </div>
       <div class="tab-pane fade" id="promociones" role="tabpanel" aria-labelledby="promociones-tab">Bon dia</div>
       <div class="tab-pane fade" id="estadisticas" role="tabpanel" aria-labelledby="estadisticas-tab">Bon dia</div>
     
