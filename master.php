@@ -1,3 +1,12 @@
+<?php
+session_start();
+include ('conexion.php');
+    if(isset($_SESSION['Nombre'])){
+
+
+      $usuario=$_SESSION['Nombre'];
+?>
+
 --<!doctype html>
 <html lang="es">
   <head>
@@ -17,6 +26,16 @@
   <link rel="stylesheet" href="src/css/master.css">
   </head>
   <body>
+      <?php
+      
+      $consulta= mysqli_query($conexion, "SELECT * FROM masteradmin");
+      
+      
+      
+      
+      ?>
+
+
 <!-- Navigation -->
   <header class="header">
   <!-- Navbar -->
@@ -77,7 +96,7 @@
         <div class="col-md-6">
 
           <h1 class="h5 mb-2">
-            Bienvenido Nombre-Administrador
+            Bienvenido <?php echo $usuario; ?>
           </h1>
 
           <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -127,24 +146,24 @@
               <div class="card-body px-lg-5 pt-0">
 
                   <!-- Form -->
-                  <form class="text-center" style="color: #757575;" action="#!">
+                  <form class="text-center" style="color: #757575;" action="process/saveAdmin.php" method="POST">
 
                       <!-- Nombre -->
                       <div class="md-form ">
-                        <input type="text" id="nombre" class="form-control">
-                        <label for="nombre">Nombre</label>
+                        <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre">
+                   
                       </div>
 
                       <!-- E-mail -->
                       <div class="md-form mt-0">
-                          <input type="email" id="email" class="form-control">
-                          <label for="email">E-mail</label>
+                          <input type="email" name="email" id="email" class="form-control" placeholder="Email">
+                          
                       </div>
 
                       <!-- Password -->
                       <div class="md-form">
-                          <input type="password" id="clave" class="form-control" aria-describedby="clave">
-                          <label for="clave">Contraseña</label>
+                          <input type="password" name="clave" id="clave" class="form-control" aria-describedby="clave" placeholder="Contraseña">
+                          
                           <small id="clave" class="form-text text-muted mb-4">
                               Al menos 8 caracteres
                           </small>
@@ -152,8 +171,8 @@
 
                       <!-- Phone number -->
                       <div class="md-form">
-                          <input type="password" id="telefono" class="form-control" aria-describedby="materialRegisterFormPhoneHelpBlock">
-                          <label for="telefono">Teléfono</label>
+                          <input type="password" name="telefono" id="telefono" class="form-control" aria-describedby="materialRegisterFormPhoneHelpBlock" placeholder="Telefono">
+                          
                           <small id="telefono" class="form-text text-muted mb-4">
                               Opcional 
                           </small>
@@ -162,7 +181,7 @@
                       
 
                       <!-- Sign up button -->
-                      <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Agregar</button>
+                      <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" name="Enviar" type="submit">Agregar</button>
 
                       <hr>
 
@@ -191,31 +210,36 @@
                 <div class="card-body px-lg-5 pt-0">
 
                     <!-- Form -->
-                    <form class="text-center" style="color: #757575;" action="#!">
+                    <form class="text-center" style="color: #757575;" action="process/delad.php" method="POST">
 
                         <!-- Nombre -->
                         <div class="form-group seladmin">
                           <label for="exampleFormControlSelect1">Administrador</label>
-                          <select class="form-control" id="exampleFormControlSelect1">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
+                          <select class="form-control" name="delad" id="exampleFormControlSelect1">
+                            
+                            <?php
+                            while($resultado=mysqli_fetch_array($consulta)){
+                              echo '<option value="'.$resultado['Nombre'].'">'.$resultado[Nombre].'</option>';
+
+                              
+                            
+                            }
+                            ?>
+                           
                           </select>
                         </div>
 
                         <!-- Password -->
                         <div class="md-form">
-                            <input type="password" id="clave" class="form-control" aria-describedby="clave">
-                            <label for="clave">Contraseña</label>
+                            <input type="password" name="clave" id="clave" class="form-control" aria-describedby="clave" placeholder="Contraseña">
+                            
                             <small id="clave" class="form-text text-muted mb-4">
                                 Ingrese su contraseña para que se apruebe la acción.
                             </small>
                         </div>
 
                         <!-- Sign up button -->
-                        <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Borrar</button>
+                        <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" name="Enviar" type="submit">Borrar</button>
 
                         <hr>
 
@@ -646,3 +670,9 @@
 
 </body>
 </html>
+
+<?php
+    }  else {
+        header ("Location: lgn.php");
+    }
+?>

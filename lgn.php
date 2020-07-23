@@ -37,7 +37,7 @@ include ('conexion.php');
 
                 if($resultado==1) {
                     $_SESSION['id'] = $row['id']; // creamos la sesion "usuario_id" y le asignamos como valor el campo usuario_id
-                    $_SESSION['usuario'] = $row["usuario"]; // creamos la sesion "usuario_nombre" y le asignamos como valor el campo 
+                    $_SESSION['Nombre'] = $row["Nombre"]; // creamos la sesion "usuario_nombre" y le asignamos como valor el campo 
                     header("Location: master.php");
                 }else {
                 
