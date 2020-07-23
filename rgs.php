@@ -54,28 +54,28 @@
     <?php
     if (isset($_POST['Enviar'])) {
         $usuario = mysqli_real_escape_string($conexion, $_POST['username']);
-        $clave = mysqli_real_escape_string($conexion, $_POST['clave']);
         $email = mysqli_real_escape_string($conexion, $_POST['mail']);
-        $nombre = mysqli_real_escape_string($conexion, $_POST['nombre']);
-        $dni = mysqli_real_escape_string($conexion, $_POST['dni']);
-        $telefono = mysqli_real_escape_string($conexion, $_POST['telefono']);
-        $categoria = mysqli_real_escape_string($conexion, $_POST['categoria']);
+        $clave = mysqli_real_escape_string($conexion, $_POST['clave']);
+
+       
 
 
-        $sql = mysqli_query($conexion, "SELECT email FROM user WHERE email='" . $email . "'");
+        $sql = mysqli_query($conexion, "SELECT email FROM masteradmin WHERE email='" . $email . "'");
         if (mysqli_num_rows($sql) > 0) { ?>
-            <div>El correo de usuario elegido ya existe</div>
+            <div class="alert alert-danger" role="alert">
+                El correo ya se ha registrado anteriormente.
+            </div>
             <?php } else {
-            $clave = crypt($clave, "pass");
-            $reg = mysqli_query($conexion, "INSERT INTO user (usuario, clave, nombre, dni, email, telefono, categoria) VALUES ('$usuario','$clave','$nombre','$dni','$email','$telefono','$categoria')") or die(mysqli_error($conexion));
+            $clave = crypt($clave, "masteradmins");
+            $reg = mysqli_query($conexion, "INSERT INTO masteradmin (email, clave, Nombre) VALUES ('$email','$clave','$usuario')") or die(mysqli_error($conexion));
             if ($reg) {
             ?>
-                <div>Usuario creado correctamente</div>
+                <div class="alert alert-success" role="alert">Usuario creado correctamente</div>
                 <meta http-equiv="Refresh" content="2" url="lgn.php" />
             <?php } else {
             ?>
 
-                <div>Error al guardar los datos</div>
+            <div class="alert alert-danger" role="alert">Error al guardar los datos</div>
     <?php
             }
         }
@@ -94,34 +94,16 @@
                                     <label for="username" class="text1">Usuario:</label><br>
                                     <input type="text" name="username" id="username" class="form-control">
                                 </div>
-                                <div class="form-group">
-                                    <label for="mail" class="text1">Contraseña:</label><br>
-                                    <input type="password" name="clave" id="clave" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label for="password" class="text1">Nombre:</label><br>
-                                    <input type="text" name="nombre" id="nombre" class="form-control">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="password" class="text1">DNI:</label><br>
-                                    <input type="text" name="dni" id="dni" class="form-control">
-                                </div>
+                               
                                 <div class="form-group">
                                     <label for="password" class="text1">Email:</label><br>
                                     <input type="mail" name="mail" id="mail" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label for="password" class="text1">Telefono:</label><br>
-                                    <input type="text" name="telefono" id="telefono" class="form-control">
+                                    <label for="mail" class="text1">Contraseña:</label><br>
+                                    <input type="password" name="clave" id="clave" class="form-control">
                                 </div>
-                                <div class="form-group">
-                                    <label for="password" class="text1">Categoria:</label><br>
-                                    <input type="text" name="categoria" id="categoria" class="form-control">
-                                </div>
-
-
-
+                                
                                 <div class="form-group">
                                     <input type="submit" name="Enviar" class="btn btn-info btn-md button1" value="Enviar">
                                 </div>
