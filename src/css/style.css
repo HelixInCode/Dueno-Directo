@@ -8,6 +8,7 @@
   --RobotoParrafos: 'Roboto', sans-serif;/*regular*/
   /* --SecundarioOscuro: #0075BE; */
   --sombra: rgba(0, 0, 0, 0.5);
+  --radioButtonSpace: 30px;
 
   --titulos: {
     font-family: var(--UbuntuTitulosPrincipales);
@@ -115,18 +116,15 @@ nav > .menu-items > li:nth-of-type(5) > a:hover{
   z-index: 5;
   top: calc(50% - 200px);
   right: 0;
-  bottom: 100px;
   width: 40px;
   height: 400px;
   justify-content: center;
   align-items: center;
-  background-color: #004489d0;
+  background-color: color(var(--PrimarioOscuro) alpha(81%));
   box-shadow: 2px 2px 2px var(--sombra);
-  outline: none;
 }
 #modal-servicios:hover{
   background-color: var(--PrimarioOscuro);
-  /* border: 2px solid var(--SecundarioClaro); */
   color: var(--SecundarioClaro);
   box-shadow: 3px 3px 3px var(--sombra);
   border-left: 2px solid #fff;
@@ -144,7 +142,7 @@ nav > .menu-items > li:nth-of-type(5) > a:hover{
   z-index: 1;
   position: absolute;
   top: 0px;
-  right: -1000px;
+  right: 0;
   bottom: 0;
   padding: 20px;
   width: 250px;
@@ -154,14 +152,14 @@ nav > .menu-items > li:nth-of-type(5) > a:hover{
   grid-template-columns: 1fr;
   gap: 20px;
   transition: .4s;
+  transform: translateX(100%);
 }
 #modal-servicios:hover > #submenu{
   background-color: var(--PrimarioOscuro);
   box-shadow: -10px 3px 7px var(--sombra);
-  right: 40px;
+  transform: translateX(-40px);
   visibility: visible;
 }
-
 #modal-servicios > #submenu{
   display: grid;
   grid-template-columns: 1fr;
@@ -184,6 +182,141 @@ nav > .menu-items > li:nth-of-type(5) > a:hover{
   background-color: var(--PrimarioClaro);
 }
 
+#filtros{
+  z-index: 5;
+  position: fixed;
+  top: calc(50% - 50px);
+  left: 0px;
+  width: 40px;
+  height: 100px;
+  background-color: color(var(--PrimarioOscuro) alpha(81%));
+  box-shadow: 2px 2px 2px var(--sombra);
+  
+  cursor: pointer;
+} 
+#filtros h5{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--UbuntuEnlaces);
+  color: var(--SecundarioClaro);
+  font-size: 20px;
+  writing-mode: vertical-lr;
+}
+#filtros > .main-container{
+  position: fixed;
+  top: 60px;
+  left: 0;
+  bottom: 0;
+  padding: 10px;
+  font-family: var(--UbuntuEnlaces);
+  background-color: var(--SecundarioClaro);
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 40px auto;
+  transition: .3s;
+  transform: translateX(-100%);
+}
+#filtros > .main-container > .title-container{
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+#filtros > .main-container > .title-container h6{
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  font-weight: bold;
+  color: var(--PrimarioClaro);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#filtros > .main-container > .title-container i{
+  z-index: 2;
+  position: relative;
+  color: var(--sombra);
+  cursor: pointer;
+}
+#filtros > .main-container > .title-container i:hover{
+  color: #fff;
+}
+#filtros > .main-container > .filtros-container{
+  padding-right: 5px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 35px repeat(6, auto);
+  overflow: auto;
+}
+#filtros > .main-container > .filtros-container label{
+  margin-top: 10px;
+  margin-bottom: 0;
+  color: var(--PrimarioClaro);
+  font-weight: bold;
+}
+#filtros > .main-container > .filtros-container input{
+  outline: none;
+}
+#filtros > .main-container > .filtros-container > .operacion-container,
+#filtros > .main-container > .filtros-container > .inmueble-container,
+#filtros > .main-container > .filtros-container > .options-container,
+#filtros > .main-container > .filtros-container > .rango-container{
+  display: grid;
+  grid-template-columns: 1fr;
+}
+#filtros > .main-container > .filtros-container > .operacion-container{
+  grid-template-rows: 50px repeat(3, var(--radioButtonSpace));
+}
+#filtros > .main-container > .filtros-container > .inmueble-container{
+  grid-template-rows: 50px repeat(6, var(--radioButtonSpace));
+}
+#filtros > .main-container > .filtros-container > .options-container{
+  grid-template-rows: 50px repeat(4, var(--radioButtonSpace));
+}
+#filtros > .main-container > .filtros-container > .rango-container{
+  grid-template-rows: 50px 35px;
+}
+#filtros > .main-container > .filtros-container > .rango-container > .input-container{
+  display: grid;
+  grid-template-columns: repeat(2, 120px);
+  gap: 3px;
+}
+#filtros > .main-container > .filtros-container [type = "text"]{
+  width: 100%;
+  padding: 5px;
+  height: 35px;
+  border: none;
+  border: 2px solid var(--PrimarioOscuro);
+  border-radius: 5px;
+}
+#filtros > .main-container > .filtros-container [type = "radio"]{
+  margin-right: 5px;
+}
+#filtros > .main-container > .filtros-container::-webkit-scrollbar{
+  width: 7px;
+  background-color: #F5F5F5;
+}
+#filtros > .main-container > .filtros-container::-webkit-scrollbar-thumb{
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+  background-color: var(--PrimarioClaro);
+}
+#filtros > .main-container > .filtros-container::-webkit-scrollbar-track{
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+  background-color: #F5F5F5;
+  border-radius: 10px;
+}
 #modal-login {
   z-index: 9999;
   position: fixed;
@@ -490,75 +623,76 @@ nav > .menu-items > li:nth-of-type(5) > a:hover{
 #contact > form > button:hover{
   background-color: #fff;
 }
+
 #footer{
   font-family: var(--UbuntuSubtitulos);
- 
 }
-#footer > .contenedor-footer{
-  display: grid;
-  grid-template-columns: 100%;
-}
-
-#footer > .contenedor-footer > .linea{
-  background-color: var(--PrimarioClaro);
-  width: 100%;
-  height: 30px;  
-}
-#footer > .contenedor-footer > .contenedor-central{
-  width: 100%;
-  height: auto;
-  background-image: linear-gradient(to right, color(var(--PrimarioOscuro)  alpha(81.6%)),
-                                              color(var(--SecundarioClaro) alpha(81.6%)));
-  display: grid;
-  grid-template-columns: 100%;
-  
-}
-#footer > .contenedor-footer > .contenedor-central > div > h2{
+#footer h5{
   font-size: 20px;
   color: white;
   text-shadow: 2px 2px 2px var(--PrimarioOscuro);
   text-align: center;
 }
-#footer > .contenedor-footer > .contenedor-central > .contenedor-redes > .redes{
+#footer > .contenedor-footer{
   display: grid;
-  grid-template-columns: 250px;
-  padding: 20px 30px;
-  gap: 10px;
-  justify-content: center;
+  grid-template-columns: 1fr;
 }
-#footer > .contenedor-footer > .contenedor-central > .contenedor-redes > .redes > .item-redes{
+#footer > .contenedor-central{
+  background-image: linear-gradient(to right, color(var(--PrimarioOscuro)  alpha(81.6%)),
+                                              color(var(--SecundarioClaro) alpha(81.6%)));
+  display: grid;
+  grid-template-columns: minmax(200px, 400px);
+  justify-content: center;
+  gap: 20px;
+}
+#footer > .contenedor-central > .redes{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  justify-items: center;
+}
+#footer > .contenedor-central > .redes > .item-redes{
+  width: 175px;
   display: grid;
   grid-template-columns: 50px auto;
   gap: 20px;
-  
 }
-#footer > .contenedor-footer > .contenedor-central > .contenedor-redes > .redes > .item-redes > img{
+#footer > .contenedor-central > .redes > .item-redes > img{
   width: 35px;
   height: auto;
 }
-#footer > .contenedor-footer > .contenedor-central > .contenedor-redes > .redes > .item-redes > a{
+#footer > .contenedor-central > .redes > .item-redes > a{
   color: white;
   font-size: 15px;
   font-weight: 700;
 }
-#footer > .contenedor-footer > .contenedor-central > .contenedor-enlaces > .enlaces{
+#footer > .contenedor-central > .enlaces{
   display: grid;
-  grid-template-columns: repeat(2,50%);
-  gap: 15px;
-  padding: 30px 40px;
-  justify-content: center;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto 1fr;
+  gap: 20px;
 }
-#footer > .contenedor-footer > .contenedor-central > .contenedor-enlaces > .enlaces > .items-enlaces{
+#footer > .contenedor-central > .enlaces h5{
+  grid-column: 2 span;
+}
+#footer > .contenedor-central > .enlaces  > .items-enlaces{
+  padding: 0;
+  list-style: none;
+  grid-column: 1 span;
   display: grid;
-  grid-template-columns: 180px;
+  grid-template-columns: 1fr;
+  justify-items: center;
 }
-#footer > .contenedor-footer > .contenedor-central > .contenedor-enlaces > .enlaces > .items-enlaces > a{
+#footer > .contenedor-central > .enlaces  > .items-enlaces a{
   font-size: 15px;
   color: white;
   font-weight: 500;
-  text-align: center;
 }
-#footer > .contenedor-footer > .contenedor-inferior{
+#footer > .contenedor-central > .img-container{
+  justify-self: center;
+  align-self: center;
+}
+#footer > .contenedor-inferior{
   background-color: var(--PrimarioOscuro);
   width: 100%;
   height: auto;
@@ -567,7 +701,7 @@ nav > .menu-items > li:nth-of-type(5) > a:hover{
   padding: 10px;
   color: white;
 }
-#footer > .contenedor-footer > .contenedor-inferior > a{
+#footer > .contenedor-inferior > a{
   color: white;
 }
 /*-------------------------------------servicios.html-----------------------------------------------------------------------------------*/
@@ -627,6 +761,15 @@ nav > .menu-items > li:nth-of-type(5) > a:hover{
     height: 260px;
   }
 }
+@media screen and (min-width: 550px){
+  #footer > .contenedor-central{
+    grid-template-columns: repeat(2, minmax(200px, 400px));
+    gap: 10px;
+  }
+  #footer > .contenedor-central > .img-container{
+    display: none;
+  }
+}
 @media screen and (min-width: 650px){
   nav > .menu-items{
     display: grid;
@@ -643,26 +786,21 @@ nav > .menu-items > li:nth-of-type(5) > a:hover{
   #primera-vez > .contenedor-opciones{
     grid-template-columns: repeat(2, minmax(150px, 500px))
   }
-  #footer > .contenedor-footer > .contenedor-central{
-    grid-template-columns: repeat(3, minmax(200px, 450px));
-  }
-  #footer > .contenedor-footer > .contenedor-central > .contenedor-redes > .redes{
-    grid-template-columns: 300px;
-    padding: 30px 40px;
-    gap: 20px;
-    justify-content: center;
-  }
-  #footer > .contenedor-footer > .contenedor-central > .contenedor-redes > .redes > .item-redes > a{
-    font-size: 20px;
-  }
-  #footer > .contenedor-footer > .contenedor-central > div > h2{
+
+  #footer h5{
     font-size: 25px;
   }
-  #footer > .contenedor-footer > .contenedor-central > .contenedor-redes > .redes > .item-redes > img{
+  #footer > .contenedor-central > .redes > .item-redes{
+    width: 210px;
+  }
+  #footer > .contenedor-central > .redes > .item-redes > a{
+    font-size: 20px;
+  }
+  #footer > .contenedor-central > .redes > .item-redes > img{
     width: 50px;
     height: auto;
   }
-  #footer > .contenedor-footer > .contenedor-central > .contenedor-enlaces > .enlaces > .items-enlaces > a{
+  #footer > .contenedor-central > .enlaces  > .items-enlaces a{
     font-size: 20px;
   }
   /*------------------------Servivios.html-----------------*/
@@ -693,29 +831,32 @@ nav > .menu-items > li:nth-of-type(5) > a:hover{
     grid-row: 4 / 5;
   }
 }
+@media screen and (min-width: 900px){
+  #footer > .contenedor-central{
+    grid-template-columns: repeat(3, minmax(200px, 400px));
+  }
+  #footer > .contenedor-central > .img-container{
+    display: block;
+  }
+}
 @media (--large){
   #publications > .publications-container{
     grid-template-columns: repeat(3, minmax(100px, 400px));
   }
 }
+
 @media screen and (min-width: 1600px){
-  #footer > .contenedor-footer > .contenedor-central{
-    grid-template-columns: repeat(3, minmax(400px, 850px));
-  }
-  #footer > .contenedor-footer > .contenedor-central > .contenedor-redes > .redes{
-    grid-template-columns: 370px;
-    padding: 30px 40px;
-    gap: 30px;
-    justify-content: center;
-  }
-  #footer > .contenedor-footer > .contenedor-central > div > h2{
+  #footer h5{
     font-size: 30px;
   }
-  #footer > .contenedor-footer > .contenedor-central > .contenedor-redes > .redes > .item-redes > img{
+  /* #footer > .contenedor-central{
+    grid-template-columns: repeat(3, 1fr);
+  } */
+  #footer > .contenedor-central > .redes > .item-redes > img{
     width: 60px;
     height: auto;
   }
-  #footer > .contenedor-footer > .contenedor-central > .contenedor-enlaces > .enlaces > .items-enlaces > a{
+  #footer > .contenedor-central > .enlaces  > .items-enlaces a{
     font-size: 30px;
   }
 }

@@ -139,11 +139,155 @@ include ('conexion.php');
 
     </div>
 
+    <section id="filtros" class="d-none d-md-flex">
 
+      <h5 id="btnFiltros">Filtros</h5>
 
+      <div class="main-container">
+        <div class="title-container">
+          <h6>Filtros</h6>
+          <i class="fa fa-times"></i>
+        </div>
 
+        <div class="filtros-container scrollbar scrollbar-primary">
+          <input name="search" type="text" placeholder="Buscar">
 
+          <div class="operacion-container">
+
+            <label for="operacion">Operación</label>
+            <div class="input-container">
+              <input name="operacion" type="radio" value="">Venta
+            </div>
+            <div class="input-container">
+              <input name="operacion" type="radio" value="">Alquiler
+            </div>
+            <div class="input-container">
+              <input name="operacion" type="radio" value="">Alquiler Temporal
+            </div>
+          </div>
+          
+          <div class="inmueble-container">
+            <label for="inmueble">Tipo de Inmueble</label>
+  
+            <div class="input-container">
+              <input name="inmueble" type="radio" value="">Casa
+            </div>
+            <div class="input-container">
+              <input name="inmueble" type="radio" value="">Departamento
+            </div>
+            <div class="input-container">
+              <input name="inmueble" type="radio" value="">Loteo y Terreno
+            </div>
+            <div class="input-container">
+              <input name="inmueble" type="radio" value="">Local y Comercial
+            </div>
+            <div class="input-container">
+              <input name="inmueble" type="radio" value="">Oficina
+            </div>
+            <div class="input-container">
+              <input name="inmueble" type="radio" value="">Cabaña
+            </div>
+            <div class="input-container">
+              <input name="inmueble" type="radio" value="">Cabaña
+            </div>
+          </div>
+
+          <div class="rango-container">
+            <label for="precio">Precio</label>
+
+            <div class="input-container">
+              <input name="precio" placeholder="Desde..." type="text">
+              <input name="precio" placeholder="Hasta..." type="text">
+            </div>
+          </div>
+
+          <div class="options-container">
+            <label for="opciones">Tipo de Opciones</label>
     
+            <div class="input-container">
+              <input name="opciones" type="radio" value="">Casa
+            </div>
+            <div class="input-container">
+              <input name="opciones" type="radio" value="">Departamento
+            </div>
+            <div class="input-container">
+              <input name="opciones" type="radio" value="">Loteo y Terreno
+            </div>
+            <div class="input-container">
+              <input name="opciones" type="radio" value="">Local y Comercial
+            </div>
+          </div>
+          
+          <div class="rango-container">
+            <label for="superfie1">Superficie Cubierta</label>
+
+            <div class="input-container">
+              <input name="superfie1" placeholder="Desde..." type="text">
+              <input name="superfie1" placeholder="Hasta..." type="text">
+            </div>
+          </div>
+
+          <div class="rango-container">
+            <label for="superficie2">Superficie Total</label>
+
+            <div class="input-container">
+              <input name="superficie2" placeholder="Desde..." type="text">
+              <input name="superficie2" placeholder="Hasta..." type="text">
+            </div>
+          </div>
+
+          <div class="options-container">
+            <label for="habitaciones">Habitaciones</label>
+    
+            <div class="input-container">
+              <input name="habitaciones" type="radio" value="">1
+            </div>
+            <div class="input-container">
+              <input name="habitaciones" type="radio" value="">2
+            </div>
+            <div class="input-container">
+              <input name="habitaciones" type="radio" value="">más de 2
+            </div>
+            <div class="input-container">
+              <input name="habitaciones" type="radio" value="">indistinto
+            </div>
+          </div>
+
+          <div class="options-container">
+            <label for="bathrooms">Baños</label>
+    
+            <div class="input-container">
+              <input name="bathrooms" type="radio" value="">1
+            </div>
+            <div class="input-container">
+              <input name="bathrooms" type="radio" value="">2
+            </div>
+            <div class="input-container">
+              <input name="bathrooms" type="radio" value="">más de 2
+            </div>
+            <div class="input-container">
+              <input name="bathrooms" type="radio" value="">indistinto
+            </div>
+          </div>
+
+          <div class="options-container">
+            <label for="plantas">Plantas</label>
+    
+            <div class="input-container">
+              <input name="plantas" type="radio" value="">1
+            </div>
+            <div class="input-container">
+              <input name="plantas" type="radio" value="">2
+            </div>
+            <div class="input-container">
+              <input name="plantas" type="radio" value="">más de 2
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
     <section id="modal-login">
       <div class="login">
         <div class="title-container p-3">
@@ -418,10 +562,10 @@ include ('conexion.php');
       </div>
     </section>
     
-    <section id="primera-vez" class="py-5">
+    <section id="primera-vez" class="py-0 py-md-3 py-lg-5">
       <h1 class="py-5">¿PRIMERA VEZ? ¡TE AYUDAMOS!</h1>
       
-      <div class="contenedor-opciones px-5">
+      <div class="contenedor-opciones px-0 px-md-3 px-lg-5">
         
         <a href="#?">
           <img src="./dist/img/paf1.jpg" alt="">
@@ -466,58 +610,73 @@ include ('conexion.php');
       </form>
     </section>
   </main>
+
   <footer id="footer">
-    <div class="contenedor-footer">
-      <div class="linea">
-      </div>
-      <div class="contenedor-central py-4">
-        <div class="contenedor-redes">
-          <h2>¡Seguínos en nuestras redes!</h2>
-          <div class="redes">
-            <div class="item-redes">
-              <img src="./dist/img/icons/whatsapp.svg" alt="">
-              <a href="">+54 9 123 4567</a>
-            </div>
-            <div class="item-redes">
-              <img src="./dist/img/icons/instagram.svg" alt="">
-              <a href="">Instagram/</a>
-            </div>
-            <div class="item-redes">
-              <img src="./dist/img/icons/facebook.svg" alt="">
-              <a href="">Facebook/</a>
-            </div>
-          </div>
+
+    <div class="contenedor-central py-4">
+        
+      <div class="redes">
+        <h5>¡Seguínos en nuestras redes!</h5>
+        
+        <div class="item-redes">
+          <img src="./dist/img/icons/whatsapp.svg" alt="">
+          <a href="">+54 9 123 4567</a>
         </div>
-        <div class="contenedor-enlaces">
-          <h2>Publicaciones Destacadas</h2>
-          <div class="enlaces">
-            <div class="items-enlaces">
-              <a href="">Mendoza</a>
-              <a href="">San Luis</a>
-              <a href="">Buenos Aires</a>
-              <a href="">Córdoba</a>
-            </div>
-            <div class="items-enlaces">
-              <a href="">Tucumán</a>
-              <a href="">Neuquén</a>
-              <a href="">Salta</a>
-              <a href="">Misiones</a>
-            </div>
-          </div>
+
+        <div class="item-redes">
+          <img src="./dist/img/icons/instagram.svg" alt="">
+          <a href="">Instagram/</a>
         </div>
-        <div class="contenedor-icono p-5">
-          <img class="img-fluid" src="dist/img/DD-LOGO.png" alt="">
+
+        <div class="item-redes">
+          <img src="./dist/img/icons/facebook.svg" alt="">
+          <a href="">Facebook/</a>
         </div>
       </div>
-      <div class="linea">
+
+      <div class="enlaces">
+        <h5>Publicaciones Destacadas</h5>
+
+        <ul class="items-enlaces">
+          <li>
+            <a href="#?">Mendoza</a>
+          </li>
+          <li>
+            <a href="#?">San Luis</a>
+          </li>
+          <li>
+            <a href="#?">Buenos Aires</a>
+          </li>
+          <li>
+            <a href="#?">Córdoba</a>
+          </li>
+        </ul>
+
+        <ul class="items-enlaces">
+          <li>
+            <a href="#?">Tucumán</a>
+          </li>
+          <li>
+            <a href="#?">Neuquén</a>
+          </li>
+          <li>
+            <a href="#?">Salta</a>
+          </li>
+          <li>
+            <a href="#?">Misiones</a>
+          </li>
+        </ul>
       </div>
-      <div class="contenedor-inferior">
-        © 2020 Copyright:
-        <a href="#"> dueñosdirecto.com</a>
+
+      <div class="img-container">
+        <img width="304px" src="dist/img/DD-LOGO.png" alt="">
       </div>
 
     </div>
-
+    <div class="contenedor-inferior">
+      © 2020 Copyright:
+      <a href="#"> dueñosdirecto.com</a>
+    </div>
   </footer>
   <!-- jQuery -->
   <script type="text/javascript" src="dist/js/jquery.min.js"></script>
@@ -530,7 +689,7 @@ include ('conexion.php');
   <!-- Your custom scripts (optional) -->
   <script type="text/javascript" src="src/js/svg.js"></script>
   <script type="text/javascript" src="src/js/login.js"></script>
-  <script type="text/javascript" src="dist/js/myscript.js"></script>
+  <script type="text/javascript" src="src/js/filtros.js"></script>
 </body>
 </html>
 
