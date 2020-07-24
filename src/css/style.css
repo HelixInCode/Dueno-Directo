@@ -33,6 +33,15 @@
     height: 100%;
     object-fit: cover;
   }
+
+  --input-text:{
+    width: 100%;
+    padding: 5px;
+    height: 35px;
+    border: none;
+    border: 2px solid var(--PrimarioOscuro);
+    border-radius: 5px;
+  }
 }
 a{
   font-style: italic;
@@ -93,6 +102,9 @@ nav > .menu-items > li:nth-of-type(5) > a:hover{
   background-color: var(--PrimarioOscuro);
 }
 
+.carousel{
+  position: relative;
+}
 .carousel > a{
   z-index: 10;
 }
@@ -108,6 +120,68 @@ nav > .menu-items > li:nth-of-type(5) > a:hover{
   left: 0;
   width: 100%;
   height: 100%;
+}
+#search-main{
+  z-index: 20;
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  display: grid;
+  grid-template-columns: minmax(240px, 1200px);
+  justify-content: center;
+}
+#search-main > .form-container select,
+#search-main [type = "text"]{
+  @apply --input-text;
+  height: 100%;
+}
+#search-main > .form-container{
+  padding: 20px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, .5);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px;
+}
+#search-main > .form-container > [type = "submit"],
+#search-main > .form-container a{
+  padding: 0 30px;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 1.5em;
+  font-weight: bold;
+  font-style: italic;
+  background-color: var(--PrimarioOscuro);
+  outline: none;
+  text-align: center;
+}
+#search-main > .form-container > [type = "submit"]:hover{
+  background-color: color(var(--PrimarioOscuro) lightness(40%));
+}
+#search-main > .form-container > .rango-input,
+#search-main > .form-container > #botones-container{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px;
+}
+#search-main > .form-container > .rango-input,
+#search-main > .form-container > [type = "text"]:nth-of-type(1){
+  grid-column: 2 span;
+}
+#search-main > .form-container > [type = "text"]:nth-of-type(1)::placeholder{
+  text-align: center;
+}
+#search-main > .form-container > .input-select{
+  grid-column: 1 span;
+}
+#search-main > .form-container > [type = "submit"],
+#search-main > .form-container > #botones-container{
+  grid-column: 2 span;
+}
+#search-main > .form-container > [type = "submit"]{
+  grid-row: 5 / 6;
 }
 /*Ralla derecha*/
 
@@ -191,7 +265,6 @@ nav > .menu-items > li:nth-of-type(5) > a:hover{
   height: 100px;
   background-color: color(var(--PrimarioOscuro) alpha(81%));
   box-shadow: 2px 2px 2px var(--sombra);
-  
   cursor: pointer;
 } 
 #filtros h5{
@@ -293,12 +366,7 @@ nav > .menu-items > li:nth-of-type(5) > a:hover{
   gap: 3px;
 }
 #filtros > .main-container > .filtros-container [type = "text"]{
-  width: 100%;
-  padding: 5px;
-  height: 35px;
-  border: none;
-  border: 2px solid var(--PrimarioOscuro);
-  border-radius: 5px;
+  @apply --input-text;
 }
 #filtros > .main-container > .filtros-container [type = "radio"]{
   margin-right: 5px;
@@ -812,6 +880,22 @@ nav > .menu-items > li:nth-of-type(5) > a:hover{
   }  
 }
 @media (--medium){
+  #search-main{
+    left: 40px;
+    right: 40px;
+    bottom: 40px;
+  }
+  #search-main > .form-container{
+    grid-template-columns: repeat(4, 1fr);
+  }
+  #search-main > .form-container > [type = "submit"],
+  #search-main > .form-container > #botones-container{
+    grid-column: 1 span;
+  }
+  #search-main > .form-container > [type = "submit"]{
+    grid-row: unset;
+  }
+
   #contact{
     height: 100vh;
     grid-template: 1fr auto / minmax(300px, 900px);
