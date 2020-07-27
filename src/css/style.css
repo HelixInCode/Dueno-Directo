@@ -121,6 +121,7 @@ nav > .menu-items > li:nth-of-type(5) > a:hover{
   width: 100%;
   height: 100%;
 }
+
 #search-main{
   z-index: 20;
   position: absolute;
@@ -128,7 +129,7 @@ nav > .menu-items > li:nth-of-type(5) > a:hover{
   right: 10px;
   bottom: 10px;
   display: grid;
-  grid-template-columns: minmax(240px, 1200px);
+  grid-template-columns: minmax(240px, 1000px);
   justify-content: center;
 }
 #search-main > .form-container select,
@@ -157,6 +158,10 @@ nav > .menu-items > li:nth-of-type(5) > a:hover{
   outline: none;
   text-align: center;
 }
+#botones-container > .active{
+  background-color: color(var(--PrimarioOscuro) blackness(80%)) !important;
+}
+
 #search-main > .form-container > [type = "submit"]:hover{
   background-color: color(var(--PrimarioOscuro) lightness(40%));
 }
@@ -196,6 +201,7 @@ nav > .menu-items > li:nth-of-type(5) > a:hover{
   align-items: center;
   background-color: color(var(--PrimarioOscuro) alpha(81%));
   box-shadow: 2px 2px 2px var(--sombra);
+  cursor: pointer;
 }
 #modal-servicios:hover{
   background-color: var(--PrimarioOscuro);
@@ -210,7 +216,6 @@ nav > .menu-items > li:nth-of-type(5) > a:hover{
   color: var(--SecundarioClaro);
   font-size: 20px;
   writing-mode: vertical-lr;
-  transform: rotate(180deg);
 }
 #modal-servicios > #submenu {
   z-index: 1;
