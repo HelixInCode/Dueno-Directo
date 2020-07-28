@@ -345,7 +345,6 @@ nav > .menu-items > .usuario:hover > ul{
     display: grid;
     grid-template-columns: minmax(300px, 1000px);
     justify-content: center;
-    
 }
 #nueva-publicacion [type = "text"],
 #nueva-publicacion [type = "number"],
@@ -453,33 +452,12 @@ nav > .menu-items > .usuario:hover > ul{
 #propiedad > .area-inmueble{
     grid-template-rows: auto 1fr;
 }
-#propiedad > .area-inmueble > .contenedor-radio{
-    display: grid;
-    grid-template-columns: repeat(2, minmax(100px, 200px));
-    justify-content: center;
-}
-#propiedad > .area-inmueble > .contenedor-radio > .radio > h6{
-    text-align: center;
-}
-#propiedad > .area-inmueble > .contenedor-radio > .radio > .input-container{
-    text-align: center;
-}
 #propiedad > .image,
 #profesional > .image{
     text-align: center;
 }
-#propiedad > .inmueble-features > .contenedor-radio{
-    display: grid;
-    grid-template-columns: repeat(2, minmax(100px, 200px));
-    justify-content: center;
+#propiedad > .inmueble-features{
 }
-#propiedad > .inmueble-features > .contenedor-radio > .radio > h6{
-    text-align: center;
-}
-#propiedad > .inmueble-features > .contenedor-radio > .radio > .input-container{
-    text-align: center;
-}
-
 #propiedad > .ubicacion{
     grid-template-columns: repeat(2, 1fr);
 }
@@ -528,12 +506,18 @@ nav > .menu-items > .usuario:hover > ul{
 }
 #section-publicacion > .container-general > .container-publicacion {
     display: grid;
-    grid-template-columns: 65% 35% ;
-    padding: 30px;
+    grid-template-columns: 100% ;
+    padding: 10px;
+    padding-top: 20px;
+    border-radius: 5px;
     justify-content: center;
 }
 #section-publicacion > .container-general > .container-publicacion > div{
-    margin: 20px;
+    grid-column: 1/2;
+}
+#section-publicacion > .container-general > .container-publicacion > .columna-1 > h3{
+    text-align: center;
+    font-weight: 600;
 }
 #section-publicacion > .container-general > .container-publicacion > .columna-1 > .carousel{
     width: 100%;
@@ -577,12 +561,20 @@ nav > .menu-items > .usuario:hover > ul{
 #section-publicacion > .container-general > .container-publicacion > .columna-1 > .descripcion{
     margin-top: 50px;
     text-align: justify;
+    padding: 20px;
 }
 #section-publicacion > .container-general > .container-publicacion > .columna-1 > .descripcion > h5{
     margin-bottom: 20px;
+    text-align: center;
+}
+#section-publicacion > .container-general > .container-publicacion > .columna-1 > .ubicacion{
+    text-align: center;
 }
 #section-publicacion > .container-general > .container-publicacion > .columna-1 > .datos{
     margin-top: 30px;
+}
+#section-publicacion > .container-general > .container-publicacion > .columna-1 > .datos > h5{
+    text-align: center;
 }
 #section-publicacion > .container-general > .container-publicacion > .columna-1 > .datos > .container-datos {
     display: grid;
@@ -619,6 +611,7 @@ nav > .menu-items > .usuario:hover > ul{
 }
 #section-publicacion > .container-general > .container-publicacion > .columna-2 > .informacion > h2{
     text-align: center;
+    display: none;
 }
 #section-publicacion > .container-general > .container-publicacion > .columna-2 > .informacion > .telefono{
     display: grid;
@@ -870,9 +863,41 @@ footer{
     #planes > .contenedor-planes > .planes > table{
         margin: 20px;
     }
+    
 }
 @media screen and (min-width: 820px){
     #perfil > .contenedor-perfil{
         grid-template-columns: repeat(2,minmax(250px, 500px));
     }
+    #section-publicacion > .container-general > .container-publicacion {
+        grid-template-columns: 65% 35% ;
+        padding: 30px;
+        justify-content: center;
+    }
+    #section-publicacion > .container-general > .container-publicacion > div{
+        margin: 20px;
+    }
+    #section-publicacion > .container-general > .container-publicacion > .columna-1 > h3{
+        display: none;
+    }
+    #section-publicacion > .container-general > .container-publicacion > .columna-2{
+        grid-column: 2/3;
+    }
+    #section-publicacion > .container-general > .container-publicacion > .columna-1 > .descripcion{
+        margin-top: 50px;
+        text-align: justify;
+        padding: 0;
+    }
+    #section-publicacion > .container-general > .container-publicacion > .columna-1 > .descripcion > h5, #section-publicacion > .container-general > .container-publicacion > .columna-1 > .datos > h5{
+        text-align: start;
+    }
+    #section-publicacion > .container-general > .container-publicacion > .columna-1 > .ubicacion{
+        text-align: start;
+    }
+    #section-publicacion > .container-general > .container-publicacion > .columna-2 > .informacion > h2{
+        text-align: center;
+        display: block;
+    }
+    
+
 }
