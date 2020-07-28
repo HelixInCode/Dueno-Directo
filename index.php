@@ -111,6 +111,37 @@ include ('conexion.php');
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
       </a>
+
+      <form id="search-main" action="">
+        <div class="form-container">
+
+          <input type="text" placeholder="Ingresa Zona o palabra">
+
+          <div class="input-select">
+            <select name="" id="">
+              <option value="">Venta</option>
+            </select>
+          </div>
+          <div class="input-select">
+            <select name="" id="">
+              <option value="">Casas</option>
+            </select>
+          </div>
+
+          <button type="submit" >Buscar</button>
+
+          <div class="rango-input">
+            <input type="text" placeholder="Precio desde...">
+            <input type="text" placeholder="Precio hasta...">
+          </div>
+
+          <div id="botones-container">
+            <a href="#?" class="active">ARS</a>
+            <a href="#?" class="">USD</a>
+          </div>
+        </div>
+      </form>
+
     </section>
   </header>
   <main>
@@ -314,7 +345,7 @@ include ('conexion.php');
           <div class="login-container">
     
             <button name="Enviar">Iniciar Sesión</button>
-            <a href="registro.php">¿No te has registrado todavía?</a>
+            <a href="#?">¿No te has registrado todavía?</a>
             
           </div>
         </form>
