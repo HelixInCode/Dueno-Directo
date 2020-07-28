@@ -345,6 +345,7 @@ nav > .menu-items > .usuario:hover > ul{
     display: grid;
     grid-template-columns: minmax(300px, 1000px);
     justify-content: center;
+    
 }
 #nueva-publicacion [type = "text"],
 #nueva-publicacion [type = "number"],
@@ -452,12 +453,33 @@ nav > .menu-items > .usuario:hover > ul{
 #propiedad > .area-inmueble{
     grid-template-rows: auto 1fr;
 }
+#propiedad > .area-inmueble > .contenedor-radio{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(100px, 200px));
+    justify-content: center;
+}
+#propiedad > .area-inmueble > .contenedor-radio > .radio > h6{
+    text-align: center;
+}
+#propiedad > .area-inmueble > .contenedor-radio > .radio > .input-container{
+    text-align: center;
+}
 #propiedad > .image,
 #profesional > .image{
     text-align: center;
 }
-#propiedad > .inmueble-features{
+#propiedad > .inmueble-features > .contenedor-radio{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(100px, 200px));
+    justify-content: center;
 }
+#propiedad > .inmueble-features > .contenedor-radio > .radio > h6{
+    text-align: center;
+}
+#propiedad > .inmueble-features > .contenedor-radio > .radio > .input-container{
+    text-align: center;
+}
+
 #propiedad > .ubicacion{
     grid-template-columns: repeat(2, 1fr);
 }
