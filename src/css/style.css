@@ -471,6 +471,7 @@ nav > .menu-items > li:nth-of-type(5) > a:hover{
   display: grid;
   grid-template-columns: 1fr;
   align-items: center;
+  font-family: var(--UbuntuEnlaces);
 }
 #modal-login > .login > .main-container > .input-container:nth-of-type(3){
   grid-template-columns: auto 1fr;
@@ -494,6 +495,7 @@ nav > .menu-items > li:nth-of-type(5) > a:hover{
 }
 #modal-login > .login > .main-container > .login-container button{
   background-color: var(--PrimarioOscuro);
+  font-style: italic;
   padding: 5px 10px;
   color: #fff;
   border: none;
