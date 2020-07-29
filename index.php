@@ -319,7 +319,7 @@ include ('conexion.php');
       </div>
     </section>
 
-    <section id="modal-login">
+    <section id="modal-login" class="modal">
       <div class="login">
         <div class="title-container p-3">
           <h5>Ingresar</h5>
@@ -349,6 +349,19 @@ include ('conexion.php');
             
           </div>
         </form>
+      </div>
+    </section>
+
+    <section id="modal-message-sent" class="modal">
+      <div class="login">
+        <div class="title-container p-3">
+          <!-- <h5>Mensaje Enviado</h5> -->
+          <i id="close-sent" class="fa fa-times"></i>
+        </div>
+        <div class="main-container message p-3 pb-4">
+          <i class="fas fa-check-circle"></i>
+          <p>¡Su mensaje ha sido enviado exitosamente!</p>
+        </div>
       </div>
     </section>
 
@@ -719,7 +732,7 @@ include ('conexion.php');
   <script type="text/javascript" src="dist/js/mdb.min.js"></script>
   <!-- Your custom scripts (optional) -->
   <script type="text/javascript" src="src/js/svg.js"></script>
-  <script type="text/javascript" src="src/js/login.js"></script>
+  <script type="text/javascript" src="src/js/hideShowModals.js"></script>
   <script type="text/javascript" src="src/js/filtros.js"></script>
 </body>
 </html>

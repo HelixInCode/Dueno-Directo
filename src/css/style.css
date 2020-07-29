@@ -195,20 +195,30 @@ nav > .menu-items > li:nth-of-type(5) > a:hover{
   z-index: 5;
   top: calc(50% - 200px);
   right: 0;
-  width: 40px;
+  width: 60px;
   height: 400px;
   justify-content: center;
   align-items: center;
   background-color: color(var(--PrimarioOscuro) alpha(81%));
   box-shadow: 2px 2px 2px var(--sombra);
   cursor: pointer;
+  animation-name: servicios;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+  animation-direction: alternate;
 }
 #modal-servicios:hover{
   background-color: var(--PrimarioOscuro);
   color: var(--SecundarioClaro);
   box-shadow: 3px 3px 3px var(--sombra);
   border-left: 2px solid #fff;
+  box-sizing: unset;
   transition: .4s;
+  animation-name: otro;
+}
+#modal-servicios:hover > h5{
+  animation-name: otro;
 }
 #modal-servicios > h5{
   margin: 0;
@@ -216,6 +226,11 @@ nav > .menu-items > li:nth-of-type(5) > a:hover{
   color: var(--SecundarioClaro);
   font-size: 20px;
   writing-mode: vertical-lr;
+  animation-name: serviciosTitle;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+  animation-direction: alternate;
 }
 #modal-servicios > #submenu {
   z-index: 1;
@@ -236,7 +251,7 @@ nav > .menu-items > li:nth-of-type(5) > a:hover{
 #modal-servicios:hover > #submenu{
   background-color: var(--PrimarioOscuro);
   box-shadow: -10px 3px 7px var(--sombra);
-  transform: translateX(-40px);
+  transform: translateX(-62px);
   visibility: visible;
 }
 #modal-servicios > #submenu{
@@ -259,6 +274,25 @@ nav > .menu-items > li:nth-of-type(5) > a:hover{
   font-weight: 500;
   color: var(--SecundarioClaro);
   background-color: var(--PrimarioClaro);
+}
+@keyframes servicios{
+  from{
+   background-color: color(var(--PrimarioOscuro) alpha(81%));
+  }
+  50%{
+    background-color: color(var(--PrimarioClaro) alpha(81%));
+  }
+  to{
+    background-color: color(var(--SecundarioClaro) alpha(81%));
+  }
+}
+@keyframes serviciosTitle{
+  from{
+    color: color(var(--SecundarioClaro));
+  }
+  to{
+    color: color(var(--PrimarioOscuro));
+  }
 }
 
 #filtros{
@@ -390,7 +424,8 @@ nav > .menu-items > li:nth-of-type(5) > a:hover{
   background-color: #F5F5F5;
   border-radius: 10px;
 }
-#modal-login {
+
+.modal {
   z-index: 9999;
   position: fixed;
   top: 0;
@@ -404,30 +439,30 @@ nav > .menu-items > li:nth-of-type(5) > a:hover{
   background-color: var(--sombra);
   transform: translateY(-100%);
 }
-#modal-login > .login{
+.modal > .login{
   display: grid;
   grid-template-columns: minmax(300px, 450px);
   background-color: #fff;
 }
-#modal-login > .login > .title-container{
+.modal > .login > .title-container{
   color: #fff;
   background-color: #004489;
   display: grid;
   grid-template-columns: auto 1fr;
   align-self: center;
 }
-#modal-login > .login > .title-container h5{
+.modal > .login > .title-container h5{
   margin: 0;
 }
-#modal-login > .login > .title-container i{
+.modal > .login > .title-container i{
   color: var(--sombra);
   justify-self: flex-end;
   cursor: pointer;
 }
-#modal-login > .login > .title-container i:hover{
+.modal > .login > .title-container i:hover{
   color: #fff;
 }
-#modal-login > .login > .main-container{
+.modal > .login > .main-container{
   display: grid;
   grid-template-columns: 1fr;
   gap: 10px;
@@ -466,7 +501,28 @@ nav > .menu-items > li:nth-of-type(5) > a:hover{
 #modal-login > .login > .main-container > .login-container button:hover{
   background-color: var(--PrimarioClaro);
 }
- 
+
+#modal-message-sent > .login > .title-container{
+  background-color: transparent;
+  text-align: end;
+  display: block;
+}
+#modal-message-sent > .login > .title-container i:hover{
+  color: var(--danger);
+}
+#modal-message-sent > .login > .message{
+  justify-items: center;
+  gap: 30px;
+}
+#modal-message-sent > .login > .message i{
+  color: var(--success);
+  font-size: 80px;
+}
+#modal-message-sent > .login > .message p{
+  font-size: 20px;
+  font-weight: bold;
+}
+
 #publications{
   text-align: center;
 }
