@@ -749,7 +749,13 @@ nav > .menu-items > .usuario:hover > ul{
 #profesionales-prepublicacion > .container-general > .container-publicacion > .acciones > button:hover{
     background-color: #0075BE;
 }
-
+/*=============SERVICIOS.INDEX==============*/
+#search-main {
+    bottom: 40%;
+}
+#search-main > .form-container > [type = "submit"]{
+    grid-column: 2/4;
+}
 
 
 
