@@ -42,6 +42,19 @@
     border: 2px solid var(--PrimarioOscuro);
     border-radius: 5px;
   }
+
+  --button:{
+    padding: 0 30px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: bold;
+    font-style: italic;
+    background-color: var(--PrimarioOscuro);
+    outline: none;
+    text-align: center;
+  }
 }
 a{
   font-style: italic;

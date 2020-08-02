@@ -5,12 +5,11 @@
 :root{ /*italica*/ /*medium*/ /*Bold*//*regular*/
 }
 #registro{
-    margin-top: 60px;
-    padding: 5px;
+    margin-top: 80px;
     font-family: 'Ubuntu', sans-serif;
-    /* display: grid;
-    grid-template-columns: minmax(300px, 1000px);
-    justify-content: center; */
+    display: grid;
+    grid-template-columns: minmax(300px, 700px);
+    justify-content: center;
 }
 #registro > .contenedor{
     display: grid;
@@ -18,7 +17,7 @@
     justify-content: center;
     background-image: -webkit-gradient(linear, left top, right bottom, from(#004489), to(#E9EBF5));
     background-image: linear-gradient(to bottom right, #004489, #E9EBF5);
-    padding: 5px;
+    padding: 20px;
     border-radius: 10px;
     -webkit-box-shadow: 2px 2px 2px grey;
             box-shadow: 2px 2px 2px grey;
@@ -27,39 +26,48 @@
    color: white;
    font-size: 20px;
    text-shadow: 2px 2px 2px #004489;
-   padding-top: 20px;
    text-align: center;
 }
 #registro > .contenedor > form{
     display: grid;
     grid-template-columns: 1fr;
-    gap: 5px;
+    gap: 20px;
     justify-content: center;
     padding-top: 10px;
     padding-bottom: 20px;
 }
-#registro > .contenedor > form > div{
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-}
-#registro > .contenedor > form > div > label{
+#registro > .contenedor > form > .input-container > label{
     color: white;
     font-size: 20px;
 }
-#registro > .contenedor > form > div > .button1{
-    background-color: #E9EBF5;
+#registro > .contenedor > form > .input-container > .button1{
+    /* background-color: var(--SecundarioClaro);
     font-family: 'Ubuntu', sans-serif;
     font-style: italic;
-    color: #004489;
+    color: var(--PrimarioOscuro);
     font-size: 20px;
     padding: 5px 60px;
-    font-weight: 600;
+    font-weight: 600; */
+  padding: 0 30px;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 1.5em;
+  font-weight: bold;
+  font-style: italic;
+  background-color: #004489;
+  outline: none;
+  text-align: center;
+    
 }
-#registro > .contenedor > form > div > .button1:hover{
-    background-color: #E9EBF5;
-    -webkit-box-shadow: 4px 4px 4px #004489;
-            box-shadow: 4px 4px 4px #004489;
+#registro > .contenedor > form > .input-container > .button1:hover{
+    /* background-color: color(var(--PrimarioOscuro) lightness(50%)); */
+    background-color: rgb(0, 126, 204);
+    /* background-color: var(--PrimarioClaro); */
+}
+#registro > .contenedor > form > .input-container:nth-last-of-type(1){
+    padding-top: 10px;
+    justify-self: center;
 }
 /*---------------------Panel-Usuario------------------------------*/
 nav > .menu-items > .usuario > a {
@@ -86,7 +94,7 @@ nav > .menu-items .usuario > ul > li{
             box-shadow: 2px 2px 2px grey;
 }
 nav > .menu-items .usuario > ul > li:hover{
-    background-color: var(--PrimarioClaro);
+    background-color: #0075BE;
 }
 nav > .menu-items .usuario > ul > li > a{
     color: white;
@@ -188,20 +196,20 @@ nav > .menu-items > .usuario:hover > ul{
 } 
 #perfil > .contenedor-perfil > .columna2 > .imagen > a{
     background-color: #E9EBF5;
-    color: var(--PrimarioClaro);
+    color: #0075BE;
     margin: 20px 50px;
     text-align: center;
     align-self: center;
     padding: 10px;
     font-weight: 600;
-    -webkit-box-shadow: 2px 2px 2px var(--PrimarioClaro);
-            box-shadow: 2px 2px 2px var(--PrimarioClaro);
+    -webkit-box-shadow: 2px 2px 2px #0075BE;
+            box-shadow: 2px 2px 2px #0075BE;
 }
 #perfil > .contenedor-perfil > .columna2 > .imagen > a:hover{
-    background-color: var(--PrimarioClaro);
+    background-color: #0075BE;
     color: #E9EBF5;
-    -webkit-box-shadow: 4px 4px 4px var(--PrimarioClaro);
-            box-shadow: 4px 4px 4px var(--PrimarioClaro);
+    -webkit-box-shadow: 4px 4px 4px #0075BE;
+            box-shadow: 4px 4px 4px #0075BE;
 }
 #perfil > .contenedor-perfil > .columna2 > .descripcion > label{
     color: white;
@@ -269,14 +277,14 @@ nav > .menu-items > .usuario:hover > ul{
     font-weight: 600;
     font-size: 20px;
     margin: 10px;
-    -webkit-box-shadow: 2px 2px 2px var(--PrimarioClaro);
-            box-shadow: 2px 2px 2px var(--PrimarioClaro);
+    -webkit-box-shadow: 2px 2px 2px #0075BE;
+            box-shadow: 2px 2px 2px #0075BE;
 }
 #publicaciones > .contenedor-publicaciones > .publicaciones > .item-publicacion > .acciones > a:hover{
-    background-color: var(--PrimarioClaro);
+    background-color: #0075BE;
     color: #E9EBF5;
-    -webkit-box-shadow: 4px 4px 4px var(--PrimarioClaro);
-            box-shadow: 4px 4px 4px var(--PrimarioClaro);
+    -webkit-box-shadow: 4px 4px 4px #0075BE;
+            box-shadow: 4px 4px 4px #0075BE;
 }
 
 #planes > .contenedor-planes {
@@ -326,14 +334,14 @@ nav > .menu-items > .usuario:hover > ul{
     font-weight: 400;
     font-size: 15px;
     padding: 10px;
-    -webkit-box-shadow: 2px 2px 2px var(--PrimarioClaro);
-            box-shadow: 2px 2px 2px var(--PrimarioClaro);
+    -webkit-box-shadow: 2px 2px 2px #0075BE;
+            box-shadow: 2px 2px 2px #0075BE;
 }
 #planes > .contenedor-planes > .planes > table > tbody > tr > td > a:hover{
-    background-color: var(--PrimarioClaro);
+    background-color: #0075BE;
     color: #E9EBF5;
-    -webkit-box-shadow: 4px 4px 4px var(--PrimarioClaro);
-            box-shadow: 4px 4px 4px var(--PrimarioClaro);
+    -webkit-box-shadow: 4px 4px 4px #0075BE;
+            box-shadow: 4px 4px 4px #0075BE;
 }
 
 /*--------------PUBLICACIONES-----------------------*/
@@ -479,7 +487,7 @@ nav > .menu-items > .usuario:hover > ul{
 }
 #propiedad > .btn-precarga > button:hover{
     background-color: #E9EBF5;
-    color: var(--PrimarioClaro);
+    color: #0075BE;
 }
 
 /*-----------------PUBLICACION PRECARGA------------------*/
@@ -773,25 +781,21 @@ footer{
     text-align: center;
 }
 
-@media screen and (min-width: 650px){
-    #registro{
-        margin-top: 40px;
-        padding: 80px;
+@media screen and (min-width: 576px){
+    #registro > .contenedor > form{
+        grid-template-columns: repeat(2, minmax(150px, 450px));
     }
+    #registro > .contenedor > form > .input-container:nth-last-of-type(1),
+    #registro > .contenedor > form > .input-container:nth-last-of-type(2){
+        grid-column: 2 span;
+    }
+}
+@media screen and (min-width: 650px){
     #registro > .contenedor{
-        grid-template-columns: minmax(300px, 1000px);
-        padding: 20px;
-        
+        grid-template-columns: minmax(300px, 1000px);        
     }
     #registro > .contenedor > h3{
         font-size: 30px;
-    }
-    #registro > .contenedor > form{
-        
-        grid-template-columns: repeat(2, minmax(250px, 450px));
-        gap: 5px;
-        padding-top: 10px;
-        padding-bottom: 20px;
     }
     #panel-usuario{
         background-image: -webkit-gradient(linear, left top, right bottom, from(#004489) , to(#E9EBF5));

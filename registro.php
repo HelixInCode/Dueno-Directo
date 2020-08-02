@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="dist/css/mdb.min.css">
     <!-- Your custom styles (optional) -->
     <link rel="stylesheet" href="dist/css/style.css">
-    <link rel="stylesheet" href="src/css/registro.css">
+    <link rel="stylesheet" href="dist/css/registro.css">
 </head>
 
 <body>
@@ -77,41 +77,40 @@
     }
     ?>
     <main>
-        <section id="registro">
+        <section id="registro" class="mb-5 px-2">
             <div class="contenedor">
                 <h3 class="text-center text1">Registro</h3>
                 <form id="login-form" class="form" action="" method="POST">
 
-                    <div class="form-group">
+                    <div class="input-container">
                         <label for="username" class="text1">Usuario:</label><br>
                         <input type="text" name="username" id="username" class="form-control">
                     </div>
-                    <div class="form-group">
+                    <div class="input-container">
                         <label for="mail" class="text1">Contraseña:</label><br>
                         <input type="password" name="clave" id="clave" class="form-control">
                     </div>
-                    <div class="form-group">
+                    <div class="input-container">
                         <label for="password" class="text1">Nombre:</label><br>
                         <input type="text" name="nombre" id="nombre" class="form-control">
                     </div>
-
-                    <div class="form-group">
+                    <div class="input-container">
                         <label for="password" class="text1">DNI:</label><br>
                         <input type="text" name="dni" id="dni" class="form-control">
                     </div>
-                    <div class="form-group">
+                    <div class="input-container">
                         <label for="password" class="text1">Email:</label><br>
                         <input type="mail" name="mail" id="mail" class="form-control">
                     </div>
-                    <div class="form-group">
+                    <div class="input-container">
                         <label for="password" class="text1">Telefono:</label><br>
                         <input type="text" name="telefono" id="telefono" class="form-control">
                     </div>
-                    <div class="form-group">
+                    <div class="input-container">
                         <label for="password" class="text1">Categoria:</label><br>
                         <input type="text" name="categoria" id="categoria" class="form-control">
                     </div>
-                    <div class="form-group">
+                    <div class="input-container">
                         <input type="submit" name="Enviar" class="button1" value="Enviar">
                     </div>
                 </form>
@@ -128,7 +127,6 @@
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="dist/js/mdb.min.js"></script>
     <!-- Your custom scripts (optional) -->
-    <script type="text/javascript" src="dist/js/myscript.js"></script>
 </body>
 
 </html>

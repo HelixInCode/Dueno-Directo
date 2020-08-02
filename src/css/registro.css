@@ -3,7 +3,7 @@
     font-family: 'Ubuntu', sans-serif;
 }
 :root{
-    --PrimarioClaro: var(--PrimarioClaro);
+    --PrimarioClaro: #0075BE;
     --PrimarioOscuro: #004489;
     --SecundarioClaro: #E9EBF5;
     --UbuntuEnlaces: 'Ubuntu', sans-serif; /*italica*/
@@ -13,28 +13,39 @@
     --sombra: rgba(0, 0, 0, 0.5);
 
     --input-text:{
-    width: 100%;
-    padding: 5px;
-    height: 35px;
-    border: none;
-    border: 2px solid var(--PrimarioOscuro);
-    border-radius: 5px;
-  }
+        width: 100%;
+        padding: 5px;
+        height: 35px;
+        border: none;
+        border: 2px solid var(--PrimarioOscuro);
+        border-radius: 5px;
+    }
+    --button:{
+        padding: 0 30px;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        font-size: 1.5em;
+        font-weight: bold;
+        font-style: italic;
+        background-color: var(--PrimarioOscuro);
+        outline: none;
+        text-align: center;
+    }
 }
 #registro{
-    margin-top: 60px;
-    padding: 5px;
+    margin-top: 80px;
     font-family: 'Ubuntu', sans-serif;
-    /* display: grid;
-    grid-template-columns: minmax(300px, 1000px);
-    justify-content: center; */
+    display: grid;
+    grid-template-columns: minmax(300px, 700px);
+    justify-content: center;
 }
 #registro > .contenedor{
     display: grid;
     grid-template-columns: 1fr;
     justify-content: center;
     background-image: linear-gradient(to bottom right, var(--PrimarioOscuro), var(--SecundarioClaro));
-    padding: 5px;
+    padding: 20px;
     border-radius: 10px;
     box-shadow: 2px 2px 2px grey;
 }
@@ -42,38 +53,39 @@
    color: white;
    font-size: 20px;
    text-shadow: 2px 2px 2px var(--PrimarioOscuro);
-   padding-top: 20px;
    text-align: center;
 }
 #registro > .contenedor > form{
     display: grid;
     grid-template-columns: 1fr;
-    gap: 5px;
+    gap: 20px;
     justify-content: center;
     padding-top: 10px;
     padding-bottom: 20px;
 }
-#registro > .contenedor > form > div{
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-}
-#registro > .contenedor > form > div > label{
+#registro > .contenedor > form > .input-container > label{
     color: white;
     font-size: 20px;
 }
-#registro > .contenedor > form > div > .button1{
-    background-color: var(--SecundarioClaro);
+#registro > .contenedor > form > .input-container > .button1{
+    /* background-color: var(--SecundarioClaro);
     font-family: 'Ubuntu', sans-serif;
     font-style: italic;
     color: var(--PrimarioOscuro);
     font-size: 20px;
     padding: 5px 60px;
-    font-weight: 600;
+    font-weight: 600; */
+    @apply --button;
+    
 }
-#registro > .contenedor > form > div > .button1:hover{
-    background-color: var(--SecundarioClaro);
-    box-shadow: 4px 4px 4px var(--PrimarioOscuro);
+#registro > .contenedor > form > .input-container > .button1:hover{
+    /* background-color: color(var(--PrimarioOscuro) lightness(50%)); */
+    background-color: color(var(--PrimarioClaro) lightness(40%));
+    /* background-color: var(--PrimarioClaro); */
+}
+#registro > .contenedor > form > .input-container:nth-last-of-type(1){
+    padding-top: 10px;
+    justify-self: center;
 }
 /*---------------------Panel-Usuario------------------------------*/
 nav > .menu-items > .usuario > a {
@@ -767,25 +779,21 @@ footer{
     text-align: center;
 }
 
-@media screen and (min-width: 650px){
-    #registro{
-        margin-top: 40px;
-        padding: 80px;
+@media screen and (min-width: 576px){
+    #registro > .contenedor > form{
+        grid-template-columns: repeat(2, minmax(150px, 450px));
     }
+    #registro > .contenedor > form > .input-container:nth-last-of-type(1),
+    #registro > .contenedor > form > .input-container:nth-last-of-type(2){
+        grid-column: 2 span;
+    }
+}
+@media screen and (min-width: 650px){
     #registro > .contenedor{
-        grid-template-columns: minmax(300px, 1000px);
-        padding: 20px;
-        
+        grid-template-columns: minmax(300px, 1000px);        
     }
     #registro > .contenedor > h3{
         font-size: 30px;
-    }
-    #registro > .contenedor > form{
-        
-        grid-template-columns: repeat(2, minmax(250px, 450px));
-        gap: 5px;
-        padding-top: 10px;
-        padding-bottom: 20px;
     }
     #panel-usuario{
         background-image: linear-gradient(to bottom right, var(--PrimarioOscuro) , var(--SecundarioClaro));
