@@ -115,18 +115,18 @@ nav > .menu-items > li:nth-of-type(5) > a:hover{
   background-color: var(--PrimarioOscuro);
 }
 
-.carousel{
+.index-carousel{
   position: relative;
 }
-.carousel > a{
+.index-carousel> a{
   z-index: 10;
 }
-.carousel > .carousel-inner > .carousel-item{
+.index-carousel> .carousel-inner > .carousel-item{
   height: 100vh;
   position: relative;
   z-index: 6;
 }
-.carousel > .carousel-inner > .carousel-item > img{
+.index-carousel> .carousel-inner > .carousel-item > img{
   position: absolute;
   object-fit: cover;
   top: 0;

@@ -87,7 +87,7 @@ include ('conexion.php');
       </ul>
     </nav>
 
-    <section id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+    <section id="carouselExampleFade" class="carousel slide carousel-fade index-carousel" data-ride="carousel">
       <div class="carousel-inner">
 
         <div class="carousel-item active">
