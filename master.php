@@ -253,7 +253,7 @@ include ('conexion.php');
 
       </div>
 
-      
+      <!--Lista Administradores-->
       <div class="lista">
         <h3>Lista de Administradores</h3>
         <table class="table table-striped">
@@ -292,8 +292,10 @@ include ('conexion.php');
   </div>
  
     
-      <div class="tab-pane fade" id="clientes" role="tabpanel" aria-labelledby="clientes-tab">
+  <div class="tab-pane fade" id="clientes" role="tabpanel" aria-labelledby="clientes-tab">
         <div class="clientes">
+
+          <!-- Lista Clientes -->
           <div class="lista-registros">
 
             <table class="table table-striped">
@@ -338,7 +340,9 @@ include ('conexion.php');
                     </tr>
               </tbody>
             </table>
-            
+
+          </div>
+           <!-- Lista Vencimiento -->   
           <div class="lista-vencimiento">
             <table class="table table-striped table-dark">
               <thead class="thead">
@@ -385,13 +389,15 @@ include ('conexion.php');
             <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0"
             type="submit">Enviar Promo</button>
           </div>
-          </div>
         </div>
-      </div>
+  </div>
+
       
-      <div class="tab-pane fade" id="categorias" role="tabpanel" aria-labelledby="categorias-tab">
-      <div class="categoria">
-        <div class="cargar-categoria">
+  <div class="tab-pane fade" id="categorias" role="tabpanel" aria-labelledby="categorias-tab">
+    <div class="categoria">
+
+      <!-- Cargar Categoria -->
+      <div class="cargar-categoria">
           <div class="card">
             <h5 class="card-header info-color white-text text-center py-4">
               <strong>Cargar Categoria</strong>
@@ -432,11 +438,13 @@ include ('conexion.php');
 
 
             </div>
-
           </div>
-        </div>
+      </div>
+    
+        <!-- Fin Cargar Categoria -->
 
-        <div class="borrar-categoria">
+      <!-- Borrar Categoria -->
+      <div class="borrar-categoria">
           <div class="card">
 
             <h5 class="card-header info-color white-text text-center py-4">
@@ -478,9 +486,11 @@ include ('conexion.php');
             </div>
 
           </div>
-        </div>
-
-        <div class="lista-categoria">
+      </div>
+      <!-- Fin Borrar Categoria -->
+        
+      <!-- Lista Categoria -->
+      <div class="lista-categoria">
 
           <table class="table">
             <thead class="thead">
@@ -509,11 +519,16 @@ include ('conexion.php');
             </tbody>
           </table>
 
-        </div>
       </div>
     </div>
-      <div class="tab-pane fade" id="promociones" role="tabpanel" aria-labelledby="promociones-tab">
-        <div class="promociones">
+  </div>
+
+      
+     
+  <div class="tab-pane fade" id="promociones" role="tabpanel" aria-labelledby="promociones-tab">
+      <div class="promociones">
+
+           <!-- Crear Promocion-->
           <div class="crear-promocion">
             <div class="card">
   
@@ -566,7 +581,8 @@ include ('conexion.php');
   
             </div>
           </div>
-  
+
+           <!-- Borrar Promocion-->
           <div class="borrar-promocion">
             <div class="card">
 
@@ -610,7 +626,7 @@ include ('conexion.php');
   
             </div>
           </div>
-  
+          <!-- Listar Promocion-->
           <div class="lista-promociones">
   
             <table class="table">
@@ -653,12 +669,17 @@ include ('conexion.php');
             </table>
   
           </div>
-        </div>
       </div>
-      <div class="tab-pane fade" id="estadisticas" role="tabpanel" aria-labelledby="estadisticas-tab">Bon dia</div>
+  </div>
+
+      
+  <div class="tab-pane fade" id="estadisticas" role="tabpanel" aria-labelledby="estadisticas-tab">Bon di
+  </div>
     
   
+  
 </div>
+
 
 
 
