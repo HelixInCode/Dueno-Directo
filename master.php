@@ -289,100 +289,97 @@ if (isset($_SESSION['Nombre'])) {
 
       <div class="tab-pane fade" id="clientes" role="tabpanel" aria-labelledby="clientes-tab">
         <div class="clientes">
-
-          <!-- Lista Clientes -->
           <div class="lista-registros">
 
             <table class="table table-striped">
               <thead class="thead">
-                <tr>
-                  <th scope="col">Nombre</th>
-                  <th scope="col">DNI</th>
-                  <th scope="col">Telefono</th>
-                  <th scope="col">E-mail</th>
-                  <th scope="col">Plan Contratado</th>
-                  <th scope="col">Vencimiento</th>
-                  <th scope="col">Deuda</th>
-                </tr>
+                  <tr>
+                      <th scope="col">Nombre</th>
+                      <th scope="col">DNI</th>
+                      <th scope="col">Telefono</th>
+                      <th scope="col">E-mail</th>
+                      <th scope="col">Plan Contratado</th>
+                      <th scope="col">Vencimiento</th>
+                      <th scope="col">Deuda</th>
+                    </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>Otto</td>
-                  <td>Otto</td>
-                  <td>Otto</td>
-                  <td>Otto</td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>Otto</td>
-                  <td>Otto</td>
-                  <td>Otto</td>
-                  <td>Otto</td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td>Larry</td>
-                  <td>the Bird</td>
-                  <td>Otto</td>
-                  <td>Otto</td>
-                  <td>Otto</td>
-                  <td>Otto</td>
-                </tr>
+                  <tr>
+                      <th scope="row">1</th>
+                      <td>Mark</td>
+                      <td>Otto</td>
+                      <td>Otto</td>
+                      <td>Otto</td>
+                      <td>Otto</td>
+                      <td>Otto</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td>Jacob</td>
+                      <td>Thornton</td>
+                      <td>Otto</td>
+                      <td>Otto</td>
+                      <td>Otto</td>
+                      <td>Otto</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">3</th>
+                      <td>Larry</td>
+                      <td>the Bird</td>
+                      <td>Otto</td>
+                      <td>Otto</td>
+                      <td>Otto</td>
+                      <td>Otto</td>
+                    </tr>
               </tbody>
             </table>
-
-          </div>
-          <!-- Lista Vencimiento -->
+            
           <div class="lista-vencimiento">
             <table class="table table-striped table-dark">
               <thead class="thead">
-                <tr>
-                  <th scope="col">Nombre</th>
-                  <th scope="col">DNI</th>
-                  <th scope="col">Telefono</th>
-                  <th scope="col">E-mail</th>
-                  <th scope="col">Plan Contratado</th>
-                  <th scope="col">Vencimiento</th>
-                  <th scope="col">Deuda</th>
-                </tr>
-                <tr>
+                  <tr>
+                      <th scope="col">Nombre</th>
+                      <th scope="col">DNI</th>
+                      <th scope="col">Telefono</th>
+                      <th scope="col">E-mail</th>
+                      <th scope="col">Plan Contratado</th>
+                      <th scope="col">Vencimiento</th>
+                      <th scope="col">Deuda</th>
+                    </tr> <tr>
               </thead>
               <tbody class="tbody">
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>Otto</td>
-                  <td>Otto</td>
-                  <td>Otto</td>
-                  <td>Otto</td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>Otto</td>
-                  <td>Otto</td>
-                  <td>Otto</td>
-                  <td>Otto</td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td>Larry</td>
-                  <td>the Bird</td>
-                  <td>Otto</td>
-                  <td>Otto</td>
-                  <td>Otto</td>
-                  <td>Otto</td>
-                </tr>
+                  <tr>
+                      <th scope="row">1</th>
+                      <td>Mark</td>
+                      <td>Otto</td>
+                      <td>Otto</td>
+                      <td>Otto</td>
+                      <td>Otto</td>
+                      <td>Otto</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td>Jacob</td>
+                      <td>Thornton</td>
+                      <td>Otto</td>
+                      <td>Otto</td>
+                      <td>Otto</td>
+                      <td>Otto</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">3</th>
+                      <td>Larry</td>
+                      <td>the Bird</td>
+                      <td>Otto</td>
+                      <td>Otto</td>
+                      <td>Otto</td>
+                      <td>Otto</td>
+                    </tr>
               </tbody>
             </table>
-            <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Enviar Promo</button>
+            <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0"
+            type="submit">Enviar Promo</button>
+          </div>
           </div>
         </div>
       </div>

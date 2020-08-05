@@ -99,8 +99,9 @@
   grid-column: 1/4;
 }
 
-.listas-vencimiento {
+.lista-vencimiento {
   grid-column: 1/4;
+  grid-row: 2/3;
 }
 
 .tbody {
