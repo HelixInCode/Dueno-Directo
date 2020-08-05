@@ -110,11 +110,11 @@
   grid-template-columns: 1fr;
   justify-content: center;
 }
-.tab-content > .tab-pane{
+/* .tab-content > .tab-pane{
   display: grid;
   grid-template-columns: 1fr;
   padding: 10px;
-}
+} */
 .administradores{
   margin: 20px auto;
   display: grid;
