@@ -5,6 +5,7 @@ include ('conexion.php');
 
 
       $usuario=$_SESSION['Nombre'];
+      $master=$_SESSION['idMaster'];
 ?>
 
 --<!doctype html>
@@ -171,11 +172,12 @@ include ('conexion.php');
 
                       <!-- Phone number -->
                       <div class="md-form">
-                          <input type="password" name="telefono" id="telefono" class="form-control" aria-describedby="materialRegisterFormPhoneHelpBlock" placeholder="Telefono">
+                          <input type="password" name="claveadmin" id="claveadmin" class="form-control" aria-describedby="materialRegisterFormPhoneHelpBlock" placeholder="ingrese su contraseña personal">
                           
-                          <small id="telefono" class="form-text text-muted mb-4">
-                              Opcional 
+                          <small id="claveadmin" class="form-text text-muted mb-4">
+                              Obligatorio 
                           </small>
+                           <input type="hidden" name="master" value="<?php echo $master ?>" class="form-control" aria-describedby="materialRegisterFormPhoneHelpBlock">
                       </div>
 
                       
@@ -260,30 +262,25 @@ include ('conexion.php');
           <thead class="tituloLista">
             <tr>
               <th scope="col">ID</th>
-              <th scope="col">First</th>
-              <th scope="col">Last</th>
-              <th scope="col">Handle</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Email</th>
+              <th scope="col">Modificar</th>
             </tr>
           </thead>
           <tbody>
+          <?php
+          $consulta= mysqli_query($conexion, "SELECT * FROM masteradmin");
+          while ($datos = mysqli_fetch_array($consulta)){
+            ?>
             <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
+              <th scope="row"><?php echo $datos['idMaster']?></th>
+              <td><?php echo $datos['Nombre']?></td>
+              <td><?php echo $datos['email']?></td>
               <td>@mdo</td>
             </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>Larry</td>
-              <td>the Bird</td>
-              <td>@twitter</td>
-            </tr>
+            <?php 
+             }
+          ?>
           </tbody>
         </table>
       </div>
@@ -407,15 +404,15 @@ include ('conexion.php');
             <div class="card-body px-lg-5 pt-0">
 
               <!-- Form -->
-              <form class="text-center" style="color: #757575;" action="#!">
+              <form class="text-center" style="color: #757575;" action="process/savecategori.php" method="POST">
 
                 <div class="md-form mt-0">
-                  <input type="text" id="categoria" class="form-control">
+                  <input type="text" name="categoria" id="categoria" class="form-control">
                   <label for="nombre">Categoria</label>
                 </div>
 
                 <div class="md-form mt-0">
-                  <input type="text" id="descripcion" class="form-control">
+                  <input type="text" name="descripcion" id="descripcion" class="form-control">
                   <label for="email">Descripcion</label>
                 </div>
 
@@ -428,7 +425,7 @@ include ('conexion.php');
 
 
                 <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0"
-                  type="submit">Guardar</button>
+                  type="submit" name="Enviar">Guardar</button>
 
                 <hr>
 
