@@ -29,7 +29,8 @@ include ('conexion.php');
   <body>
       <?php
       
-      $consulta= mysqli_query($conexion, "SELECT * FROM masteradmin");
+      $consulta = mysqli_query($conexion, "SELECT * FROM masteradmin");
+      $categoryview = mysqli_query($conexion, "SELECT * FROM categoria");
       
       
       
@@ -453,18 +454,21 @@ include ('conexion.php');
               <form class="text-center" style="color: #757575;" action="#!">
 
                 <div class="form-group">
-                  <label for="exampleFormControlSelect1">Administrador</label>
-                  <select class="form-control" id="exampleFormControlSelect1">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
+                  <label for="exampleFormControlSelect1"></label>
+                  <select class="form-control" name="borrar" id="exampleFormControlSelect1">
+                     <?php
+                            while($category=mysqli_fetch_array($categoryview)){
+                              echo '<option value="'.$category['categoria'].'">'.$category[categoria].'</option>';
+
+                              
+                            
+                            }
+                            ?>
                   </select>
                 </div>
 
                 <div class="md-form">
-                  <input type="password" id="contraseña" class="form-control"
+                  <input type="password" id="clave" class="form-control"
                     aria-describedby="materialRegisterFormPhoneHelpBlock">
                   <label for="clave">Contraseña</label>
                   <small id="clave" class="form-text text-muted mb-4">
@@ -498,21 +502,18 @@ include ('conexion.php');
               </tr>
             </thead>
             <tbody>
+               <?php
+               $consulta= mysqli_query($conexion, "SELECT * FROM categoria");
+               while ($categorydates = mysqli_fetch_array($consulta)){
+                 ?>
               <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
+                <th scope="row"><?php echo $categorydates['id_categoria']?></th>
+                <td><?php echo $categorydates['categoria']?></td>
+                <td><?php echo $categorydates['descripcion']?></td>
               </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-              </tr>
+              <?php
+               }
+              ?>
             </tbody>
           </table>
 
