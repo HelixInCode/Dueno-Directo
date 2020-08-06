@@ -222,7 +222,7 @@ if (isset($_SESSION['Nombre'])) {
 
                       <?php
                       while ($resultado = mysqli_fetch_array($consulta)) {
-                        echo '<option value="' . $resultado['Nombre'] . '">' . $resultado[Nombre] . '</option>';
+                        echo '<option value="' . $resultado['idMaster'] . '">' . $resultado[Nombre] . '</option>';
                       }
                       ?>
 
@@ -237,6 +237,8 @@ if (isset($_SESSION['Nombre'])) {
                       Ingrese su contraseña para que se apruebe la acción.
                     </small>
                   </div>
+
+                  <input type="hidden" name="master" value="<?php echo $master ?>" class="form-control" aria-describedby="materialRegisterFormPhoneHelpBlock">
 
                   <!-- Sign up button -->
                   <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" name="Enviar" type="submit">Borrar</button>
@@ -294,42 +296,25 @@ if (isset($_SESSION['Nombre'])) {
             <table class="table table-striped">
               <thead class="thead">
                   <tr>
+                      <th scope="col">ID</th>
                       <th scope="col">Nombre</th>
                       <th scope="col">DNI</th>
                       <th scope="col">Telefono</th>
                       <th scope="col">E-mail</th>
-                      <th scope="col">Plan Contratado</th>
-                      <th scope="col">Vencimiento</th>
-                      <th scope="col">Deuda</th>
                     </tr>
               </thead>
               <tbody>
                   <tr>
-                      <th scope="row">1</th>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td>Otto</td>
-                      <td>Otto</td>
-                      <td>Otto</td>
-                      <td>Otto</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>Jacob</td>
-                      <td>Thornton</td>
-                      <td>Otto</td>
-                      <td>Otto</td>
-                      <td>Otto</td>
-                      <td>Otto</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">3</th>
-                      <td>Larry</td>
-                      <td>the Bird</td>
-                      <td>Otto</td>
-                      <td>Otto</td>
-                      <td>Otto</td>
-                      <td>Otto</td>
+                    <?php $rgslist = mysqli_query($conexion, "SELECT * FROM user");
+                      while ($listarray = mysqli_fetch_array($rgslist)){
+                      ?>
+                      <th scope="row"><?php echo $listarray['id'] ?></th>
+                      <td><?php echo $listarray['nombre'] ?></td>
+                      <td><?php echo $listarray['dni'] ?></td>
+                      <td><?php echo $listarray['telefono'] ?></td>
+                      <td><?php echo $listarray['email'] ?></td>
+                    <?php }
+                     ?>
                     </tr>
               </tbody>
             </table>
@@ -338,42 +323,29 @@ if (isset($_SESSION['Nombre'])) {
             <table class="table table-striped table-dark">
               <thead class="thead">
                   <tr>
+                      <th scope="col">ID</th>
                       <th scope="col">Nombre</th>
                       <th scope="col">DNI</th>
                       <th scope="col">Telefono</th>
                       <th scope="col">E-mail</th>
-                      <th scope="col">Plan Contratado</th>
                       <th scope="col">Vencimiento</th>
                       <th scope="col">Deuda</th>
                     </tr> <tr>
               </thead>
               <tbody class="tbody">
                   <tr>
-                      <th scope="row">1</th>
-                      <td>Mark</td>
+                    <?php $rgslist = mysqli_query($conexion, "SELECT * FROM user");
+                      while ($listarray = mysqli_fetch_array($rgslist)){
+                      ?>
+                      <th scope="row"><?php echo $listarray['id'] ?></th>
+                      <td><?php echo $listarray['nombre'] ?></td>
+                      <td><?php echo $listarray['dni'] ?></td>
+                      <td><?php echo $listarray['telefono'] ?></td>
+                      <td><?php echo $listarray['email'] ?></td>
                       <td>Otto</td>
                       <td>Otto</td>
-                      <td>Otto</td>
-                      <td>Otto</td>
-                      <td>Otto</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>Jacob</td>
-                      <td>Thornton</td>
-                      <td>Otto</td>
-                      <td>Otto</td>
-                      <td>Otto</td>
-                      <td>Otto</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">3</th>
-                      <td>Larry</td>
-                      <td>the Bird</td>
-                      <td>Otto</td>
-                      <td>Otto</td>
-                      <td>Otto</td>
-                      <td>Otto</td>
+                      <?php }
+                     ?>
                     </tr>
               </tbody>
             </table>
@@ -443,28 +415,29 @@ if (isset($_SESSION['Nombre'])) {
 
               <div class="card-body px-lg-5 pt-0">
 
-                <form class="text-center" style="color: #757575;" action="#!">
+                <form class="text-center" style="color: #757575;" action="process/delcategoria.php" method="POST">
 
                   <div class="form-group">
                     <label for="exampleFormControlSelect1"></label>
                     <select class="form-control" name="borrar" id="exampleFormControlSelect1">
                       <?php
                       while ($category = mysqli_fetch_array($categoryview)) {
-                        echo '<option value="' . $category['categoria'] . '">' . $category[categoria] . '</option>';
+                        echo '<option value="' . $category['id_categoria'] . '">' . $category[categoria] . '</option>';
                       }
                       ?>
                     </select>
                   </div>
 
                   <div class="md-form">
-                    <input type="password" id="clave" class="form-control" aria-describedby="materialRegisterFormPhoneHelpBlock">
+                    <input type="password" name="contra" id="clave" class="form-control" aria-describedby="materialRegisterFormPhoneHelpBlock">
                     <label for="clave">Contraseña</label>
                     <small id="clave" class="form-text text-muted mb-4">
                       Ingrese su contraseña para que se apruebe la acción.
                     </small>
+                     <input type="hidden" name="master" value="<?php echo $master ?>" class="form-control" aria-describedby="materialRegisterFormPhoneHelpBlock">
                   </div>
 
-                  <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Borrar</button>
+                  <button name="Enviar" class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Borrar</button>
 
                   <hr>
 
