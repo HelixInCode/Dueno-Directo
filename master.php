@@ -304,18 +304,18 @@ if (isset($_SESSION['Nombre'])) {
                     </tr>
               </thead>
               <tbody>
-                  <tr>
                     <?php $rgslist = mysqli_query($conexion, "SELECT * FROM user");
                       while ($listarray = mysqli_fetch_array($rgslist)){
                       ?>
+                      <tr>
                       <th scope="row"><?php echo $listarray['id'] ?></th>
                       <td><?php echo $listarray['nombre'] ?></td>
                       <td><?php echo $listarray['dni'] ?></td>
                       <td><?php echo $listarray['telefono'] ?></td>
                       <td><?php echo $listarray['email'] ?></td>
+                      </tr>
                     <?php }
                      ?>
-                    </tr>
               </tbody>
             </table>
             
@@ -333,10 +333,10 @@ if (isset($_SESSION['Nombre'])) {
                     </tr> <tr>
               </thead>
               <tbody class="tbody">
-                  <tr>
                     <?php $rgslist = mysqli_query($conexion, "SELECT * FROM user");
                       while ($listarray = mysqli_fetch_array($rgslist)){
                       ?>
+                      <tr>
                       <th scope="row"><?php echo $listarray['id'] ?></th>
                       <td><?php echo $listarray['nombre'] ?></td>
                       <td><?php echo $listarray['dni'] ?></td>
@@ -344,9 +344,9 @@ if (isset($_SESSION['Nombre'])) {
                       <td><?php echo $listarray['email'] ?></td>
                       <td>Otto</td>
                       <td>Otto</td>
+                      </tr>
                       <?php }
                      ?>
-                    </tr>
               </tbody>
             </table>
             <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0"
