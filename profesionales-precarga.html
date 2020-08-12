@@ -20,7 +20,8 @@
   <link rel="stylesheet" href="dist/css/mdb.min.css">
   <!-- Your custom styles (optional) -->
   <link rel="stylesheet" href="dist/css/style.css">
-  <link rel="stylesheet" href="src/css/registro.css">
+  <link rel="stylesheet" href="dist/css/registro.css">
+  <link rel="stylesheet" href="dist/css/publicacion-precarga.css">
 </head>
 <body>
     <header>
@@ -43,47 +44,51 @@
           </ul>
         </nav>
     </header>
-        <main>
-            <section id="profesionales-prepublicacion">
-                <img src="./dist/img/cover-contacto.jpg" alt="">
-                <div class="container-general">
-                  <div class="container-publicacion">
-                    <div class="columna-1">
-                      <h2>Titulo</h2>
-                      <img src="./dist/img/img-servicios/serv1.jpg" alt="profesionales o servicios">
+    <main>
 
-                    </div>
-                    <div class="columna-2">
-                      <h2>Titulo</h2>
-                      <a href="">
-                        <img src="./dist/img/icons/whatsapp.svg" alt="">
-                        <p>12345678</p>
-                      </a>
-                      <h4>Ubicación</h4>
-                      <p>Helix 123, Ciudad de Mendoza</p>
-                      <h4>Descripción</h4>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-                        Distinctio, quod labore dolorum, magnam quia saepe expedita laboriosam 
-                        magni sed culpa nihil neque alias quibusdam. Ducimus omnis illum magni
-                        voluptas ad.
-                        </p>
-                    </div>
-                    <div class="acciones">
-                      <button class="btn">PUBLICAR</button>
-                      <button class="btn">MODIFICAR</button>
-  
-                    </div>
-                  </div>
-                  
-                </div>
-            </section>
-        </main>   
-    <footer>
-      <div>
-        © 2020 Copyright:
-        <a href="#"> dueñosdirecto.com</a>
-      </div>
-    </footer>
+      <section id="profesionales-post" class="px-2 px-sm-3">
+        
+        <div class="main-container">
+
+          <div class="columna-1 columna">
+            <h2 class="d-block d-md-none text-center">Titulo</h2>
+
+            <div class="img-container">
+              <img src="./dist/img/img-servicios/serv1.jpg" alt="profesionales o servicios">
+            </div>
+          </div>
+
+          <div class="columna-2 columna">
+            <h2 class="d-none d-md-block">Titulo</h2>
+            <a href="">
+              <img src="./dist/img/icons/whatsapp.svg" alt="">
+              <p>12345678</p>
+            </a>
+            
+            <div class="ubicacion">
+              <h4>UBICACIÓN</h4>
+              <p>Helix 123, Ciudad de Mendoza</p>
+            </div>
+
+            <div class="descripcion">
+              <h4>Descripción</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                Distinctio, quod labore dolorum, magnam quia saepe expedita laboriosam 
+                magni sed culpa nihil neque alias quibusdam. Ducimus omnis illum magni
+                voluptas ad.
+                </p>
+            </div>
+          </div>
+
+          <div class="acciones">
+            <button class="btn">PUBLICAR</button>
+            <button class="btn">MODIFICAR</button>
+          </div>
+
+        </div>
+      </section>
+    </main>
+    <footer></footer>   
 <!-- jQuery -->
 <script type="text/javascript" src="dist/js/jquery.min.js"></script>
 <!-- Bootstrap tooltips -->
@@ -95,7 +100,6 @@
 <!-- Your custom scripts (optional) -->
 <script type="text/javascript" src="src/js/svg.js"></script>
 <script type="text/javascript" src="src/js/login.js"></script>
-<script type="text/javascript" src="dist/js/myscript.js"></script>
 <script type="text/javascript" src="src/js/panel-publicacion.js"></script>
 </body>
 </html>

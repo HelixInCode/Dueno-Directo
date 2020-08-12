@@ -62,6 +62,41 @@ nav > .menu-items > li:nth-of-type(5) > a:hover{
   background-color: #004489;
 }
 
+/*---------------------Panel-Usuario------------------------------*/
+nav > .menu-items > .usuario > a {
+  border-radius: 50px;
+}
+nav > .menu-items > .usuario > a > img{
+  width: 35px;
+}
+nav > .menu-items > .usuario{
+  position: relative;
+}
+nav > .menu-items .usuario > ul{
+  position: absolute;
+  top: -150px;
+  left: -70px;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+nav > .menu-items .usuario > ul > li{
+  width: 130px;
+  padding: 10px;
+  background-color: #004489;
+  -webkit-box-shadow: 2px 2px 2px grey;
+          box-shadow: 2px 2px 2px grey;
+}
+nav > .menu-items .usuario > ul > li:hover{
+  background-color: #0075BE;
+}
+nav > .menu-items .usuario > ul > li > a{
+  color: white;
+}
+nav > .menu-items > .usuario:hover > ul{
+  display: block;
+  top: 50px;
+}
+
 .index-carousel{
   position: relative;
 }
