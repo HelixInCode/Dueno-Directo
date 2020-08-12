@@ -27,51 +27,32 @@ include ('../conexion.php');
   <link rel="stylesheet" href="dist/css/style.css">
 </head>
 <body>
-  <?php
-  if (isset($_POST['Enviar'])) {
-    $usuario = mysqli_real_escape_string($conexion, $_POST['nombre']);
-    $email = mysqli_real_escape_string($conexion, $_POST['email']);
-    $claveusuario = mysqli_real_escape_string($conexion, $_POST['clave']);
-    $idadmin = mysqli_real_escape_string ($conexion, $_POST['master']);
-    $claveid = mysqli_query($conexion, "SELECT clave FROM masteradmin WHERE idMaster ='" . $idadmin . "'");
-    $clave = mysqli_fetch_array ($claveid);
-    $claveid = $clave ['clave'];
-    $claveadmin =  mysqli_real_escape_string ($conexion, $_POST['claveadmin']);
-    $claveadmin = crypt($claveadmin, "masteradmins");
+    <?php
+    
+    if (isset($_POST['Enviar'])) {
+    $borrarcat = mysqli_real_escape_string($conexion, $_POST['borrar']);
+    $id = mysqli_real_escape_string ($conexion, $_POST['master']);
+    $idbd = mysqli_query($conexion, "SELECT clave FROM masteradmin WHERE idMaster = '" . $id . "'");
+    $array = mysqli_fetch_array ($idbd);
+    $clavead = $array ['clave'];
+    $contra = mysqli_real_escape_string ($conexion, $_POST['contra']);
+    $contra = crypt($contra, "masteradmins");
 
-    if ($claveadmin == $claveid){
-          $sql = mysqli_query($conexion, "SELECT email FROM masteradmin WHERE email='" . $email . "'");
-           if (mysqli_num_rows($sql) > 0) { ?>
-           <div class="alert alert-danger" role="alert">
-            El correo ya se ha registrado anteriormente.
-           </div>
-           <?php } else {
-           $claveusuario = crypt($claveusuario, "masteradmins");
-           $reg = mysqli_query($conexion, "INSERT INTO masteradmin (email, clave, Nombre) VALUES ('$email','$claveusuario','$usuario')") or die(mysqli_error($conexion));
-           if ($reg) {
-           ?>
-           <?php 
-               header("location: ../master.php");
-               echo '<div class="alert alert-success" role="alert">Administrador creado correctamente</div>';
-               } else {
-           ?>
+    if ($clavead == $contra){
+      $borrar = mysqli_query($conexion, "DELETE FROM categoria WHERE id_categoria = '$borrarcat'") or die(mysqli_error($conexion));
+      if ($borrar){
+         header("location: ../master.php");
+         echo '<div class="alert alert-success" role="alert">Categoria eliminada correctamente</div>';
+       }
+       else{
+         echo "Error al borrar categoria";
+       }
+      } else {
+      echo "No tiene permiso para realizar esta accion";
+     }
+    }   
+    ?>
 
-           <div class="alert alert-danger" role="alert">Error al guardar los datos</div>
-           <?php
-         }
-      }
-    }
-  }
-
-
-
-
-
-  ?>
-  <div class="contenedor-inferior">
-    © 2020 Copyright:
-    <a href="#"> dueñosdirecto.com</a>
-  </div>
 </footer>
 <!-- jQuery -->
 <script type="text/javascript" src="dist/js/jquery.min.js"></script>

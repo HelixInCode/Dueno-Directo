@@ -29,35 +29,57 @@ include ('../conexion.php');
 <body>
   <?php
 
-    $user=$_SESSION['Nombre'];
-    $nameAd= $_POST['delad'];
-    $clave = mysqli_real_escape_string($conexion, $_POST['clave']);
-    $clave = crypt($clave,"masteradmins");
+  if (isset($_POST['Enviar'])) {
+    $idborrar = mysqli_real_escape_string($conexion, $_POST['delad']);
+    $idadmin = mysqli_real_escape_string ($conexion, $_POST['master']);
+    $claveid = mysqli_query($conexion, "SELECT clave FROM masteradmin WHERE idMaster = '" . $idadmin . "'");
+    $clave = mysqli_fetch_array ($claveid);
+    $claveid = $clave ['clave'];
+    $claveadmin =  mysqli_real_escape_string ($conexion, $_POST['clave']);
+    $claveadmin = crypt($claveadmin, "masteradmins");
 
-    $permiso = mysqli_query($conexion,"SELECT * FROM masteradmin WHERE Nombre='$user' AND clave='$clave'") or die(mysqli_error($conexion));
-            $resultado=mysqli_num_rows($permiso);//cuento el número de coincidencias
-            $row = mysqli_fetch_array($permiso);
+    if ($claveid == $claveadmin){
+      $borraradmin = mysqli_query($conexion, "DELETE FROM masteradmin WHERE idMaster = '$idborrar'") or die(mysqli_error($conexion));
+      if ($borraradmin){
+         header("location: ../master.php");
+         echo '<div class="alert alert-success" role="alert">Administrador eliminado correctamente</div>';
+       }
+       else{
+         echo "Error al borrar administrador";
+       }
+      } else {
+      echo "No tiene permiso para realizar esta accion";
+     }
+    }   
+    //$user=$_SESSION['Nombre'];
+    //$nameAd= $_POST['delad'];
+    //$clave = mysqli_real_escape_string($conexion, $_POST['clave']);
+    //$clave = crypt($clave,"masteradmins");
+
+    //$permiso = mysqli_query($conexion,"SELECT * FROM masteradmin WHERE Nombre='$user' AND clave='$clave'") or die(mysqli_error($conexion));
+            //$resultado=mysqli_num_rows($permiso);//cuento el número de coincidencias
+            //$row = mysqli_fetch_array($permiso);
 
 
-            if($resultado==1) {
+            //if($resultado==1) {
 
-            $victima= mysqli_query($conexion, "DELETE FROM masteradmin WHERE Nombre='$nameAd'") or die(mysqli_error($conexion));
+            //$victima= mysqli_query($conexion, "DELETE FROM masteradmin WHERE Nombre='$nameAd'") or die(mysqli_error($conexion));
 
-                if($victima){ 
+                //if($victima){ 
                 
-                    echo '<h5 class="card-header info-color white-text text-center py-4">
-                    <strong>Administrador Eliminado por "'.$user.'"</strong></h5>';
+                    //echo '<h5 class="card-header info-color white-text text-center py-4">
+                    //<strong>Administrador Eliminado por "'.$user.'"</strong></h5>';
 
-                    echo '<a href="../master.php>Volver</a>"';
+                    //echo '<a href="../master.php>Volver</a>"';
 
-                 } else{
-                        echo "Hubo un error al intentar eliminar al administrador";
-                    }
+                 //} else{
+                        //echo "Hubo un error al intentar eliminar al administrador";
+                    //}
                         
 
-            }else {
-                echo "No tiene permisos para realizar esta operación";
-            }
+            //}else {
+              //echo "No tiene permisos para realizar esta operación";
+            //}
 
    
 

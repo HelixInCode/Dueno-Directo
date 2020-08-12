@@ -29,44 +29,16 @@ include ('../conexion.php');
 <body>
   <?php
   if (isset($_POST['Enviar'])) {
-    $usuario = mysqli_real_escape_string($conexion, $_POST['nombre']);
-    $email = mysqli_real_escape_string($conexion, $_POST['email']);
-    $claveusuario = mysqli_real_escape_string($conexion, $_POST['clave']);
-    $idadmin = mysqli_real_escape_string ($conexion, $_POST['master']);
-    $claveid = mysqli_query($conexion, "SELECT clave FROM masteradmin WHERE idMaster ='" . $idadmin . "'");
-    $clave = mysqli_fetch_array ($claveid);
-    $claveid = $clave ['clave'];
-    $claveadmin =  mysqli_real_escape_string ($conexion, $_POST['claveadmin']);
-    $claveadmin = crypt($claveadmin, "masteradmins");
+      $categoria = mysqli_real_escape_string($conexion, $_POST['categoria']);
+      $descripcion = mysqli_real_escape_string($conexion, $_POST['descripcion']);
+      $guardar = mysqli_query($conexion, "INSERT INTO categoria (categoria, descripcion) VALUES ('$categoria','$descripcion')") or die(mysqli_error($conexion));
 
-    if ($claveadmin == $claveid){
-          $sql = mysqli_query($conexion, "SELECT email FROM masteradmin WHERE email='" . $email . "'");
-           if (mysqli_num_rows($sql) > 0) { ?>
-           <div class="alert alert-danger" role="alert">
-            El correo ya se ha registrado anteriormente.
-           </div>
-           <?php } else {
-           $claveusuario = crypt($claveusuario, "masteradmins");
-           $reg = mysqli_query($conexion, "INSERT INTO masteradmin (email, clave, Nombre) VALUES ('$email','$claveusuario','$usuario')") or die(mysqli_error($conexion));
-           if ($reg) {
-           ?>
-           <?php 
-               header("location: ../master.php");
+      if ($guardar){
+           header("location: ../master.php");
                echo '<div class="alert alert-success" role="alert">Administrador creado correctamente</div>';
-               } else {
-           ?>
-
-           <div class="alert alert-danger" role="alert">Error al guardar los datos</div>
-           <?php
-         }
+               } else { echo "error al guardar los datos";
       }
     }
-  }
-
-
-
-
-
   ?>
   <div class="contenedor-inferior">
     © 2020 Copyright:
