@@ -33,6 +33,7 @@ if (isset($_SESSION['Nombre'])) {
 
     $consulta = mysqli_query($conexion, "SELECT * FROM masteradmin");
     $categoryview = mysqli_query($conexion, "SELECT * FROM categoria");
+    $promoview= mysqli_query($conexion, "SELECT * FROM promociones");
 
 
 
@@ -374,18 +375,15 @@ if (isset($_SESSION['Nombre'])) {
                 <form class="text-center" style="color: #757575;" action="process/savecategori.php" method="POST">
 
                   <div class="md-form mt-0">
-                    <input type="text" name="categoria" id="categoria" class="form-control">
-                    <label for="nombre">Categoria</label>
+                    <input type="text" name="categoria" id="categoria" class="form-control" placeholder="Categoria">
                   </div>
 
                   <div class="md-form mt-0">
-                    <input type="text" name="descripcion" id="descripcion" class="form-control">
-                    <label for="email">Descripcion</label>
+                    <input type="text" name="descripcion" id="descripcion" class="form-control" placeholder="Descripcion">
                   </div>
 
                   <div class="md-form">
-                    <input type="password" id="contraseña" class="form-control" aria-describedby="materialRegisterFormPhoneHelpBlock">
-                    <label for="clave">Contraseña</label>
+                    <input type="password" id="contraseña" class="form-control" placeholder="Contraseña" aria-describedby="materialRegisterFormPhoneHelpBlock">
                   </div>
 
 
@@ -494,26 +492,30 @@ if (isset($_SESSION['Nombre'])) {
                 <strong>Crear Promocion</strong>
               </h5>
 
+              <!-- Card -->
               <div class="card-body px-lg-5 pt-0">
 
-                <div class="md-form">
-                  <input type="text" id="nombre" class="form-control" aria-describedby="materialRegisterFormPhoneHelpBlock">
-                  <label for="nombre">Nombre</label>
-                </div>
-                <div class="md-form">
-                  <input type="text" id="vencimiento" class="form-control" aria-describedby="materialRegisterFormPhoneHelpBlock">
-                  <label for="vencimiento">Vencimiento</label>
-                </div>
-                <div class="md-form">
-                  <input type="password" id="contraseña" class="form-control" aria-describedby="materialRegisterFormPhoneHelpBlock">
-                  <label for="clave">Contraseña</label>
+               <!-- Form -->
+               <form class="text-center" style="color: #757575;" action="process/savepromo.php" method="POST">
+                
+                <!-- Nombre -->
+                <div class="md-form mt-0">
+                  <input type="text" name="promociones" id="promociones" class="form-control" placeholder="Nombre">
                 </div>
 
-                <form class="text-center" style="color: #757575;" action="#!">
+                <!-- Vencimiento -->
+                <div class="md-form">
+                  <input type="text" name="vencimiento" id="vencimiento" class="form-control" placeholder="vencimiento">
+                </div>
+
+                <!-- Password -->
+                <div class="md-form">
+                  <input type="password" name="clave" id="clave" class="form-control" aria-describedby="clave" placeholder="Contraseña">
+                </div>
 
                   <div class="form-group">
-                    <label for="exampleFormControlSelect1">Categoria</label>
-                    <select class="form-control" id="exampleFormControlSelect1">
+                    <label for="exampleFormControlSelect1">Categorias</label>
+                    <select class="form-control" name="categoria" id="exampleFormControlSelect1">
                       <option>1</option>
                       <option>2</option>
                       <option>3</option>
@@ -522,9 +524,9 @@ if (isset($_SESSION['Nombre'])) {
                     </select>
                   </div>
 
+                   <input type="hidden" name="master" value="<?php echo $master ?>" class="form-control" aria-describedby="materialRegisterFormPhoneHelpBlock">
 
-
-                  <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Guardar</button>
+                  <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit" name="Enviar">Guardar</button>
 
                   <hr>
 
@@ -546,28 +548,28 @@ if (isset($_SESSION['Nombre'])) {
 
               <div class="card-body px-lg-5 pt-0">
 
-                <form class="text-center" style="color: #757575;" action="#!">
+                <form class="text-center" style="color: #757575;" action="process/delpromo.php" method="POST">
 
                   <div class="form-group">
                     <label for="exampleFormControlSelect1">Administrador</label>
-                    <select class="form-control" id="exampleFormControlSelect1">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
+                    <select class="form-control" name="borrarpromo" id="exampleFormControlSelect1">
+                       <?php
+                      while ($promocion = mysqli_fetch_array($promoview)) {
+                        echo '<option value="' . $promocion['idpromo'] . '">' . $promocion[idpromo] . '</option>';
+                      }
+                      ?>>
                     </select>
                   </div>
 
                   <div class="md-form">
-                    <input type="password" id="contraseña" class="form-control" aria-describedby="materialRegisterFormPhoneHelpBlock">
-                    <label for="clave">Contraseña</label>
+                    <input type="password" name="clavepromo" id="clave" class="form-control" placeholder="Contraseña" aria-describedby="materialRegisterFormPhoneHelpBlock">
                     <small id="clave" class="form-text text-muted mb-4">
                       Ingrese su contraseña para que se apruebe la acción.
                     </small>
+                     <input type="hidden" name="master" value="<?php echo $master ?>" class="form-control" aria-describedby="materialRegisterFormPhoneHelpBlock">
                   </div>
 
-                  <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Borrar</button>
+                  <button name="Enviar"class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Borrar</button>
 
                   <hr>
 
@@ -584,39 +586,30 @@ if (isset($_SESSION['Nombre'])) {
             <table class="table">
               <thead class="thead">
                 <tr>
-                  <th scope="col">Promocion</th>
+                  <th scope="col">Admin</th>
                   <th scope="col">Detalle</th>
                   <th scope="col">Categoria</th>
-                  <th scope="col">Admin</th>
+                  <th scope="col">Promocion</th>
                   <th scope="col">Vencimiento</th>
                   <th scope="col">$$</th>
                 </tr>
               </thead>
               <tbody>
+               <?php
+                $consulta = mysqli_query($conexion, "SELECT * FROM promociones");
+                while ($promodates = mysqli_fetch_array($consulta)) {
+                ?>
                 <tr>
-                  <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>Otto</td>
-                  <td>Otto</td>
-                  <td>Otto</td>
+                  <th scope="row"><?php echo $promodates['idpromo'] ?></th>
+                  <td><?php echo $promodates['detalle'] ?></td>
+                  <td><?php echo $promodates['categoria'] ?></td>
+                  <td><?php echo $promodates['promociones'] ?></td>
+                  <td><?php echo $promodates['vencimiento'] ?></td>
+                  <td><?php echo $promodates['precio'] ?></td>
                 </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>Otto</td>
-                  <td>Otto</td>
-                  <td>Otto</td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td>Larry</td>
-                  <td>the Bird</td>
-                  <td>Otto</td>
-                  <td>Otto</td>
-                  <td>Otto</td>
-                </tr>
+                <?php 
+                }
+                ?>
               </tbody>
             </table>
 
