@@ -147,34 +147,36 @@
               <!-- Form -->
               <form class="text-center" style="color: #757575;" action="process/saveAdmin.php" method="POST">
 
-                <!-- Nombre -->
-                <div class="md-form ">
-                  <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre">
-                </div>
-
-                <!-- E-mail -->
-                <div class="md-form mt-0">
-                  <input type="email" name="email" id="email" class="form-control" placeholder="Email">
-
-                </div>
-
-                <!-- Password -->
-                <div class="md-form">
-                  <input type="password" name="clave" id="clave" class="form-control" aria-describedby="clave" placeholder="Contraseña">
-
-                  <small id="clave" class="form-text text-muted mb-4">
-                    Al menos 8 caracteres
-                  </small>
-                </div>
-
-                <!-- Phone number -->
-                <div class="md-form">
-                  <input type="password" name="claveadmin" id="claveadmin" class="form-control" aria-describedby="materialRegisterFormPhoneHelpBlock" placeholder="ingrese su contraseña personal">
-
-                  <small id="claveadmin" class="form-text text-muted mb-4">
-                    Obligatorio
-                  </small>
-                  <input type="hidden" name="master" value="<?php echo $master ?>" class="form-control" aria-describedby="materialRegisterFormPhoneHelpBlock">
+                <div class="input-container">
+                  <!-- Nombre -->
+                  <div class="md-form m-0">
+                    <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre">
+                  </div>
+  
+                  <!-- E-mail -->
+                  <div class="md-form m-0">
+                    <input type="email" name="email" id="email" class="form-control" placeholder="Email">
+  
+                  </div>
+  
+                  <!-- Password -->
+                  <div class="md-form m-0">
+                    <input type="password" name="clave" id="clave" class="form-control" aria-describedby="clave" placeholder="Contraseña">
+  
+                    <small id="clave" class="form-text text-muted m-0">
+                      Al menos 8 caracteres
+                    </small>
+                  </div>
+  
+                  <!-- Phone number -->
+                  <div class="md-form m-0">
+                    <input type="password" name="claveadmin" id="claveadmin" class="form-control" aria-describedby="materialRegisterFormPhoneHelpBlock" placeholder="ingrese su contraseña personal">
+  
+                    <small id="claveadmin" class="form-text text-muted m-0">
+                      Obligatorio
+                    </small>
+                    <input type="hidden" name="master" value="<?php echo $master ?>" class="form-control" aria-describedby="materialRegisterFormPhoneHelpBlock">
+                  </div>
                 </div>
 
                 <!-- Sign up button -->
@@ -366,18 +368,22 @@
               <!-- Form -->
               <form class="text-center" style="color: #757575;" action="process/savecategori.php" method="POST">
 
-                <div class="md-form mt-0">
-                  <input type="text" name="categoria" id="categoria" class="form-control" placeholder="Categoria">
-                </div>
+                <div class="input-container">
 
-                <div class="md-form mt-0">
-                  <input type="text" name="descripcion" id="descripcion" class="form-control" placeholder="Descripcion">
+                  <div class="md-form m-0">
+                    <input type="text" name="categoria" id="categoria" class="form-control" placeholder="Categoria">
+                  </div>
+  
+                  <div class="md-form m-0">
+                    <input type="text" name="descripcion" id="descripcion" class="form-control" placeholder="Descripcion">
+                  </div>
+  
+                  <div class="md-form m-0">
+                    <input type="password" id="contraseña" class="form-control" placeholder="Contraseña" aria-describedby="materialRegisterFormPhoneHelpBlock">
+                  </div>
+  
                 </div>
-
-                <div class="md-form">
-                  <input type="password" id="contraseña" class="form-control" placeholder="Contraseña" aria-describedby="materialRegisterFormPhoneHelpBlock">
-                </div>
-
+                
                 <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit" name="Enviar">Guardar</button>
 
               </form>
@@ -412,10 +418,10 @@
                     </select>
                   </div>
   
-                  <div class="md-form">
+                  <div class="md-form m-0">
                     <input type="password" name="contra" id="clave" class="form-control" aria-describedby="materialRegisterFormPhoneHelpBlock">
                     <label for="clave">Contraseña</label>
-                    <small id="clave" class="form-text text-muted mb-4">
+                    <small id="clave" class="form-text text-muted m-0">
                       Ingrese su contraseña para que se apruebe la acción.
                     </small>
                       <input type="hidden" name="master" value="<?php echo $master ?>" class="form-control" aria-describedby="materialRegisterFormPhoneHelpBlock">
@@ -476,27 +482,25 @@
 
             <div class="card-body px-lg-5 pt-0">
 
-              <!-- Card -->
-              <div class="card-body px-lg-5 pt-0">
+              <!-- Form -->
+               <form class="text-center" style="color: #757575;" action="process/savepromo.php" method="POST">
 
-               <!-- Form -->
-                <form class="text-center" style="color: #757575;" action="process/savepromo.php" method="POST">
-                
+                <div class="input-container">
                   <!-- Nombre -->
-                  <div class="md-form mt-0">
+                  <div class="md-form m-0">
                     <input type="text" name="promociones" id="promociones" class="form-control" placeholder="Nombre">
                   </div>
-
+  
                   <!-- Vencimiento -->
-                  <div class="md-form">
+                  <div class="md-form m-0">
                     <input type="text" name="vencimiento" id="vencimiento" class="form-control" placeholder="vencimiento">
                   </div>
-
+  
                   <!-- Password -->
-                  <div class="md-form">
+                  <div class="md-form m-0">
                     <input type="password" name="clave" id="clave" class="form-control" aria-describedby="clave" placeholder="Contraseña">
                   </div>
-
+  
                   <div class="form-group">
                     <label for="exampleFormControlSelect1">Categorias</label>
                     <select class="form-control" name="categoria" id="exampleFormControlSelect1">
@@ -507,15 +511,13 @@
                       <option>5</option>
                     </select>
                   </div>
-
+  
                   <input type="hidden" name="master" value="<?php echo $master ?>" class="form-control" aria-describedby="materialRegisterFormPhoneHelpBlock">
+                </div>
 
-                  <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit" name="Enviar">Guardar</button>
+                <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit" name="Enviar">Guardar</button>
 
-
-               </form>
-
-              </div>
+              </form>
 
             </div>
 
@@ -542,7 +544,7 @@
                       while ($promocion = mysqli_fetch_array($promoview)) {
                         echo '<option value="' . $promocion['idpromo'] . '">' . $promocion[idpromo] . '</option>';
                       }
-                      ?>>
+                      ?>
                     </select>
                   </div>
   
@@ -560,7 +562,7 @@
               </form>
 
             </div>
-
+          </div>
         </div>
         
         <!-- Listar Promocion-->

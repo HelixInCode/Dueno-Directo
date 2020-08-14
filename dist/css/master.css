@@ -57,17 +57,21 @@
 .categoria .card{
   height: 100%;
 }
-.administradores > .borrarAdmin form,
-.promociones > .borrar-promocion form,
-.categoria > .borrar-categoria form{
+.administradores form,
+.promociones form,
+.categoria form{
   height: 100%;
   display: grid;
   grid-template-rows: 1fr auto;
 }
-.administradores > .borrarAdmin form > .input-container,
-.categoria > .borrar-categoria form > .input-container,
-.promociones > .borrar-promocion form > .input-container{
+.administradores form > .input-container,
+.promociones form > .input-container,
+.categoria form > .input-container{
   align-self: center;
+  padding: 1.5rem 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
 }
 
 .seladmin{
