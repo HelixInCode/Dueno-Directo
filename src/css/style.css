@@ -929,6 +929,88 @@ nav > .menu-items > .usuario:hover > ul{
   text-shadow: 2px 2px 2px var(--PrimarioClaro);
 }
 
+/*ERROR 404*/
+#error > img{
+  width: 100vw;
+  height: 100%;
+  background-size: cover;
+  
+  position: relative;
+}
+#error > .capa{
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.397);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+#error > .capa > .info{
+  color: #E9EBF5;
+  display: grid;
+  grid-template-columns: minmax(300px, 600px);
+  justify-content: center;
+  margin-top: 250px;
+  margin-bottom: 500px;
+  font-family: var(--UbuntuSubtitulos);
+  text-align: center;
+} 
+#error > .capa > .info > h1{
+  font-size: 70px;
+}
+#error > .capa > .info > p{
+  font-size: 25px;
+}
+#error > .capa > .info > a{
+  width: 200px;
+  background-color: #E9EBF5;
+  color: #004489;
+  font-weight: 600;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 5px;
+}
+#error > .capa > .info > a:hover{
+  background-color: #004489;
+  color: #E9EBF5;
+  box-shadow: 5px 5px 5px grey;
+}
+
+/*mantenimiento*/
+#mantenimiento > img{
+  width: 100vw;
+  height: 100%;
+  background-size: cover;
+  
+  position: relative;
+}
+#mantenimiento > .capa{
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.397);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+#mantenimiento > .capa > .info{
+  color: #E9EBF5;
+  display: grid;
+  grid-template-columns: minmax(300px, 600px);
+  justify-content: center;
+  margin-top: 250px;
+  margin-bottom: 500px;
+  font-family: var(--UbuntuSubtitulos);
+  text-align: center;
+} 
+#mantenimiento > .capa > .info > h1{
+  font-size: 50px;
+}
+#mantenimiento > .capa > .info > p{
+  font-size: 25px;
+}
+
+
+
 @custom-media --medium (width >= 768px);
 @custom-media --large (width >= 992px);
 @custom-media --ExtraLarge (width >= 1200px);
