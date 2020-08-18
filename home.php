@@ -1,3 +1,14 @@
+<?php
+ session_start();
+ include('conexion.php');
+ if(isset($_SESSION['usuario'])){
+
+   $id_user = $_SESSION['id'];
+   $user = $_SESSION['usuario'];
+   
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -24,6 +35,17 @@ post  <!-- <link rel="stylesheet" href="src/css/registro.css"> -->
   <link rel="stylesheet" href="dist/css/usuario.css">
 </head>
 <body>
+  <?php 
+    
+    $table_user = mysqli_query($conexion, "SELECT * FROM user WHERE id = '$id_user'");
+    $consuldates = mysqli_fetch_array($table_user);
+    $user_name = $consuldates ['nombre'];
+    $user_email = $consuldates ['email']; 
+    $user_phone = $consuldates ['telefono'];
+    $user_dni = $consuldates ['dni'];
+    $user_categoria = $consuldates ['categoria'];
+  
+  ?>
     <header>
         <nav class="py-2 px-4">
           <div class="img-container">
@@ -80,18 +102,18 @@ post  <!-- <link rel="stylesheet" href="src/css/registro.css"> -->
                             <div class="datos-personales">
                                 <label for="">Datos Personales</label>
                                 <form action="" method="post">
-                                    <input type="text" id="nombre" name="nombre" placeholder="Nombres">
+                                    <input type="text" id="nombre" name="nombre" placeholder="Nombres" value="<?php echo $user_name;?>">
                                     <input type="text" id="apellido" name="apellido" placeholder="Apellidos">
-                                    <input type="text" id="dni" name="dni" placeholder="DNI">
-                                    <input type="text" id="correo" name="correo" placeholder="Correo">
-                                    <input type="text" id="telefono" name="telefono" placeholder="Teléfono">
+                                    <input type="text" id="dni" name="dni" placeholder="DNI" value="<?php echo $user_dni;?>">
+                                    <input type="text" id="correo" name="correo" placeholder="Correo" value="<?php echo $user_email;?>">
+                                    <input type="text" id="telefono" name="telefono" placeholder="Teléfono" value="<?php echo $user_phone;?>">
                                 </form>
                             </div>
                             <div class="categoria">
                                 <label for="categoria">Categoría</label><br>
                                 <form action="">
                                     <select name="categorias" id="categorias">
-                                        <option value="">Selecciona una Categoría...</option>
+                                        <option value="<?php echo $user_categoria;?>"><?php echo $user_categoria;?></option>
                                         <option value="propietario">Propietario</option>
                                         <option value="profesional">Profesional</option>
                                         <option value="otro">Otro...</option>
@@ -226,3 +248,8 @@ post  <!-- <link rel="stylesheet" href="src/css/registro.css"> -->
   <script type="text/javascript" src="src/js/panel-usuario.js"></script>
 </body>
 </html>
+<?php  }
+ else {
+     header("Location: index.php");
+ }
+?>
