@@ -493,7 +493,22 @@
   
                   <!-- Vencimiento -->
                   <div class="md-form m-0">
-                    <input type="text" name="vencimiento" id="vencimiento" class="form-control" placeholder="vencimiento">
+                    <input type="text" name="vencimiento" id="vencimiento" class="form-control" placeholder="Vencimiento">
+                  </div>
+
+                   <!-- Admin -->
+                   <div class="md-form m-0">
+                    <input type="text" name="adminpromo" id="admin" class="form-control" placeholder="Usuario">
+                  </div>
+
+                   <!-- Detalle -->  
+                   <div class="md-form m-0">
+                    <input type="text" name="detalle" id="detalle" class="form-control" placeholder="Detalles">
+                  </div>
+                  
+                   <!-- Precio -->
+                   <div class="md-form m-0">
+                    <input type="text" name="precio" id="precio" class="form-control" placeholder="Precio">
                   </div>
   
                   <!-- Password -->

@@ -32,7 +32,10 @@ include ('../conexion.php');
       $nombrepromo = mysqli_real_escape_string($conexion, $_POST['promociones']);
       $vencimientopromo = mysqli_real_escape_string($conexion, $_POST['vencimiento']);
       $categorypromo = mysqli_real_escape_string($conexion, $_POST['categoria']);
-      $guardar = mysqli_query($conexion, "INSERT INTO promociones (promociones, vencimiento, categoria) VALUES ('$nombrepromo','$vencimientopromo','$categorypromo')") or die(mysqli_error($conexion));
+      $adminpromo = mysqli_real_escape_string($conexion, $_POST['adminpromo']);
+      $detallepromo = mysqli_real_escape_string($conexion, $_POST['detalle']);
+      $preciopromo = mysqli_real_escape_string($conexion, $_POST['precio']);
+      $guardar = mysqli_query($conexion, "INSERT INTO promociones (promociones, vencimiento, categoria, adminpromo, detalle, precio) VALUES ('$nombrepromo','$vencimientopromo','$categorypromo','$adminpromo','$detallepromo','$preciopromo')") or die(mysqli_error($conexion));
 
       if ($guardar){
            header("location: ../master.php");
