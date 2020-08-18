@@ -1,7 +1,7 @@
 <?php
  session_start();
  include('conexion.php');
- if(isset($_SESSION['usuario'])){
+ if(isset($_SESSION['id'])) {
 
    $id_user = $_SESSION['id'];
    $user = $_SESSION['usuario'];
@@ -250,6 +250,9 @@ post  <!-- <link rel="stylesheet" href="src/css/registro.css"> -->
 </html>
 <?php  }
  else {
-     header("Location: index.php");
+    echo "usuario o contraseña incorrectos";
+    echo $_SESSION['usuario'];
+    echo $_SESSION['id'];
+    //header("Location: index.php");
  }
 ?>
