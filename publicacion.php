@@ -1,3 +1,13 @@
+<?php 
+  session_start();
+  include('conexion.php');
+  if (isset($_SESSION['id'])) {
+
+    $id_user = $_SESSION['id'];
+    $user = $_SESSION['usuario'];
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -62,7 +72,7 @@
     
                 </div>
     
-                <form id="propiedad" class="panelcontent active" action="">
+                <form id="propiedad" class="panelcontent active" action="process/savepropiedad.php" method="POST">
                     
                     <div class="form-area titulo-publicacion">
                         <input type="text" name="nombre" id="nombre" placeholder="Nombre de la Publicación">
@@ -242,16 +252,16 @@
                     </div>
 
                     <div class="btn-precarga">
-                        <button class="btn" type="submit">Precargar Publicación</button>
+                         <button class="btn" type="submit" name="propiedad">Precargar Publicación</button>
                     </div>
-                    
+
                 </form>
     
-                <form id="profesional" class="panelcontent" action="">
+                <form id="profesional" class="panelcontent" action="process/saveprofesional.php" method="POST">
 
                     <div class="form-area contenedor-titulo">
                         <p>Tipo de profesional</p>
-                        <select name="profesional" id="">
+                        <select name="profesional" id="profesional">
                             <option value="">Selecciona...</option>
                             <option value="arquitecto">Arquitecto</option>
                             <option value="fontanero">Fontanero</option>
@@ -260,8 +270,8 @@
                     </div>
 
                     <div class="form-area container-datos">
-                        <input type="text" placeholder="Titulación">
-                        <input type="text" placeholder="Teléfono">
+                        <input type="text" name="titulacion" placeholder="Titulación">
+                        <input type="text" name="telefono" placeholder="Teléfono">
                     </div>
 
                     <div class="form-area image">
@@ -271,14 +281,18 @@
 
                     <div class="form-area container-ubicacion">
                         <p>Indicanos tu ubicación, para mostrar a los visitantes</p>
-                        <select name="" id="">
+                        <select name="provincia" id="provincia">
                             <option value="">Provincia...</option>
                             <option value="">Cargar provincias</option>
                         </select>
-                        <select name="" id="">
+                        <select name="municipalidad" id="municpalidad">
                             <option value="">Municipalidad...</option>
                             <option value="">Cargar Municipalidad</option>
                         </select>
+                    </div>
+
+                    <div class="btn-precarga">
+                         <button class="btn" type="submit" name="propiedad">Precargar Publicación</button>
                     </div>
 
                 </form>
@@ -303,4 +317,14 @@
   <!-- Your custom scripts (optional) -->
   <script type="text/javascript" src="src/js/panel-publicacion.js"></script>
 </body>
+
 </html>
+
+<?php  }
+ else {
+    echo "usuario o contraseña incorrectos";
+    echo $_SESSION['usuario'];
+    echo $_SESSION['id'];
+    //header("Location: index.php");
+ }
+?>

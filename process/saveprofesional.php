@@ -1,7 +1,10 @@
 <?php
-session_start();
-include ('../conexion.php');
-    if(isset($_SESSION['Nombre'])){
+ session_start();
+  include('../conexion.php');
+  if (isset($_SESSION['id'])) {
+
+    $id_user = $_SESSION['id'];
+    $user = $_SESSION['usuario'];
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -10,7 +13,7 @@ include ('../conexion.php');
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>Dueño Directo</title>
-  
+ 
   <!-- icono de la pestaña -->
   <!-- <link rel="icon" href="dist/img/logo-de-cit.ico"> -->
   <!-- Font Awesome -->
@@ -28,14 +31,17 @@ include ('../conexion.php');
 </head>
 <body>
   <?php
-  if (isset($_POST['Enviar'])) {
-      $categoria = mysqli_real_escape_string($conexion, $_POST['categoria']);
-      $descripcion = mysqli_real_escape_string($conexion, $_POST['descripcion']);
-      $guardar = mysqli_query($conexion, "INSERT INTO categoria (categoria, descripcion) VALUES ('$categoria','$descripcion')") or die(mysqli_error($conexion));
+  if (isset($_POST['propiedad'])) {
+      $profesionaltype = mysqli_real_escape_string($conexion, $_POST['profesional']);
+      $titulacion = mysqli_real_escape_string($conexion, $_POST['titulacion']);
+      $telefono = mysqli_real_escape_string($conexion, $_POST['telefono']);
+      $provincia = mysqli_real_escape_string($conexion, $_POST['provincia']);
+      $municipalidad = mysqli_real_escape_string($conexion, $_POST['municipalidad']);
+      $guardar = mysqli_query($conexion, "INSERT INTO profesional (profesional, titulacion, telefono, provincia, municipalidad) VALUES ('$profesionaltype','$titulacion','$telefono','$provincia','$municipalidad')") or die(mysqli_error($conexion));
 
       if ($guardar){
-           header("location: ../master.php");
-               echo '<div class="alert alert-success" role="alert">Categoria creado correctamente</div>';
+           header("location: ../publicacion.php");
+               echo '<div class="alert alert-success" role="alert">Propiedad creada correctamente</div>';
                } else { echo "error al guardar los datos";
       }
     }
@@ -61,6 +67,6 @@ include ('../conexion.php');
 </html>
 <?php
     }  else {
-        header ("Location: lgn.php");
+        header ("Location: ../index.php");
     }
 ?>

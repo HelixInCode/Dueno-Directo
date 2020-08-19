@@ -67,7 +67,7 @@ post  <!-- <link rel="stylesheet" href="src/css/registro.css"> -->
               <a id="ingresar" class="waves-effect waves-light" href="#?">Ingresar</a>
             </li>
             <li>
-                <a class="waves-effect waves-light" href="./publicacion.html">Publicar</a>
+                <a class="waves-effect waves-light" href="./publicacion.php">Publicar</a>
             </li>
             <li class="usuario">
                 <a href="">
