@@ -31,23 +31,41 @@
         <!-- <span>Dueño directo</span> -->
       </div>
 
-      <ul class="menu-items">
-        <li>
-          <a class="waves-effect waves-light" href="index.html">Home</a>
-        </li>
-        <li>
-          <a class="waves-effect waves-light" href="./servicios.html">Servicios</a>
-        </li>
-        <li>
-          <a class="waves-effect waves-light" href="#?">Contacto</a>
-        </li>
-        <li>
-          <a id="ingresar" class="waves-effect waves-light" href="#?">Ingresar</a>
-        </li>
-        <li>
-          <a class="waves-effect waves-light" href="#?">Publicar</a>
-        </li>
-      </ul>
+      <div class="menu-btns">
+        <ul class="menu-items hide py-1 py-md-0">
+          <li>
+            <a class="waves-effect waves-light" href="index.html">Home</a>
+          </li>
+          <li>
+            <a class="waves-effect waves-light" href="./servicios.html">Servicios</a>
+          </li>
+          <li>
+            <a class="waves-effect waves-light" href="#?">Contacto</a>
+          </li>
+          <li class="">
+            <a id="ingresar" class="waves-effect waves-light" href="#?">Ingresar</a>
+          </li>
+          <li>
+            <a class="waves-effect waves-light" href="#?">Publicar</a>
+          </li>
+        </ul>
+
+        <div class="user d-none">
+          <a href="#?">
+              <img src="./dist/img/icons/user.png" alt="">
+          </a>
+          <ul>
+              <li><a href="">Panel</a></li>
+              <li><a href="">Cerrar Sesion</a></li>
+          </ul>
+        </div>
+        
+        <div class="menu-overlay hide d-block d-md-none"></div>
+  
+        <div id="hamburger" class="hamburger-btn d-flex d-md-none">
+          <i id="ham-icon" class="fas fa-bars fa-1-3x"></i>
+        </div>
+      </div>
     </nav>
     
     <section id="carouselExampleFade" class="carousel slide pro search-result-carousel carousel-fade" data-ride="carousel">
@@ -640,5 +658,6 @@
   <script type="text/javascript" src="src/js/svg.js"></script>
   <script type="text/javascript" src="src/js/hideShowModals.js"></script>
   <script type="text/javascript" src="src/js/filtros.js"></script>
+  <script type="text/javascript" src="src/js/hamburger.js"></script>
 </body>
 </html>

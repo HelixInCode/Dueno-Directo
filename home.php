@@ -48,37 +48,46 @@ post  <!-- <link rel="stylesheet" href="src/css/registro.css"> -->
   ?>
     <header>
         <nav class="py-2 px-4">
-          <div class="img-container">
-            <img class="img-fluid" src="dist/img/DD-LOGO.png" alt="">
-            <!-- <span>Dueño directo</span> -->
-          </div>
-    
-          <ul class="menu-items">
-            <li>
-              <a class="waves-effect waves-light" href="index.html">Home</a>
-            </li>
-            <li>
-              <a class="waves-effect waves-light" href="./servicios.html">Servicios</a>
-            </li>
-            <li>
-              <a class="waves-effect waves-light" href="#?">Contacto</a>
-            </li>
-            <li style="display: none;">
-              <a id="ingresar" class="waves-effect waves-light" href="#?">Ingresar</a>
-            </li>
-            <li>
-                <a class="waves-effect waves-light" href="./publicacion.php">Publicar</a>
-            </li>
-            <li class="usuario">
-                <a href="">
+            <div class="img-container">
+              <img class="img-fluid" src="dist/img/DD-LOGO.png" alt="">
+              <!-- <span>Dueño directo</span> -->
+            </div>
+      
+            <div class="menu-btns">
+              <ul class="menu-items four-buttons hide py-1 py-md-0">
+                <li>
+                  <a class="waves-effect waves-light" href="index.html">Home</a>
+                </li>
+                <li>
+                  <a class="waves-effect waves-light" href="./servicios.html">Servicios</a>
+                </li>
+                <li>
+                  <a class="waves-effect waves-light" href="#?">Contacto</a>
+                </li>
+                <li class="d-none">
+                  <a id="ingresar" class="waves-effect waves-light" href="#?">Ingresar</a>
+                </li>
+                <li>
+                  <a class="waves-effect waves-light" href="publicacion.php">Publicar</a>
+                </li>
+              </ul>
+      
+              <div class="user">
+                <a href="#?">
                     <img src="./dist/img/icons/user.png" alt="">
                 </a>
-                  <ul>
-                      <li><a href="">Panel</a></li>
-                      <li><a href="">Cerrar Sesion</a></li>
-                  </ul>
-            </li>
-          </ul>
+                <ul>
+                    <li><a href="">Panel</a></li>
+                    <li><a href="">Cerrar Sesion</a></li>
+                </ul>
+              </div>
+              
+              <div class="menu-overlay hide d-block d-md-none"></div>
+        
+              <div id="hamburger" class="hamburger-btn d-flex d-md-none">
+                <i id="ham-icon" class="fas fa-bars fa-1-3x"></i>
+              </div>
+            </div>
         </nav>
     </header>
     <main>
@@ -244,8 +253,9 @@ post  <!-- <link rel="stylesheet" href="src/css/registro.css"> -->
   <!-- Your custom scripts (optional) -->
   <script type="text/javascript" src="src/js/svg.js"></script>
   <script type="text/javascript" src="src/js/login.js"></script>
-  <script type="text/javascript" src="dist/js/myscript.js"></script>
   <script type="text/javascript" src="src/js/panel-usuario.js"></script>
+  <script type="text/javascript" src="src/js/hamburger.js"></script>
+
 </body>
 </html>
 <?php  }

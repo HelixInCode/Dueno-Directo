@@ -29,7 +29,11 @@ nav{
 nav > .img-container{
   width: 100px;
 }
-nav > .menu-overlay{
+nav > .menu-btns {
+  display: flex;
+  align-items: center;
+}
+nav > .menu-btns > .menu-overlay{
   position: fixed;
   top: 0;
   right: 0;
@@ -39,11 +43,11 @@ nav > .menu-overlay{
   -webkit-transition: .3s;
   transition: .3s;
 }
-nav > .menu-overlay.hide{
+nav > .menu-btns > .menu-overlay.hide{
   -webkit-transform: translateX(-100%);
           transform: translateX(-100%);
 }
-nav > .menu-items{
+nav > .menu-btns > .menu-items{
   z-index: 9999;
   position: fixed;
   right: 10px;
@@ -59,35 +63,35 @@ nav > .menu-items{
   -webkit-transition: .3s;
   transition: .3s;
 }
-nav > .menu-items > li{
+nav > .menu-btns > .menu-items > li{
   height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-nav > .menu-items > li > a{
+nav > .menu-btns > .menu-items > li > a{
   padding: 5px 12px 5px 10px;
   font-weight: bold;
   color: #E9EBF5;
   font-family: 'Ubuntu', sans-serif;
 }
-nav > .menu-items > li:nth-last-of-type(n + 2) > a:hover{
+nav > .menu-btns > .menu-items > li:nth-last-of-type(n + 2) > a:hover{
   color: #004489;
   background-color: #E9EBF5;
 }
-nav > .menu-items > li:nth-of-type(5) > a{
+nav > .menu-btns > .menu-items > li:nth-of-type(5) > a{
   color: #004489;
   background-color: #E9EBF5;
   border-radius: 8px;
 }
-nav > .menu-items > li:nth-of-type(5):hover > a{
+nav > .menu-btns > .menu-items > li:nth-of-type(5):hover > a{
   color: #E9EBF5 ;
   background-color: #004489;
 }
-nav > .menu-items.hide{
+nav > .menu-btns > .menu-items.hide{
   right: -50%;
 }
-nav > .hamburger-btn{
+nav > .menu-btns > .hamburger-btn{
   z-index: 9999;
   position: fixed;
   right: 10px;
@@ -106,38 +110,44 @@ nav > .hamburger-btn{
   outline: none;
 }
 /*---------------------Panel-Usuario------------------------------*/
-nav > .menu-items > .usuario > a {
+nav > .menu-btns > .user{
+  /* position: relative; */
+}
+nav > .menu-btns > .user > a {
   border-radius: 50px;
 }
-nav > .menu-items > .usuario > a > img{
+nav > .menu-btns > .user > a > img{
   width: 35px;
 }
-nav > .menu-items > .usuario{
-  position: relative;
-}
-nav > .menu-items .usuario > ul{
+nav > .menu-btns > .user > ul{
   position: absolute;
-  top: -150px;
-  left: -70px;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
+  top: 70px;
+  right: 10px;
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+  -webkit-transition: .3s;
+  transition: .3s;
+  list-style: none;
 }
-nav > .menu-items .usuario > ul > li{
+nav > .menu-btns > .user:hover > ul{
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+nav > .menu-btns > .user > ul > li{
   width: 130px;
   padding: 10px;
   background-color: #004489;
-  -webkit-box-shadow: 2px 2px 2px grey;
-          box-shadow: 2px 2px 2px grey;
+  -webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, .5);
+          box-shadow: 2px 2px 2px rgba(0, 0, 0, .5);
+  
 }
-nav > .menu-items .usuario > ul > li:hover{
+nav > .menu-btns > .user > ul > li:hover{
   background-color: #0075BE;
 }
-nav > .menu-items .usuario > ul > li > a{
-  color: white;
-}
-nav > .menu-items > .usuario:hover > ul{
-  display: block;
-  top: 50px;
+nav > .menu-btns > .user > ul > li > a{
+  font-weight: bold;
+  color: #E9EBF5;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 .index-carousel{
@@ -995,7 +1005,7 @@ nav > .menu-items > .usuario:hover > ul{
 }
 /*-------------------------------------servicios.html-----------------------------------------------------------------------------------*/
 #cover-services {
-  padding-top: 100px;
+  padding-top: 60px;
   display: grid;
   grid-template-columns: 1fr;
 }
@@ -1176,7 +1186,7 @@ nav > .menu-items > .usuario:hover > ul{
   }  
 }
 @media (min-width: 768px){
-  nav > .menu-items{
+  nav > .menu-btns > .menu-items{
     position: unset;
     margin-right: 25px;
     border-radius: unset;
@@ -1185,7 +1195,11 @@ nav > .menu-items > .usuario:hover > ul{
     grid-template-rows: auto;
     gap: 40px;
   }
-  nav > .menu-items > li:nth-of-type(5) > a{
+  nav > .menu-btns > .menu-items.four-buttons{
+    grid-template-columns: repeat(4, auto);
+  }
+
+  nav > .menu-btns > .menu-items > li:nth-of-type(5) > a{
     border-radius: unset;
   }
   #search-main{

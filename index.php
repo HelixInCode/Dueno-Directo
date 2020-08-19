@@ -68,7 +68,7 @@ include ('conexion.php');
         <!-- <span>Dueño directo</span> -->
       </div>
 
-      <ul class="menu-items">
+      <ul class="menu-items hide py-1 py-md-0">
         <li>
           <a class="waves-effect waves-light" href="index.html">Home</a>
         </li>
@@ -85,9 +85,15 @@ include ('conexion.php');
           <a class="waves-effect waves-light" href="#?">Publicar</a>
         </li>
       </ul>
-    </nav>
 
-    <section id="carouselExampleFade" class="carousel slide carousel-fade index-carousel" data-ride="carousel">
+      <div class="menu-overlay hide d-block d-md-none"></div>
+
+      <div id="hamburger" class="hamburger-btn d-flex d-md-none">
+        <i id="ham-icon" class="fas fa-bars fa-1-3x"></i>
+      </div>
+    </nav>
+    
+    <section id="carouselExampleFade" class="carousel slide index-carousel carousel-fade" data-ride="carousel">
       <div class="carousel-inner">
 
         <div class="carousel-item active">
@@ -734,6 +740,7 @@ include ('conexion.php');
   <script type="text/javascript" src="src/js/svg.js"></script>
   <script type="text/javascript" src="src/js/hideShowModals.js"></script>
   <script type="text/javascript" src="src/js/filtros.js"></script>
+  <script type="text/javascript" src="src/js/hamburger.js"></script>
 </body>
 </html>
 
