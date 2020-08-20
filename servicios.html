@@ -7,7 +7,7 @@
   <title>Dueño Directo</title>
   
   <!-- icono de la pestaña -->
-  <!-- <link rel="icon" href="dist/img/logo-de-cit.ico"> -->
+  <link rel="icon" href="dist/img/logo-icon.png"> 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
   <!-- Google Fonts Roboto -->
@@ -41,7 +41,7 @@
               <li>
                 <a class="waves-effect waves-light" href="#?">Contacto</a>
               </li>
-              <li class="">
+              <li>
                 <a id="ingresar" class="waves-effect waves-light" href="#?">Ingresar</a>
               </li>
               <li>
@@ -49,13 +49,23 @@
               </li>
             </ul>
     
-            <div class="user d-none">
-              <a href="#?">
-                  <img src="./dist/img/icons/user.png" alt="">
-              </a>
-              <ul>
-                  <li><a href="">Panel</a></li>
-                  <li><a href="">Cerrar Sesion</a></li>
+            <div class="user">
+              <div class="user-icon">
+                <img height="35" class="d-none" src="./dist/img/icons/user.png" alt="imagen de usuario">
+    
+                <i class="fas fa-user fa-2x" style="color: #001933;"></i>
+                <i class="fas fa-angle-down"></i>
+              </div>
+              <ul class="hide">
+                  <li>
+                    <span>Nombre de Usuario</span>
+                  </li>
+                  <li>
+                    <a href="#?">Panel</a>
+                  </li>
+                  <li>
+                    <a href="#?">Cerrar Sesion</a>
+                  </li>
               </ul>
             </div>
             
@@ -66,6 +76,7 @@
             </div>
           </div>
         </nav>
+
         <section id="cover-services" class="pt-5">
           <h2>TAMBIEN CONOCÉ NUESTROS</h2>
 

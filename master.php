@@ -15,8 +15,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>Dueño Directo</title>
-  <!-- Cake + Cake icon -->
-  <link rel="icon" href="img/backgrounds/cake+cake-icon.png" type="image/x-icon">
+  <!-- icono de la pestaña -->
+  <link rel="icon" href="dist/img/logo-icon.png">
   <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="dist/css/bootstrap.min.css">

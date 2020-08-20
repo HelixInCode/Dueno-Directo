@@ -112,40 +112,58 @@ nav > .menu-btns > .hamburger-btn{
 /*---------------------Panel-Usuario------------------------------*/
 nav > .menu-btns > .user{
   /* position: relative; */
+  display: grid;
+  grid-template-columns: auto;
+  gap: 10px;
 }
-nav > .menu-btns > .user > a {
-  border-radius: 50px;
+nav > .menu-btns > .user > .user-icon{
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 10px;
+  align-items: center;
+  cursor: pointer;
 }
-nav > .menu-btns > .user > a > img{
-  width: 35px;
+nav > .menu-btns > .user > .user-icon > .fa-angle-down{
+  -webkit-transform: rotateZ(-90deg);
+          transform: rotateZ(-90deg);
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+nav > .menu-btns > .user > .user-icon > .fa-angle-down.rotate{
+  -webkit-transform: rotateZ(0deg);
+          transform: rotateZ(0deg);
 }
 nav > .menu-btns > .user > ul{
   position: absolute;
   top: 70px;
-  right: 10px;
-  -webkit-transform: translateX(100%);
-          transform: translateX(100%);
+  right: 0px;
+  width: 250px;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
   -webkit-transition: .3s;
   transition: .3s;
   list-style: none;
 }
-nav > .menu-btns > .user:hover > ul{
-  -webkit-transform: translateX(0);
-          transform: translateX(0);
+nav > .menu-btns > .user > ul.hide{
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
 }
 nav > .menu-btns > .user > ul > li{
-  width: 130px;
   padding: 10px;
   background-color: #004489;
   -webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, .5);
           box-shadow: 2px 2px 2px rgba(0, 0, 0, .5);
-  
 }
-nav > .menu-btns > .user > ul > li:hover{
+nav > .menu-btns > .user > ul > li:nth-of-type(1){
+  color: #004489;
+  font-family: 'Ubuntu', sans-serif;
+  background-color: #E9EBF5;
+}
+nav > .menu-btns > .user > ul > li:nth-of-type(n + 2):hover{
   background-color: #0075BE;
+  cursor: pointer;
 }
 nav > .menu-btns > .user > ul > li > a{
-  font-weight: bold;
   color: #E9EBF5;
   font-family: 'Ubuntu', sans-serif;
 }
@@ -1105,15 +1123,15 @@ nav > .menu-btns > .user > ul > li > a{
     background-color: unset;
     grid-template-columns: repeat(5, auto);
     grid-template-rows: auto;
-    gap: 40px;
+    gap: 30px;
   }
   nav > .menu-btns > .menu-items.four-buttons{
     grid-template-columns: repeat(4, auto);
   }
-
   nav > .menu-btns > .menu-items > li:nth-of-type(5) > a{
     border-radius: unset;
   }
+
   #search-main{
     left: 40px;
     right: 40px;
