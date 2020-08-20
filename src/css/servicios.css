@@ -1,0 +1,81 @@
+:root{
+  --PrimarioClaro: #0075BE;
+  --PrimarioOscuro: #004489;
+  --SecundarioClaro: #E9EBF5;
+  --UbuntuEnlaces: 'Ubuntu', sans-serif; /*italica*/
+  --UbuntuSubtitulos: 'Ubuntu', sans-serif; /*medium*/
+  --UbuntuTitulosPrincipales: 'Ubuntu', sans-serif; /*Bold*/
+  --RobotoParrafos: 'Roboto', sans-serif;/*regular*/
+  /* --SecundarioOscuro: #0075BE; */
+  --sombra: rgba(0, 0, 0, 0.5);
+  --radioButtonSpace: 30px;
+}
+
+#cover-services{
+  margin-top: 60px;
+  display: grid;
+  grid-template-columns: 1fr;
+  background-image: linear-gradient(to bottom right, #0075bee3, #E9EBF5);
+}
+#cover-services > .cover-container{
+  padding-top: 30px;
+  padding-bottom: 30px;
+  display: grid;
+  grid-template-columns: minmax(120px, 300px);
+  justify-content: center;
+  justify-items: center;
+  gap: 20px;
+}
+#cover-services > h2{
+  text-align: center;
+  color: white;
+  font-family: var(--UbuntuSubtitulos);
+  font-weight: 600;
+  text-shadow: 2px 2px 2px var(--PrimarioOscuro);
+}
+#cover-services > .cover-container > .item-cover{
+  position: relative;
+  text-align: center;
+}
+#cover-services > .cover-container > .item-cover{
+  grid-column: 2 span;
+}
+#cover-services > .cover-container > .item-cover > .marco{
+  border: 4px solid white;
+  color: white;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#cover-services > .cover-container > .item-cover > .marco > a{
+  color: white;
+  font-family: var(--UbuntuEnlaces);
+  font-size: 30px;
+  font-weight: 600;
+  text-shadow: 2px 2px 2px var(--PrimarioClaro);
+}
+
+@media screen and (min-width: 550px){
+  #cover-services > .cover-container{
+    grid-template-columns: repeat(4, minmax(100px, 200px));
+  }
+  #cover-services > .cover-container > .item-cover{
+    grid-column: 2 span;
+  }
+  #cover-services > .cover-container > .item-cover:nth-of-type(3){
+    grid-column: 2 / 4;
+  }
+}
+@media screen and (min-width: 768px){
+  #cover-services > .cover-container{
+    grid-template-columns: repeat(6, minmax(100px, 200px));
+  }
+  #cover-services > .cover-container > .item-cover:nth-of-type(3){
+    grid-column: 2 span;
+  }
+}

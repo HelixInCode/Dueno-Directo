@@ -70,7 +70,7 @@ include ('conexion.php');
 
       <ul class="menu-items hide py-1 py-md-0">
         <li>
-          <a class="waves-effect waves-light" href="index.html">Home</a>
+          <a class="waves-effect waves-light" href="index.php">Home</a>
         </li>
         <li>
           <a class="waves-effect waves-light" href="./servicios.html">Servicios</a>
