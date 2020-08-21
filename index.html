@@ -57,15 +57,15 @@
             <i class="fas fa-angle-down"></i>
           </div>
           <ul class="hide">
-              <li>
-                <span>Nombre de Usuario</span>
-              </li>
-              <li>
-                <a href="#?">Panel</a>
-              </li>
-              <li>
-                <a href="#?">Cerrar Sesion</a>
-              </li>
+            <li>
+              <span>Nombre de Usuario</span>
+            </li>
+            <li>
+              <a href="#?">Panel</a>
+            </li>
+            <li>
+              <a href="#?">Cerrar Sesion</a>
+            </li>
           </ul>
         </div>
         
@@ -78,25 +78,37 @@
     </nav>
     
     <section id="carouselExampleFade" class="carousel slide index-carousel carousel-fade" data-ride="carousel">
+      
       <div class="carousel-inner">
 
         <div class="carousel-item active">
           <img src="dist/img/cover-1.jpg" class="d-block w-100" alt="...">
+          <div class="overlay-img justify-content-start px-1 px-sm-5">
+            <p class="mb-5 mb-md-0 pb-5 pb-md-0">Querés alquilar?</p>
+          </div>
         </div>
 
         <div class="carousel-item">
           <img src="dist/img/cover-2.jpg" class="d-block w-100" alt="...">
+          <div class="overlay-img justify-content-end px-1 px-sm-5">
+            <p class="mb-5 mb-md-0 pb-5 pb-md-0">Querés Comprar?</p>
+          </div>
         </div>
 
         <div class="carousel-item">
           <img src="dist/img/cover-3.jpg" class="d-block w-100" alt="...">
+          <div class="overlay-img justify-content-end px-1 px-sm-5">
+            <p class="mb-5 mb-md-0 pb-5 pb-md-0">Te ayudamos</p>
+          </div>
         </div>
 
       </div>
+
       <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
       </a>
+
       <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
@@ -137,33 +149,55 @@
   
   <main>
 
-    <div id="modal-servicios" class="d-none d-md-flex">
-      <h5>Profesionales, Productos y Servicios</h5>
-
-      <div id="submenu">
-
-        <a href="#?" class="submenu-item">
-          <img src="./dist/img/servicios/profesional1.jpg" alt="">
-          <h6>Profesionales</h6>
-        </a>
-
-        <a href="#?" class="submenu-item">
-          <img src="./dist/img/Productos1.jpg" alt="">
-          <h6>Productos</h6>
-        </a>
-
-        <a href="#?" class="submenu-item">
-          <img src="./dist/img/servicio1.jpg" alt="">
-          <h6>Servicios</h6>
-        </a>
-
+    <section id="modal-login" class="modal">
+      <div class="login">
+        <div class="title-container p-3">
+          <h5>Ingresar</h5>
+          <i id="close-login" class="fa fa-times"></i>
+        </div>
+        <form class="main-container p-3" action="" method="POST">
+  
+          <div class="input-container">
+            <label for="email">Correo</label>
+            <input name="email" type="email">
+          </div>  
+  
+          <div class="input-container">
+            <label for="password">Contraseña</label>
+            <input name="password" type="password">
+          </div>
+  
+          <div class="input-container">
+            <input type="checkbox" name="remember">
+            <label for="remenber">Recuerdame ?</label>
+          </div>
+          
+          <div class="login-container">
+    
+            <button name="Enviar">Iniciar Sesión</button>
+            <a href="registro.php">¿No te has registrado todavía?</a>
+            
+          </div>
+        </form>
       </div>
+    </section>
 
-    </div>
+    <section id="modal-message-sent" class="modal">
+      <div class="login">
+        <div class="title-container p-3">
+          <!-- <h5>Mensaje Enviado</h5> -->
+          <i id="close-sent" class="fa fa-times"></i>
+        </div>
+        <div class="main-container message p-3 pb-4">
+          <i class="fas fa-check-circle"></i>
+          <p>¡Su mensaje ha sido enviado exitosamente!</p>
+        </div>
+      </div>
+    </section>
 
-    <section id="filtros" class="d-none d-md-flex">
+    <section id="filtros" class="">
 
-      <h5 id="btnFiltros">Filtros</h5>
+      <h5 id="btnFiltrosDesktop">Filtros</h5>
 
       <div class="main-container">
         <div class="title-container">
@@ -308,56 +342,52 @@
 
         </div>
       </div>
-    </section>
 
-    <section id="modal-login" class="modal">
-      <div class="login">
-        <div class="title-container p-3">
-          <h5>Ingresar</h5>
-          <i id="close-login" class="fa fa-times"></i>
-        </div>
-        <form class="main-container p-3" action="" method="POST">
-  
-          <div class="input-container">
-            <label for="email">Correo</label>
-            <input name="email" type="email">
-          </div>  
-  
-          <div class="input-container">
-            <label for="password">Contraseña</label>
-            <input name="password" type="password">
-          </div>
-  
-          <div class="input-container">
-            <input type="checkbox" name="remember">
-            <label for="remenber">Recuerdame ?</label>
-          </div>
-          
-          <div class="login-container">
+      <div class="filtros-overlay hide d-block d-md-none"></div>
+    </section>
     
-            <button name="Enviar">Iniciar Sesión</button>
-            <a href="registro.php">¿No te has registrado todavía?</a>
-            
-          </div>
-        </form>
-      </div>
-    </section>
+    <div id="modal-servicios" class="">
+      <h5>Profesionales, Productos y Servicios</h5>
 
-    <section id="modal-message-sent" class="modal">
-      <div class="login">
-        <div class="title-container p-3">
-          <!-- <h5>Mensaje Enviado</h5> -->
-          <i id="close-sent" class="fa fa-times"></i>
-        </div>
-        <div class="main-container message p-3 pb-4">
-          <i class="fas fa-check-circle"></i>
-          <p>¡Su mensaje ha sido enviado exitosamente!</p>
-        </div>
+      <div id="submenu">
+
+        <a href="#?" class="submenu-item">
+          <img src="./dist/img/servicios/profesional1.jpg" alt="">
+          <h6>Profesionales</h6>
+        </a>
+
+        <a href="#?" class="submenu-item">
+          <img src="./dist/img/Productos1.jpg" alt="">
+          <h6>Productos</h6>
+        </a>
+
+        <a href="#?" class="submenu-item">
+          <img src="./dist/img/servicio1.jpg" alt="">
+          <h6>Servicios</h6>
+        </a>
+
       </div>
-    </section>
+
+      <div class="servicios-overlay hide d-block d-md-none"></div>
+    </div>
 
     <section id="publications" class="py-5 px-3 px-lg-5">
-      <h1>PUBLICACIONES DESTACADAS</h1>
+
+      <div class="publications-nav mb-4 d-md-none">
+
+        <div id="btnFiltrosResponsive" class="waves-effect waves-dark">
+          <span>Filtros</span>
+        </div>
+
+        <hr>
+
+        <div id="btnServiciosResponsive" class="waves-effect waves-dark">
+          <span>Servicios</span>
+        </div>
+      </div>
+
+      <h1 class="pt-4 pt-md-0">PUBLICACIONES DESTACADAS</h1>
+
       <div class="publications-container py-4 px-xl-5">
         
         <a href="#?" class="publications-item">

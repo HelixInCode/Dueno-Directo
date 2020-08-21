@@ -126,34 +126,22 @@
   
   <main>
     
-
-    <div id="modal-servicios" class="d-none d-md-flex">
-      <h5>Profesionales, Productos y Servicios</h5>
-
-      <div id="submenu">
-
-        <a href="#?" class="submenu-item">
-          <img src="./dist/img/servicios/profesional1.jpg" alt="">
-          <h6>Profesionales</h6>
-        </a>
-
-        <a href="#?" class="submenu-item">
-          <img src="./dist/img/Productos1.jpg" alt="">
-          <h6>Productos</h6>
-        </a>
-
-        <a href="#?" class="submenu-item">
-          <img src="./dist/img/servicio1.jpg" alt="">
-          <h6>Servicios</h6>
-        </a>
-
+    <section id="modal-message-sent" class="modal">
+      <div class="login">
+        <div class="title-container p-3">
+          <!-- <h5>Mensaje Enviado</h5> -->
+          <i id="close-sent" class="fa fa-times"></i>
+        </div>
+        <div class="main-container message p-3 pb-4">
+          <i class="fas fa-check-circle"></i>
+          <p>¡Su mensaje ha sido enviado exitosamente!</p>
+        </div>
       </div>
+    </section>
 
-    </div>
+    <section id="filtros" class="">
 
-    <section id="filtros" class="d-none d-md-flex">
-
-      <h5 id="btnFiltros">Filtros</h5>
+      <h5 id="btnFiltrosDesktop">Filtros</h5>
 
       <div class="main-container">
         <div class="title-container">
@@ -298,7 +286,34 @@
 
         </div>
       </div>
+
+      <div class="filtros-overlay hide d-block d-md-none"></div>
     </section>
+    
+    <div id="modal-servicios" class="">
+      <h5>Profesionales, Productos y Servicios</h5>
+
+      <div id="submenu">
+
+        <a href="#?" class="submenu-item">
+          <img src="./dist/img/servicios/profesional1.jpg" alt="">
+          <h6>Profesionales</h6>
+        </a>
+
+        <a href="#?" class="submenu-item">
+          <img src="./dist/img/Productos1.jpg" alt="">
+          <h6>Productos</h6>
+        </a>
+
+        <a href="#?" class="submenu-item">
+          <img src="./dist/img/servicio1.jpg" alt="">
+          <h6>Servicios</h6>
+        </a>
+
+      </div>
+
+      <div class="servicios-overlay hide d-block d-md-none"></div>
+    </div>
 
     <section id="modal-login" class="modal">
       <div class="login">
@@ -333,21 +348,23 @@
       </div>
     </section>
 
-    <section id="modal-message-sent" class="modal">
-      <div class="login">
-        <div class="title-container p-3">
-          <!-- <h5>Mensaje Enviado</h5> -->
-          <i id="close-sent" class="fa fa-times"></i>
+    <section id="publications" class="py-5 px-3 px-lg-5">
+      
+      <div class="publications-nav mb-4 d-md-none">
+
+        <div id="btnFiltrosResponsive" class="waves-effect waves-dark">
+          <span>Filtros</span>
         </div>
-        <div class="main-container message p-3 pb-4">
-          <i class="fas fa-check-circle"></i>
-          <p>¡Su mensaje ha sido enviado exitosamente!</p>
+
+        <hr>
+
+        <div id="btnServiciosResponsive" class="waves-effect waves-dark">
+          <span>Servicios</span>
         </div>
       </div>
-    </section>
 
-    <section id="publications" class="py-5 px-3 px-lg-5">
-      <h1>Resultados de Busqueda</h1>
+      <h1 class="pt-4 pt-md-0">Resultados de Busqueda</h1>
+
       <div class="publications-container py-4 px-xl-5">
         
         <a href="#?" class="publications-item">

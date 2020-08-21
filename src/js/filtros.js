@@ -1,25 +1,42 @@
 const $filtros = document.getElementById('filtros')
-const $btnFiltros = document.getElementById('btnFiltros')
+const $filtrosOverlay = $filtros.getElementsByClassName('filtros-overlay')[0]
+
+const $btnFiltrosDesktop = document.getElementById('btnFiltrosDesktop')
+const $btnFiltrosResponsive = document.getElementById('btnFiltrosResponsive')
+
+const $modalServicios = document.getElementById('submenu')
+const $btnServiciosResponsive = document.getElementById('btnServiciosResponsive')
+const $serviciosOverlay = document.getElementsByClassName('servicios-overlay')[0]
+
+
 const $mainFiltros = $filtros.querySelector('.main-container')
 const $btnClose = $filtros.querySelector('i')
 
-$btnFiltros.addEventListener('click', () => {
+const btnFiltros = ($btnFiltros) =>{
+  $btnFiltros.addEventListener('click', () => {
+    $mainFiltros.classList.toggle('show')
+    $filtrosOverlay.classList.toggle('hide')
+  })
+}
+btnFiltros($btnFiltrosDesktop)
+btnFiltros($btnFiltrosResponsive)
+btnFiltros($btnClose)
+btnFiltros($filtrosOverlay)
 
-  if($mainFiltros.style.transform === '' || $mainFiltros.style.transform === 'translateX(-100%)'){
-    $mainFiltros.style.transform = 'translateX(0px)'
-  }
+
+
+$btnServiciosResponsive.addEventListener('click', () => {
+  $modalServicios.classList.toggle('show')
+  $serviciosOverlay.classList.toggle('hide')
 })
-
-$btnClose.addEventListener('click', () => {
-  if($mainFiltros.style.transform === 'translateX(0px)'){
-    $mainFiltros.style.transform = 'translateX(-100%)'
-  }
+$serviciosOverlay.addEventListener('click', () => {
+  $modalServicios.classList.toggle('show')
+  $serviciosOverlay.classList.toggle('hide')
 })
 
 // Clases active de los botones del buscador
 
 const $botonesContainer = document.getElementById('botones-container')
-
 
 const eventListenerToggle = (boton1, boton2) => {
 

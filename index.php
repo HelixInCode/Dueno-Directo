@@ -198,9 +198,9 @@ include ('conexion.php');
 
     </div>
 
-    <section id="filtros" class="d-none d-md-flex">
+    <section id="filtros" class="">
 
-      <h5 id="btnFiltros">Filtros</h5>
+      <h5 id="btnFiltrosDesktop">Filtros</h5>
 
       <div class="main-container">
         <div class="title-container">

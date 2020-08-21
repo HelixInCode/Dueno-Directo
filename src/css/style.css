@@ -8,6 +8,7 @@
   --RobotoParrafos: 'Roboto', sans-serif;/*regular*/
   /* --SecundarioOscuro: #0075BE; */
   --sombra: rgba(0, 0, 0, 0.5);
+  --sombraClara: rgba(0, 0, 0, 0.25);
   --radioButtonSpace: 30px;
 
   --titulos: {
@@ -55,6 +56,16 @@
     outline: none;
     text-align: center;
   }
+
+  --overlay:{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: var(--sombra);
+    transition: .3s;
+  }
 }
 a{
   font-style: italic;
@@ -87,13 +98,7 @@ nav > .menu-btns {
   align-items: center;
 }
 nav > .menu-btns > .menu-overlay{
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: var(--sombra);
-  transition: .3s;
+  @apply --overlay;
 }
 nav > .menu-btns > .menu-overlay.hide{
   transform: translateX(-100%);
@@ -229,6 +234,34 @@ nav > .menu-btns > .user > ul > li > a{
   width: 100%;
   height: 100%;
 }
+.index-carousel> .carousel-inner > .carousel-item > .overlay-img{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  font-family: var(--UbuntuEnlaces);
+  background-color: var(--sombraClara);
+  display: grid;
+  color: #fff;
+  grid-template-columns: minmax(200px, 700px);
+  grid-auto-columns: auto;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+}
+.index-carousel .overlay-img > p{
+  margin: 0;
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-size: 3em;
+}
+.index-carousel .overlay-img > p > span{
+  padding: 0 25px;
+  background-color: var(--Anaranjadito);
+}
 
 #search-main{
   z-index: 20;
@@ -300,11 +333,12 @@ nav > .menu-btns > .user > ul > li > a{
 
 #modal-servicios{
   position: fixed;
-  z-index: 5;
+  z-index: 999999;
   top: calc(50% - 200px);
-  right: 0;
+  right: -62px;
   width: 60px;
   height: 400px;
+  display: flex;
   justify-content: center;
   align-items: center;
   background-color: color(var(--PrimarioOscuro) alpha(81%));
@@ -328,6 +362,13 @@ nav > .menu-btns > .user > ul > li > a{
 #modal-servicios:hover > h5{
   animation-name: otro;
 }
+#modal-servicios > .servicios-overlay{
+  z-index: 1;
+  @apply --overlay;
+}
+#modal-servicios > .servicios-overlay.hide{
+  transform: translateX(-100%);
+}
 #modal-servicios > h5{
   margin: 0;
   font-family: var(--UbuntuEnlaces);
@@ -341,7 +382,7 @@ nav > .menu-btns > .user > ul > li > a{
   animation-direction: alternate;
 }
 #modal-servicios > #submenu {
-  z-index: 1;
+  z-index: 2;
   position: absolute;
   top: 0px;
   right: 0;
@@ -356,11 +397,15 @@ nav > .menu-btns > .user > ul > li > a{
   transition: .4s;
   transform: translateX(100%);
 }
-#modal-servicios:hover > #submenu{
+#modal-servicios > #submenu.show{
   background-color: var(--PrimarioOscuro);
   box-shadow: -10px 3px 7px var(--sombra);
   transform: translateX(-62px);
   visibility: visible;
+}
+#modal-servicios > #submenu.show{
+  transform: translateX(unset);
+  
 }
 #modal-servicios > #submenu{
   display: grid;
@@ -404,16 +449,23 @@ nav > .menu-btns > .user > ul > li > a{
 }
 
 #filtros{
-  z-index: 5;
+  z-index: 999999;
   position: fixed;
   top: calc(50% - 50px);
-  left: 0px;
+  left: -45px;
   width: 40px;
   height: 100px;
   background-color: color(var(--PrimarioOscuro) alpha(81%));
   box-shadow: 2px 2px 2px var(--sombra);
   cursor: pointer;
 } 
+#filtros > .filtros-overlay{
+  z-index: 1;
+  @apply --overlay;
+}
+#filtros > .filtros-overlay.hide{
+  transform: translateX(100%);
+}
 #filtros h5{
   position: absolute;
   top: 0;
@@ -430,6 +482,7 @@ nav > .menu-btns > .user > ul > li > a{
   writing-mode: vertical-lr;
 }
 #filtros > .main-container{
+  z-index: 2;
   position: fixed;
   top: 60px;
   left: 0;
@@ -442,6 +495,9 @@ nav > .menu-btns > .user > ul > li > a{
   grid-template-rows: 40px auto;
   transition: .3s;
   transform: translateX(-100%);
+}
+#filtros > .main-container.show{
+  transform: translateX(0px);
 }
 #filtros > .main-container > .title-container{
   position: relative;
@@ -634,7 +690,30 @@ nav > .menu-btns > .user > ul > li > a{
 }
 
 #publications{
+  position: relative;
   text-align: center;
+}
+#publications > .publications-nav{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  color: var(--PrimarioOscuro);
+  background-color: var(--SecundarioClaro);
+  font-family: var(--UbuntuEnlaces);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+}
+#publications > .publications-nav > div{
+  padding: 10px 20px;
+}
+#publications > .publications-nav > hr{
+  margin: 0;
+  padding: 0;
+  width: 1px;
+  height: 24px;
+  background-color: var(--sombra);
 }
 #publications h1{  
   @apply --titulos;
@@ -1059,6 +1138,10 @@ nav > .menu-btns > .user > ul > li > a{
     border-radius: unset;
   }
 
+  .index-carousel .overlay-img > p{
+    font-size: 4em;
+  }
+
   #search-main{
     left: 40px;
     right: 40px;
@@ -1073,6 +1156,21 @@ nav > .menu-btns > .user > ul > li > a{
   }
   #search-main > .form-container > [type = "submit"]{
     grid-row: unset;
+  }
+
+  #modal-servicios{
+    z-index: 5;
+    right: 0;
+  }
+  #modal-servicios:hover > #submenu{
+    background-color: var(--PrimarioOscuro);
+    box-shadow: -10px 3px 7px var(--sombra);
+    transform: translateX(-62px);
+    visibility: visible;
+  }
+  #filtros{
+    z-index: 5;
+    left: 0;
   }
 
   #contact{
