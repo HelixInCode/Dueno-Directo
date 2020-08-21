@@ -172,7 +172,7 @@
                             <div class="descripcion">
                                 <label for="descripcion">Descripcion de Usuario</label><br>
                                
-                                    <textarea name="descripcion" value="<?php echo $user_descripcion;?>"  id="descripcion" cols="20" rows="5" placeholder="Breve Descripcion"></textarea>
+                                    <textarea name="descripcion" value="<?php echo $user_descripcion;?>"  id="descripcion" cols="20" rows="5" placeholder="Breve Descripcion"><?php echo $user_descripcion;?></textarea>
                                 
                             </div>
     
