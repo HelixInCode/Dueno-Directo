@@ -31,12 +31,30 @@
   <link rel="stylesheet" href="dist/css/mdb.min.css">
   <!-- Your custom styles (optional) -->
   <link rel="stylesheet" href="dist/css/style.css">
-post  <!-- <link rel="stylesheet" href="src/css/registro.css"> -->
+  <!-- <link rel="stylesheet" href="src/css/registro.css"> -->
   <link rel="stylesheet" href="dist/css/usuario.css">
 </head>
 <body>
   <?php 
+
+  if(isset($_POST['Guardar'])){
+      $usuario=mysqli_real_escape_string($conexion, $_POST['usuario']);
+      $nombre=mysqli_real_escape_string($conexion, $_POST['nombre']);
+      $dni=mysqli_real_escape_string($conexion, $_POST['dni']);
+      $categoria=mysqli_real_escape_string($conexion, $_POST['categorias']);
+      $telefono=mysqli_real_escape_string($conexion, $_POST['telefono']);
+      $descripcion=mysqli_real_escape_string($conexion, $_POST['descripcion']);
+      $email=mysqli_real_escape_string($conexion, $_POST['correo']);
+      
+      $update_user = mysqli_query($conexion, "UPDATE user SET usuario='$usuario', nombre='$nombre', dni='$dni', categoria='$categoria', email='$email', telefono='$telefono', descripcion='$descripcion' WHERE id='$id_user'") or die("Problemas actualizando la informacion:".mysqli_error($conexion));
+        if($update_user){
+            echo "Se actualizaron los datos correctamente";
+        }
+ 
+    }
     
+
+
     $table_user = mysqli_query($conexion, "SELECT * FROM user WHERE id = '$id_user'");
     $consuldates = mysqli_fetch_array($table_user);
     $user_name = $consuldates ['nombre'];
@@ -44,6 +62,8 @@ post  <!-- <link rel="stylesheet" href="src/css/registro.css"> -->
     $user_phone = $consuldates ['telefono'];
     $user_dni = $consuldates ['dni'];
     $user_categoria = $consuldates ['categoria'];
+    $user_descripcion= $consuldates['descripcion'];
+    $user=$consuldates['usuario'];
   
   ?>
     <header>
@@ -120,24 +140,24 @@ post  <!-- <link rel="stylesheet" href="src/css/registro.css"> -->
                         <div class="columna1 columna px-2 px-sm-0">
                             <div class="datos-personales">
                                 <label for="">Datos Personales</label>
-                                <form action="" method="post">
+                                <form action="" method="POST">
+                                    <input type="text" id="usuario" name="usuario" value="<?php echo $user;?>" placeholder="Usuario">
                                     <input type="text" id="nombre" name="nombre" placeholder="Nombres" value="<?php echo $user_name;?>">
-                                    <input type="text" id="apellido" name="apellido" placeholder="Apellidos">
                                     <input type="text" id="dni" name="dni" placeholder="DNI" value="<?php echo $user_dni;?>">
                                     <input type="text" id="correo" name="correo" placeholder="Correo" value="<?php echo $user_email;?>">
                                     <input type="text" id="telefono" name="telefono" placeholder="Teléfono" value="<?php echo $user_phone;?>">
-                                </form>
+                               
                             </div>
                             <div class="categoria">
                                 <label for="categoria">Categoría</label><br>
-                                <form action="">
+                                
                                     <select name="categorias" id="categorias">
                                         <option value="<?php echo $user_categoria;?>"><?php echo $user_categoria;?></option>
                                         <option value="propietario">Propietario</option>
                                         <option value="profesional">Profesional</option>
                                         <option value="otro">Otro...</option>
                                     </select>
-                                </form>
+                                
                             </div>
                            
         
@@ -151,17 +171,18 @@ post  <!-- <link rel="stylesheet" href="src/css/registro.css"> -->
                             </div>
                             <div class="descripcion">
                                 <label for="descripcion">Descripcion de Usuario</label><br>
-                                <form action="">
-                                    <textarea name="" id="" cols="20" rows="5" placeholder="Breve Descripcion"></textarea>
-                                </form>
+                               
+                                    <textarea name="descripcion" value="<?php echo $user_descripcion;?>"  id="descripcion" cols="20" rows="5" placeholder="Breve Descripcion"><?php echo $user_descripcion;?></textarea>
+                                
                             </div>
     
                         </div>
+                     
                     </div>
                     
-                    <a href="#?" class="guardar">Guardar Cambios</a>
+                    <input type="submit" name="Guardar" value="Guardar Cambios" class="guardar">
                 </div>
-                
+                </form>
                 <div id="publicaciones" class="tabcontent" data-index="1">
                     <div class="contenedor-publicaciones">
                         <h4>Publicaciones Realizadas</h4>
