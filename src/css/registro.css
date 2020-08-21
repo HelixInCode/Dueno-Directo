@@ -175,7 +175,7 @@
 }
 #propiedad > .moneda-container{
     text-align: start;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
 }
 #propiedad > .moneda-container > input{
     grid-column: 2 span;

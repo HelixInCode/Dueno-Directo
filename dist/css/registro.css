@@ -69,40 +69,6 @@
     padding-top: 10px;
     justify-self: center;
 }
-/*---------------------Panel-Usuario------------------------------*/
-nav > .menu-items > .usuario > a {
-    border-radius: 50px;
-}
-nav > .menu-items > .usuario > a > img{
-    width: 35px;
-}
-nav > .menu-items > .usuario{
-    position: relative;
-}
-nav > .menu-items .usuario > ul{
-    position: absolute;
-    top: -150px;
-    left: -70px;
-    -webkit-transition: 0.4s;
-    transition: 0.4s;
-}
-nav > .menu-items .usuario > ul > li{
-    width: 130px;
-    padding: 10px;
-    background-color: #004489;
-    -webkit-box-shadow: 2px 2px 2px grey;
-            box-shadow: 2px 2px 2px grey;
-}
-nav > .menu-items .usuario > ul > li:hover{
-    background-color: #0075BE;
-}
-nav > .menu-items .usuario > ul > li > a{
-    color: white;
-}
-nav > .menu-items > .usuario:hover > ul{
-    display: block;
-    top: 50px;
-}
 
 /*--------------PUBLICACIONES-----------------------*/
 #nueva-publicacion{
@@ -197,7 +163,7 @@ nav > .menu-items > .usuario:hover > ul{
 }
 #propiedad > .moneda-container{
     text-align: start;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
 }
 #propiedad > .moneda-container > input{
     grid-column: 2 span;
