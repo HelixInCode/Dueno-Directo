@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-08-2020 a las 21:57:45
+-- Tiempo de generación: 22-08-2020 a las 23:53:33
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.2
 
@@ -51,6 +51,7 @@ CREATE TABLE `admin` (
 
 CREATE TABLE `categoria` (
   `id_categoria` int(200) NOT NULL,
+  `seccion` varchar(250) NOT NULL,
   `categoria` varchar(100) NOT NULL,
   `descripcion` varchar(250) NOT NULL,
   `precio` int(50) NOT NULL
@@ -60,9 +61,10 @@ CREATE TABLE `categoria` (
 -- Volcado de datos para la tabla `categoria`
 --
 
-INSERT INTO `categoria` (`id_categoria`, `categoria`, `descripcion`, `precio`) VALUES
-(1, 'ventas', 'cualquier cosa', 0),
-(3, 'nada', 'mucho mucho ', 0);
+INSERT INTO `categoria` (`id_categoria`, `seccion`, `categoria`, `descripcion`, `precio`) VALUES
+(1, 'propiedad', 'ventas', 'cualquieraa', 0),
+(3, 'profesional', 'pintura', 'mucho ', 0),
+(4, 'servicios', 'ventas', 'nada', 0);
 
 -- --------------------------------------------------------
 
@@ -86,7 +88,7 @@ INSERT INTO `masteradmin` (`idMaster`, `email`, `clave`, `Nombre`) VALUES
 (3, 'master@nose.com', 'maBYdC7TaW1Vk', 'Micaela'),
 (4, 'celses@gmail.com', 'ma4IMKqN/NHbE', 'Cinthia'),
 (5, 'cualquiiera@hotmail.com', 'ma4IMKqN/NHbE', 'Brenda'),
-(6, 'perro@hotmail.com', 'ma4IMKqN/NHbE', 'sad');
+(7, 'orla@hotmail.com', 'maM50xBabOXqs', 'Orlando ');
 
 -- --------------------------------------------------------
 
@@ -184,7 +186,8 @@ CREATE TABLE `propiedad` (
 --
 
 INSERT INTO `propiedad` (`id_propiedad`, `nombre`, `tipo_propiedad`, `peso`, `dolar`, `descripcion`, `area_total`, `area_cubierta`, `gas`, `luz`, `agua`, `cloacas`, `finalidad`, `imagen1`, `imagen2`, `imagen3`, `imagen4`, `imagen5`, `habitaciones`, `banos`, `mascotas`, `cochera`, `expensas`, `provincia`, `municipalidad`, `calle`, `numero`, `telefono`, `tiempo_publicacion`) VALUES
-(1, 'casa Azul', 'departamento', '0', 'on', 'sadsadas', '20', '20', 'si', 'si', 'si', 'si', '0', '', '', '', '', '', '1', '1', 'si', 'si', 'no', '', '', 'la florida', '19', '2613243532', '1');
+(1, 'casa Azul', 'departamento', '0', 'on', 'sadsadas', '20', '20', 'si', 'si', 'si', 'si', '0', '', '', '', '', '', '1', '1', 'si', 'si', 'no', '', '', 'la florida', '19', '2613243532', '1'),
+(3, 'casa roja', 'casa', '', '', 'dsklfmndsklgns', '20', '20', 'si', 'si', 'si', 'si', 'alquiler', '', '', '', '', '', '2', '1', 'si', 'si', 'no', '', '', 'la florida', '19', '2613243532', '1');
 
 -- --------------------------------------------------------
 
@@ -236,6 +239,7 @@ CREATE TABLE `user` (
   `email` varchar(200) COLLATE utf8_spanish_ci NOT NULL,
   `telefono` varchar(200) COLLATE utf8_spanish_ci NOT NULL,
   `categoria` varchar(200) COLLATE utf8_spanish_ci NOT NULL,
+  `descripcion` varchar(250) COLLATE utf8_spanish_ci NOT NULL,
   `imagen` varchar(200) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
@@ -243,12 +247,12 @@ CREATE TABLE `user` (
 -- Volcado de datos para la tabla `user`
 --
 
-INSERT INTO `user` (`id`, `usuario`, `clave`, `nombre`, `dni`, `email`, `telefono`, `categoria`, `imagen`) VALUES
-(1, 'Lucas', 'paY3Qv/Wkr1a.', 'Lucas Sidan', '41992418', 'cualquiera@algo.com', '2613243532', 'ventas', ''),
-(2, 'Cinthia', 'pa4.HHSXL55NA', 'Cinthia', '37965272', 'cinthiaesidan_94@hotmail.com', '261552556565', 'nose', ''),
-(3, 'Micaela', 'pa4.HHSXL55NA', 'Cinthia', '5264646', 'sidan@hma', '255465', 'jvjhvhjvhjv', ''),
-(4, 'Lucas', 'paa5KD6arxLr2', 'Nada', '41992333', 'Nada@nada.com', '2613243444', 'asdafasfsa', ''),
-(5, 'Cinthia', 'paa5KD6arxLr2', 'sads', '12324214', 'lucas@hotmail.com', '2613243544', 'sdasdsafsafa', '');
+INSERT INTO `user` (`id`, `usuario`, `clave`, `nombre`, `dni`, `email`, `telefono`, `categoria`, `descripcion`, `imagen`) VALUES
+(1, 'Lucas', 'paY3Qv/Wkr1a.', 'Lucas Sidan', '41992418', 'cualquiera@algo.com', '2613243532', 'ventas', '', ''),
+(2, 'Cinthia', 'pa4.HHSXL55NA', 'Cinthia', '37965272', 'cinthiaesidan_94@hotmail.com', '261552556565', 'nose', '', ''),
+(3, 'Micaela', 'pa4.HHSXL55NA', 'Cinthia', '5264646', 'sidan@hma', '255465', 'jvjhvhjvhjv', '', ''),
+(4, 'Lucas', 'paa5KD6arxLr2', 'Nada', '41992333', 'Nada@nada.com', '2613243444', 'asdafasfsa', '', ''),
+(5, 'Cinthia', 'paa5KD6arxLr2', 'sads', '12324214', 'lucas@hotmail.com', '2613243544', 'profesional', 'descripcion de prueba', '');
 
 --
 -- Índices para tablas volcadas
@@ -322,13 +326,13 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT de la tabla `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `id_categoria` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_categoria` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `masteradmin`
 --
 ALTER TABLE `masteradmin`
-  MODIFY `idMaster` int(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `idMaster` int(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `profesional`
@@ -346,7 +350,7 @@ ALTER TABLE `promociones`
 -- AUTO_INCREMENT de la tabla `propiedad`
 --
 ALTER TABLE `propiedad`
-  MODIFY `id_propiedad` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_propiedad` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `publicacion`
