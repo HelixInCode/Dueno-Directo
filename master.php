@@ -20,6 +20,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="dist/css/bootstrap.min.css">
   <!-- Material Design Bootstrap -->
   <link rel="stylesheet" href="dist/css/mdb.min.css">
   <!-- Estilos-->
@@ -459,9 +460,11 @@
           <table class="table">
             <thead class="thead">
               <tr>
-                <th scope="col">Admin</th>
+                <th scope="col">ID</th>
+                <th scope="col">Seccion</th>
                 <th scope="col">Categoria</th>
                 <th scope="col">Descripcion</th>
+                <th scope="col">Editar</th>
               </tr>
             </thead>
             <tbody>
@@ -470,9 +473,17 @@
               while ($categorydates = mysqli_fetch_array($consulta)) {
               ?>
                 <tr>
-                  <th scope="row"><?php echo $categorydates['id_categoria'] ?></th>
-                  <td><?php echo $categorydates['categoria'] ?></td>
-                  <td><?php echo $categorydates['descripcion'] ?></td>
+                  <form action="process/editarcategoria.php" method="POST">
+                  <th scope="row"><input type="hidden" name="id_cat" value="<?php echo $categorydates['id_categoria'] ?>"><?php echo $categorydates['id_categoria'] ?></th>
+                  <td><select class="form-control" name="seccion" id="exampleFormControlSelect1">
+                      <option value="<?php echo $categorydates['seccion']?>"><?php echo $categorydates['seccion']?></option>
+                      <option value="profesional">Profesional</option>
+                      <option value="propiedad">Propiedad</option>
+                      <option value="servicios">Servicios</option></select></td>
+                  <td><input type="text" name="categoria" value="<?php echo $categorydates['categoria']?>"></td>
+                  <td><input type="text" name="descripcion" value="<?php echo $categorydates['descripcion']?>"></td>
+                  <td><a href=""> <button name="editar" value="editar" class ="btn btn-info"><span class ="oi oi-pencil"></span></button></a></td>
+                  </form>
                 </tr>
               <?php
               }
