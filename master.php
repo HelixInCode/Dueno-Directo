@@ -74,6 +74,11 @@
                 <i class="fas fa-envelope mr-1"></i>Cerrar Sesión
               </a>
             </li>
+            <li class="nav-item">
+              <a href="https://mdbootstrap.com/docs/jquery/newsletter/" class="nav-link border border-light rounded waves-effect mr-2" target="_blank">
+                <i class="fas fa-envelope mr-1"></i>Perfil
+              </a>
+            </li>
           </ul>
 
         </div>
@@ -258,7 +263,7 @@
                   <th scope="col">ID</th>
                   <th scope="col">Nombre</th>
                   <th scope="col">Email</th>
-                  <th scope="col">Modificar</th>
+                  
                 </tr>
               </thead>
               <tbody>
@@ -270,7 +275,7 @@
                     <th scope="row"><?php echo $datos['idMaster'] ?></th>
                     <td><?php echo $datos['Nombre'] ?></td>
                     <td><?php echo $datos['email'] ?></td>
-                    <td>@mdo</td>
+                    
                   </tr>
                 <?php
                   }
@@ -372,6 +377,16 @@
 
                   <div class="md-form m-0">
                     <input type="text" name="categoria" id="categoria" class="form-control" placeholder="Categoria">
+                  </div>
+
+                  
+                  <div class="form-group">
+                    <label for="exampleFormControlSelect1">Pertenece a:</label>
+                    <select class="form-control" name="seccion" id="exampleFormControlSelect1">
+                      <option value="profesional">Profesional</option>
+                      <option value="propiedad">Propiedad</option>
+                      <option value="servicios">Servicios</option>
+                    </select>
                   </div>
   
                   <div class="md-form m-0">

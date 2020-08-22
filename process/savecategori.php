@@ -31,7 +31,8 @@ include ('../conexion.php');
   if (isset($_POST['Enviar'])) {
       $categoria = mysqli_real_escape_string($conexion, $_POST['categoria']);
       $descripcion = mysqli_real_escape_string($conexion, $_POST['descripcion']);
-      $guardar = mysqli_query($conexion, "INSERT INTO categoria (categoria, descripcion) VALUES ('$categoria','$descripcion')") or die(mysqli_error($conexion));
+      $seccion= mysqli_real_escape_string($conexion, $_POST['seccion']);
+      $guardar = mysqli_query($conexion, "INSERT INTO categoria (categoria, descripcion, seccion) VALUES ('$categoria','$descripcion','$seccion')") or die(mysqli_error($conexion));
 
       if ($guardar){
            header("location: ../master.php");
