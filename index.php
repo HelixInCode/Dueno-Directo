@@ -49,7 +49,7 @@ include ('conexion.php');
                   header("Location: home.php");
               }else {
               
-?>
+  ?>
               <div class="alerta-error">Usuario o contraseña incorrectos</div>                    
               <?php
               }
@@ -116,25 +116,37 @@ include ('conexion.php');
     </nav>
     
     <section id="carouselExampleFade" class="carousel slide index-carousel carousel-fade" data-ride="carousel">
+      
       <div class="carousel-inner">
 
         <div class="carousel-item active">
           <img src="dist/img/cover-1.jpg" class="d-block w-100" alt="...">
+          <div class="overlay-img justify-content-start px-1 px-sm-5">
+            <p class="mb-5 mb-md-0 pb-5 pb-md-0">Querés alquilar?</p>
+          </div>
         </div>
 
         <div class="carousel-item">
           <img src="dist/img/cover-2.jpg" class="d-block w-100" alt="...">
+          <div class="overlay-img justify-content-end px-1 px-sm-5">
+            <p class="mb-5 mb-md-0 pb-5 pb-md-0">Querés Comprar?</p>
+          </div>
         </div>
 
         <div class="carousel-item">
           <img src="dist/img/cover-3.jpg" class="d-block w-100" alt="...">
+          <div class="overlay-img justify-content-end px-1 px-sm-5">
+            <p class="mb-5 mb-md-0 pb-5 pb-md-0">Te ayudamos</p>
+          </div>
         </div>
 
       </div>
+
       <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
       </a>
+
       <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
@@ -394,7 +406,22 @@ include ('conexion.php');
     </section>
 
     <section id="publications" class="py-5 px-3 px-lg-5">
-      <h1>PUBLICACIONES DESTACADAS</h1>
+
+      <div class="publications-nav mb-4 d-md-none">
+
+        <div id="btnFiltrosResponsive" class="waves-effect waves-dark">
+          <span>Filtros</span>
+        </div>
+
+        <hr>
+
+        <div id="btnServiciosResponsive" class="waves-effect waves-dark">
+          <span>Servicios</span>
+        </div>
+      </div>
+
+      <h1 class="pt-4 pt-md-0">PUBLICACIONES DESTACADAS</h1>
+
       <div class="publications-container py-4 px-xl-5">
         
         <a href="#?" class="publications-item">
