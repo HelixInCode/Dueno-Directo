@@ -118,6 +118,7 @@
               <li class="nav-item" role="presentation">
                 <a class="nav-link" id="estadisticas-tab" data-toggle="tab" href="#estadisticas" role="tab" aria-controls="estadisticas" aria-selected="false">Estadísticas</a>
               </li>
+              
             </ul>
 
 
@@ -534,11 +535,10 @@
                   <div class="form-group">
                     <label for="exampleFormControlSelect1">Categorias</label>
                     <select class="form-control" name="categoria" id="exampleFormControlSelect1">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
+                      <option value="profesional">Profesional</option>
+                      <option value="propietario">Propietario</option>
+                      <option value="servicios">Servicios</option>
+                      
                     </select>
                   </div>
   
@@ -636,6 +636,7 @@
     <div class="tab-pane fade px-2 px-sm-3" id="estadisticas" role="tabpanel" aria-labelledby="estadisticas-tab">Bon di
     </div>
 
+    
   </main>
 
   <!-- Optional JavaScript -->
