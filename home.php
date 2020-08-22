@@ -133,47 +133,51 @@
                 </div>
               
                 <!-- Contenido de Pestañas -->
-                <div id="perfil" class="tabcontent active" data-index="0">
+                <form method="POST" id="perfil" class="tabcontent active" data-index="0">
                     
                     <div class="contenedor-perfil">
                       
                         <div class="columna1 columna px-2 px-sm-0">
                             <div class="datos-personales">
+
                                 <label for="">Datos Personales</label>
-                                <form action="" method="POST">
+                                <div class="input-container">
                                     <input type="text" id="usuario" name="usuario" value="<?php echo $user;?>" placeholder="Usuario">
                                     <input type="text" id="nombre" name="nombre" placeholder="Nombres" value="<?php echo $user_name;?>">
                                     <input type="text" id="dni" name="dni" placeholder="DNI" value="<?php echo $user_dni;?>">
                                     <input type="text" id="correo" name="correo" placeholder="Correo" value="<?php echo $user_email;?>">
                                     <input type="text" id="telefono" name="telefono" placeholder="Teléfono" value="<?php echo $user_phone;?>">
-                               
+                                </div>
                             </div>
+
                             <div class="categoria">
                                 <label for="categoria">Categoría</label><br>
-                                
+                                <div class="input-container">
                                     <select name="categorias" id="categorias">
                                         <option value="<?php echo $user_categoria;?>"><?php echo $user_categoria;?></option>
                                         <option value="propietario">Propietario</option>
                                         <option value="profesional">Profesional</option>
                                         <option value="otro">Otro...</option>
                                     </select>
+                                </div>
                                 
                             </div>
-                           
-        
                         </div>
 
                         <div class="columna2 columna px-2 px-sm-0">
+
                             <div class="imagen">
                                 <img src="./dist/img/icons/icons8-camera-100.png" alt="">
                                 <!-- <p>Foto del Usuario</p> -->
                                 <a>Cargar Imagen</a>
                             </div>
+
                             <div class="descripcion">
+
                                 <label for="descripcion">Descripcion de Usuario</label><br>
-                               
+                                <div class="input-container">
                                     <textarea name="descripcion" value="<?php echo $user_descripcion;?>"  id="descripcion" cols="20" rows="5" placeholder="Breve Descripcion"><?php echo $user_descripcion;?></textarea>
-                                
+                                </div>
                             </div>
     
                         </div>
@@ -181,8 +185,8 @@
                     </div>
                     
                     <input type="submit" name="Guardar" value="Guardar Cambios" class="guardar">
-                </div>
                 </form>
+
                 <div id="publicaciones" class="tabcontent" data-index="1">
                     <div class="contenedor-publicaciones">
                         <h4>Publicaciones Realizadas</h4>
@@ -259,8 +263,6 @@
                                   </tbody>
                             </table>
                         </div>
-                        
-    
                     </div>
                 </div>
                 

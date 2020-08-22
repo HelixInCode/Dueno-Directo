@@ -105,13 +105,13 @@
   font-size: 20px;
   text-shadow: 1px 1px 1px var(--PrimarioOscuro);
 }
-#perfil > .contenedor-perfil > .columna1 > div > form{
+#perfil > .contenedor-perfil > .columna1 > div > .input-container{
   display: grid;
   grid-template-columns: 1fr;
   gap: 10px;
 }
-#perfil > .contenedor-perfil > .columna1 > div > form input,
-#perfil > .contenedor-perfil > .columna1 > div > form select{
+#perfil > .contenedor-perfil > .columna1 > div > .input-container input,
+#perfil > .contenedor-perfil > .columna1 > div > .input-container select{
   @apply --input-text;
 }
 #perfil > .contenedor-perfil > .columna2 > .imagen{
@@ -145,13 +145,14 @@
   font-size: 20px;
   text-shadow: 1px 1px 1px var(--PrimarioOscuro);
 }
-#perfil > .contenedor-perfil > .columna2 > .descripcion > form > textarea{
+#perfil > .contenedor-perfil > .columna2 > .descripcion > .input-container > textarea{
   @apply --input-text;
   height: 100px;
   resize: none;
 }
 #perfil > .guardar{
   padding: 10px;
+  border: none;
   font-size: 20px;
   font-weight: 700;
   text-align: center;
