@@ -46,7 +46,7 @@
       $descripcion=mysqli_real_escape_string($conexion, $_POST['descripcion']);
       $email=mysqli_real_escape_string($conexion, $_POST['correo']);
       
-      $update_user = mysqli_query($conexion, "UPDATE user SET usuario='$usuario', nombre='$nombre', dni='$dni', categoria='$categoria', email='$email', telefono='$telefono', descripcion='$descripcion' WHERE id='$id_user'") or die("Problemas actualizando la informacion:".mysqli_error($conexion));
+     $update_user = mysqli_query($conexion, "UPDATE user SET usuario='$usuario', nombre='$nombre', dni='$dni', categoria='$categoria', email='$email', telefono='$telefono', descripcion='$descripcion' WHERE id='$id_user'") or die("Problemas actualizando la informacion:".mysqli_error($conexion));
         if($update_user){
             echo "Se actualizaron los datos correctamente";
         }
