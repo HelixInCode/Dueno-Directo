@@ -1,29 +1,31 @@
-const login = document.getElementById('modal-login')
-const btnHideLogin = document.getElementById('close-login')
-const btnShowLogin = document.getElementById('ingresar')
+const showHideModal = ($btn, $modal) =>{
+  $btn.addEventListener('click', () =>{
 
-const messageSent = document.getElementById('modal-message-sent')
-const btnHideSent = document.getElementById('close-sent')
-
-// messageSent.style.transform = 'translateY(0px)'
-
-const hideModal = (btnHide, modal) =>{
-  btnHide.addEventListener('click', () =>{
-
-    if(modal.style.transform === 'translateY(0px)'){
-      modal.style.transform = 'translateY(-100%)'
-    }
-    console.log(modal.style.transform)
+    $modal.classList.toggle('hide')
   })
 }
 
-btnShowLogin.addEventListener('click', () =>{
+if(document.getElementById('modal-login')){
+  const $login = document.getElementById('modal-login')
+  const $btnHideLogin = document.getElementById('close-login')
+  const $btnShowLogin = document.getElementById('ingresar')
 
-  if (login.style.transform === '' || login.style.transform === 'translateY(-100%)') {
-    login.style.transform = 'translateY(0px)'
-  }
-  console.log(login.style.transform)
-})
+  showHideModal($btnHideLogin, $login)
+  showHideModal($btnShowLogin, $login)
+}
 
-hideModal(btnHideLogin, login)
-hideModal(btnHideSent, messageSent)
+if(document.getElementById('modal-message-sent')){
+  const $messageSent = document.getElementById('modal-message-sent')
+  const $btnHideSent = document.getElementById('close-sent')
+
+  showHideModal($btnHideSent, $messageSent)
+}
+
+if(document.getElementById('modal-input-img')){
+  const $input = document.getElementById('modal-input-img')
+  const $btnHideInput = document.getElementById('close-input')
+  const $btnShowInput = document.getElementById('show-input')
+
+  showHideModal($btnHideInput, $input)
+  showHideModal($btnShowInput, $input)
+}

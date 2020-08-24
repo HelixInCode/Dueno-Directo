@@ -88,6 +88,40 @@
         </nav>
     </header>
     <main>
+
+        <section id="modal-login" class="modal hide">
+            <div class="login">
+                <div class="title-container p-3">
+                <h5>Ingresar</h5>
+                <i id="close-login" class="fa fa-times"></i>
+                </div>
+                <form class="main-container p-3" action="" method="POST">
+        
+                <div class="input-container">
+                    <label for="email">Correo</label>
+                    <input name="email" type="email">
+                </div>  
+        
+                <div class="input-container">
+                    <label for="password">Contraseña</label>
+                    <input name="password" type="password">
+                </div>
+        
+                <div class="input-container">
+                    <input type="checkbox" name="remember">
+                    <label for="remenber">Recuerdame ?</label>
+                </div>
+                
+                <div class="login-container">
+            
+                    <button name="Enviar">Iniciar Sesión</button>
+                    <a href="registro.php">¿No te has registrado todavía?</a>
+                    
+                </div>
+                </form>
+            </div>
+        </section>
+
         <section id="nueva-publicacion">
 
             <div class="publication-container">
@@ -350,6 +384,7 @@
   <script type="text/javascript" src="dist/js/mdb.min.js"></script>
   <!-- Your custom scripts (optional) -->
   <script type="text/javascript" src="src/js/panel-publicacion.js"></script>
+  <script type="text/javascript" src="src/js/hideShowModals.js"></script>
   <script type="text/javascript" src="src/js/hamburger.js"></script>
 </body>
 

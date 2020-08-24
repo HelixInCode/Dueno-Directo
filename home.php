@@ -121,6 +121,27 @@
         </nav>
     </header>
     <main>
+        <section id="modal-input-img" class="modal hide">
+            <div class="login">
+                <div class="title-container p-3">
+                <h5>Ingresa una imagen</h5>
+                <i id="close-input" class="fa fa-times"></i>
+                </div>
+                
+                <form class="main-container p-3" action="" method="POST">
+        
+                    <div class="input-container py-5">
+                        <input name="imagen" type="file">
+                    </div>  
+            
+                    <div class="login-container">
+                
+                        <button type="submit" name="Enviar">Aceptar</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
         <section id="panel-usuario" class="px-2 px-sm-3">
             <div class="main-container">
 
@@ -169,7 +190,7 @@
                             <div class="imagen">
                                 <img src="./dist/img/icons/icons8-camera-100.png" alt="">
                                 <!-- <p>Foto del Usuario</p> -->
-                                <a>Cargar Imagen</a>
+                                <a id="show-input">Cargar Imagen</a>
                             </div>
 
                             <div class="descripcion">
@@ -286,6 +307,7 @@
   <!-- Your custom scripts (optional) -->
   <script type="text/javascript" src="src/js/svg.js"></script>
   <script type="text/javascript" src="src/js/login.js"></script>
+  <script type="text/javascript" src="src/js/hideShowModals.js"></script>
   <script type="text/javascript" src="src/js/panel-usuario.js"></script>
   <script type="text/javascript" src="src/js/hamburger.js"></script>
 

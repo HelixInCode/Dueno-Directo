@@ -589,7 +589,7 @@ nav > .menu-btns > .user > ul > li > a{
   border-radius: 10px;
 }
 
-.modal {
+.modal{
   z-index: 9999;
   position: fixed;
   top: 0;
@@ -601,6 +601,9 @@ nav > .menu-btns > .user > ul > li > a{
   align-items: center;
   transition: .3s;
   background-color: var(--sombra);
+  transform: translateY(0px);
+}
+.modal.hide{
   transform: translateY(-100%);
 }
 .modal > .login{
@@ -687,6 +690,21 @@ nav > .menu-btns > .user > ul > li > a{
 #modal-message-sent > .login > .message p{
   font-size: 20px;
   font-weight: bold;
+}
+
+#modal-input-img > .login > .main-container > .input-container > input{
+  width: 100%;
+}
+#modal-input-img > .login > .main-container > .login-container button{
+  width: 100%;
+  background-color: var(--PrimarioOscuro);
+  font-style: italic;
+  padding: 5px 10px;
+  color: #fff;
+  border: none;
+}
+#modal-input-img > .login > .main-container > .login-container button:hover{
+  background-color: var(--PrimarioClaro);
 }
 
 #publications{

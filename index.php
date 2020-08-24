@@ -359,7 +359,7 @@ include ('conexion.php');
       </div>
     </section>
 
-    <section id="modal-login" class="modal">
+    <section id="modal-login" class="modal hide">
       <div class="login">
         <div class="title-container p-3">
           <h5>Ingresar</h5>
@@ -392,7 +392,7 @@ include ('conexion.php');
       </div>
     </section>
 
-    <section id="modal-message-sent" class="modal">
+    <section id="modal-message-sent" class="modal hide">
       <div class="login">
         <div class="title-container p-3">
           <!-- <h5>Mensaje Enviado</h5> -->
