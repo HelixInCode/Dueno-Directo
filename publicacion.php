@@ -342,10 +342,7 @@ if (isset($_SESSION['id'])) {
                         </div>
 
                         <div class="form-area">
-                            <div class="contacto-container">
-                                <p>Datos de Contacto</p>
-                                <input type="number" id="telefono" name="telefono" placeholder="Teléfono de Contacto">
-                            </div>
+                            
                             <div class="tiempo-publicacion">
                                 <p>Duración de la publicacion</p>
                                 <select name="tiempo-publicacion" id="tiempo-publicacion">
