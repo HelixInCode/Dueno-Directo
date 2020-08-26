@@ -85,10 +85,7 @@
                     <a class="waves-effect waves-light" href="#?">Contacto</a>
                 </li>
                 <li>
-                    <a id="ingresar" class="waves-effect waves-light" href="#?">Ingresar</a>
-                </li>
-                <li>
-                    <a class="waves-effect waves-light" href="#?">Publicar</a>
+                    <a class="waves-effect waves-light" href="publicacion.php">Publicar</a>
                 </li>
                 </ul>
 

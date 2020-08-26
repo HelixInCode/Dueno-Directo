@@ -37,7 +37,7 @@
       $telefono = mysqli_real_escape_string($conexion, $_POST['telefono']);
       $provincia = mysqli_real_escape_string($conexion, $_POST['provincia']);
       $municipalidad = mysqli_real_escape_string($conexion, $_POST['municipalidad']);
-      $guardar = mysqli_query($conexion, "INSERT INTO profesional (profesional, titulacion, telefono, provincia, municipalidad) VALUES ('$profesionaltype','$titulacion','$telefono','$provincia','$municipalidad')") or die(mysqli_error($conexion));
+      $guardar = mysqli_query($conexion, "INSERT INTO profesional (profesional, titulacion, telefono, provincia, localidad) VALUES ('$profesionaltype','$titulacion','$telefono','$provincia','$municipalidad')") or die(mysqli_error($conexion));
 
       if ($guardar){
            header("location: ../publicacion.php");

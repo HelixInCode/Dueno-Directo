@@ -140,7 +140,7 @@
     
                 </div>
     
-                <form id="propiedad" class="panelcontent active" action="process/savepropiedad.php" method="POST">
+                <form id="propiedad" class="panelcontent active" action="process/savepropiedad.php" method="POST" enctype="multipart/form-data">
                     
                     <div class="form-area titulo-publicacion">
                         <input type="text" name="nombre" id="nombre" placeholder="Nombre de la Publicación">
@@ -160,18 +160,12 @@
                     
                     <div class="form-area moneda-container">
                         
-                        <label for="">Precio de la propiedad</label>
-                        <input type="number" name="precio" placeholder="0.00$">
+                        <label for="">Precio en peso ARS</label>
+                        <input type="number" name="peso" placeholder="0.00$">
 
-                        <div class="option">
-                            Pesos Argentinos
-                            <input type="radio" name="peso" id="peso">
-                        </div>
-
-                        <div class="option">
-                            Dolares Americanos
-                            <input type="radio" name="dolar" id="dolar">
-                        </div>
+                        <label for="">Precio en dolar</label>
+                        <input type="number" name="dolar" placeholder="0.00$">
+                        
                     </div>
 
                     <div class="form-area alquilar-vender">
@@ -210,7 +204,7 @@
                                 </div>
                             </div>
                             <div class="radio">
-                                <h6>Aguas Blancas</h6>
+                                <h6>Aguas </h6>
                                 <div class="input-container">
                                     Si
                                     <input type="radio" name="agua" id="agua" value="si">
@@ -219,7 +213,7 @@
                                 </div>
                             </div>
                             <div class="radio">
-                                <h6>Aguas Negras</h6>
+                                <h6>Cloacas</h6>
                                 <div class="input-container">
                                     Si
                                     <input type="radio" name="cloacas" id="cloacas" value="si">
@@ -234,6 +228,11 @@
                     <div class="form-area image">
                         <!-- Agregar imagenes -->
                         imagenes
+                        <input type="file" name="imagen1" class="form-control-file" accept="image/*" required>
+                        <input type="file" name="imagen2" class="form-control-file" accept="image/*" required>
+                        <input type="file" name="imagen3" class="form-control-file" accept="image/*" required>
+                        <input type="file" name="imagen4" class="form-control-file" accept="image/*" required>
+                        <input type="file" name="imagen5" class="form-control-file" accept="image/*" required>
                     </div>
 
                     <div class="form-area inmueble-features">
@@ -292,15 +291,33 @@
                     <div class="form-area ubicacion">
                         <h6>Ubicación de la propiedad</h6>
                         <select name="provincia" id="provincia">
-                            <option value="">Provincia...</option>
-                            <option value="">Cargar provincias</option>
+                            <option value="">Provincia</option>
+                            <option value="Buenos Aires">Buenos Aires</option>
+                            <option value="Córdoba">Córdoba</option>
+                            <option value="Mendoza">Mendoza</option>
+                            <option value="Catamarca">Catamarca</option>
+                            <option value="Chaco">Chaco</option>
+                            <option value="Chubut">Chubut</option>
+                            <option value="Corrientes">Corrientes</option>
+                            <option value="Entre Ríos">Entre Ríos</option>
+                            <option value="Formosa">Formosa</option>
+                            <option value="Jujuy">Jujuy</option>
+                            <option value="La Pampa">La Pampa</option>
+                            <option value="La Rioja">La Rioja</option>
+                            <option value="Misiones">Misiones</option>
+                            <option value="Neuquen">Rio Negro</option>
+                            <option value="Salta">Salta</option>
+                            <option value="San Juan">San Juan</option>
+                            <option value="San Luis">San Luis</option>
+                            <option value="Santa Cruz">Santa Cruz</option>
+                            <option value="Santa Fe">Santa Fe</option>
+                            <option value="Santiago del Estero">Santiago del Estero</option>
+                            <option value="Tierra del Fuego">Tierra del Fuego</option>
+                            <option value="Tucumán">Tucumán</option>
                         </select>
-                        <select name="municipalidad" id="municipalidad">
-                            <option value="">Municipalidad...</option>
-                            <option value="">Cargar Municipalidad</option>
-                        </select>
+                        <input name="municipalidad" id="municipalidad" placeholder="Departamento">
                         <input type="text" name="calle" id="calle" placeholder="Calle">
-                        <input type="number" name="numero" id="numero" placeholder="Numero">
+                        
                     </div>
 
                     <div class="form-area">
