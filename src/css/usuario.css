@@ -159,6 +159,27 @@
   color: var(--PrimarioOscuro);
   background-color: var(--SecundarioClaro);
   justify-self: flex-start;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+
+.nueva-publicacion{
+  width: 200px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  font-weight: 800;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  box-shadow: 2px 2px 2px var(--PrimarioOscuro);
+  background-color: var(--SecundarioClaro);
+  color: var(--PrimarioOscuro);
+}
+.nueva-publicacion:hover{
+  background-color: var(--PrimarioClaro);
+  color: #E9EBF5;
 }
 
 #publicaciones > .contenedor-publicaciones {

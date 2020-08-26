@@ -143,6 +143,28 @@
   color: #004489;
   background-color: #E9EBF5;
   justify-self: flex-start;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+
+.nueva-publicacion{
+  width: 200px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  font-weight: 800;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  -webkit-box-shadow: 2px 2px 2px #004489;
+          box-shadow: 2px 2px 2px #004489;
+  background-color: #E9EBF5;
+  color: #004489;
+}
+.nueva-publicacion:hover{
+  background-color: #0075BE;
+  color: #E9EBF5;
 }
 
 #publicaciones > .contenedor-publicaciones {

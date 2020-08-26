@@ -4,6 +4,10 @@
 }
 :root{ /*italica*/ /*medium*/ /*Bold*//*regular*/
 }
+#precarga-profesional .btn-precarga > button:hover{
+    background-color: #E9EBF5;
+    color: #004489;
+}
 #registro{
     margin-top: 80px;
     font-family: 'Ubuntu', sans-serif;

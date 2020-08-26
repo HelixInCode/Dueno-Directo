@@ -400,8 +400,8 @@ if (isset($_SESSION['id'])) {
                             </select>
                         </div>
 
-                        <div class="btn-precarga">
-                            <button class="btn" type="submit" name="propiedad">Precargar Publicación</button>
+                        <div id="precarga-profesional" class="btn-precarga" style="grid-column: 1/3;">
+                            <button style="color:#E9EBF5; font-style:italic; font-family:'Ubuntu', sans-serif; font-weight:800; background-color:#004489;" class="btn" type="submit" name="propiedad">Precargar Publicación</button>
                         </div>
 
                     </form>

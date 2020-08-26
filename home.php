@@ -207,6 +207,9 @@ if (isset($_SESSION['id'])) {
                     </form>
 
                     <div id="publicaciones" class="tabcontent" data-index="1">
+                        <a class="nueva-publicacion" href="">
+                            NUEVA PUBLICACION
+                        </a>
                         <div class="contenedor-publicaciones">
                             <h4>Publicaciones Realizadas</h4>
                             <div class="publicaciones">
@@ -230,12 +233,118 @@ if (isset($_SESSION['id'])) {
                                 </div>
                             </div>
 
+                            <h4>Publicaciones Pre-cargadas</h4>
+                            <div class="publicaciones">
+                                <div class="item-publicacion">
+                                    <img src="./dist/img/Productos1.jpg" alt="">
+                                    <p>Descripcion de la publicacion</p>
+                                    <div class="acciones">
+                                        <a href="">Publicar</a>
+                                        <a href="">Modificar</a>
+                                        <a href="">Eliminar</a>
+                                    </div>
+
+                                </div>
+                            </div>
+
                         </div>
                     </div>
 
                     <div id="planes" class="tabcontent" data-index="2">
                         <div class="contenedor-planes">
                             <h4>Planes Contratados</h4>
+                            <div class="planes">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Plan</th>
+                                            <th>Publicación</th>
+                                            <th>Inicio</th>
+                                            <th>Vencimiento</th>
+                                            <th>Precio</th>
+                                            <th>Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Mensual</td>
+                                            <td>Casa Verde</td><!-- titulo de la publicacion -->
+                                            <td>03/05/2020</td>
+                                            <td>03/04/2020</td>
+                                            <td>$300</td>
+                                            <td>
+                                                <a href="">Modificar</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mensual</td>
+                                            <td>Casa Verde</td><!-- titulo de la publicacion -->
+                                            <td>03/05/2020</td>
+                                            <td>03/04/2020</td>
+                                            <td>$300</td>
+                                            <td>
+                                                <a href="">Modificar</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mensual</td>
+                                            <td>Casa Verde</td><!-- titulo de la publicacion -->
+                                            <td>03/05/2020</td>
+                                            <td>03/04/2020</td>
+                                            <td>$300</td>
+                                            <td>
+                                                <a href="">Modificar</a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="planes">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Plan</th>
+                                            <th>Publicación</th>
+                                            <th>Inicio</th>
+                                            <th>Vencimiento</th>
+                                            <th>Precio</th>
+                                            <th>Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Mensual</td>
+                                            <td>Casa Verde</td><!-- titulo de la publicacion -->
+                                            <td>03/05/2020</td>
+                                            <td>03/04/2020</td>
+                                            <td>$300</td>
+                                            <td>
+                                                <a href="">Modificar</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mensual</td>
+                                            <td>Casa Verde</td><!-- titulo de la publicacion -->
+                                            <td>03/05/2020</td>
+                                            <td>03/04/2020</td>
+                                            <td>$300</td>
+                                            <td>
+                                                <a href="">Modificar</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mensual</td>
+                                            <td>Casa Verde</td><!-- titulo de la publicacion -->
+                                            <td>03/05/2020</td>
+                                            <td>03/04/2020</td>
+                                            <td>$300</td>
+                                            <td>
+                                                <a href="">Modificar</a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                             <div class="planes">
                                 <table>
                                     <thead>
