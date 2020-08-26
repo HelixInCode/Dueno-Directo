@@ -93,10 +93,7 @@ if (isset($_SESSION['id'])) {
 
             <section id="modal-login" class="modal hide">
                 <div class="login">
-                    <div class="title-container p-3">
-                        <h5>Ingresar</h5>
-                        <i id="close-login" class="fa fa-times"></i>
-                    </div>
+                    
                     <form class="main-container p-3" action="" method="POST">
 
                         <div class="input-container">
@@ -184,22 +181,22 @@ if (isset($_SESSION['id'])) {
                             <div class="item-desc-contenedor">
                                 <div class="item-desc">
                                     <label for="tipo-propiedad">Antiguedad</label>
-                                    <select name="finalidad" id="finalidad">
+                                    <select name="antiguedad" id="finalidad">
                                         <option value="">Seleccione...</option>
-                                        <option value="alquiler">Menos de 1 año</option>
-                                        <option value="venta">1 a 5 años</option>
-                                        <option value="venta">5 a 10 años</option>
-                                        <option value="venta">Mas de 10 años</option>
+                                        <option value="Menos de 1 año">Menos de 1 año</option>
+                                        <option value="1 a 5 años">1 a 5 años</option>
+                                        <option value="5 a 10 años">5 a 10 años</option>
+                                        <option value="Mas de 10 años">Mas de 10 años</option>
                                     </select>
                                 </div>
                                 <div class="item-desc">
                                     <label for="tipo-propiedad">Uso</label>
-                                    <select name="finalidad" id="finalidad">
+                                    <select name="uso" id="finalidad">
                                         <option value="">Seleccione...</option>
-                                        <option value="alquiler">A estrenar</option>
-                                        <option value="venta">Poco uso</option>
-                                        <option value="venta">Reacondicionado</option>
-                                        <option value="venta">Antiguo</option>
+                                        <option value="A estrenar">A estrenar</option>
+                                        <option value="Poco uso">Poco uso</option>
+                                        <option value="Reacondicionado">Reacondicionado</option>
+                                        <option value="Antiguo">Antiguo</option>
                                     </select>
                                 </div>
                             </div>
@@ -267,7 +264,7 @@ if (isset($_SESSION['id'])) {
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
-                                    <option value="4mas">4 o más</option>
+                                    <option value="4 o mas">4 o más</option>
                                 </select>
                             </div>
                             <div class="contenedor-banos">
@@ -277,7 +274,7 @@ if (isset($_SESSION['id'])) {
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
-                                    <option value="4mas">4 o más</option>
+                                    <option value="4 o mas">4 o más</option>
                                 </select>
                             </div>
                             <div class="contenedor-radio">

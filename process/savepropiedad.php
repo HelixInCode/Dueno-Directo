@@ -53,6 +53,8 @@
       $municipalidad = mysqli_real_escape_string($conexion, $_POST['municipalidad']);
       $calle = mysqli_real_escape_string($conexion, $_POST['calle']);
       $telefono = mysqli_real_escape_string($conexion, $_POST['telefono']);
+      $antig= mysqli_real_escape_string($conexion, $_POST['antiguedad']);
+      $uso= mysqli_real_escape_string($conexion, $_POST['uso']);
       $img1= addslashes(file_get_contents($_FILES['imagen1']['tmp_name']));
       $img2= addslashes(file_get_contents($_FILES['imagen2']['tmp_name']));
       $img3= addslashes(file_get_contents($_FILES['imagen3']['tmp_name']));
@@ -72,7 +74,7 @@
 
       if ($img1 == !NULL & $img2 == !NULL & $img3 == !NULL & $img4 == !NULL & $img5 == !NULL){
         ///pongo límite de 8 gb para el tamaño de las imagenes
-        $limite_kb = 8384;
+        $limite_kb = 2384;
         $fechaactual  = date("dHi");
         $nAleatorio  = rand(10, 99);
         //concateno la fecha actual y 2 numeros aleatorios  con el nombre de la imagen para evitar nombres repetidos en el directorio
@@ -98,10 +100,10 @@
               luz, agua, cloacas, habitaciones, 
               banos, mascotas, cochera, 
               expensas, provincia, municipalidad, 
-              calle, telefono, tiempo_publicacion,imagen1, imagen2,imagen3,imagen4, imagen5, idUser)
+              calle, telefono, antig, uso, tiempo_publicacion,imagen1, imagen2,imagen3,imagen4, imagen5, idUser)
               VALUES ('$propiedadname','$tipopropiedad','$peso','$dolar','$finalidad','$descripcion','$areatotal','$areacubierta',
               '$gas','$luz','$aguasblancas','$aguasnegras','$habitaciones','$banos','$mascotas','$cochera','$expensas',
-              '$provincias','$municipalidad','$calle','$telefono','$publicaciontime','$ruta1','$ruta2','$ruta3','$ruta4','$ruta5','$id_user')") or die(mysqli_error($conexion));
+              '$provincias','$municipalidad','$calle','$telefono','$antig','$uso', '$publicaciontime','$ruta1','$ruta2','$ruta3','$ruta4','$ruta5','$id_user')") or die(mysqli_error($conexion));
 
               if ($guardar){
               $move= move_uploaded_file($_FILES['imagen1']['tmp_name'], "../dist/images/".$ruta1);
