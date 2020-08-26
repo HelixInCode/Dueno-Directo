@@ -158,17 +158,17 @@ if (isset($_SESSION['id'])) {
 
                 <li class="fila">
                   <p>Precio ARS</p>
-                  <p class="valor">null</p>
+                  <p class="valor"><?php echo $Aconsul['peso']; ?></p>
                 </li>
 
                 <li class="fila">
                   <p>Precio USD</p>
-                  <p class="valor">null</p>
+                  <p class="valor"><?php echo $Aconsul['dolar']; ?></p>
                 </li>
 
                 <li class="fila">
                   <p>Condicion</p>
-                  <p class="valor">null</p>
+                  <p class="valor"><?php echo $Aconsul['uso']; ?></p>
                 </li>
 
                 <li class="fila">
@@ -178,32 +178,32 @@ if (isset($_SESSION['id'])) {
 
                 <li class="fila">
                   <p>Antiguedad</p>
-                  <p class="valor">null</p>
+                  <p class="valor"><?php echo $Aconsul['antig']; ?></p>
                 </li>
 
                 <li class="fila">
                   <p>Area Total</p>
-                  <p class="valor">null</p>
+                  <p class="valor"><?php echo $Aconsul['area_total']; ?></p>
                 </li>
 
                 <li class="fila">
                   <p>Area Cubierta</p>
-                  <p class="valor">null</p>
+                  <p class="valor"><?php echo $Aconsul['area_cubierta']; ?></p>
                 </li>
 
                 <li class="fila">
                   <p>Habitaciones</p>
-                  <p class="valor">null</p>
+                  <p class="valor"><?php echo $Aconsul['habitaciones']; ?></p>
                 </li>
 
                 <li class="fila">
                   <p>Baños</p>
-                  <p class="valor">null</p>
+                  <p class="valor"><?php echo $Aconsul['banos']; ?></p>
                 </li>
 
                 <li class="fila">
                   <p>Cochera</p>
-                  <p class="valor">null</p>
+                  <p class="valor"><?php echo $Aconsul['cochera']; ?></p>
                 </li>
 
                 <li class="fila">
@@ -240,8 +240,8 @@ if (isset($_SESSION['id'])) {
 
             <div class="ubicacion">
               <h5>UBICACIÓN</h5>
-              <p>Calle Helix, 125. Ciudad</p>
-              <p style="text-transform: uppercase; font-weight:1200">provincia</p>
+              <p><?php echo "Calle ".$calle.", ".$municipalidad; ?></p>
+              <p style="text-transform: uppercase; font-weight:1200"><?php echo $provincia; ?></p>
               <div class="container-mapa">
                 <!--Tratar de insertar mapa con la ubicacion del lugar-->
               </div>
