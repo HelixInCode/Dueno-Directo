@@ -1,17 +1,18 @@
 <?php
 session_start();
-include ('conexion.php');
+include('conexion.php');
 ?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>Dueño Directo</title>
-  
+
   <!-- icono de la pestaña -->
-  <link rel="icon" href="dist/img/logo-icon.png"> 
+  <link rel="icon" href="dist/img/logo-icon.png">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
   <!-- Google Fonts Roboto -->
@@ -25,41 +26,43 @@ include ('conexion.php');
   <!-- Your custom styles (optional) -->
   <link rel="stylesheet" href="dist/css/style.css">
 </head>
+
 <body>
   <?php
 
-  if(isset($_POST['Enviar'])) { // comprobamos que se hayan enviado los datos del formulario
+  if (isset($_POST['Enviar'])) { // comprobamos que se hayan enviado los datos del formulario
 
-      if(isset($_POST['email'])&& !empty($_POST['email']) && 
-      isset($_POST['password']) && !empty($_POST['password'])){ 
-          $usuario= mysqli_real_escape_string($conexion,$_POST['email']);
-          $clave = mysqli_real_escape_string($conexion,$_POST['password']);
-          $clave = crypt($clave,"pass");
+    if (
+      isset($_POST['email']) && !empty($_POST['email']) &&
+      isset($_POST['password']) && !empty($_POST['password'])
+    ) {
+      $usuario = mysqli_real_escape_string($conexion, $_POST['email']);
+      $clave = mysqli_real_escape_string($conexion, $_POST['password']);
+      $clave = crypt($clave, "pass");
 
-          // comprobamos que los datos ingresados en el formulario coincidan con los de la BD
-          $sql = mysqli_query($conexion,"SELECT id, email, clave FROM user WHERE email='$usuario' AND clave='$clave'") or die(mysqli_error($conexion));
-          $resultado=mysqli_num_rows($sql);//cuento el número de coincidencias
-          $row = mysqli_fetch_array($sql);
-          //echo "todavia no entro en el if";
-              
+      // comprobamos que los datos ingresados en el formulario coincidan con los de la BD
+      $sql = mysqli_query($conexion, "SELECT id, email, clave FROM user WHERE email='$usuario' AND clave='$clave'") or die(mysqli_error($conexion));
+      $resultado = mysqli_num_rows($sql); //cuento el número de coincidencias
+      $row = mysqli_fetch_array($sql);
+      //echo "todavia no entro en el if";
 
-              if($resultado==1) {
-                  $_SESSION['id'] = $row['id']; // creamos la sesion "usuario_id" y le asignamos como valor el campo usuario_id
-                  $_SESSION['usuario'] = $row["usuario"]; // creamos la sesion "usuario_nombre" y le asignamos como valor el campo 
-                  header("Location: home.php");
-              }else {
-              
+
+      if ($resultado == 1) {
+        $_SESSION['id'] = $row['id']; // creamos la sesion "usuario_id" y le asignamos como valor el campo usuario_id
+        $_SESSION['usuario'] = $row["usuario"]; // creamos la sesion "usuario_nombre" y le asignamos como valor el campo 
+        header("Location: home.php");
+      } else {
+
   ?>
-              <div class="alerta-error">Usuario o contraseña incorrectos</div>                    
-              <?php
-              }
-          
-      }else{
-        echo "Falta completar campos";
+        <div class="alerta-error">Usuario o contraseña incorrectos</div>
+  <?php
       }
+    } else {
+      echo "Falta completar campos";
+    }
   }
 
-?>
+  ?>
 
   <header>
     <nav class="py-2 px-4">
@@ -91,32 +94,32 @@ include ('conexion.php');
           <div class="user-icon">
             <img height="35" class="d-none" src="./dist/img/icons/user.png" alt="imagen de usuario">
 
-            <i class="fas fa-user fa-2x" style="color: #001933;"></i>
+            <i class="fas fa-user fa-2x" style="color: #E9EBF5;"></i>
             <i class="fas fa-angle-down"></i>
           </div>
           <ul class="hide">
-              <li>
-                <span>Nombre de Usuario</span>
-              </li>
-              <li>
-                <a href="#?">Panel</a>
-              </li>
-              <li>
-                <a href="#?">Cerrar Sesion</a>
-              </li>
+            <li>
+              <span>Nombre de Usuario</span>
+            </li>
+            <li>
+              <a href="#?">Panel</a>
+            </li>
+            <li>
+              <a href="#?">Cerrar Sesion</a>
+            </li>
           </ul>
         </div>
-        
+
         <div class="menu-overlay hide d-block d-md-none"></div>
-  
+
         <div id="hamburger" class="hamburger-btn d-flex d-md-none">
           <i id="ham-icon" class="fas fa-bars fa-1-3x"></i>
         </div>
       </div>
     </nav>
-    
+
     <section id="carouselExampleFade" class="carousel slide index-carousel carousel-fade" data-ride="carousel">
-      
+
       <div class="carousel-inner">
 
         <div class="carousel-item active">
@@ -168,7 +171,7 @@ include ('conexion.php');
             </select>
           </div>
 
-          <button type="submit" >Buscar</button>
+          <button type="submit">Buscar</button>
 
           <div class="rango-input">
             <input type="text" placeholder="Precio desde...">
@@ -236,10 +239,10 @@ include ('conexion.php');
               <input name="operacion" type="radio" value="">Alquiler Temporal
             </div>
           </div>
-          
+
           <div class="inmueble-container">
             <label for="inmueble">Tipo de Inmueble</label>
-  
+
             <div class="input-container">
               <input name="inmueble" type="radio" value="">Casa
             </div>
@@ -274,7 +277,7 @@ include ('conexion.php');
 
           <div class="options-container">
             <label for="opciones">Tipo de Opciones</label>
-    
+
             <div class="input-container">
               <input name="opciones" type="radio" value="">Casa
             </div>
@@ -288,7 +291,7 @@ include ('conexion.php');
               <input name="opciones" type="radio" value="">Local y Comercial
             </div>
           </div>
-          
+
           <div class="rango-container">
             <label for="superfie1">Superficie Cubierta</label>
 
@@ -309,7 +312,7 @@ include ('conexion.php');
 
           <div class="options-container">
             <label for="habitaciones">Habitaciones</label>
-    
+
             <div class="input-container">
               <input name="habitaciones" type="radio" value="">1
             </div>
@@ -326,7 +329,7 @@ include ('conexion.php');
 
           <div class="options-container">
             <label for="bathrooms">Baños</label>
-    
+
             <div class="input-container">
               <input name="bathrooms" type="radio" value="">1
             </div>
@@ -343,7 +346,7 @@ include ('conexion.php');
 
           <div class="options-container">
             <label for="plantas">Plantas</label>
-    
+
             <div class="input-container">
               <input name="plantas" type="radio" value="">1
             </div>
@@ -366,27 +369,27 @@ include ('conexion.php');
           <i id="close-login" class="fa fa-times"></i>
         </div>
         <form class="main-container p-3" action="" method="POST">
-  
+
           <div class="input-container">
             <label for="email">Correo</label>
             <input name="email" type="email">
-          </div>  
-  
+          </div>
+
           <div class="input-container">
             <label for="password">Contraseña</label>
             <input name="password" type="password">
           </div>
-  
+
           <div class="input-container">
             <input type="checkbox" name="remember">
             <label for="remenber">Recuerdame ?</label>
           </div>
-          
+
           <div class="login-container">
-    
+
             <button name="Enviar">Iniciar Sesión</button>
             <a href="registro.php">¿No te has registrado todavía?</a>
-            
+
           </div>
         </form>
       </div>
@@ -423,12 +426,12 @@ include ('conexion.php');
       <h1 class="pt-4 pt-md-0">PUBLICACIONES DESTACADAS</h1>
 
       <div class="publications-container py-4 px-xl-5">
-        
+
         <a href="#?" class="publications-item">
           <div class="img-container">
-              
+
             <img src="dist/img/publicaciones.jpg" alt="">
-            
+
             <div class="publications-address">
               <h5>Calle A, 456. Ciudad</h5>
             </div>
@@ -437,7 +440,7 @@ include ('conexion.php');
             </div>
 
             <div class="publications-features">
-              
+
               <div href="#?" class="bedroom-icon">
                 <span>1</span>
                 <!-- icono insertado por svg.js -->
@@ -447,7 +450,7 @@ include ('conexion.php');
                 <span>2</span>
                 <!-- icono insertado por svg.js -->
               </div>
-              
+
               <div href="#?" class="bathroom-icon">
                 <span>1</span>
                 <!-- icono insertado por svg.js -->
@@ -460,53 +463,14 @@ include ('conexion.php');
 
             </div>
 
-          </div> 
-        </a>
-        
-        <a href="#?" class="publications-item">
-          <div class="img-container">
-              
-            <img src="dist/img/publicaciones.jpg" alt="">
-            
-            <div class="publications-address">
-              <h5>Calle A, 456. Ciudad</h5>
-            </div>
-            <div class="publications-price">
-              <h6>$25.000</h6>
-            </div>
-
-            <div class="publications-features">
-              
-              <div href="#?" class="bedroom-icon">
-                <span>1</span>
-                <!-- icono insertado por svg.js -->
-              </div>
-
-              <div href="#?" class="area-icon">
-                <span>2</span>
-                <!-- icono insertado por svg.js -->
-              </div>
-              
-              <div href="#?" class="bathroom-icon">
-                <span>1</span>
-                <!-- icono insertado por svg.js -->
-              </div>
-
-              <div href="#?" class="parking-icon">
-                <span>2</span>
-                <!-- icono insertado por svg.js -->
-              </div>
-
-            </div>
-
-          </div> 
+          </div>
         </a>
 
         <a href="#?" class="publications-item">
           <div class="img-container">
-              
+
             <img src="dist/img/publicaciones.jpg" alt="">
-            
+
             <div class="publications-address">
               <h5>Calle A, 456. Ciudad</h5>
             </div>
@@ -515,7 +479,7 @@ include ('conexion.php');
             </div>
 
             <div class="publications-features">
-              
+
               <div href="#?" class="bedroom-icon">
                 <span>1</span>
                 <!-- icono insertado por svg.js -->
@@ -525,7 +489,7 @@ include ('conexion.php');
                 <span>2</span>
                 <!-- icono insertado por svg.js -->
               </div>
-              
+
               <div href="#?" class="bathroom-icon">
                 <span>1</span>
                 <!-- icono insertado por svg.js -->
@@ -538,14 +502,14 @@ include ('conexion.php');
 
             </div>
 
-          </div> 
+          </div>
         </a>
 
         <a href="#?" class="publications-item">
           <div class="img-container">
-              
+
             <img src="dist/img/publicaciones.jpg" alt="">
-            
+
             <div class="publications-address">
               <h5>Calle A, 456. Ciudad</h5>
             </div>
@@ -554,7 +518,7 @@ include ('conexion.php');
             </div>
 
             <div class="publications-features">
-              
+
               <div href="#?" class="bedroom-icon">
                 <span>1</span>
                 <!-- icono insertado por svg.js -->
@@ -564,7 +528,7 @@ include ('conexion.php');
                 <span>2</span>
                 <!-- icono insertado por svg.js -->
               </div>
-              
+
               <div href="#?" class="bathroom-icon">
                 <span>1</span>
                 <!-- icono insertado por svg.js -->
@@ -577,14 +541,14 @@ include ('conexion.php');
 
             </div>
 
-          </div> 
+          </div>
         </a>
 
         <a href="#?" class="publications-item">
           <div class="img-container">
-              
+
             <img src="dist/img/publicaciones.jpg" alt="">
-            
+
             <div class="publications-address">
               <h5>Calle A, 456. Ciudad</h5>
             </div>
@@ -593,7 +557,7 @@ include ('conexion.php');
             </div>
 
             <div class="publications-features">
-              
+
               <div href="#?" class="bedroom-icon">
                 <span>1</span>
                 <!-- icono insertado por svg.js -->
@@ -603,7 +567,7 @@ include ('conexion.php');
                 <span>2</span>
                 <!-- icono insertado por svg.js -->
               </div>
-              
+
               <div href="#?" class="bathroom-icon">
                 <span>1</span>
                 <!-- icono insertado por svg.js -->
@@ -616,14 +580,14 @@ include ('conexion.php');
 
             </div>
 
-          </div> 
+          </div>
         </a>
 
         <a href="#?" class="publications-item">
           <div class="img-container">
-              
+
             <img src="dist/img/publicaciones.jpg" alt="">
-            
+
             <div class="publications-address">
               <h5>Calle A, 456. Ciudad</h5>
             </div>
@@ -632,7 +596,7 @@ include ('conexion.php');
             </div>
 
             <div class="publications-features">
-              
+
               <div href="#?" class="bedroom-icon">
                 <span>1</span>
                 <!-- icono insertado por svg.js -->
@@ -642,7 +606,7 @@ include ('conexion.php');
                 <span>2</span>
                 <!-- icono insertado por svg.js -->
               </div>
-              
+
               <div href="#?" class="bathroom-icon">
                 <span>1</span>
                 <!-- icono insertado por svg.js -->
@@ -655,17 +619,56 @@ include ('conexion.php');
 
             </div>
 
-          </div> 
+          </div>
+        </a>
+
+        <a href="#?" class="publications-item">
+          <div class="img-container">
+
+            <img src="dist/img/publicaciones.jpg" alt="">
+
+            <div class="publications-address">
+              <h5>Calle A, 456. Ciudad</h5>
+            </div>
+            <div class="publications-price">
+              <h6>$25.000</h6>
+            </div>
+
+            <div class="publications-features">
+
+              <div href="#?" class="bedroom-icon">
+                <span>1</span>
+                <!-- icono insertado por svg.js -->
+              </div>
+
+              <div href="#?" class="area-icon">
+                <span>2</span>
+                <!-- icono insertado por svg.js -->
+              </div>
+
+              <div href="#?" class="bathroom-icon">
+                <span>1</span>
+                <!-- icono insertado por svg.js -->
+              </div>
+
+              <div href="#?" class="parking-icon">
+                <span>2</span>
+                <!-- icono insertado por svg.js -->
+              </div>
+
+            </div>
+
+          </div>
         </a>
 
       </div>
     </section>
-    
+
     <section id="primera-vez" class="py-0 py-md-3 py-lg-5">
       <h1 class="py-5">¿PRIMERA VEZ? ¡TE AYUDAMOS!</h1>
-      
+
       <div class="contenedor-opciones px-0 px-md-3 px-lg-5">
-        
+
         <a href="#?">
           <img src="./dist/img/paf1.jpg" alt="">
           <div class="description-container">
@@ -682,21 +685,21 @@ include ('conexion.php');
 
       </div>
     </section>
-    
+
     <section id="contact" class="py-5 px-2 px-lg-5">
       <h2>Contactanos</h2>
       <form class="py-4 py-lg-5 px-3 px-sm-4 px-lg-5" action="">
-        
+
         <div class="input-container">
           <label for="name">Nombre</label>
           <input name="name" type="text">
         </div>
-        
+
         <div class="input-container">
           <label for="email">Correo</label>
           <input name="email" type="email">
         </div>
-        
+
         <div class="input-container">
           <label for="phone">Telefono</label>
           <input name="phone" type="tel">
@@ -704,8 +707,8 @@ include ('conexion.php');
 
         <textarea name="message" placeholder="Comentanos en qué podemos ayudarte"></textarea>
         <button type="submit">Enviar</button>
-  
-        
+
+
       </form>
     </section>
   </main>
@@ -713,10 +716,10 @@ include ('conexion.php');
   <footer id="footer">
 
     <div class="contenedor-central py-4">
-        
+
       <div class="redes">
         <h5>¡Seguínos en nuestras redes!</h5>
-        
+
         <div class="item-redes">
           <img src="./dist/img/icons/whatsapp.svg" alt="">
           <a href="">+54 9 123 4567</a>
@@ -791,6 +794,7 @@ include ('conexion.php');
   <script type="text/javascript" src="src/js/filtros.js"></script>
   <script type="text/javascript" src="src/js/hamburger.js"></script>
 </body>
+
 </html>
 
 <!-- Imagen de <a href="https://pixabay.com/es/users/PublicDomainPictures-14/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2257">PublicDomainPictures</a> en <a href="https://pixabay.com/es/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2257">Pixabay</a> -->
