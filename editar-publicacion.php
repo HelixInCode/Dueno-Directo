@@ -39,6 +39,40 @@ if (isset($_SESSION['id'])) {
 
     $idPublicacion = $_GET['public'];
 
+    if (isset($_POST['Guardar'])) {
+      $tipopropiedad = mysqli_real_escape_string($conexion, $_POST['tipo_propiedad']);
+      $peso = mysqli_real_escape_string($conexion, $_POST['pesos']);
+      $dolar = mysqli_real_escape_string($conexion, $_POST['dolar']);
+      $descripcion = mysqli_real_escape_string($conexion, $_POST['descripcion']);
+      $areatotal = mysqli_real_escape_string($conexion, $_POST['area_total']);
+      $areacubierta = mysqli_real_escape_string($conexion, $_POST['area_cubierta']);
+      $gas = mysqli_real_escape_string($conexion, $_POST['gas']);
+      $luz = mysqli_real_escape_string($conexion, $_POST['luz']);
+      $aguasblancas = mysqli_real_escape_string($conexion, $_POST['agua']);
+      $aguasnegras = mysqli_real_escape_string($conexion, $_POST['cloacas']);
+      $habitaciones = mysqli_real_escape_string($conexion, $_POST['habitaciones']);
+      $banos = mysqli_real_escape_string($conexion, $_POST['banos']);
+      $mascotas = mysqli_real_escape_string($conexion, $_POST['mascotas']);
+      $cochera = mysqli_real_escape_string($conexion, $_POST['cochera']);
+      $expensas = mysqli_real_escape_string($conexion, $_POST['expensas']);
+      $provincias = mysqli_real_escape_string($conexion, $_POST['provincia']);
+      $municipalidad = mysqli_real_escape_string($conexion, $_POST['municipalidad']);
+      $calle = mysqli_real_escape_string($conexion, $_POST['calle']);
+      $antig= mysqli_real_escape_string($conexion, $_POST['antig']);
+      $uso= mysqli_real_escape_string($conexion, $_POST['uso']);
+
+      $update_public = mysqli_query($conexion, "UPDATE propiedad SET tipo_propiedad='$tipopropiedad',
+                                    pesos='$peso', dolar='$dolar', descripcion='$descripcion', area_total='$areatotal',
+                                    area_cubierta='$areacubierta', gas='$gas', luz='$luz', agua='$aguasblancas',
+                                    cloacas='$aguasnegras', habitaciones='$habitaciones', banos='$banos',
+                                    mascotas='$mascotas', cochera='$cochera', expensas='$expensas', provincia='$provincias',
+                                    municipalidad='$municipalidad', calle='$calle', antig='$antig',
+                                    uso='$uso' WHERE idPropiedad='$idPublicacion'") or die("problemas actualizando la informacion:" . mysqli_error($conexion)); 
+      if ($update_public) {
+        echo "Se actualizaron los datos corretamente";
+      }
+    }
+
     $consulta = mysqli_query($conexion, "SELECT * FROM propiedad WHERE idPropiedad='$idPublicacion'");
     $Aconsul = mysqli_fetch_array($consulta);
 
@@ -163,7 +197,7 @@ if (isset($_SESSION['id'])) {
 
                 <li class="fila">
                   <p>Precio ARS</p>
-                  <input class="valor" name="pesos" value="<?php echo $Aconsul['peso']; ?>">
+                  <input class="valor" name="pesos" value="<?php echo $Aconsul['pesos']; ?>">
                 </li>
 
                 <li class="fila">
@@ -173,80 +207,82 @@ if (isset($_SESSION['id'])) {
 
                 <li class="fila">
                   <p>Condicion</p>
-                  <input class="valor" name="condicion" value="<?php echo $Aconsul['uso']; ?>">
+                  <input class="valor" name="uso" value="<?php echo $Aconsul['uso']; ?>">
                 </li>
 
                 <li class="fila">
                   <p>Tipo de Propiedad</p>
-                  <p class="valor"><?php echo $Aconsul['tipo_propiedad']; ?></p>
+                  <input class="valor" name="tipo_propiedad" value="<?php echo $Aconsul['tipo_propiedad']; ?>">
                 </li>
 
                 <li class="fila">
                   <p>Antiguedad</p>
-                  <p class="valor"><?php echo $Aconsul['antig']; ?></p>
+                  <input class="valor" name="antig" value="<?php echo $Aconsul['antig']; ?>">
                 </li>
 
                 <li class="fila">
                   <p>Area Total</p>
-                  <p class="valor"><?php echo $Aconsul['area_total']; ?></p>
+                  <input class="valor" name="area_total" value="<?php echo $Aconsul['area_total']; ?>">
                 </li>
 
                 <li class="fila">
                   <p>Area Cubierta</p>
-                  <p class="valor"><?php echo $Aconsul['area_cubierta']; ?></p>
+                  <input class="valor" name="area_cubierta" value="<?php echo $Aconsul['area_cubierta']; ?>">
                 </li>
 
                 <li class="fila">
                   <p>Habitaciones</p>
-                  <p class="valor"><?php echo $Aconsul['habitaciones']; ?></p>
+                  <input class="valor" name="habitaciones" value="<?php echo $Aconsul['habitaciones']; ?>">
                 </li>
 
                 <li class="fila">
                   <p>Baños</p>
-                  <p class="valor"><?php echo $Aconsul['banos']; ?></p>
+                  <input class="valor" name="banos" value="<?php echo $Aconsul['banos']; ?>">
                 </li>
 
                 <li class="fila">
                   <p>Cochera</p>
-                  <p class="valor"><?php echo $Aconsul['cochera']; ?></p>
+                  <input class="valor" name="cochera" value="<?php echo $Aconsul['cochera']; ?>">
                 </li>
 
                 <li class="fila">
                   <p>Luz Eléctrica</p>
-                  <p class="valor"><?php echo $Aconsul['luz']; ?></p>
+                  <input class="valor" name="luz" value="<?php echo $Aconsul['luz']; ?>">
                 </li>
 
                 <li class="fila">
                   <p>Agua</p>
-                  <p class="valor"><?php echo $Aconsul['agua']; ?></p>
+                  <input class="valor" name="agua" value="<?php echo $Aconsul['agua']; ?>">
                 </li>
 
                 <li class="fila">
                   <p>Gas</p>
-                  <p class="valor"><?php echo $Aconsul['gas']; ?></p>
+                  <input class="valor" name="gas" value="<?php echo $Aconsul['gas']; ?>">
                 </li>
 
                 <li class="fila">
                   <p>Aguas Negras</p>
-                  <p class="valor"><?php echo $Aconsul['cloacas']; ?></p>
+                  <input class="valor" name="cloacas" value="<?php echo $Aconsul['cloacas']; ?>">
                 </li>
 
                 <li class="fila">
                   <p>Expensas</p>
-                  <p class="valor"><?php echo $Aconsul['expensas']; ?></p>
+                  <input class="valor" name="expensas" value="<?php echo $Aconsul['expensas']; ?>">
                 </li>
 
                 <li class="fila">
                   <p>Mascotas</p>
-                  <p class="valor"><?php echo $Aconsul['mascotas']; ?></p>
+                  <input class="valor" name="mascotas" value="<?php echo $Aconsul['mascotas']; ?>">
                 </li>
               </ul>
             </div>
 
             <div class="ubicacion">
               <h5>UBICACIÓN</h5>
-              <p><?php echo "Calle ".$calle.", ".$municipalidad; ?></p>
-              <p style="text-transform: uppercase; font-weight:1200"><?php echo $provincia; ?></p>
+              <p>Calle</p>
+              <input name="calle" value="<?php echo $calle ?>">
+              <input name="municipalidad" value="<?php echo $municipalidad ?>">
+              <input name="provincia" value="<?php echo $provincia; ?>" style="text-transform: uppercase; font-weight:1200">
               <div class="container-mapa">
                 <!--Tratar de insertar mapa con la ubicacion del lugar-->
               </div>
@@ -291,7 +327,7 @@ if (isset($_SESSION['id'])) {
 
           <div class="acciones">
             <button type="button" class="btn">PUBLICAR</button>
-            <button type="button" class="btn">GUARDAR</button>
+            <button type="submit" name="Guardar" class="btn">GUARDAR</button>
           </div>
          
         </div>
