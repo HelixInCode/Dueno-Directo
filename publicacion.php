@@ -354,6 +354,8 @@ if (isset($_SESSION['id'])) {
                             </div>
                         </div>
 
+                        <input type="hidden" name="estado" value="precargada">
+
                         <div class="btn-precarga">
                             <button class="btn" type="submit" name="propiedad">Precargar Publicación</button>
                         </div>

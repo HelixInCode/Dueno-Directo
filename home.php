@@ -66,6 +66,10 @@ if (isset($_SESSION['id'])) {
         $user_descripcion = $consuldates['descripcion'];
         $user = $consuldates['usuario'];
 
+        $conPropiedades= mysqli_query($conexion,"SELECT * FROM propiedad WHERE idUser='$id_user'");
+        
+
+
         ?>
         <header>
             <nav class="py-2 px-4">
@@ -235,16 +239,26 @@ if (isset($_SESSION['id'])) {
 
                             <h4>Publicaciones Pre-cargadas</h4>
                             <div class="publicaciones">
+
+                            <?php 
+                                while ($propiedad= mysqli_fetch_array($conPropiedades)){ 
+                            
+                            ?>
                                 <div class="item-publicacion">
-                                    <img src="./dist/img/Productos1.jpg" alt="">
-                                    <p>Descripcion de la publicacion</p>
+                                    <?php $public=$propiedad['idPropiedad']; ?>
+                                    <img src="./dist/images/<?php echo $propiedad['imagen1'] ?>" alt="">
+                                    <p><?php echo $propiedad['descripcion'] ?></p>
                                     <div class="acciones">
                                         <a href="">Publicar</a>
-                                        <a href="">Modificar</a>
+                                        <a href='<?php echo "editar-publicacion.php?public=$public" ?>'>Modificar</a>
                                         <a href="">Eliminar</a>
                                     </div>
 
                                 </div>
+                            <?php 
+                                    }
+                            ?>
+                            
                             </div>
 
                         </div>

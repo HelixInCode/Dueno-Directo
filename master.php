@@ -71,7 +71,7 @@
           <ul class="navbar-nav nav-flex-icons">
 
             <li class="nav-item">
-              <a href="https://mdbootstrap.com/docs/jquery/newsletter/" class="nav-link border border-light rounded waves-effect mr-2" target="_blank">
+              <a href="process/close.php" class="nav-link border border-light rounded waves-effect mr-2" target="_blank">
                 <i class="fas fa-envelope mr-1"></i>Cerrar Sesión
               </a>
             </li>

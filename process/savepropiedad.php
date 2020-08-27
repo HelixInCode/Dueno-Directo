@@ -71,6 +71,7 @@
       $ruta5= $_FILES['imagen5']['name'];
       $tipo5= $_FILES['imagen5']['type'];
       $publicaciontime = mysqli_real_escape_string($conexion, $_POST['tiempo-publicacion']);
+      $estado = mysqli_real_escape_string($conexion, $_POST['estado']);
 
       if ($img1 == !NULL & $img2 == !NULL & $img3 == !NULL & $img4 == !NULL & $img5 == !NULL){
         ///pongo límite de 8 gb para el tamaño de las imagenes
@@ -100,10 +101,10 @@
               luz, agua, cloacas, habitaciones, 
               banos, mascotas, cochera, 
               expensas, provincia, municipalidad, 
-              calle, telefono, antig, uso, tiempo_publicacion,imagen1, imagen2,imagen3,imagen4, imagen5, idUser)
+              calle, telefono, antig, uso, tiempo_publicacion,imagen1, imagen2,imagen3,imagen4, imagen5, idUser, estado)
               VALUES ('$propiedadname','$tipopropiedad','$peso','$dolar','$finalidad','$descripcion','$areatotal','$areacubierta',
               '$gas','$luz','$aguasblancas','$aguasnegras','$habitaciones','$banos','$mascotas','$cochera','$expensas',
-              '$provincias','$municipalidad','$calle','$telefono','$antig','$uso', '$publicaciontime','$ruta1','$ruta2','$ruta3','$ruta4','$ruta5','$id_user')") or die(mysqli_error($conexion));
+              '$provincias','$municipalidad','$calle','$telefono','$antig','$uso', '$publicaciontime','$ruta1','$ruta2','$ruta3','$ruta4','$ruta5','$id_user', '$estado')") or die(mysqli_error($conexion));
 
               if ($guardar){
               $move= move_uploaded_file($_FILES['imagen1']['tmp_name'], "../dist/images/".$ruta1);
