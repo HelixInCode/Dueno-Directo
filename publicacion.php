@@ -76,7 +76,7 @@ if (isset($_SESSION['id'])) {
                                 <a href="#?">Panel</a>
                             </li>
                             <li>
-                                <a href="#?">Cerrar Sesion</a>
+                                <a href="process/close.php">Cerrar Sesion</a>
                             </li>
                         </ul>
                     </div>

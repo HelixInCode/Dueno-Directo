@@ -72,7 +72,7 @@ if (isset($_SESSION['id'])) {
         <div class="menu-btns">
           <ul class="menu-items hide py-1 py-md-0">
             <li>
-              <a class="waves-effect waves-light" href="index.php">Home</a>
+              <a class="waves-effect waves-light" href="index.php">Inicio</a>
             </li>
             <li>
               <a class="waves-effect waves-light" href="./servicios.html">Servicios</a>
@@ -103,7 +103,7 @@ if (isset($_SESSION['id'])) {
                 <a href="#?">Panel</a>
               </li>
               <li>
-                <a href="#?">Cerrar Sesion</a>
+                <a href="process/close.php">Cerrar Sesion</a>
               </li>
             </ul>
           </div>

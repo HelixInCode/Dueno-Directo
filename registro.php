@@ -36,7 +36,7 @@
             <div class="menu-btns">
                 <ul class="menu-items hide py-1 py-md-0">
                     <li>
-                        <a class="waves-effect waves-light" href="index.php">Home</a>
+                        <a class="waves-effect waves-light" href="index.php">Inicio</a>
                     </li>
                     <li>
                         <a class="waves-effect waves-light" href="./servicios.html">Servicios</a>
@@ -142,7 +142,12 @@
                     </div>
                     <div class="input-container">
                         <label for="password" class="text1">Categoria:</label><br>
-                        <input type="text" name="categoria" id="categoria" class="form-control">
+                        <select name="categorias" id="categorias">
+                            <option value="">Seleccione categoria..</option>
+                            <option value="propietario">Propietario</option>
+                            <option value="profesional">Profesional</option>
+                            <option value="Servicio">Servicios</option>
+                         </select>
                     </div>
                     <div class="input-container">
                         <input type="submit" name="Enviar" class="button1" value="Enviar">
