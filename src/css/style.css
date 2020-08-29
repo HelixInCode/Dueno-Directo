@@ -589,6 +589,7 @@ nav > .menu-btns > .user > ul > li > a{
   border-radius: 10px;
 }
 
+
 .modal{
   z-index: 9999;
   position: fixed;
@@ -634,6 +635,7 @@ nav > .menu-btns > .user > ul > li > a{
   grid-template-columns: 1fr;
   gap: 10px;
 }
+
 #modal-login > .login > .main-container > .input-container{
   display: grid;
   grid-template-columns: 1fr;

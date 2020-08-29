@@ -14,13 +14,6 @@ if(document.getElementById('modal-login')){
   showHideModal($btnShowLogin, $login)
 }
 
-if(document.getElementById('modal-message-sent')){
-  const $messageSent = document.getElementById('modal-message-sent')
-  const $btnHideSent = document.getElementById('close-sent')
-
-  showHideModal($btnHideSent, $messageSent)
-}
-
 if(document.getElementById('modal-input-img')){
   const $input = document.getElementById('modal-input-img')
   const $btnHideInput = document.getElementById('close-input')
@@ -28,4 +21,21 @@ if(document.getElementById('modal-input-img')){
 
   showHideModal($btnHideInput, $input)
   showHideModal($btnShowInput, $input)
+}
+
+if(document.getElementById('modal-perfil')){
+  const $perfil = document.getElementById('modal-perfil')
+  const $btnHidePerfil = document.getElementById('close-modal-perfil')
+  const $btnShowPerfil = document.getElementById('show-modal-perfil')
+
+  console.log('ejecutado')
+  showHideModal($btnHidePerfil, $perfil)
+  showHideModal($btnShowPerfil, $perfil)
+}
+
+if(document.getElementById('modal-message-sent')){
+  const $messageSent = document.getElementById('modal-message-sent')
+  const $btnHideSent = document.getElementById('close-sent')
+
+  showHideModal($btnHideSent, $messageSent)
 }

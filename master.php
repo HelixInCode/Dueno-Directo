@@ -17,6 +17,9 @@
   <title>Dueño Directo</title>
   <!-- icono de la pestaña -->
   <link rel="icon" href="dist/img/logo-icon.png">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="dist/css/bootstrap.min.css">
@@ -24,7 +27,6 @@
   <!-- Material Design Bootstrap -->
   <link rel="stylesheet" href="dist/css/mdb.min.css">
   <!-- Estilos-->
-
   <link rel="stylesheet" href="dist/css/master.css">
 </head>
 
@@ -39,54 +41,35 @@
 
   <!-- Navigation -->
   <header class="header">
-    <!-- Navbar -->
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
-      <div class="container">
 
-        <!-- Brand -->
-        <a class="navbar-brand waves-effect" href="https://mdbootstrap.com/docs/jquery/" target="_blank">
-          <img src="dist/img/DD-LOGO.png" alt="Logo">
-        </a>
+    <nav class="py-2 px-4">
+      <div class="ml-md-4 img-container">
+        <img class="img-fluid" src="dist/img/DD-LOGO.png" alt="">
+      </div>
 
-        <!-- Collapse -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+      <ul class="menu-items hide py-1 py-md-0">
+        <li>
+          <a class="waves-effect waves-light" href="index.php">Inicio</a>
+        </li>
+        <li>
+          <a class="waves-effect waves-light" href="./servicios.html">Propiedades</a>
+        </li>
+        <li>
+          <i class="fas fa-sign-out-alt mr-1"></i>
+          <a class="waves-effect waves-light" href="process/close.php">Cerrar Sesión</a>
+        </li>
+        <li id="show-modal-perfil">
+          <i class="fas fa-user-alt mr-1"></i>
+          <a class="waves-effect waves-light" href="#?">Perfil</a>
+        </li>
+      </ul>
+      
+      <div class="menu-overlay hide d-block d-md-none"></div>
 
-        <!-- Links -->
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-          <!-- Left -->
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="nav-link waves-effect" href="" target="_blank">Inicio</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link waves-effect" href="" target="_blank">Propiedades</a>
-            </li>
-
-          </ul>
-
-          <!-- Right -->
-          <ul class="navbar-nav nav-flex-icons">
-
-            <li class="nav-item">
-              <a href="process/close.php" class="nav-link border border-light rounded waves-effect mr-2" target="_blank">
-                <i class="fas fa-envelope mr-1"></i>Cerrar Sesión
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="https://mdbootstrap.com/docs/jquery/newsletter/" class="nav-link border border-light rounded waves-effect mr-2" target="_blank">
-                <i class="fas fa-envelope mr-1"></i>Perfil
-              </a>
-            </li>
-          </ul>
-
-        </div>
-
+      <div id="hamburger" class="hamburger-btn d-flex d-md-none">
+        <i id="ham-icon" class="fas fa-bars fa-1-3x"></i>
       </div>
     </nav>
-    <!-- Navbar -->
 
     <!-- Intro -->
     <div class="card card-intro blue-gradient">
@@ -137,7 +120,22 @@
   </header>
   <!-- Navigation -->
   <main class="tab-content" id="myTabContent">
-    
+
+    <section id="modal-perfil" class="modal hide">
+      <div class="login card">
+
+        <div class="title-container card-header info-color white-text p-3">
+          <h5>Perfil</h5>
+          <i id="close-modal-perfil" class="fa fa-times"></i>
+        </div>
+
+        <form method="POST" style="color: #757575;" class="main-container card-body px-lg-5 pt-0">
+          
+          <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" name="Enviar" type="submit">Agregar</button>
+        </form>
+      </div>
+    </section>
+
     <div class="tab-pane fade show active px-2 px-sm-3" id="home" role="tabpanel" aria-labelledby="home-tab">
       <div class="administradores">
         <div class="agregarAdmin">
@@ -195,7 +193,6 @@
             </div>
 
           </div>
-
 
         </div>
         <!-- Agregar Administradores -->
@@ -646,7 +643,6 @@
 
     <div class="tab-pane fade px-2 px-sm-3" id="estadisticas" role="tabpanel" aria-labelledby="estadisticas-tab">Bon di
     </div>
-
     
   </main>
 
@@ -655,6 +651,8 @@
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="src/js/hideShowModals.js"></script>
+  <script type="text/javascript" src="src/js/hamburger.js"></script>
 
 </body>
 
