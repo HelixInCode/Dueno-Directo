@@ -127,7 +127,7 @@ if (isset($_SESSION['id'])) {
                 <div class="login">
                     <div class="title-container p-3">
                         <h5>Ingresa una imagen</h5>
-                        <i id="close-input" class="fa fa-times"></i>
+                        <i class="closeModal fa fa-times"></i>
                     </div>
 
                     <form class="main-container p-3" action="" method="POST">
@@ -192,7 +192,7 @@ if (isset($_SESSION['id'])) {
                                 <div class="imagen">
                                     <img src="./dist/img/icons/icons8-camera-100.png" alt="">
                                     <!-- <p>Foto del Usuario</p> -->
-                                    <a id="show-input">Cargar Imagen</a>
+                                    <a class="modal-input-img showModal">Cargar Imagen</a>
                                 </div>
 
                                 <div class="descripcion">

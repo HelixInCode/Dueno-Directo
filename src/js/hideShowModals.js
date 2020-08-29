@@ -1,41 +1,33 @@
-const showHideModal = ($btn, $modal) =>{
-  $btn.addEventListener('click', () =>{
+const $HTMLcollectionModals = document.getElementsByClassName('modal');
+const $HTMLcollectionShowModalsBtns = document.getElementsByClassName('showModal');
 
-    $modal.classList.toggle('hide')
+const convertirHTMLcollection = (HTMLcollection) => {
+  let arreglo = [];
+  for(let index = 0; index < HTMLcollection.length; index++){
+    arreglo.push(HTMLcollection[index]);
+  }
+  return arreglo;
+}
+
+const $modals = convertirHTMLcollection($HTMLcollectionModals)
+const $showModalsBtns = convertirHTMLcollection($HTMLcollectionShowModalsBtns)
+
+$modals.forEach(item => {
+  const $modal = item;
+
+  const showHideModal = () =>{
+    $modal.classList.toggle('hide');
+  }
+
+  const $closeModalBtn = $modal.getElementsByClassName('closeModal')[0];
+  $closeModalBtn.addEventListener('click', showHideModal);
+
+  const $showModalBtn = $showModalsBtns.find(btn => {
+    return btn.classList.contains($modal.id);
+    // return btn.dataset.modal === $modal.id;
   })
-}
 
-if(document.getElementById('modal-login')){
-  const $login = document.getElementById('modal-login')
-  const $btnHideLogin = document.getElementById('close-login')
-  const $btnShowLogin = document.getElementById('ingresar')
-
-  showHideModal($btnHideLogin, $login)
-  showHideModal($btnShowLogin, $login)
-}
-
-if(document.getElementById('modal-input-img')){
-  const $input = document.getElementById('modal-input-img')
-  const $btnHideInput = document.getElementById('close-input')
-  const $btnShowInput = document.getElementById('show-input')
-
-  showHideModal($btnHideInput, $input)
-  showHideModal($btnShowInput, $input)
-}
-
-if(document.getElementById('modal-perfil')){
-  const $perfil = document.getElementById('modal-perfil')
-  const $btnHidePerfil = document.getElementById('close-modal-perfil')
-  const $btnShowPerfil = document.getElementById('show-modal-perfil')
-
-  console.log('ejecutado')
-  showHideModal($btnHidePerfil, $perfil)
-  showHideModal($btnShowPerfil, $perfil)
-}
-
-if(document.getElementById('modal-message-sent')){
-  const $messageSent = document.getElementById('modal-message-sent')
-  const $btnHideSent = document.getElementById('close-sent')
-
-  showHideModal($btnHideSent, $messageSent)
-}
+  if($showModalBtn !== undefined){
+    $showModalBtn.addEventListener('click', showHideModal)
+  }
+})

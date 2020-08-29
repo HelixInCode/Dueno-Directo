@@ -81,7 +81,7 @@ if (isset($_SESSION['id'])) {
               <a class="waves-effect waves-light" href="#?">Contacto</a>
             </li>
             <li>
-              <a id="ingresar" class="waves-effect waves-light" href="#?">Ingresar</a>
+              <a id="ingresar" class="modal-login showModal waves-effect waves-light" href="#?">Ingresar</a>
             </li>
             <li>
               <a class="waves-effect waves-light" href="#?">Publicar</a>

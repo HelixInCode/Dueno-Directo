@@ -58,7 +58,7 @@
           <i class="fas fa-sign-out-alt mr-1"></i>
           <a class="waves-effect waves-light" href="process/close.php">Cerrar Sesión</a>
         </li>
-        <li id="show-modal-perfil">
+        <li class="modal-perfil showModal">
           <i class="fas fa-user-alt mr-1"></i>
           <a class="waves-effect waves-light" href="#?">Perfil</a>
         </li>
@@ -126,7 +126,7 @@
 
         <div class="title-container card-header info-color white-text p-3">
           <h5>Perfil</h5>
-          <i id="close-modal-perfil" class="fa fa-times"></i>
+          <i class="closeModal fa fa-times"></i>
         </div>
 
         <form method="POST" style="color: #757575;" class="main-container card-body px-lg-5 pt-0">
