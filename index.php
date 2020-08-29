@@ -189,29 +189,51 @@ include('conexion.php');
   </header>
   <main>
 
-    <div id="modal-servicios" class="d-none d-md-flex">
-      <h5>Profesionales, Productos y Servicios</h5>
-
-      <div id="submenu">
-
-        <a href="#?" class="submenu-item">
-          <img src="./dist/img/servicios/profesional1.jpg" alt="">
-          <h6>Profesionales</h6>
-        </a>
-
-        <a href="#?" class="submenu-item">
-          <img src="./dist/img/Productos1.jpg" alt="">
-          <h6>Productos</h6>
-        </a>
-
-        <a href="#?" class="submenu-item">
-          <img src="./dist/img/servicio1.jpg" alt="">
-          <h6>Servicios</h6>
-        </a>
-
+    <section id="modal-login" class="modal hide">
+      <div class="login">
+        <div class="title-container p-3">
+          <h5>Ingresar</h5>
+          <i id="close-login" class="closeModal fa fa-times"></i>
+        </div>
+        <form class="main-container p-3" action="" method="POST">
+  
+          <div class="input-container">
+            <label for="email">Correo</label>
+            <input name="email" type="email">
+          </div>  
+  
+          <div class="input-container">
+            <label for="password">Contraseña</label>
+            <input name="password" type="password">
+          </div>
+  
+          <div class="input-container">
+            <input type="checkbox" name="remember">
+            <label for="remenber">Recuerdame ?</label>
+          </div>
+          
+          <div class="login-container">
+    
+            <button disabled name="Enviar">Iniciar Sesión</button>
+            <a href="registro.php">¿No te has registrado todavía?</a>
+            
+          </div>
+        </form>
       </div>
+    </section>
 
-    </div>
+    <section id="modal-message-sent" class="modal hide">
+      <div class="login">
+        <div class="title-container p-3">
+          <!-- <h5>Mensaje Enviado</h5> -->
+          <i id="close-sent" class="closeModal fa fa-times"></i>
+        </div>
+        <div class="main-container message p-3 pb-4">
+          <i class="fas fa-check-circle"></i>
+          <p>¡Su mensaje ha sido enviado exitosamente!</p>
+        </div>
+      </div>
+    </section>
 
     <section id="filtros" class="">
 
@@ -239,10 +261,10 @@ include('conexion.php');
               <input name="operacion" type="radio" value="">Alquiler Temporal
             </div>
           </div>
-
+          
           <div class="inmueble-container">
             <label for="inmueble">Tipo de Inmueble</label>
-
+  
             <div class="input-container">
               <input name="inmueble" type="radio" value="">Casa
             </div>
@@ -277,7 +299,7 @@ include('conexion.php');
 
           <div class="options-container">
             <label for="opciones">Tipo de Opciones</label>
-
+    
             <div class="input-container">
               <input name="opciones" type="radio" value="">Casa
             </div>
@@ -291,7 +313,7 @@ include('conexion.php');
               <input name="opciones" type="radio" value="">Local y Comercial
             </div>
           </div>
-
+          
           <div class="rango-container">
             <label for="superfie1">Superficie Cubierta</label>
 
@@ -312,7 +334,7 @@ include('conexion.php');
 
           <div class="options-container">
             <label for="habitaciones">Habitaciones</label>
-
+    
             <div class="input-container">
               <input name="habitaciones" type="radio" value="">1
             </div>
@@ -329,7 +351,7 @@ include('conexion.php');
 
           <div class="options-container">
             <label for="bathrooms">Baños</label>
-
+    
             <div class="input-container">
               <input name="bathrooms" type="radio" value="">1
             </div>
@@ -346,7 +368,7 @@ include('conexion.php');
 
           <div class="options-container">
             <label for="plantas">Plantas</label>
-
+    
             <div class="input-container">
               <input name="plantas" type="radio" value="">1
             </div>
@@ -360,53 +382,34 @@ include('conexion.php');
 
         </div>
       </div>
-    </section>
 
-    <section id="modal-login" class="modal hide">
-      <div class="login">
-        <div class="title-container p-3">
-          <h5>Ingresar</h5>
-          <i id="close-login" class="closeModal fa fa-times"></i>
-        </div>
-        <form class="main-container p-3" action="" method="POST">
-  
-          <div class="input-container">
-            <label for="email">Correo</label>
-            <input name="email" type="email">
-          </div>  
-  
-          <div class="input-container">
-            <label for="password">Contraseña</label>
-            <input name="password" type="password">
-          </div>
-  
-          <div class="input-container">
-            <input type="checkbox" name="remember">
-            <label for="remenber">Recuerdame ?</label>
-          </div>
-          
-          <div class="login-container">
+      <div class="filtros-overlay hide d-block d-md-none"></div>
+    </section>
     
-            <button name="Enviar">Iniciar Sesión</button>
-            <a href="registro.php">¿No te has registrado todavía?</a>
-            
-          </div>
-        </form>
-      </div>
-    </section>
+    <div id="modal-servicios" class="">
+      <h5>Profesionales, Productos y Servicios</h5>
 
-    <section id="modal-message-sent" class="modal hide">
-      <div class="login">
-        <div class="title-container p-3">
-          <!-- <h5>Mensaje Enviado</h5> -->
-          <i id="close-sent" class="closeModal fa fa-times"></i>
-        </div>
-        <div class="main-container message p-3 pb-4">
-          <i class="fas fa-check-circle"></i>
-          <p>¡Su mensaje ha sido enviado exitosamente!</p>
-        </div>
+      <div id="submenu">
+
+        <a href="#?" class="submenu-item">
+          <img src="./dist/img/servicios/profesional1.jpg" alt="">
+          <h6>Profesionales</h6>
+        </a>
+
+        <a href="#?" class="submenu-item">
+          <img src="./dist/img/Productos1.jpg" alt="">
+          <h6>Productos</h6>
+        </a>
+
+        <a href="#?" class="submenu-item">
+          <img src="./dist/img/servicio1.jpg" alt="">
+          <h6>Servicios</h6>
+        </a>
+
       </div>
-    </section>
+
+      <div class="servicios-overlay hide d-block d-md-none"></div>
+    </div>
 
     <section id="publications" class="py-5 px-3 px-lg-5">
 
@@ -791,8 +794,10 @@ include('conexion.php');
   <!-- Your custom scripts (optional) -->
   <script type="text/javascript" src="src/js/svg.js"></script>
   <script type="text/javascript" src="src/js/hideShowModals.js"></script>
+  <script type="text/javascript" src="src/js/loginValidation.js"></script>
   <script type="text/javascript" src="src/js/filtros.js"></script>
   <script type="text/javascript" src="src/js/hamburger.js"></script>
+  <!-- <script type="text/javascript" src="src/js/modalMessageSentAppears.js"></script> -->
 </body>
 
 </html>

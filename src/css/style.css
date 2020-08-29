@@ -672,7 +672,9 @@ nav > .menu-btns > .user > ul > li > a{
 #modal-login > .login > .main-container > .login-container button:hover{
   background-color: var(--PrimarioClaro);
 }
-
+#modal-login > .login > .main-container > .login-container button:disabled{
+  background-color: var(--sombra);
+}
 #modal-message-sent > .login > .title-container{
   background-color: transparent;
   text-align: end;

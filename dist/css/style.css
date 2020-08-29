@@ -721,7 +721,9 @@ nav > .menu-btns > .user > ul > li > a{
 #modal-login > .login > .main-container > .login-container button:hover{
   background-color: #0075BE;
 }
-
+#modal-login > .login > .main-container > .login-container button:disabled{
+  background-color: rgba(0, 0, 0, .5);
+}
 #modal-message-sent > .login > .title-container{
   background-color: transparent;
   text-align: end;
