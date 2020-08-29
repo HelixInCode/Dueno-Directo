@@ -147,6 +147,7 @@
     <script type="text/javascript" src="src/js/login.js"></script>
     <script type="text/javascript" src="src/js/panel-publicacion.js"></script>
     <script type="text/javascript" src="src/js/hamburger.js"></script>
+    <script type="text/javascript" src="src/js/btn-mercado.js"></script>
 
 </body>
 
