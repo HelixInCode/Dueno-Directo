@@ -54,7 +54,7 @@
           <div class="user-icon">
             <img height="35" class="d-none" src="./dist/img/icons/user.png" alt="imagen de usuario">
 
-            <i class="fas fa-user fa-2x" style="color: #E9EBF5;"></i>
+            <i class="fas fa-user fa-2x"></i>
             <i class="fas fa-angle-down"></i>
           </div>
           <ul class="hide">
@@ -77,9 +77,10 @@
         </div>
       </div>
     </nav>
-    
-    <section id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
-      <div class="carousel-inner servicios">
+
+    <section id="carouselExampleFade" class="carousel slide index-carousel carousel-fade" data-ride="carousel">
+
+      <div class="carousel-inner">
 
         <div class="carousel-item active">
           <img src="dist/img/servicios/productos.jpg" class="d-block w-100" alt="...">
@@ -94,16 +95,18 @@
         </div>
 
       </div>
+
       <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
       </a>
+
       <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
       </a>
 
-      <form id="search-main" action="" class="centrar">
+      <form id="search-main" action="" class="servicios">
         <div class="form-container">
 
           <input type="text" placeholder="Ingresa tu busqueda">
@@ -131,6 +134,7 @@
       </form>
 
     </section>
+
   </header>
   <main>
     <section id="modal-login" class="modal hide">
@@ -365,7 +369,7 @@
     </div>
 
     <div class="img-container">
-      <img width="304px" src="dist/img/DD-LOGO.png" alt="">
+      <img src="dist/img/DD-LOGO.png" alt="">
     </div>
 
   </div>
@@ -385,6 +389,7 @@
 <!-- Your custom scripts (optional) -->
 <script type="text/javascript" src="src/js/svg.js"></script>
 <script type="text/javascript" src="src/js/hideShowModals.js"></script>
+<script type="text/javascript" src="src/js/loginValidation.js"></script>
 <script type="text/javascript" src="src/js/hamburger.js"></script>
 </body>
 </html>

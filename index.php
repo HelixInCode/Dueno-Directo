@@ -94,7 +94,7 @@ include('conexion.php');
           <div class="user-icon">
             <img height="35" class="d-none" src="./dist/img/icons/user.png" alt="imagen de usuario">
 
-            <i class="fas fa-user fa-2x" style="color: #E9EBF5;"></i>
+            <i class="fas fa-user fa-2x"></i>
             <i class="fas fa-angle-down"></i>
           </div>
           <ul class="hide">
@@ -787,7 +787,7 @@ include('conexion.php');
       </div>
 
       <div class="img-container">
-        <img width="304px" src="dist/img/DD-LOGO.png" alt="">
+        <img src="dist/img/DD-LOGO.png" alt="">
       </div>
 
     </div>
