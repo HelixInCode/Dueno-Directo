@@ -136,6 +136,22 @@
       </div>
     </section>
 
+    <section id="modal-error" class="modal hide">
+      <div class="login">
+        <div class="title-container p-3">
+          <!-- <h5>Mensaje Enviado</h5> -->
+          <i id="close-sent" class="closeModal fa fa-times"></i>
+        </div>
+        <div class="main-container error p-3 pb-4">
+          <i class="fas fa-times-circle"></i>
+          <p></p>
+        </div>
+      </div>
+    </section>
+    <!-- <script type="text/javascript">
+        modalError('Mensaje de prueba');
+    </script> -->
+
     <div class="tab-pane fade show active px-2 px-sm-3" id="home" role="tabpanel" aria-labelledby="home-tab">
       <div class="administradores">
         <div class="agregarAdmin">

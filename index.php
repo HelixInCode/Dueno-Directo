@@ -811,9 +811,9 @@ include('conexion.php');
   <script type="text/javascript" src="src/js/filtros.js"></script>
   <script type="text/javascript" src="src/js/filtrosValidation.js"></script>
   <script type="text/javascript" src="src/js/hamburger.js"></script>
-  <script type="text/javascript">
+  <!-- <script type="text/javascript">
     modalError('Mensaje de prueba');
-  </script>
+  </script> -->
   <!-- <script type="text/javascript" src="src/js/modalMessageSentAppears.js"></script> -->
 </body>
 
