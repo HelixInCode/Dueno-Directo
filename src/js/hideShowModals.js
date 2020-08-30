@@ -8,6 +8,15 @@ const convertirHTMLcollection = (HTMLcollection) => {
   }
   return arreglo;
 }
+const modalError = (message) =>{
+  let modalError = document.getElementById('modal-error')
+
+  if(modalError.classList.contains('hide')){
+    modalError.classList.toggle('hide')
+  }
+  let parrafo = modalError.querySelector('.login > .error p')
+  parrafo.innerHTML = message;
+}
 
 const $modals = convertirHTMLcollection($HTMLcollectionModals)
 const $showModalsBtns = convertirHTMLcollection($HTMLcollectionShowModalsBtns)

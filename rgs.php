@@ -102,7 +102,6 @@
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="dist/js/mdb.min.js"></script>
     <!-- Your custom scripts (optional) -->
-    <script type="text/javascript" src="src/js/svg.js"></script>
     <script type="text/javascript" src="src/js/hamburger.js"></script>
 </body>
 

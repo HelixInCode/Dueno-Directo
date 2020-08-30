@@ -14,6 +14,7 @@ const $btnClose = $filtros.querySelector('i')
 
 const btnFiltros = ($btnFiltros) =>{
   $btnFiltros.addEventListener('click', () => {
+    $filtros.classList.toggle('showUp')
     $mainFiltros.classList.toggle('show')
     $filtrosOverlay.classList.toggle('hide')
   })
@@ -22,8 +23,6 @@ btnFiltros($btnFiltrosDesktop)
 btnFiltros($btnFiltrosResponsive)
 btnFiltros($btnClose)
 btnFiltros($filtrosOverlay)
-
-
 
 $btnServiciosResponsive.addEventListener('click', () => {
   $modalServicios.classList.toggle('show')

@@ -235,6 +235,19 @@ include('conexion.php');
       </div>
     </section>
 
+    <section id="modal-error" class="modal hide">
+      <div class="login">
+        <div class="title-container p-3">
+          <!-- <h5>Mensaje Enviado</h5> -->
+          <i id="close-sent" class="closeModal fa fa-times"></i>
+        </div>
+        <div class="main-container error p-3 pb-4">
+          <i class="fas fa-times-circle"></i>
+          <p></p>
+        </div>
+      </div>
+    </section>
+
     <section id="filtros" class="">
 
       <h5 id="btnFiltrosDesktop">Filtros</h5>
@@ -245,20 +258,23 @@ include('conexion.php');
           <i class="fa fa-times"></i>
         </div>
 
-        <div class="filtros-container scrollbar scrollbar-primary">
-          <input name="search" type="text" placeholder="Buscar">
+        <form method="POST" class="filtros-container scrollbar scrollbar-primary">
+          <div class="main-search">
+            <input name="search" type="text" placeholder="Buscar">
+            <button type="submit"><i class="fa fa-search"></i></button>
+          </div>
 
           <div class="operacion-container">
 
             <label for="operacion">Operación</label>
             <div class="input-container">
-              <input name="operacion" type="radio" value="">Venta
+              <input name="operacion" type="radio" value="Venta">Venta
             </div>
             <div class="input-container">
-              <input name="operacion" type="radio" value="">Alquiler
+              <input name="operacion" type="radio" value="Alquiler">Alquiler
             </div>
             <div class="input-container">
-              <input name="operacion" type="radio" value="">Alquiler Temporal
+              <input name="operacion" type="radio" value="Alquiler Temporal">Alquiler Temporal
             </div>
           </div>
           
@@ -266,25 +282,22 @@ include('conexion.php');
             <label for="inmueble">Tipo de Inmueble</label>
   
             <div class="input-container">
-              <input name="inmueble" type="radio" value="">Casa
+              <input name="inmueble" type="radio" value="Casa">Casa
             </div>
             <div class="input-container">
-              <input name="inmueble" type="radio" value="">Departamento
+              <input name="inmueble" type="radio" value="Departamento">Departamento
             </div>
             <div class="input-container">
-              <input name="inmueble" type="radio" value="">Loteo y Terreno
+              <input name="inmueble" type="radio" value="Loteo y Terreno">Loteo y Terreno
             </div>
             <div class="input-container">
-              <input name="inmueble" type="radio" value="">Local y Comercial
+              <input name="inmueble" type="radio" value="Local y Comercial">Local y Comercial
             </div>
             <div class="input-container">
-              <input name="inmueble" type="radio" value="">Oficina
+              <input name="inmueble" type="radio" value="Oficina">Oficina
             </div>
             <div class="input-container">
-              <input name="inmueble" type="radio" value="">Cabaña
-            </div>
-            <div class="input-container">
-              <input name="inmueble" type="radio" value="">Cabaña
+              <input name="inmueble" type="radio" value="Cabaña">Cabaña
             </div>
           </div>
 
@@ -292,8 +305,8 @@ include('conexion.php');
             <label for="precio">Precio</label>
 
             <div class="input-container">
-              <input name="precio" placeholder="Desde..." type="text">
-              <input name="precio" placeholder="Hasta..." type="text">
+              <input name="precio-minimo" placeholder="Desde..." type="number">
+              <input name="precio-maximo" placeholder="Hasta..." type="number">
             </div>
           </div>
 
@@ -301,34 +314,34 @@ include('conexion.php');
             <label for="opciones">Tipo de Opciones</label>
     
             <div class="input-container">
-              <input name="opciones" type="radio" value="">Casa
+              <input name="opciones" type="radio" value="Casa">Casa
             </div>
             <div class="input-container">
-              <input name="opciones" type="radio" value="">Departamento
+              <input name="opciones" type="radio" value="Departamento">Departamento
             </div>
             <div class="input-container">
-              <input name="opciones" type="radio" value="">Loteo y Terreno
+              <input name="opciones" type="radio" value="Departamento">Loteo y Terreno
             </div>
             <div class="input-container">
-              <input name="opciones" type="radio" value="">Local y Comercial
+              <input name="opciones" type="radio" value="Local y Comercial">Local y Comercial
             </div>
           </div>
           
           <div class="rango-container">
-            <label for="superfie1">Superficie Cubierta</label>
+            <label for="superfie-cubierta">Superficie Cubierta</label>
 
             <div class="input-container">
-              <input name="superfie1" placeholder="Desde..." type="text">
-              <input name="superfie1" placeholder="Hasta..." type="text">
+              <input name="superfie-cubierta-minima" placeholder="Desde..." type="number">
+              <input name="superfie-cubierta-maxima" placeholder="Hasta..." type="number">
             </div>
           </div>
 
           <div class="rango-container">
-            <label for="superficie2">Superficie Total</label>
+            <label for="superfie-total">Superficie Total</label>
 
             <div class="input-container">
-              <input name="superficie2" placeholder="Desde..." type="text">
-              <input name="superficie2" placeholder="Hasta..." type="text">
+              <input name="superfie-total-minima" placeholder="Desde..." type="number">
+              <input name="superfie-total-maxima" placeholder="Hasta..." type="number">
             </div>
           </div>
 
@@ -336,16 +349,16 @@ include('conexion.php');
             <label for="habitaciones">Habitaciones</label>
     
             <div class="input-container">
-              <input name="habitaciones" type="radio" value="">1
+              <input name="habitaciones" type="radio" value="1">1
             </div>
             <div class="input-container">
-              <input name="habitaciones" type="radio" value="">2
+              <input name="habitaciones" type="radio" value="2">2
             </div>
             <div class="input-container">
-              <input name="habitaciones" type="radio" value="">más de 2
+              <input name="habitaciones" type="radio" value="más de 2">más de 2
             </div>
             <div class="input-container">
-              <input name="habitaciones" type="radio" value="">indistinto
+              <input name="habitaciones" type="radio" value="indistinto">indistinto
             </div>
           </div>
 
@@ -353,16 +366,16 @@ include('conexion.php');
             <label for="bathrooms">Baños</label>
     
             <div class="input-container">
-              <input name="bathrooms" type="radio" value="">1
+              <input name="bathrooms" type="radio" value="1">1
             </div>
             <div class="input-container">
-              <input name="bathrooms" type="radio" value="">2
+              <input name="bathrooms" type="radio" value="2">2
             </div>
             <div class="input-container">
-              <input name="bathrooms" type="radio" value="">más de 2
+              <input name="bathrooms" type="radio" value="más de 2">más de 2
             </div>
             <div class="input-container">
-              <input name="bathrooms" type="radio" value="">indistinto
+              <input name="bathrooms" type="radio" value="indistinto">indistinto
             </div>
           </div>
 
@@ -370,17 +383,17 @@ include('conexion.php');
             <label for="plantas">Plantas</label>
     
             <div class="input-container">
-              <input name="plantas" type="radio" value="">1
+              <input name="plantas" type="radio" value="1">1
             </div>
             <div class="input-container">
-              <input name="plantas" type="radio" value="">2
+              <input name="plantas" type="radio" value="2">2
             </div>
             <div class="input-container">
-              <input name="plantas" type="radio" value="">más de 2
+              <input name="plantas" type="radio" value="más de 2">más de 2
             </div>
           </div>
 
-        </div>
+        </form>
       </div>
 
       <div class="filtros-overlay hide d-block d-md-none"></div>
@@ -796,7 +809,11 @@ include('conexion.php');
   <script type="text/javascript" src="src/js/hideShowModals.js"></script>
   <script type="text/javascript" src="src/js/loginValidation.js"></script>
   <script type="text/javascript" src="src/js/filtros.js"></script>
+  <script type="text/javascript" src="src/js/filtrosValidation.js"></script>
   <script type="text/javascript" src="src/js/hamburger.js"></script>
+  <script type="text/javascript">
+    modalError('Mensaje de prueba');
+  </script>
   <!-- <script type="text/javascript" src="src/js/modalMessageSentAppears.js"></script> -->
 </body>
 

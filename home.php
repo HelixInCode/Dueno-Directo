@@ -426,12 +426,9 @@ if (isset($_SESSION['id'])) {
         <!-- MDB core JavaScript -->
         <script type="text/javascript" src="dist/js/mdb.min.js"></script>
         <!-- Your custom scripts (optional) -->
-        <script type="text/javascript" src="src/js/svg.js"></script>
-        <script type="text/javascript" src="src/js/login.js"></script>
         <script type="text/javascript" src="src/js/hideShowModals.js"></script>
         <script type="text/javascript" src="src/js/panel-usuario.js"></script>
         <script type="text/javascript" src="src/js/hamburger.js"></script>
-
     </body>
 
     </html>

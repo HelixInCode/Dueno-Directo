@@ -20,11 +20,11 @@ include ('../conexion.php');
   <!-- Google Fonts Ubuntu bold-->
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
   <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../dist/css/bootstrap.min.css">
   <!-- Material Design Bootstrap -->
-  <link rel="stylesheet" href="dist/css/mdb.min.css">
+  <link rel="stylesheet" href="../dist/css/mdb.min.css">
   <!-- Your custom styles (optional) -->
-  <link rel="stylesheet" href="dist/css/style.css">
+  <link rel="stylesheet" href="../dist/css/style.css">
 </head>
 <body>
   <?php
@@ -93,17 +93,14 @@ include ('../conexion.php');
   </div>
 </footer>
 <!-- jQuery -->
-<script type="text/javascript" src="dist/js/jquery.min.js"></script>
+<script type="text/javascript" src="../dist/js/jquery.min.js"></script>
 <!-- Bootstrap tooltips -->
-<script type="text/javascript" src="dist/js/popper.min.js"></script>
+<script type="text/javascript" src="../dist/js/popper.min.js"></script>
 <!-- Bootstrap core JavaScript -->
-<script type="text/javascript" src="dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../dist/js/bootstrap.min.js"></script>
 <!-- MDB core JavaScript -->
-<script type="text/javascript" src="dist/js/mdb.min.js"></script>
+<script type="text/javascript" src="../dist/js/mdb.min.js"></script>
 <!-- Your custom scripts (optional) -->
-<script type="text/javascript" src="src/js/svg.js"></script>
-<script type="text/javascript" src="src/js/login.js"></script>
-<script type="text/javascript" src="src/js/filtros.js"></script>
 </body>
 </html>
 <?php
