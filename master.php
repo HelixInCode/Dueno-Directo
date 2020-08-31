@@ -33,6 +33,9 @@
 <body>
   <?php
 
+    $admin=mysqli_query($conexion, "SELECT * FROM masteradmin WHERE idMaster='$master'");
+    $arrayAd=mysqli_fetch_array($admin);
+
     $consulta = mysqli_query($conexion, "SELECT * FROM masteradmin");
     $categoryview = mysqli_query($conexion, "SELECT * FROM categoria");
     $promoview= mysqli_query($conexion, "SELECT * FROM promociones");
@@ -129,21 +132,22 @@
           <i class="closeModal fa fa-times"></i>
         </div>
 
-        <form method="POST" style="color: #757575;" class="main-container card-body px-lg-5 pt-0">
+        <form method="POST" style="color: #757575;" class="main-container card-body px-lg-5 pt-0" action="process/updateMAster.php">
             <div class="input-container">
                   <!-- Nombre -->
+                    <input type="hidden" value="<?php echo $arrayAd['idMaster']; ?>" name="idAd">
                   <div class="md-form m-0">
-                    <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre">
+                    <input type="text" name="nombre" id="nombre" value="<?php echo $usuario; ?>" class="form-control" placeholder="Nombre">
                   </div>
                   <div class="md-form m-0">
-                    <input type="text" name="email" id="nombre" class="form-control" placeholder="Email">
+                    <input type="text" name="email" id="nombre" class="form-control" value="<?php echo $arrayAd['email']; ?>" placeholder="Email">
                   </div>
                   <div class="md-form m-0">
-                    <input type="password" name="clave" id="clave" class="form-control" aria-describedby="clave" placeholder="Contraseña">
+                    <input type="password" name="clave" id="clave" class="form-control" aria-describedby="clave" value="<?php echo "12345678"; ?>" placeholder="Contraseña">
   
-                    <small id="clave" class="form-text text-muted m-0">
-                      Al menos 8 caracteres
-                    </small>
+                    <a><small id="clave" class="form-text text-muted m-0">
+                      Cambiar contraseña
+                    </small></a>
                   </div>
             </div>
             <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" name="Modificar" type="submit">Modificar</button>
@@ -330,6 +334,7 @@
                     <th scope="col">DNI</th>
                     <th scope="col">Telefono</th>
                     <th scope="col">E-mail</th>
+                    <th scope="col">Publicaciones</th>
                   </tr>
             </thead>
             <tbody>
@@ -342,6 +347,7 @@
                     <td><?php echo $listarray['dni'] ?></td>
                     <td><?php echo $listarray['telefono'] ?></td>
                     <td><?php echo $listarray['email'] ?></td>
+                    <td><a>>></a></td>
                     </tr>
                   <?php }
                     ?>
