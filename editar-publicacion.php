@@ -62,7 +62,7 @@ if (isset($_SESSION['id'])) {
       $uso= mysqli_real_escape_string($conexion, $_POST['uso']);
 
       $update_public = mysqli_query($conexion, "UPDATE propiedad SET tipo_propiedad='$tipopropiedad',
-                                    pesos='$peso', dolar='$dolar', descripcion='$descripcion', area_total='$areatotal',
+                                    peso='$peso', dolar='$dolar', descripcion='$descripcion', area_total='$areatotal',
                                     area_cubierta='$areacubierta', gas='$gas', luz='$luz', agua='$aguasblancas',
                                     cloacas='$aguasnegras', habitaciones='$habitaciones', banos='$banos',
                                     mascotas='$mascotas', cochera='$cochera', expensas='$expensas', provincia='$provincias',
@@ -186,7 +186,7 @@ if (isset($_SESSION['id'])) {
 
             <div class="descripcion">
               <h5>DESCRIPCIÓN</h5>
-              <textarea name="descripcion" value="<?php echo $Aconsul['descripcion']; ?>" id="descripcion" cols="20" rows="5" placeholder="Breve Descripcion" ><?php echo $Aconsul['descripcion']; ?></textarea>
+              <textarea name="descripcion" value="<?php echo $Aconsul['descripcion']; ?>" id="descripcion" cols="20" rows="5" style="width: 80%; border-color: #ffffff00; background-color: #ed143d00;" placeholder="Breve Descripcion" ><?php echo $Aconsul['descripcion']; ?></textarea>
 
             </div>
 
@@ -197,82 +197,82 @@ if (isset($_SESSION['id'])) {
 
                 <li class="fila">
                   <p>Precio ARS</p>
-                  <input class="valor" name="pesos" value="<?php echo $Aconsul['pesos']; ?>">
+                  <input class="valor" style="width: 80%; border-color: #ffffff00; background-color: #ed143d00;" name="pesos" value="<?php echo $Aconsul['peso']; ?>">
                 </li>
 
                 <li class="fila">
                   <p>Precio USD</p>
-                  <input class="valor" name="dolar" value="<?php echo $Aconsul['dolar']; ?>">
+                  <input class="valor" style="width: 80%; border-color: #ffffff00; background-color: #ed143d00;" name="dolar" value="<?php echo $Aconsul['dolar']; ?>">
                 </li>
 
                 <li class="fila">
                   <p>Condicion</p>
-                  <input class="valor" name="uso" value="<?php echo $Aconsul['uso']; ?>">
+                  <input class="valor" style="width: 80%; border-color: #ffffff00; background-color: #ed143d00;" name="uso" value="<?php echo $Aconsul['uso']; ?>">
                 </li>
 
                 <li class="fila">
                   <p>Tipo de Propiedad</p>
-                  <input class="valor" name="tipo_propiedad" value="<?php echo $Aconsul['tipo_propiedad']; ?>">
+                  <input class="valor" style="width: 80%; border-color: #ffffff00; background-color: #ed143d00;" name="tipo_propiedad" value="<?php echo $Aconsul['tipo_propiedad']; ?>">
                 </li>
 
                 <li class="fila">
                   <p>Antiguedad</p>
-                  <input class="valor" name="antig" value="<?php echo $Aconsul['antig']; ?>">
+                  <input class="valor" style="width: 80%; border-color: #ffffff00; background-color: #ed143d00;" name="antig" value="<?php echo $Aconsul['antig']; ?>">
                 </li>
 
                 <li class="fila">
                   <p>Area Total</p>
-                  <input class="valor" name="area_total" value="<?php echo $Aconsul['area_total']; ?>">
+                  <input class="valor" style="width: 80%; border-color: #ffffff00; background-color: #ed143d00;" name="area_total" value="<?php echo $Aconsul['area_total']; ?>">
                 </li>
 
                 <li class="fila">
                   <p>Area Cubierta</p>
-                  <input class="valor" name="area_cubierta" value="<?php echo $Aconsul['area_cubierta']; ?>">
+                  <input class="valor" style="width: 80%; border-color: #ffffff00; background-color: #ed143d00;" name="area_cubierta" value="<?php echo $Aconsul['area_cubierta']; ?>">
                 </li>
 
                 <li class="fila">
                   <p>Habitaciones</p>
-                  <input class="valor" name="habitaciones" value="<?php echo $Aconsul['habitaciones']; ?>">
+                  <input class="valor" style="width: 80%; border-color: #ffffff00; background-color: #ed143d00;" name="habitaciones" value="<?php echo $Aconsul['habitaciones']; ?>">
                 </li>
 
                 <li class="fila">
                   <p>Baños</p>
-                  <input class="valor" name="banos" value="<?php echo $Aconsul['banos']; ?>">
+                  <input class="valor" style="width: 80%; border-color: #ffffff00; background-color: #ed143d00;" name="banos" value="<?php echo $Aconsul['banos']; ?>">
                 </li>
 
                 <li class="fila">
                   <p>Cochera</p>
-                  <input class="valor" name="cochera" value="<?php echo $Aconsul['cochera']; ?>">
+                  <input class="valor" style="width: 80%; border-color: #ffffff00; background-color: #ed143d00;" name="cochera" value="<?php echo $Aconsul['cochera']; ?>">
                 </li>
 
                 <li class="fila">
                   <p>Luz Eléctrica</p>
-                  <input class="valor" name="luz" value="<?php echo $Aconsul['luz']; ?>">
+                  <input class="valor" style="width: 80%; border-color: #ffffff00; background-color: #ed143d00;" name="luz" value="<?php echo $Aconsul['luz']; ?>">
                 </li>
 
                 <li class="fila">
                   <p>Agua</p>
-                  <input class="valor" name="agua" value="<?php echo $Aconsul['agua']; ?>">
+                  <input class="valor" style="width: 80%; border-color: #ffffff00; background-color: #ed143d00;" name="agua" value="<?php echo $Aconsul['agua']; ?>">
                 </li>
 
                 <li class="fila">
                   <p>Gas</p>
-                  <input class="valor" name="gas" value="<?php echo $Aconsul['gas']; ?>">
+                  <input class="valor" style="width: 80%; border-color: #ffffff00; background-color: #ed143d00;" name="gas" value="<?php echo $Aconsul['gas']; ?>">
                 </li>
 
                 <li class="fila">
                   <p>Aguas Negras</p>
-                  <input class="valor" name="cloacas" value="<?php echo $Aconsul['cloacas']; ?>">
+                  <input class="valor" style="width: 80%; border-color: #ffffff00; background-color: #ed143d00;" name="cloacas" value="<?php echo $Aconsul['cloacas']; ?>">
                 </li>
 
                 <li class="fila">
                   <p>Expensas</p>
-                  <input class="valor" name="expensas" value="<?php echo $Aconsul['expensas']; ?>">
+                  <input class="valor" style="width: 80%; border-color: #ffffff00; background-color: #ed143d00;" name="expensas" value="<?php echo $Aconsul['expensas']; ?>">
                 </li>
 
                 <li class="fila">
                   <p>Mascotas</p>
-                  <input class="valor" name="mascotas" value="<?php echo $Aconsul['mascotas']; ?>">
+                  <input class="valor" style="width: 80%; border-color: #ffffff00; background-color: #ed143d00;" name="mascotas" value="<?php echo $Aconsul['mascotas']; ?>">
                 </li>
               </ul>
             </div>
@@ -280,9 +280,9 @@ if (isset($_SESSION['id'])) {
             <div class="ubicacion">
               <h5>UBICACIÓN</h5>
               <p>Calle</p>
-              <input name="calle" value="<?php echo $calle ?>">
-              <input name="municipalidad" value="<?php echo $municipalidad ?>">
-              <input name="provincia" value="<?php echo $provincia; ?>" style="text-transform: uppercase; font-weight:1200">
+              <input style="width: 80%; border-color: #ffffff00; background-color: #ed143d00;" name="calle" value="<?php echo $calle ?>" placeholder="Ingrese Calle">
+              <input style="width: 80%; border-color: #ffffff00; background-color: #ed143d00;" name="municipalidad" value="<?php echo $municipalidad ?>" placeholder="Ingrese Localidad">
+              <input name="provincia" value="<?php echo $provincia; ?>" style="width: 80%; border-color: #ffffff00; background-color: #ed143d00; text-transform: uppercase; font-weight:1200" placeholder="Ingrese provincia">
               <div class="container-mapa">
                 <!--Tratar de insertar mapa con la ubicacion del lugar-->
               </div>

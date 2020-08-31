@@ -66,8 +66,9 @@ if (isset($_SESSION['id'])) {
         $user_descripcion = $consuldates['descripcion'];
         $user = $consuldates['usuario'];
 
-        $conPropiedades= mysqli_query($conexion,"SELECT * FROM propiedad WHERE idUser='$id_user'");
+        $conPropiedades= mysqli_query($conexion,"SELECT * FROM propiedad WHERE idUser='$id_user' AND estado='precargada'");
         
+        $propiedadOk= mysqli_query($conexion,"SELECT * FROM propiedad WHERE idUser='$id_user' AND estado='activa'");
 
 
         ?>
@@ -233,15 +234,21 @@ if (isset($_SESSION['id'])) {
                         <div class="contenedor-publicaciones">
                             <h4>Publicaciones Realizadas</h4>
                             <div class="publicaciones">
+                            <?php 
+                                while ($Ok= mysqli_fetch_array($propiedadOk)){ 
+                            
+                            ?>
                                 <div class="item-publicacion">
-                                    <img src="./dist/img/Productos1.jpg" alt="">
-                                    <p>Descripcion de la publicacion</p>
+                                    <?php $publicID=$Ok['idPropiedad']; ?>
+                                    <img src="./dist/img/<?php echo $Ok['imagen1'] ?>" alt="">
+                                    <p><?php echo $Ok['descripcion'] ?></p>
                                     <div class="acciones">
-                                        <a href="">Modificar</a>
-                                        <a href="">Eliminar</a>
+                                        <a href='<?php echo "editar-publicacion.php?public=$publicID" ?>' >Modificar</a>
+                                        <a href='<?php echo "delPublicacion.php?public=$publicID" ?>'>Eliminar</a>
                                     </div>
 
                                 </div>
+                                <?php } ?>
                                 <div class="item-publicacion">
                                     <img src="./dist/img/Productos1.jpg" alt="">
                                     <p>Descripcion de la publicacion</p>
