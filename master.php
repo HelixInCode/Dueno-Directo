@@ -130,8 +130,23 @@
         </div>
 
         <form method="POST" style="color: #757575;" class="main-container card-body px-lg-5 pt-0">
-          
-          <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" name="Enviar" type="submit">Agregar</button>
+            <div class="input-container">
+                  <!-- Nombre -->
+                  <div class="md-form m-0">
+                    <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre">
+                  </div>
+                  <div class="md-form m-0">
+                    <input type="text" name="email" id="nombre" class="form-control" placeholder="Email">
+                  </div>
+                  <div class="md-form m-0">
+                    <input type="password" name="clave" id="clave" class="form-control" aria-describedby="clave" placeholder="Contraseña">
+  
+                    <small id="clave" class="form-text text-muted m-0">
+                      Al menos 8 caracteres
+                    </small>
+                  </div>
+            </div>
+            <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" name="Modificar" type="submit">Modificar</button>
         </form>
       </div>
     </section>
