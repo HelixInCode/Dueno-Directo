@@ -177,6 +177,9 @@ nav > .menu-btns > .user > .user-icon{
   align-items: center;
   cursor: pointer;
 }
+nav > .menu-btns > .user > .user-icon > i{
+  color: #E9EBF5;
+}
 nav > .menu-btns > .user > .user-icon > .fa-angle-down{
   transform: rotateZ(-90deg);
   transition: .3s;
@@ -1071,6 +1074,10 @@ nav > .menu-btns > .user > ul > li > a{
   justify-self: center;
   align-self: center;
 }
+#footer > .contenedor-central > .img-container img{
+  width: 100%;
+  max-width: 270px;
+}
 #footer > .contenedor-inferior{
   background-color: var(--PrimarioOscuro);
   width: 100%;
@@ -1251,6 +1258,10 @@ nav > .menu-btns > .user > ul > li > a{
   #contact > form > button{
     grid-column: 1 / 3;
     grid-row: 4 / 5;
+  }
+
+  #footer > .contenedor-central > .img-container img{
+    max-width: 304px;
   }
 }
 @media screen and (min-width: 900px){

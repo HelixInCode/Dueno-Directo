@@ -98,7 +98,7 @@ if (isset($_SESSION['id'])) {
                         <div class="user-icon">
                             <img height="35" class="d-none" src="./dist/img/icons/user.png" alt="imagen de usuario">
 
-                            <i class="fas fa-user fa-2x" style="color: #E9EBF5;"></i>
+                            <i class="fas fa-user fa-2x"></i>
                             <i class="fas fa-angle-down"></i>
                         </div>
                         <ul class="hide">
@@ -143,6 +143,22 @@ if (isset($_SESSION['id'])) {
                     </form>
                 </div>
             </section>
+
+            <section id="modal-error" class="modal hide">
+                <div class="login">
+                        <div class="title-container p-3">
+                        <!-- <h5>Mensaje Enviado</h5> -->
+                    <i id="close-sent" class="closeModal fa fa-times"></i>
+                    </div>
+                    <div class="main-container error p-3 pb-4">
+                        <i class="fas fa-times-circle"></i>
+                        <p></p>
+                    </div>
+                </div>
+            </section>
+            <!-- <script type="text/javascript">
+                modalError('Mensaje de prueba');
+            </script> -->
 
             <section id="panel-usuario" class="px-2 px-sm-3">
                 <div class="main-container">
