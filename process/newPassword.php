@@ -1,0 +1,1 @@
+// página para nueva contraseña a traves de comprobacion con email sin recordar la contraseña actual
