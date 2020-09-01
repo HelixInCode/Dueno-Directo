@@ -228,7 +228,7 @@ if (isset($_SESSION['id'])) {
                     </form>
 
                     <div id="publicaciones" class="tabcontent" data-index="1">
-                        <a class="nueva-publicacion" href="">
+                        <a class="nueva-publicacion" href="publicacion.php">
                             NUEVA PUBLICACION
                         </a>
                         <div class="contenedor-publicaciones">
@@ -457,8 +457,6 @@ if (isset($_SESSION['id'])) {
     </html>
 <?php  } else {
     echo "usuario o contraseña incorrectos";
-    echo $_SESSION['usuario'];
-    echo $_SESSION['id'];
-    //header("Location: index.php");
+    header("Location: index.php");
 }
 ?>

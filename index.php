@@ -50,6 +50,7 @@ include('conexion.php');
       if ($resultado == 1) {
         $_SESSION['id'] = $row['id']; // creamos la sesion "usuario_id" y le asignamos como valor el campo usuario_id
         $_SESSION['usuario'] = $row["usuario"]; // creamos la sesion "usuario_nombre" y le asignamos como valor el campo 
+        $user=$_SESSION['usuario'];
         header("Location: home.php");
       } else {
 
@@ -99,7 +100,7 @@ include('conexion.php');
           </div>
           <ul class="hide">
             <li>
-              <span>Nombre de Usuario</span>
+              <span><?php echo $user ?></span>
             </li>
             <li>
               <a href="#?">Panel</a>
