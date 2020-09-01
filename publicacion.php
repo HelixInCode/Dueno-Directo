@@ -169,6 +169,10 @@ if (isset($_SESSION['id'])) {
                             <label for="tipo-propiedad">¿Que tipo de Propiedad vas a publicar?</label>
                             <select name="tipo-propiedad" id="tipo-propiedad">
                                 <option value="">Seleccione...</option>
+                            <?php $conCat=mysqli_query($conexion, "SELECT * FROM categoria WHERE seccion='propiedad'")or die(mysqli_error($conexion));
+                            while ($CAT=mysqli_fetch_array($conCat)) { ?>
+                                <option value="<?php echo $CAT['categoria']?>"><?php echo $CAT['categoria']?></option>
+                            <?php } ?>
                                 <option value="departamento">Departamento</option>
                                 <option value="casa">Casa</option>
                                 <option value="lote">Lote</option>
@@ -386,10 +390,13 @@ if (isset($_SESSION['id'])) {
                         <div class="form-area contenedor-titulo">
                             <p>Tipo de profesional</p>
                             <select name="profesional" id="profesional">
-                                <option value="">Selecciona...</option>
-                                <option value="arquitecto">Arquitecto</option>
-                                <option value="fontanero">Fontanero</option>
-                                <option value="...">otros...</option>
+                                       <option value="">Selecciona...</option>
+                            <?php $conCat=mysqli_query($conexion, "SELECT * FROM categoria WHERE seccion='profesional'")or die(mysqli_error($conexion));
+                                    while ($CAT=mysqli_fetch_array($conCat)) { ?>
+                                        <option value="<?php echo $CAT['categoria'] ?>"><?php echo $CAT['categoria'] ?></option>
+                                   <?php }
+                                        
+                                        ?>
                             </select>
                         </div>
 
