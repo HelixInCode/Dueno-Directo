@@ -6,6 +6,10 @@ if (isset($_SESSION['id'])) {
     $id_user = $_SESSION['id'];
     $user = $_SESSION['usuario'];
 
+    $CU=mysqli_query($conexion, "SELECT usuario FROM user WHERE id='$id_user' ");
+    $array=mysqli_fetch_array($CU);
+    $user=$array['usuario'];
+
 ?>
 
     <!DOCTYPE html>
@@ -70,7 +74,7 @@ if (isset($_SESSION['id'])) {
                         </div>
                         <ul class="hide">
                             <li>
-                                <span>Nombre de Usuario</span>
+                                <span><?php echo $user ?></span>
                             </li>
                             <li>
                                 <a href="#?">Panel</a>
@@ -148,7 +152,7 @@ if (isset($_SESSION['id'])) {
                     <div class="contenedor-tipo">
 
                         <form action="">
-                            <p>¿Que publicarás?</p>
+                            <p><?php echo $user." " ?>¿Que publicarás?</p>
                             <select name="tipo" id="tipo">
                                 <option value="propiedad">Propiedad</option>
                                 <option value="profesional">Profesional</option>

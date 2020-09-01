@@ -1,6 +1,16 @@
 <?php
 session_start();
 include('conexion.php');
+
+if (isset($_SESSION['id'])) {
+
+  $id_user = $_SESSION['id'];
+  $user = $_SESSION['usuario'];
+
+  $CU=mysqli_query($conexion, "SELECT usuario FROM user WHERE id='$id_user' ");
+  $array=mysqli_fetch_array($CU);
+  $user=$array['usuario'];
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -30,7 +40,12 @@ include('conexion.php');
 <body>
   <?php
 
-  $user="";
+  if ($_SESSION['usuario']){
+    $nombreUser=$_SESSION['usuario'];
+  }else{
+    $nombreUser="";
+  }
+  
   if (isset($_POST['Enviar'])) { // comprobamos que se hayan enviado los datos del formulario
 
     if (
@@ -51,7 +66,6 @@ include('conexion.php');
       if ($resultado == 1) {
         $_SESSION['id'] = $row['id']; // creamos la sesion "usuario_id" y le asignamos como valor el campo usuario_id
         $_SESSION['usuario'] = $row["usuario"]; // creamos la sesion "usuario_nombre" y le asignamos como valor el campo 
-        $user=$_SESSION['usuario'];
         header("Location: home.php");
       } else {
 
@@ -63,6 +77,8 @@ include('conexion.php');
       echo "Falta completar campos";
     }
   }
+
+  
 
   ?>
 
@@ -101,7 +117,7 @@ include('conexion.php');
           </div>
           <ul class="hide">
             <li>
-              <span><?php echo $user ?></span>
+              <span><?php echo $nombreUser ?></span>
             </li>
             <li>
               <a href="#?">Panel</a>

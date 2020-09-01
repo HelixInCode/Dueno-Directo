@@ -104,7 +104,7 @@ if (isset($_SESSION['id'])) {
                         </div>
                         <ul class="hide">
                             <li>
-                                <span>Nombre de Usuario</span>
+                                <span><?php echo $user ?></span>
                             </li>
                             <li>
                                 <a href="#?">Panel</a>
