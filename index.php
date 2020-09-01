@@ -30,6 +30,7 @@ include('conexion.php');
 <body>
   <?php
 
+  $user="";
   if (isset($_POST['Enviar'])) { // comprobamos que se hayan enviado los datos del formulario
 
     if (
@@ -106,7 +107,7 @@ include('conexion.php');
               <a href="#?">Panel</a>
             </li>
             <li>
-              <a href="#?">Cerrar Sesion</a>
+              <a href="process/close.php">Cerrar Sesion</a>
             </li>
           </ul>
         </div>
