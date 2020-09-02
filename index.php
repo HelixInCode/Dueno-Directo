@@ -1,6 +1,8 @@
 <?php
 session_start();
 include('conexion.php');
+
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -30,6 +32,7 @@ include('conexion.php');
 <body>
   <?php
 
+  $user = "";
   if (isset($_POST['Enviar'])) { // comprobamos que se hayan enviado los datos del formulario
 
     if (
@@ -50,6 +53,18 @@ include('conexion.php');
       if ($resultado == 1) {
         $_SESSION['id'] = $row['id']; // creamos la sesion "usuario_id" y le asignamos como valor el campo usuario_id
         $_SESSION['usuario'] = $row["usuario"]; // creamos la sesion "usuario_nombre" y le asignamos como valor el campo 
+        $user = $_SESSION['usuario'];
+        if (!empty($_POST["remember"])) {
+          setcookie("usuario", $usuario, time() + (10 * 365 * 24 * 60 * 60));
+          setcookie("pass", $clave, time() + (10 * 365 * 24 * 60 * 60));
+        } else {
+          if (isset($_COOKIE["usuario"])) {
+            setcookie("usuario", "");
+          }
+          if (isset($_COOKIE["pass"])) {
+            setcookie("pass", "");
+          }
+        }
         header("Location: home.php");
       } else {
 
@@ -61,6 +76,8 @@ include('conexion.php');
       echo "Falta completar campos";
     }
   }
+
+  
 
   ?>
 
@@ -99,13 +116,13 @@ include('conexion.php');
           </div>
           <ul class="hide">
             <li>
-              <span></span>
+              <span><?php echo $user ?></span>
             </li>
             <li>
               <a href="#?">Panel</a>
             </li>
             <li>
-              <a href="#?">Cerrar Sesion</a>
+              <a href="process/close.php">Cerrar Sesion</a>
             </li>
           </ul>
         </div>
@@ -207,27 +224,31 @@ include('conexion.php');
           <i id="close-login" class="closeModal fa fa-times"></i>
         </div>
         <form class="main-container p-3" action="" method="POST">
-  
+
           <div class="input-container">
             <label for="email">Correo</label>
-            <input name="email" type="email">
-          </div>  
-  
+            <input name="email" type="email" value="<?php if (isset($_COOKIE["usuario"])) {
+                                                      echo $_COOKIE["usuario"];
+                                                    } ?>">
+          </div>
+
           <div class="input-container">
             <label for="password">Contraseña</label>
-            <input name="password" type="password">
+            <input name="password" type="password" value="<?php if (isset($_COOKIE["pass"])) {
+                                                            echo $_COOKIE["pass"];
+                                                          } ?>">
           </div>
-  
+
           <div class="input-container">
-            <input type="checkbox" name="remember">
-            <label for="remenber">Recuerdame ?</label>
+            <input type="checkbox" name="remember" id="remember" <?php if (isset($_COOKIE["usuario"])) { ?> checked <?php } ?> />
+            <label for="remenber">Recuerdame</label>
           </div>
-          
+
           <div class="login-container">
-    
+
             <button disabled name="Enviar">Iniciar Sesión</button>
             <a href="registro.php">¿No te has registrado todavía?</a>
-            
+
           </div>
         </form>
       </div>
@@ -273,7 +294,7 @@ include('conexion.php');
 
           <div class="options-container">
             <label for="opciones">Tipo de Opciones</label>
-    
+
             <div class="input-container">
               <input name="opciones" type="radio" value="Casa">Casa
             </div>
@@ -287,7 +308,7 @@ include('conexion.php');
               <input name="opciones" type="radio" value="Local y Comercial">Local y Comercial
             </div>
           </div>
-          
+
           <div class="rango-container">
             <label for="superfie-cubierta">Superficie Cubierta</label>
 
@@ -308,7 +329,7 @@ include('conexion.php');
 
           <div class="options-container">
             <label for="habitaciones">Habitaciones</label>
-    
+
             <div class="input-container">
               <input name="habitaciones" type="radio" value="1">1
             </div>
@@ -325,7 +346,7 @@ include('conexion.php');
 
           <div class="options-container">
             <label for="bathrooms">Baños</label>
-    
+
             <div class="input-container">
               <input name="bathrooms" type="radio" value="1">1
             </div>
@@ -342,7 +363,7 @@ include('conexion.php');
 
           <div class="options-container">
             <label for="plantas">Plantas</label>
-    
+
             <div class="input-container">
               <input name="plantas" type="radio" value="1">1
             </div>
@@ -359,7 +380,7 @@ include('conexion.php');
 
       <div class="filtros-overlay hide d-block d-md-none"></div>
     </section>
-    
+
     <div id="modal-servicios" class="">
       <h5>Profesionales, Productos y Servicios</h5>
 

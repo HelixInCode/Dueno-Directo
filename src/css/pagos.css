@@ -12,9 +12,18 @@
     --UbuntuTitulosPrincipales: 'Ubuntu', sans-serif; /*Bold*/
     --RobotoParrafos: 'Roboto', sans-serif;/*regular*/
     --sombra: rgba(0, 0, 0, 0.5);
+
+    --input-text:{
+        width: 100%;
+        padding: 5px;
+        height: 35px;
+        border: none;
+        border: 2px solid var(--PrimarioOscuro);
+        border-radius: 5px;
+    }
 }  
 
-#pagos > .contenedor-general{
+#pagos > .contenedor-general {
     color: white;
     padding-top: 100px;
     display: grid;
@@ -65,3 +74,5 @@
 #pagos > .contenedor-general > .contenedor-especifico > .contenedor-pago > form{
     text-align: center;
 }
+
+

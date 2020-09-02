@@ -5,6 +5,9 @@ if (isset($_SESSION['id'])) {
 
   $id_user = $_SESSION['id'];
   $user = $_SESSION['usuario'];
+  $CU=mysqli_query($conexion, "SELECT usuario FROM user WHERE id='$id_user' ");
+    $array=mysqli_fetch_array($CU);
+    $user=$array['usuario'];
 ?>
 
   <!DOCTYPE html>

@@ -6,6 +6,10 @@ if (isset($_SESSION['id'])) {
     $id_user = $_SESSION['id'];
     $user = $_SESSION['usuario'];
 
+    $CU=mysqli_query($conexion, "SELECT usuario FROM user WHERE id='$id_user' ");
+    $array=mysqli_fetch_array($CU);
+    $user=$array['usuario'];
+
 ?>
 
     <!DOCTYPE html>
@@ -70,7 +74,7 @@ if (isset($_SESSION['id'])) {
                         </div>
                         <ul class="hide">
                             <li>
-                                <span>Nombre de Usuario</span>
+                                <span><?php echo $user ?></span>
                             </li>
                             <li>
                                 <a href="#?">Panel</a>
@@ -148,7 +152,7 @@ if (isset($_SESSION['id'])) {
                     <div class="contenedor-tipo">
 
                         <form action="">
-                            <p>¿Que publicarás?</p>
+                            <p><?php echo $user." " ?>¿Que publicarás?</p>
                             <select name="tipo" id="tipo">
                                 <option value="propiedad">Propiedad</option>
                                 <option value="profesional">Profesional</option>
@@ -169,6 +173,10 @@ if (isset($_SESSION['id'])) {
                             <label for="tipo-propiedad">¿Que tipo de Propiedad vas a publicar?</label>
                             <select name="tipo-propiedad" id="tipo-propiedad">
                                 <option value="">Seleccione...</option>
+                            <?php $conCat=mysqli_query($conexion, "SELECT * FROM categoria WHERE seccion='propiedad'")or die(mysqli_error($conexion));
+                            while ($CAT=mysqli_fetch_array($conCat)) { ?>
+                                <option value="<?php echo $CAT['categoria']?>"><?php echo $CAT['categoria']?></option>
+                            <?php } ?>
                                 <option value="departamento">Departamento</option>
                                 <option value="casa">Casa</option>
                                 <option value="lote">Lote</option>
@@ -381,15 +389,18 @@ if (isset($_SESSION['id'])) {
 
                     </form>
 
-                    <form id="profesional" class="panelcontent" action="process/saveprofesional.php" method="POST">
+                    <form id="profesional" class="panelcontent" action="process/saveprofesional.php" method="POST" enctype="multipart/form-data">
 
                         <div class="form-area contenedor-titulo">
                             <p>Tipo de profesional</p>
                             <select name="profesional" id="profesional">
-                                <option value="">Selecciona...</option>
-                                <option value="arquitecto">Arquitecto</option>
-                                <option value="fontanero">Fontanero</option>
-                                <option value="...">otros...</option>
+                                       <option value="">Selecciona...</option>
+                            <?php $conCat=mysqli_query($conexion, "SELECT * FROM categoria WHERE seccion='profesional'")or die(mysqli_error($conexion));
+                                    while ($CAT=mysqli_fetch_array($conCat)) { ?>
+                                        <option value="<?php echo $CAT['categoria'] ?>"><?php echo $CAT['categoria'] ?></option>
+                                   <?php }
+                                        
+                                        ?>
                             </select>
                         </div>
 
@@ -401,22 +412,48 @@ if (isset($_SESSION['id'])) {
                         <div class="form-area image">
                             <!-- Agregar imagenes -->
                             imagenes
+                            <input type="file" name="imagen1" class="form-control-file" accept="image/*" required>
+                            <input type="file" name="imagen2" class="form-control-file" accept="image/*" required>
+                            <input type="file" name="imagen3" class="form-control-file" accept="image/*" required>
+                            <input type="file" name="imagen4" class="form-control-file" accept="image/*" required>
+                            <input type="file" name="imagen5" class="form-control-file" accept="image/*" required>
+                       
                         </div>
 
                         <div class="form-area container-ubicacion">
                             <p>Indicanos tu ubicación, para mostrar a los visitantes</p>
                             <select name="provincia" id="provincia">
-                                <option value="">Provincia...</option>
-                                <option value="">Cargar provincias</option>
+                                <option value="">Provincia</option>
+                                <option value="Buenos Aires">Buenos Aires</option>
+                                <option value="Córdoba">Córdoba</option>
+                                <option value="Mendoza">Mendoza</option>
+                                <option value="Catamarca">Catamarca</option>
+                                <option value="Chaco">Chaco</option>
+                                <option value="Chubut">Chubut</option>
+                                <option value="Corrientes">Corrientes</option>
+                                <option value="Entre Ríos">Entre Ríos</option>
+                                <option value="Formosa">Formosa</option>
+                                <option value="Jujuy">Jujuy</option>
+                                <option value="La Pampa">La Pampa</option>
+                                <option value="La Rioja">La Rioja</option>
+                                <option value="Misiones">Misiones</option>
+                                <option value="Neuquen">Rio Negro</option>
+                                <option value="Salta">Salta</option>
+                                <option value="San Juan">San Juan</option>
+                                <option value="San Luis">San Luis</option>
+                                <option value="Santa Cruz">Santa Cruz</option>
+                                <option value="Santa Fe">Santa Fe</option>
+                                <option value="Santiago del Estero">Santiago del Estero</option>
+                                <option value="Tierra del Fuego">Tierra del Fuego</option>
+                                <option value="Tucumán">Tucumán</option>
                             </select>
-                            <select name="municipalidad" id="municpalidad">
-                                <option value="">Municipalidad...</option>
-                                <option value="">Cargar Municipalidad</option>
-                            </select>
+                            <input name="municipalidad" id="municipalidad" placeholder="Departamento">
+                            <input type="text" name="calle" id="calle" placeholder="Calle">
+                            <input type="hidden" name="estado">
                         </div>
 
                         <div id="precarga-profesional" class="btn-precarga" style="grid-column: 1/3;">
-                            <button style="color:#E9EBF5; font-style:italic; font-family:'Ubuntu', sans-serif; font-weight:800; background-color:#004489;" class="btn" type="submit" name="propiedad">Precargar Publicación</button>
+                            <button style="color:#E9EBF5; font-style:italic; font-family:'Ubuntu', sans-serif; font-weight:800; background-color:#004489;" class="btn" type="submit" name="profesional">Precargar Publicación</button>
                         </div>
 
                     </form>
