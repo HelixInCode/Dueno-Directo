@@ -1,6 +1,3 @@
-<?php
-include('conexion.php'); ?>
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -30,47 +27,6 @@ include('conexion.php'); ?>
 </head>
 
 <body>
-
-    <?php
-
-    $email = "";
-    $coincidencias = 0;
-    if (isset($_POST['Correo'])) {
-        $email = mysqli_real_escape_string($conexion, $_POST['email']);
-
-        $sel = mysqli_query($conexion, "SELECT email FROM user WHERE email='$email'") or die(mysqli_error($conexion));
-
-
-
-        while ($arrayE = mysqli_fetch_array($sel)) {
-
-            $num00000 = rand(10000, 99999);
-
-            $email = $_REQUEST['email'];
-            $asunto = "Dueño Directio - Recuperacion de Contraseña";
-            $mensaje2 = $num00000;
-
-
-            $header = 'From: ' . $email . " \r\n";
-            $header .= "X-Mailer: PHP/" . phpversion() . " \r\n";
-            $header .= "Mime-Version: 1.0 \r\n";
-            $header .= "Content-Type: text/plain";
-
-            $mensaje = "El código para la recuperacion de contraseña es:,\r\n";
-            $mensaje .=  $mensaje2 . ",\r\n";
-
-            $mensaje .= "Enviado el " . date('d/m/Y', time());
-
-            $para = $email;
-            $asunto = "Dueño Directio - Recuperacion de Contraseña";
-
-            mail($para, $asunto, utf8_decode($mensaje), $header);
-        }
-    }
-
-
-
-    ?>
     <header>
         <nav class="py-2 px-4">
             <div class="img-container">
@@ -102,15 +58,18 @@ include('conexion.php'); ?>
         <section id="recuperar">
             <div class="contenedor">
                 <div class="contenedor-especifico">
-                    <h2>Recuperar Contraseña</h2>
-                    <form action="" method="POST" id="formulario-recupera">
+                    <h2>Cambiar Contraseña</h2>
+                    <form action="">
                         <div class="item">
-                            <label for="">Correo de Usuario</label>
-                            <span class="form-text text-muted m-0">En caso de estar registrado este correo, se enviará un código de activación</span>
-                            <input type="email" name="email" placeholder="Correo de Usuario" required>
+                            <label for="">Nueva Contraseña</label>
+                            <input type="password" placeholder="Nueva Contraseña">
+                        </div>
+                        <div class="item">
+                            <label for="">Repetir Nueva Contraseña</label>
+                            <input type="password" placeholder="Repetir Contraseña">
                         </div>
                         <div class="boton">
-                            <input type="submit" name="Correo" value="Enviar Correo">
+                            <input type="submit" value="Confirmar Nueva Contraseña">
                         </div>
 
                     </form>
@@ -118,7 +77,6 @@ include('conexion.php'); ?>
                 </div>
 
             </div>
-
 
         </section>
         <section id="modal-message-sent" class="modal hide">
@@ -128,11 +86,8 @@ include('conexion.php'); ?>
                     <i id="close-sent" class="closeModal fa fa-times"></i>
                 </div>
                 <div class="main-container message p-3 pb-4">
-                    <p>Se ha enviado un codigo a su email. Por favor ingrese aquí dicho código</p>
-                    <form action="" id="formulario-respuesta">
-                        <input type="text" placeholder="Codigo de confirmación">
-                        <input type="submit" value="Confirmar">
-                    </form>
+                    <i class="fas fa-check-circle"></i>
+                    <p>Su contraseña ha sido actualizada Exitosamente</p>
                 </div>
             </div>
         </section>
@@ -157,7 +112,8 @@ include('conexion.php'); ?>
     <!-- Your custom scripts (optional) -->
     <script type="text/javascript" src="src/js/panel-publicacion.js"></script>
     <script type="text/javascript" src="src/js/hamburger.js"></script>
-    <script type="text/javascript" src="src/js/modalMessageContrasena.js"></script>
+    <script type="text/javascript" src="src/js/btn-mercado.js"></script>
+    <!-- <script type="text/javascript" src="src/js/modalMessageSentAppears.js"></script> -->
 
 </body>
 
