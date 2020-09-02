@@ -1,3 +1,6 @@
+<?php 
+include ('conexion.php'); ?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -27,6 +30,54 @@
 </head>
 
 <body>
+
+<?php 
+
+    $email="";
+    $coincidencias=0;
+    if (isset($_POST['Correo'])) {
+        $email = mysqli_real_escape_string($conexion, $_POST['email']);
+    
+        $sel=mysqli_query($conexion, "SELECT email FROM user WHERE email='$email'")or die(mysqli_error($conexion));
+       
+        
+    
+        while($arrayE=mysqli_fetch_array($sel)){
+    
+            $num00000= rand(10000,99999);
+    
+            $email = $_REQUEST['email'];
+            $asunto = "Dueño Directio - Recuperacion de Contraseña";
+            $mensaje2 = $num00000;
+    
+    
+            $header = 'From: ' . $email . " \r\n";
+            $header .= "X-Mailer: PHP/" . phpversion() . " \r\n";
+            $header .= "Mime-Version: 1.0 \r\n";
+            $header .= "Content-Type: text/plain";
+    
+            $mensaje = "El código para la recuperacion de contraseña es:,\r\n";
+            $mensaje .=  $mensaje2 . ",\r\n";
+    
+            $mensaje .= "Enviado el " . date('d/m/Y', time());
+    
+            $para = $email;
+            $asunto = "Dueño Directio - Recuperacion de Contraseña";
+    
+            mail($para, $asunto, utf8_decode($mensaje), $header);
+    
+            
+        
+        }
+                    
+    
+                
+    
+    }
+
+
+
+?>
     <header>
         <nav class="py-2 px-4">
             <div class="img-container">
@@ -59,13 +110,14 @@
             <div class="contenedor">
                 <div class="contenedor-especifico">
                     <h2>Recuperar Contraseña</h2>
-                    <form action="">
+                    <form action="" method="POST">
                         <div class="item">
                             <label for="">Correo de Usuario</label>
-                            <input type="email" placeholder="Correo de Usuario">
+                            <span class="form-text text-muted m-0">En caso de estar registrado este correo, se enviará un código de activación</span>
+                            <input type="email" name="email" placeholder="Correo de Usuario" required>
                         </div>
                         <div class="boton">
-                            <input type="submit" value="Enviar Correo">
+                            <input type="submit" name="Correo" value="Enviar Correo">
                         </div>
 
                     </form>

@@ -116,7 +116,7 @@ include('conexion.php');
           </div>
           <ul class="hide">
             <li>
-              <span><?php echo $nombreUser ?></span>
+              <span><?php echo $user ?></span>
             </li>
             <li>
               <a href="#?">Panel</a>
