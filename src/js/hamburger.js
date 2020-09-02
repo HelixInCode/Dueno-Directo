@@ -23,16 +23,7 @@ const displayMenu = (menuType) => {
     menuType.option.classList.toggle(menuType.clase2)
   })
 }
-
-const menuHamburger = new Menu($hamburger, $menuItems, $menuOverlay, 'hide', 'hide')
-const menuOverlay = new Menu($menuOverlay, $menuItems, $menuOverlay, 'hide', 'hide')
-const menuUser = new Menu($user, $userPanel, $userArrow, 'hide', 'rotate')
-
-const menu = [menuHamburger, menuOverlay, menuUser]
-
-menu.forEach(menuType => displayMenu(menuType))
-
-window.addEventListener('load', (event) =>{
+document.addEventListener('DOMContentLoaded', (event) =>{
   
   if($userPanel.children[0].children[0].innerText === ""){
     //Hay sesión iniciada
@@ -44,3 +35,11 @@ window.addEventListener('load', (event) =>{
     $menuItems.children[3].classList.toggle('d-none')
   }
 })
+
+const menuHamburger = new Menu($hamburger, $menuItems, $menuOverlay, 'hide', 'hide')
+const menuOverlay = new Menu($menuOverlay, $menuItems, $menuOverlay, 'hide', 'hide')
+const menuUser = new Menu($user, $userPanel, $userArrow, 'hide', 'rotate')
+
+const menu = [menuHamburger, menuOverlay, menuUser]
+
+menu.forEach(menuType => displayMenu(menuType))

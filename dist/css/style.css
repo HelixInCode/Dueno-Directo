@@ -231,7 +231,8 @@ nav > .menu-btns > .user > ul > li > a{
   justify-content: center;
 }
 #search-main > .form-container select,
-#search-main [type = "text"]{
+#search-main [type = "text"],
+#search-main [type = "number"]{
   width: 100%;
   padding: 5px;
   height: 35px;
@@ -363,7 +364,7 @@ nav > .menu-btns > .user > ul > li > a{
   margin: 0;
   font-family: 'Ubuntu', sans-serif;
   color: #E9EBF5;
-  font-size: 20px;
+  font-size: 21px;
   -webkit-writing-mode: vertical-lr;
       -ms-writing-mode: tb-lr;
           writing-mode: vertical-lr;
@@ -522,7 +523,7 @@ nav > .menu-btns > .user > ul > li > a{
   align-items: center;
   font-family: 'Ubuntu', sans-serif;
   color: #E9EBF5;
-  font-size: 20px;
+  font-size: 21px;
   -webkit-writing-mode: vertical-lr;
       -ms-writing-mode: tb-lr;
           writing-mode: vertical-lr;
@@ -581,7 +582,7 @@ nav > .menu-btns > .user > ul > li > a{
   padding-right: 5px;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 35px repeat(6, auto);
+  grid-template-rows: 170px repeat(6, auto);
   overflow: auto;
 }
 #filtros > .main-container > .filtros-container label{
@@ -624,15 +625,10 @@ nav > .menu-btns > .user > ul > li > a{
 #filtros > .main-container > .filtros-container > .main-search > button:hover{
   background-color: #0075BE;
 }
-#filtros > .main-container > .filtros-container > .operacion-container,
-#filtros > .main-container > .filtros-container > .inmueble-container,
 #filtros > .main-container > .filtros-container > .options-container,
 #filtros > .main-container > .filtros-container > .rango-container{
   display: grid;
   grid-template-columns: 1fr;
-}
-#filtros > .main-container > .filtros-container > .operacion-container{
-  grid-template-rows: 50px repeat(3, 30px);
 }
 #filtros > .main-container > .filtros-container > .inmueble-container{
   grid-template-rows: 50px repeat(6, 30px);

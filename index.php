@@ -99,7 +99,7 @@ include('conexion.php');
           </div>
           <ul class="hide">
             <li>
-              <span>Nombre de Usuario</span>
+              <span></span>
             </li>
             <li>
               <a href="#?">Panel</a>
@@ -158,24 +158,35 @@ include('conexion.php');
       <form id="search-main" action="">
         <div class="form-container">
 
-          <input type="text" placeholder="Ingresa Zona o palabra">
+          <input name="busqueda" type="text" placeholder="Ingresa Zona o palabra">
 
           <div class="input-select">
-            <select name="" id="">
-              <option value="">Venta</option>
+            <select name="compra-venta" id="">
+              <option style="color: rgba(0, 0, 0, 0.5);" value="">- Operación</option>
+              <option value="venta">Venta</option> 
+              <option value="compra">Compra</option>
+              <option value="alquiler">Alquiler</option> 
+              <option value="alquiler temporal">Alquiler Temporal</option> 
             </select>
           </div>
+
           <div class="input-select">
-            <select name="" id="">
-              <option value="">Casas</option>
+            <select name="casa-departamento" id="">
+              <option style="color: rgba(0, 0, 0, 0.5);" value="">- Inmueble</option>
+              <option value="Casa">Casa</option>
+              <option value="Departamento">Departamento</option>
+              <option value="Loteo y Terreno">Loteo y Terreno</option>
+              <option value="Local y Comercial">Local y Comercial</option>
+              <option value="Oficina">Oficina</option>
+              <option value="Cabaña">Cabaña</option>
             </select>
           </div>
 
           <button type="submit">Buscar</button>
 
           <div class="rango-input">
-            <input type="text" placeholder="Precio desde...">
-            <input type="text" placeholder="Precio hasta...">
+            <input name="precio-minimo" type="number" placeholder="Precio desde...">
+            <input name="precio-maximo" type="number" placeholder="Precio hasta...">
           </div>
 
           <div id="botones-container">
@@ -259,56 +270,6 @@ include('conexion.php');
         </div>
 
         <form method="POST" class="filtros-container scrollbar scrollbar-primary">
-          <div class="main-search">
-            <input name="search" type="text" placeholder="Buscar">
-            <button type="submit"><i class="fa fa-search"></i></button>
-          </div>
-
-          <div class="operacion-container">
-
-            <label for="operacion">Operación</label>
-            <div class="input-container">
-              <input name="operacion" type="radio" value="Venta">Venta
-            </div>
-            <div class="input-container">
-              <input name="operacion" type="radio" value="Alquiler">Alquiler
-            </div>
-            <div class="input-container">
-              <input name="operacion" type="radio" value="Alquiler Temporal">Alquiler Temporal
-            </div>
-          </div>
-          
-          <div class="inmueble-container">
-            <label for="inmueble">Tipo de Inmueble</label>
-  
-            <div class="input-container">
-              <input name="inmueble" type="radio" value="Casa">Casa
-            </div>
-            <div class="input-container">
-              <input name="inmueble" type="radio" value="Departamento">Departamento
-            </div>
-            <div class="input-container">
-              <input name="inmueble" type="radio" value="Loteo y Terreno">Loteo y Terreno
-            </div>
-            <div class="input-container">
-              <input name="inmueble" type="radio" value="Local y Comercial">Local y Comercial
-            </div>
-            <div class="input-container">
-              <input name="inmueble" type="radio" value="Oficina">Oficina
-            </div>
-            <div class="input-container">
-              <input name="inmueble" type="radio" value="Cabaña">Cabaña
-            </div>
-          </div>
-
-          <div class="rango-container">
-            <label for="precio">Precio</label>
-
-            <div class="input-container">
-              <input name="precio-minimo" placeholder="Desde..." type="number">
-              <input name="precio-maximo" placeholder="Hasta..." type="number">
-            </div>
-          </div>
 
           <div class="options-container">
             <label for="opciones">Tipo de Opciones</label>

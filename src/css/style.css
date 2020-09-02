@@ -277,7 +277,8 @@ nav > .menu-btns > .user > ul > li > a{
   justify-content: center;
 }
 #search-main > .form-container select,
-#search-main [type = "text"]{
+#search-main [type = "text"],
+#search-main [type = "number"]{
   @apply --input-text;
   height: 100%;
 }
@@ -376,7 +377,7 @@ nav > .menu-btns > .user > ul > li > a{
   margin: 0;
   font-family: var(--UbuntuEnlaces);
   color: var(--SecundarioClaro);
-  font-size: 20px;
+  font-size: 21px;
   writing-mode: vertical-lr;
   animation-name: serviciosTitle;
   animation-duration: 3s;
@@ -487,7 +488,7 @@ nav > .menu-btns > .user > ul > li > a{
   align-items: center;
   font-family: var(--UbuntuEnlaces);
   color: var(--SecundarioClaro);
-  font-size: 20px;
+  font-size: 21px;
   writing-mode: vertical-lr;
 }
 #filtros > .main-container{
@@ -541,7 +542,7 @@ nav > .menu-btns > .user > ul > li > a{
   padding-right: 5px;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 35px repeat(6, auto);
+  grid-template-rows: 170px repeat(6, auto);
   overflow: auto;
 }
 #filtros > .main-container > .filtros-container label{
@@ -575,15 +576,10 @@ nav > .menu-btns > .user > ul > li > a{
 #filtros > .main-container > .filtros-container > .main-search > button:hover{
   background-color: var(--PrimarioClaro);
 }
-#filtros > .main-container > .filtros-container > .operacion-container,
-#filtros > .main-container > .filtros-container > .inmueble-container,
 #filtros > .main-container > .filtros-container > .options-container,
 #filtros > .main-container > .filtros-container > .rango-container{
   display: grid;
   grid-template-columns: 1fr;
-}
-#filtros > .main-container > .filtros-container > .operacion-container{
-  grid-template-rows: 50px repeat(3, var(--radioButtonSpace));
 }
 #filtros > .main-container > .filtros-container > .inmueble-container{
   grid-template-rows: 50px repeat(6, var(--radioButtonSpace));

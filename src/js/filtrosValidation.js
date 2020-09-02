@@ -1,57 +1,59 @@
 const $filtrosForm = document.querySelector('#filtros > .main-container > .filtros-container')
-$filtrosForm.addEventListener('submit',(event)=>{
-  event.preventDefault();
+const $mainForm = document.getElementById('search-main')
 
-  const form = new FormData($filtrosForm);
-  let verificador = 0;
-  let radioInputs = ['operacion', 'inmueble', 'opciones', 'habitaciones', 'bathrooms', 'plantas'];
-  let textNumberInputs = ['search', 'precio-minimo', 'precio-maximo',
-                          'superfie-cubierta-minima', 'superfie-cubierta-maxima', 
-                          'superfie-total-minima', 'superfie-total-maxima']
+// const $filtrosFormInputs = ['busqueda', 'precio-minimo', 'precio-maximo','superfie-cubierta-minima', 'superfie-cubierta-maxima', 'superfie-total-minima', 'superfie-total-maxima', 'operacion', 'inmueble', 'opciones', 'habitaciones', 'bathrooms', 'plantas']
+// const $mainFormInputs = ['busqueda', 'precio-minimo', 'precio-maximo']
 
-  const getInput = (input) =>{
-    return form.get(input)
-  }
-  const getInputs = (arrayInputs) =>{
-    let inputsGotten = arrayInputs.map((input)=>{
-      
-      let gottenData = getInput(input)
-
-      if(gottenData !== null && gottenData !== ""){
-        verificador++
-      }
-      return gottenData
-    })
-    return inputsGotten;
-  }
-
-  radioInputs = getInputs(radioInputs)
-  textNumberInputs = getInputs(textNumberInputs)
-
-  // console.log(radioInputs)
-  // console.log(textNumberInputs)
-  // console.log(verificador)
+const eventoSubmit = ($form1, $form2) =>{
+  $form1.addEventListener('submit',(event)=>{
+    event.preventDefault();
   
-  if(!verificador){
+    const form1 = new FormData($form1);
+    const form2 = new FormData($form2);
+    const gottenData = {};
 
-    modalError('¡Error, debe seleccionar al menos un filtro!')
+    let verificador = 0;
 
-  }else{
-    console.log('ejecutar fetch()')
-  }
+    const getInputs = (form) =>{
+      for (const input of form.entries()) {
+        if(input[1] !== null && input[1] !== ""){
+          verificador++
+          // console.log(`El input ${input[0]} tiene algo ingresado: ${input[1]}`)
+          gottenData[input[0]] = input[1];
+        }
+      }
+    }
 
-
-  // console.log('search:',form.get('search'))
-  // console.log('operacion:',form.get('operacion'))
-  // console.log('inmueble:',form.get('inmueble'))
-  // console.log('precio-minimo:',form.get('precio-minimo'))
-  // console.log('precio-maximo:',form.get('precio-maximo'))
-  // console.log('opciones:',form.get('opciones'))
-  // console.log('superfie-cubierta-minima:',form.get('superfie-cubierta-minima'))
-  // console.log('superfie-cubierta-maxima:',form.get('superfie-cubierta-maxima'))
-  // console.log('superfie-total-minima:',form.get('superfie-total-minima'))
-  // console.log('superfie-total-maxima:',form.get('superfie-total-maxima'))
-  // console.log('habitaciones:',form.get('habitaciones'))
-  // console.log('bathrooms:',form.get('bathrooms'))
-  // console.log('plantas:',form.get('plantas'))
-})
+    getInputs(form1)
+    getInputs(form2)
+    
+    console.log(gottenData)
+    console.log(`${verificador} inputs ingresados`)
+    
+    if(!verificador){
+  
+      modalError('¡Error, debe seleccionar al menos un filtro!')
+  
+    }else{
+      console.log('ejecutar fetch()')
+    }
+  
+  
+    // console.log('search:',filtrosForm.get('search'))
+    // console.log('operacion:',filtrosForm.get('operacion'))
+    // console.log('inmueble:',filtrosForm.get('inmueble'))
+    // console.log('precio-minimo:',filtrosForm.get('precio-minimo'))
+    // console.log('precio-maximo:',filtrosForm.get('precio-maximo'))
+    // console.log('opciones:',filtrosForm.get('opciones'))
+    // console.log('superfie-cubierta-minima:',filtrosForm.get('superfie-cubierta-minima'))
+    // console.log('superfie-cubierta-maxima:',filtrosForm.get('superfie-cubierta-maxima'))
+    // console.log('superfie-total-minima:',filtrosForm.get('superfie-total-minima'))
+    // console.log('superfie-total-maxima:',filtrosForm.get('superfie-total-maxima'))
+    // console.log('habitaciones:',filtrosForm.get('habitaciones'))
+    // console.log('bathrooms:',filtrosForm.get('bathrooms'))
+    // console.log('plantas:',filtrosForm.get('plantas'))
+  })
+}
+eventoSubmit($mainForm, $filtrosForm)
+// eventoSubmit($mainForm, $mainFormInputs, $filtrosForm, $filtrosFormInputs)
+// eventoSubmit($filtrosForm, $filtrosFormInputs, $mainForm, $mainFormInputs)
