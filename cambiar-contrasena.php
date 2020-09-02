@@ -59,7 +59,7 @@
             <div class="contenedor">
                 <div class="contenedor-especifico">
                     <h2>Cambiar Contraseña</h2>
-                    <form action="">
+                    <form action="" id="cambiar-contrasena">
                         <div class="item">
                             <label for="">Correo de Usuario</label>
                             <input type="email" placeholder="Correo de Usuario">
@@ -76,9 +76,9 @@
                             <label for="">Repetir Nueva Contraseña</label>
                             <input type="password" placeholder="Repetir Contraseña">
                         </div>
-                        <div class="boton">
-                            <input type="submit" value="Confirmar Nueva Contraseña">
-                        </div>
+                        <button type="submit">
+                            Confirmar Cambio de Contraseña
+                        </button>
 
                     </form>
 
@@ -91,7 +91,6 @@
             <div class="login">
                 <div class="title-container p-3">
                     <!-- <h5>Mensaje Enviado</h5> -->
-                    <i id="close-sent" class="closeModal fa fa-times"></i>
                 </div>
                 <div class="main-container message p-3 pb-4">
                     <i class="fas fa-check-circle"></i>
@@ -121,7 +120,7 @@
     <script type="text/javascript" src="src/js/panel-publicacion.js"></script>
     <script type="text/javascript" src="src/js/hamburger.js"></script>
     <script type="text/javascript" src="src/js/btn-mercado.js"></script>
-    <script type="text/javascript" src="src/js/modalMessageSentAppears.js"></script>
+    <!-- <script type="text/javascript" src="src/js/modalMessageSentAppears.js"></script> -->
 
 </body>
 

@@ -49,7 +49,7 @@ include('conexion.php'); ?>
     <main>
         <section id="recuperar">
             <div class="contenedor">
-                <div class="contenedor-especifico mono">
+                <div class="contenedor-especifico">
                     <h2 style="grid-column: 1/3;">Su Contraseña ha sido cambiada Exitosamente.</h2>
                 </div>
 

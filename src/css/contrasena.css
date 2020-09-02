@@ -34,7 +34,7 @@
 
 #recuperar > .contenedor > .contenedor-especifico{
     display: grid;
-    grid-template-columns: minmax(250px, 400px) minmax(250px, 500px);
+    grid-template-columns: minmax(250px, 500px);
     background-color: #e9ebf5e5;
     color: var(--PrimarioOscuro);
     height: auto;
@@ -48,6 +48,7 @@
     gap: 20px;
     padding-left: 30px;
     padding-right: 30px;
+    justify-content: center;
 }
 #recuperar > .contenedor > .contenedor-especifico > form > .item{
     display: grid;
@@ -66,6 +67,24 @@
 #recuperar > .contenedor > .contenedor-especifico > form > .boton{
     margin-left: auto;
     margin-right: auto;
+}
+#recuperar > .contenedor > .contenedor-especifico > form > button{
+    background-color: #004489;
+    border: none;
+    border-radius: 5px;
+    font-family: var(--UbuntuEnlaces);
+    font-style: italic;
+    color: white;
+    font-weight: 400;
+    font-size: 20px;
+    padding: 5px;
+    
+}
+#recuperar > .contenedor > .contenedor-especifico > form > button:hover{
+    background-color: #E9EBF5;
+    color: #004489;
+    box-shadow: 2px 2px 2px #004489;
+    
 }
 #recuperar > .contenedor > .contenedor-especifico > form > .boton > input{
     background-color: #004489;
@@ -117,4 +136,18 @@ footer{
 }
 footer > div > a{
     color: white;
+}
+
+@media screen and (min-width: 650px){
+    #recuperar > .contenedor > .contenedor-especifico{
+        grid-template-columns: minmax(250px, 400px) minmax(250px, 500px);
+        height: auto;
+        padding:20px;
+        border-radius: 10px;
+        align-content: center;
+        justify-content: center;
+    }
+    #recuperar > .contenedor > .contenedor-especifico > h2{
+        text-align: center;
+    }
 }

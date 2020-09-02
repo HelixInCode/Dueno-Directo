@@ -102,7 +102,7 @@ include('conexion.php'); ?>
         <section id="recuperar">
             <div class="contenedor">
                 <div class="contenedor-especifico">
-                    <h2>Recuperar Contraseña</h2>
+                    <h2 style="text-align: center;">Recuperar Contraseña</h2>
                     <form action="" method="POST" id="formulario-recupera">
                         <div class="item">
                             <label for="">Correo de Usuario</label>
@@ -129,7 +129,7 @@ include('conexion.php'); ?>
                 </div>
                 <div class="main-container message p-3 pb-4">
                     <p>Se ha enviado un codigo a su email. Por favor ingrese aquí dicho código</p>
-                    <form action="" id="formulario-respuesta">
+                    <form action="" id="formulario-respuesta" style="text-align: center;">
                         <input type="text" placeholder="Codigo de confirmación">
                         <input type="submit" value="Confirmar">
                     </form>

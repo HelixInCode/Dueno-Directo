@@ -37,7 +37,7 @@
 }
 #pagos > .contenedor-general > .contenedor-especifico{
     display: grid;
-    grid-template-columns: minmax(250px, 600px) minmax(250px, 400px);
+    grid-template-columns: minmax(250px, 600px);
     background-color: #e9ebf5e5;
     color: var(--PrimarioOscuro);
     padding:20px;
@@ -73,6 +73,16 @@
 }
 #pagos > .contenedor-general > .contenedor-especifico > .contenedor-pago > form{
     text-align: center;
+}
+@media screen and (min-width: 650px){
+    #pagos > .contenedor-general > .contenedor-especifico{
+        display: grid;
+        grid-template-columns: minmax(250px, 600px) minmax(250px, 400px);
+        background-color: #e9ebf5e5;
+        color: var(--PrimarioOscuro);
+        padding:20px;
+        border-radius: 10px;
+    }
 }
 
 
