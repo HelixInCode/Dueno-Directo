@@ -647,11 +647,12 @@
             <thead class="thead">
               <tr>
                 <th scope="col">Admin</th>
-                <th scope="col">Detalle</th>
                 <th scope="col">Categoria</th>
+                <th scope="col">Detalle</th>
                 <th scope="col">Promocion</th>
                 <th scope="col">Vencimiento</th>
                 <th scope="col">$$</th>
+                <th scope="col">Editar</th>
               </tr>
             </thead>
             <tbody>
@@ -660,12 +661,19 @@
               while ($promodates = mysqli_fetch_array($consulta)) {
               ?>
               <tr>
-                <th scope="row"><?php echo $promodates['idpromo'] ?></th>
-                <td><?php echo $promodates['detalle'] ?></td>
-                <td><?php echo $promodates['categoria'] ?></td>
-                <td><?php echo $promodates['promociones'] ?></td>
-                <td><?php echo $promodates['vencimiento'] ?></td>
-                <td><?php echo $promodates['precio'] ?></td>
+               <form action="process/editarpromocion.php" method="POST">
+                <th scope="row"><input type="hidden" name="id_promo" value="<?php echo $promodates['idpromo'] ?>"><?php echo $promodates['idpromo'] ?></th>
+                <td><select class="form-control" name="categoria" id="exampleFormControlSelect1">
+                    <option value="<?php echo $promodates['categoria'] ?>"><?php echo $promodates['categoria'] ?></option>
+                    <option value="profesional">profesional</option>
+                    <option value="propietario">propietario</option>
+                    <option value="servicios">servicios</option></select></td>
+                <td><input type="text" name="detalle" value="<?php echo $promodates['detalle'] ?>"></td>
+                <td><input type="text" name="promociones" value="<?php echo $promodates['promociones'] ?>" ></td>
+                <td><input type="text" name="vencimiento" value="<?php echo $promodates['vencimiento'] ?>"></td>
+                <td><input type="text" name="precio" value="<?php echo $promodates['precio'] ?>"></td>
+                <td><a href=""> <button name="editar" value="editar" class ="btn btn-info"><span class ="oi oi-pencil"></span></button></a></td>
+                </form>
               </tr>
               <?php 
               }

@@ -68,6 +68,17 @@ include('conexion.php'); ?>
         }
     }
 
+    if(isset($_POST['CoD'])){
+
+        $cod=mysqli_real_escape_string($conexion, $_POST['CoD']);
+
+        if ($cod==$num00000){
+            echo "Código correcto";
+            header("Location: process/changePass.php");
+        }else {
+            echo "Código Incorrecto";
+        }
+    }
 
 
     ?>
@@ -130,8 +141,8 @@ include('conexion.php'); ?>
                 <div class="main-container message p-3 pb-4">
                     <p>Se ha enviado un codigo a su email. Por favor ingrese aquí dicho código</p>
                     <form action="" id="formulario-respuesta" style="text-align: center;">
-                        <input type="text" placeholder="Codigo de confirmación">
-                        <input type="submit" value="Confirmar">
+                        <input type="text" name="CoD" placeholder="Codigo de confirmación">
+                        <input type="submit"  name="CoD" value="Confirmar">
                     </form>
                 </div>
             </div>
