@@ -244,7 +244,7 @@ if (isset($_SESSION['id'])) {
                                     <p><?php echo $Ok['descripcion'] ?></p>
                                     <div class="acciones">
                                         <a href='<?php echo "editar-publicacion.php?public=$publicID" ?>' >Modificar</a>
-                                        <a href='<?php echo "delPublicacion.php?public=$publicID" ?>'>Eliminar</a>
+                                        <a href='<?php echo "process/delPublicacion.php?public=$publicID" ?>'>Eliminar</a>
                                     </div>
 
                                 </div>
