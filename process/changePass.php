@@ -27,6 +27,17 @@
 </head>
 
 <body>
+<?php 
+if(isset($_POST['Change'])){
+
+    $new=mysqli_real_scape_string($conexion, $_POST['new']);
+    $re=mysqli_real_scape_string($conexion, $_POST['reNew']);
+
+    if()
+}
+
+
+?>
     <header>
         <nav class="py-2 px-4">
             <div class="img-container">
@@ -62,14 +73,14 @@
                     <form action="">
                         <div class="item">
                             <label for="">Nueva Contraseña</label>
-                            <input type="password" placeholder="Nueva Contraseña">
+                            <input type="password" name="new" placeholder="Nueva Contraseña">
                         </div>
                         <div class="item">
                             <label for="">Repetir Nueva Contraseña</label>
-                            <input type="password" placeholder="Repetir Contraseña">
+                            <input type="password" name="reNew" placeholder="Repetir Contraseña">
                         </div>
                         <div class="boton">
-                            <input type="submit" value="Confirmar Nueva Contraseña">
+                            <input type="submit" name="Change" value="Confirmar Nueva Contraseña">
                         </div>
 
                     </form>

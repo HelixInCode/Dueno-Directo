@@ -244,6 +244,7 @@ include('conexion.php');
             <label for="remenber">Recuerdame</label>
           </div>
 
+          <a href="recuperar-contrasena.php">No recuerdo mi contraseña</a>
           <div class="login-container">
 
             <button disabled name="Enviar">Iniciar Sesión</button>
