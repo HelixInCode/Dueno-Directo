@@ -96,8 +96,17 @@ const insertarIconos = (clase, icono) =>{
   clase.append($html.body.children[0])
 }
 
-for (const tipoSVG in svgContainers) {
-  svgContainers[tipoSVG].forEach((container) => {
-    insertarIconos(container, icons[tipoSVG])
-  });
+const renderizarIconos = () =>{
+
+  for (const tipoSVG in svgContainers) {
+
+    svgContainers[tipoSVG].forEach((container) => {
+
+      if(!container.children[1]){
+        insertarIconos(container, icons[tipoSVG])
+      }
+    });
+
+  }
 }
+renderizarIconos();
