@@ -293,23 +293,6 @@ include('conexion.php');
 
         <form method="POST" class="filtros-container scrollbar scrollbar-primary">
 
-          <div class="options-container">
-            <label for="opciones">Tipo de Opciones</label>
-    
-            <div class="input-container">
-              <input name="opciones" type="radio" value="Casa">Casa
-            </div>
-            <div class="input-container">
-              <input name="opciones" type="radio" value="Departamento">Departamento
-            </div>
-            <div class="input-container">
-              <input name="opciones" type="radio" value="Departamento">Loteo y Terreno
-            </div>
-            <div class="input-container">
-              <input name="opciones" type="radio" value="Local y Comercial">Local y Comercial
-            </div>
-          </div>
-          
           <div class="rango-container">
             <label for="superfieCubierta">Superficie Cubierta</label>
 
