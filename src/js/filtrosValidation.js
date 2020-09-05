@@ -10,20 +10,21 @@ const eventoSubmit = ($form1, $form2) =>{
   
     const form1 = new FormData($form1);
     const form2 = new FormData($form2);
-    const gottenData = {};
+    const gottenData = {};//Donde se van a almacenar todos los datos que fueron ingresados en los 2 forms 
 
     let verificador = 0;
 
     const getInputs = (form) =>{
       for (const input of form.entries()) {
-        if(input[1] !== null && input[1] !== ""){
-          verificador++
+        if(input[1] !== null && input[1] !== ""){//Si el campo del formuario no está vacio se añade a GottenData
+          verificador++;
           // console.log(`El input ${input[0]} tiene algo ingresado: ${input[1]}`)
           gottenData[input[0]] = input[1];
         }
       }
     }
 
+    //Se obtienen los datos ingresados en los 2 forms 
     getInputs(form1)
     getInputs(form2)
     
@@ -36,6 +37,7 @@ const eventoSubmit = ($form1, $form2) =>{
   
     }else{
       console.log('ejecutar fetch()')
+      fetchPrintPosts(gottenData)
     }
   
   

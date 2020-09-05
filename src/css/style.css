@@ -10,6 +10,7 @@
   --sombra: rgba(0, 0, 0, 0.5);
   --sombraClara: rgba(0, 0, 0, 0.25);
   --radioButtonSpace: 30px;
+  --diferenciaSegundos: .4s;
 
   --titulos: {
     font-family: var(--UbuntuTitulosPrincipales);
@@ -542,7 +543,7 @@ nav > .menu-btns > .user > ul > li > a{
   padding-right: 5px;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 170px repeat(6, auto);
+  grid-template-rows: repeat(4, auto);
   overflow: auto;
 }
 #filtros > .main-container > .filtros-container label{
@@ -788,7 +789,7 @@ nav > .menu-btns > .user > ul > li > a{
 #publications > .publications-container > .publications-item{
   color: #000;
   font-style: normal;
-  background-color: var(--PrimarioOscuro);
+  background-color: var(--sombraClara);
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: minmax(200px, 254px);
@@ -816,43 +817,44 @@ nav > .menu-btns > .user > ul > li > a{
 }
 #publications > .publications-container > .publications-item > .img-container > .publications-address{
   @apply --addressPrice;
-  left: -165.5px;
+  left: 5px;
+  transform: translateX(calc(-100% - 5px));
   bottom: 5px;
   background-color: var(--sombra);
 }
 #publications > .publications-container > .publications-item > .img-container > .publications-price{
   @apply --addressPrice;
   top: 10px;
-  left: -80px;
+  left: 10px;
+  transform: translateX(calc(-100% - 10px));
   background-color: var(--PrimarioClaro);
 }
 #publications > .publications-container > .publications-item > .img-container > .publications-features{
   position: absolute;
   top: 0;
-  right: -90px;
+  right: 0;
   bottom: 0;
-  padding: 0 10px;
+  padding: 0 15px 0 10px;
   display: grid;
   grid-template-columns: 1fr;
-  justify-items: center;
   align-items: center;
   gap: 10px;
   background-color: color(var(--SecundarioClaro) alpha(50%));
   /* background-color: var(--sombra); */
   align-content: center;
+  transform: translateX(calc(100%));
   transition: .3s;
 }
 #publications > .publications-container > .publications-item > .img-container > .publications-features div{
   @apply --titulos;
   font-size: 20px;
   font-style: normal;
-  /* height: 35px; */
-  /* width: 35px; */
-  display: grid;
   color: var(--PrimarioOscuro);
-  /* color: #fff; */
-  grid-template-columns: 1fr 1fr;
+  display: grid;
+  justify-items: end;
+  grid-template-columns: 1fr auto;
   align-items: center;
+  gap: 10px;
   transition-timing-function: ease-in;
   cursor: pointer;
 }
@@ -864,14 +866,59 @@ nav > .menu-btns > .user > ul > li > a{
 #publications > .publications-container > .publications-item > .img-container > .publications-features i:hover{
   background-color: rgba(255, 255, 255, 0.15);
 }
-#publications > .publications-container > .publications-item:hover > .img-container > .publications-address{
-  left: 5px;
-}
-#publications > .publications-container > .publications-item:hover > .img-container > .publications-price{
-  left: 10px;
-}
+#publications > .publications-container > .publications-item:hover > .img-container > .publications-address,
+#publications > .publications-container > .publications-item:hover > .img-container > .publications-price,
 #publications > .publications-container > .publications-item:hover > .img-container > .publications-features{
-  right: 0;
+  transform: translateX(0px);
+}
+#publications > .publications-container > .publications-item-load{
+  background-color: var(--sombra);
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: minmax(200px, 254px);
+  animation-name: onLoad;
+  /* animation-timing-function: ease-out; */
+  animation-timing-function: linear;
+  animation-direction: alternate;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+#publications > .publications-container > .publications-item-load:nth-of-type(2){
+  animation-duration: 1s;
+  animation-duration: calc(1s + (var(--diferenciaSegundos) * 1));
+
+}
+#publications > .publications-container > .publications-item-load:nth-of-type(3){
+  animation-duration: calc(1s + (var(--diferenciaSegundos) * 2));
+}
+#publications > .publications-container > .publications-item-load:nth-of-type(4){
+  animation-duration: calc(1s + (var(--diferenciaSegundos) * 3));
+}
+#publications > .publications-container > .publications-item-load:nth-of-type(5){
+  animation-duration: calc(1s + (var(--diferenciaSegundos) * 4));
+}
+#publications > .publications-container > .publications-item-load:nth-of-type(6){
+  animation-duration: calc(1s + (var(--diferenciaSegundos) * 5));
+}
+#publications > .publications-container > .publications-item-load:nth-of-type(7){
+  animation-duration: calc(1s + (var(--diferenciaSegundos) * 6));
+}
+#publications > .publications-container > .publications-item-load:nth-of-type(8){
+  animation-duration: calc(1s + (var(--diferenciaSegundos) * 7));
+}
+#publications > .publications-container > .publications-item-load:nth-of-type(9){
+  animation-duration: calc(1s + (var(--diferenciaSegundos) * 8));
+}
+@keyframes onLoad{
+  from{
+    background-color: var(--sombra);
+  }
+  50%{
+    background-color: var(--sombraClara);
+  }
+  to{
+    background-color: rgba(0, 0, 0, 0);
+  }
 }
 
 /*Seccion Primera-vez*/

@@ -178,7 +178,7 @@ include('conexion.php');
           <input name="busqueda" type="text" placeholder="Ingresa Zona o palabra">
 
           <div class="input-select">
-            <select name="compra-venta" id="">
+            <select name="compraVenta" id="">
               <option style="color: rgba(0, 0, 0, 0.5);" value="">- Operación</option>
               <option value="venta">Venta</option> 
               <option value="compra">Compra</option>
@@ -188,7 +188,7 @@ include('conexion.php');
           </div>
 
           <div class="input-select">
-            <select name="casa-departamento" id="">
+            <select name="casaDepartamento" id="">
               <option style="color: rgba(0, 0, 0, 0.5);" value="">- Inmueble</option>
               <option value="Casa">Casa</option>
               <option value="Departamento">Departamento</option>
@@ -202,8 +202,8 @@ include('conexion.php');
           <button type="submit">Buscar</button>
 
           <div class="rango-input">
-            <input name="precio-minimo" type="number" placeholder="Precio desde...">
-            <input name="precio-maximo" type="number" placeholder="Precio hasta...">
+            <input name="precioMinimo" type="number" placeholder="Precio desde...">
+            <input name="precioMaximo" type="number" placeholder="Precio hasta...">
           </div>
 
           <div id="botones-container">
@@ -293,44 +293,27 @@ include('conexion.php');
 
         <form method="POST" class="filtros-container scrollbar scrollbar-primary">
 
-          <div class="options-container">
-            <label for="opciones">Tipo de Opciones</label>
+          <div class="rango-container">
+            <label for="superfieCubierta">Superficie Cubierta</label>
 
             <div class="input-container">
-              <input name="opciones" type="radio" value="Casa">Casa
-            </div>
-            <div class="input-container">
-              <input name="opciones" type="radio" value="Departamento">Departamento
-            </div>
-            <div class="input-container">
-              <input name="opciones" type="radio" value="Departamento">Loteo y Terreno
-            </div>
-            <div class="input-container">
-              <input name="opciones" type="radio" value="Local y Comercial">Local y Comercial
+              <input name="superfieCubiertaMinima" placeholder="Desde..." type="number">
+              <input name="superfieCubiertaMaxima" placeholder="Hasta..." type="number">
             </div>
           </div>
 
           <div class="rango-container">
-            <label for="superfie-cubierta">Superficie Cubierta</label>
+            <label for="superfieTotal">Superficie Total</label>
 
             <div class="input-container">
-              <input name="superfie-cubierta-minima" placeholder="Desde..." type="number">
-              <input name="superfie-cubierta-maxima" placeholder="Hasta..." type="number">
-            </div>
-          </div>
-
-          <div class="rango-container">
-            <label for="superfie-total">Superficie Total</label>
-
-            <div class="input-container">
-              <input name="superfie-total-minima" placeholder="Desde..." type="number">
-              <input name="superfie-total-maxima" placeholder="Hasta..." type="number">
+              <input name="superfieTotalMinima" placeholder="Desde..." type="number">
+              <input name="superfieTotalMaxima" placeholder="Hasta..." type="number">
             </div>
           </div>
 
           <div class="options-container">
             <label for="habitaciones">Habitaciones</label>
-
+    
             <div class="input-container">
               <input name="habitaciones" type="radio" value="1">1
             </div>
@@ -347,7 +330,7 @@ include('conexion.php');
 
           <div class="options-container">
             <label for="bathrooms">Baños</label>
-
+    
             <div class="input-container">
               <input name="bathrooms" type="radio" value="1">1
             </div>
@@ -364,7 +347,7 @@ include('conexion.php');
 
           <div class="options-container">
             <label for="plantas">Plantas</label>
-
+    
             <div class="input-container">
               <input name="plantas" type="radio" value="1">1
             </div>
