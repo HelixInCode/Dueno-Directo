@@ -173,9 +173,9 @@ if (isset($_SESSION['id'])) {
                             <label for="tipo-propiedad">¿Que tipo de Propiedad vas a publicar?</label>
                             <select name="tipo-propiedad" id="tipo-propiedad">
                                 <option value="">Seleccione...</option>
-                            <?php $conCat=mysqli_query($conexion, "SELECT * FROM categoria WHERE seccion='propiedad'")or die(mysqli_error($conexion));
+                            <?php $conCat=mysqli_query($conexion, "SELECT * FROM categoria WHERE seccion='propiedad'");
                             while ($CAT=mysqli_fetch_array($conCat)) { ?>
-                                <option value="<?php echo $CAT['categoria']?>"><?php echo $CAT['categoria']?></option>
+                                <option value="<?php echo $CAT['categoria']?>"><?php echo $CAT['categoria'];?></option>
                             <?php } ?>
                                 <option value="Casa">Casa</option>
                                 <option value="Departamento">Departamento</option>
@@ -398,7 +398,7 @@ if (isset($_SESSION['id'])) {
                             <p>Tipo de profesional</p>
                             <select name="profesional" id="profesional">
                                        <option value="">Selecciona...</option>
-                            <?php $conCat=mysqli_query($conexion, "SELECT * FROM categoria WHERE seccion='profesional'")or die(mysqli_error($conexion));
+                            <?php $conCat=mysqli_query($conexion, "SELECT * FROM categoria WHERE seccion='profesional'");
                                     while ($CAT=mysqli_fetch_array($conCat)) { ?>
                                         <option value="<?php echo $CAT['categoria'] ?>"><?php echo $CAT['categoria'] ?></option>
                                    <?php }
