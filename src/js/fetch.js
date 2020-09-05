@@ -7,10 +7,21 @@ const printLoaders = (container) =>{
   }
 }
 const publicationTemplate = (publicacion) => {
+  const comparacionDeString = (feature) =>{
+    if(feature === '4 o mas'){
+      feature = '4+';
+    }
+    return feature;
+  }
   // const {nombre} = publicacion;
   // const {peso} = publicacion;
   // const {area_cubierta} = publicacion;
+  let habitaciones = publicacion.habitaciones;
+  let banos = publicacion.banos;
   
+  habitaciones = comparacionDeString(habitaciones);
+  banos = comparacionDeString(banos);
+
   return `<a href="publicacion-precarga.php?public=${publicacion.idPropiedad}" class="publications-item">
   <div class="img-container">
       
@@ -26,7 +37,7 @@ const publicationTemplate = (publicacion) => {
     <div class="publications-features">
       
       <div href="#?" class="bedroom-icon">
-        <span>${publicacion.habitaciones}</span>
+        <span>${habitaciones}</span>
         <!-- icono insertado por svg.js -->
       </div>
 
@@ -36,7 +47,7 @@ const publicationTemplate = (publicacion) => {
       </div>
       
       <div href="#?" class="bathroom-icon">
-        <span>${publicacion.banos}</span>
+        <span>${banos}</span>
         <!-- icono insertado por svg.js -->
       </div>
 

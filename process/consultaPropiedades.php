@@ -1,5 +1,6 @@
 <?php 
 include ('../conexion.php');
+header('Content-Type: application/json');
 
 $conPropiedades=mysqli_query($conexion, "SELECT * FROM propiedad")or die(mysqli_error($conexion));
 
