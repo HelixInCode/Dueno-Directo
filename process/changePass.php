@@ -45,7 +45,7 @@ if(isset($_POST['Change'])){
         if($new == $re){
             $passUpdate=mysqli_query($conexion, "UPDATE user SET clave='$new' WHERE id='$us'");
             if($passUpdate){
-                header("Location: ../index.php")
+                header("Location: ../cambio-contrasena-exitoso.php")
             }else{
                 echo "Error al guardar los datos";
             }
