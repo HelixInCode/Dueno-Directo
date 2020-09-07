@@ -118,7 +118,7 @@
 }
 #nueva-publicacion > .publication-container > .contenedor-tipo > form{
     display: grid;
-    grid-template-columns: repeat(2, auto);
+    grid-template-columns: minmax(200px, 400px);
     color: white;
     font-size: 18px;
     font-weight: 500;
@@ -146,7 +146,7 @@
 #propiedad,
 #profesional{
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: minmax(200px, 600px);
     padding: 15px;
     justify-content: center;
     gap: 10px;
@@ -156,7 +156,7 @@
     margin: 0;
 }
 #propiedad > .titulo-publicacion{
-    grid-column: 1/3;
+    grid-column: 1/2;
 }
 #propiedad > .titulo-publicacion > p{
     font-size: 12px;
@@ -164,10 +164,12 @@
 }
 #propiedad > .tipo-inmueble{
     grid-template-rows: auto 1fr;
+    grid-column: 1/2;
 }
 #propiedad > .moneda-container{
     text-align: start;
     grid-template-columns: 1fr;
+    grid-column: 1/2;
 }
 #propiedad > .moneda-container > input{
     grid-column: 2 span;
@@ -183,22 +185,37 @@
     text-align: start;
     grid-column: 1 / 3;
 }
+#propiedad > .alquilar-vender{
+    grid-column: 1/2;
+}
 #propiedad > .description textarea{
     height: 160px;
     resize: none;
 }
 #propiedad > .area-inmueble{
     grid-template-rows: auto 1fr;
+    grid-column: 1/2;
 }
 #propiedad > .image,
 #profesional > .image{
     text-align: center;
 }
 #propiedad > .inmueble-features{
+    grid-column: 1/2;
+}
+#propiedad > .tiempo{
+    grid-column: 1/2;
+}
+#propiedad > .description, #propiedad > .image, #propiedad > .ubicacion{
+    grid-column: 1/2;
 }
 #propiedad > .ubicacion{
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: minmax(200px, 300px);
 }
+#municipalidad, #calle{
+    grid-column: 1/2;
+}
+
 #propiedad > .ubicacion h6{
     grid-column: 2 span;
 
@@ -244,6 +261,53 @@
     #registro > .contenedor > h3{
         font-size: 30px;
     }
+    #propiedad,
+    #profesional{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(200px, 600px));
+    padding: 15px;
+    justify-content: center;
+    gap: 10px;
+    }
+    #nueva-publicacion > .publication-container > .contenedor-tipo > form{
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        color: white;
+        font-size: 18px;
+        font-weight: 500;
+    }
+    #propiedad > .titulo-publicacion {
+        grid-column: 1/3;
+    }
+    #propiedad > .tipo-inmueble{
+        grid-template-rows: auto 1fr;
+        grid-column: 1/2;
+    }
+    #propiedad > .moneda-container{
+        text-align: start;
+        grid-template-columns: 1fr;
+        grid-column: 2/3;
+    }
+    #propiedad > .alquilar-vender{
+        grid-column: 1/3;
+    }
+    #propiedad > .area-inmueble{
+        grid-template-rows: auto 1fr;
+        grid-column: 2/3;
+    }
+    #propiedad > .inmueble-features{
+        grid-column: 2/3;
+    }
+    #propiedad > .tiempo{
+        grid-column: 2/3;
+    }
+    #propiedad > .ubicacion{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    #municipalidad{
+        grid-column: 2/3;
+    }
+    
 }
 @media screen and (min-width: 768px){
     #search-main.servicios > .form-container > [type = "submit"]{
