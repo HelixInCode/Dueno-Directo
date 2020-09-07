@@ -173,14 +173,16 @@ if (isset($_SESSION['id'])) {
                             <label for="tipo-propiedad">¿Que tipo de Propiedad vas a publicar?</label>
                             <select name="tipo-propiedad" id="tipo-propiedad">
                                 <option value="">Seleccione...</option>
-                            <?php $conCat=mysqli_query($conexion, "SELECT * FROM categoria WHERE seccion='propiedad'")or die(mysqli_error($conexion));
+                            <?php $conCat=mysqli_query($conexion, "SELECT * FROM categoria WHERE seccion='propiedad'");
                             while ($CAT=mysqli_fetch_array($conCat)) { ?>
-                                <option value="<?php echo $CAT['categoria']?>"><?php echo $CAT['categoria']?></option>
+                                <option value="<?php echo $CAT['categoria']?>"><?php echo $CAT['categoria'];?></option>
                             <?php } ?>
-                                <option value="departamento">Departamento</option>
-                                <option value="casa">Casa</option>
-                                <option value="lote">Lote</option>
-                                <option value="local">Local</option>
+                                <option value="Casa">Casa</option>
+                                <option value="Departamento">Departamento</option>
+                                <option value="Loteo y Terreno">Loteo y Terreno</option>
+                                <option value="Local y Comercial">Local y Comercial</option>
+                                <option value="Oficina">Oficina</option>
+                                <option value="Cabaña">Cabaña</option>
                             </select>
                         </div>
 
@@ -198,8 +200,9 @@ if (isset($_SESSION['id'])) {
                             <label for="tipo-propiedad">¿Que finalidad deseas con la publicación?</label>
                             <select name="finalidad" id="finalidad">
                                 <option value="">Seleccione...</option>
-                                <option value="alquiler">Alquilar</option>
-                                <option value="venta">Vender</option>
+                                <option value="venta">Venta</option> 
+                                <option value="alquiler">Alquiler</option> 
+                                <option value="alquiler temporal">Alquiler Temporal</option> 
                             </select>
                         </div>
 
@@ -395,7 +398,7 @@ if (isset($_SESSION['id'])) {
                             <p>Tipo de profesional</p>
                             <select name="profesional" id="profesional">
                                        <option value="">Selecciona...</option>
-                            <?php $conCat=mysqli_query($conexion, "SELECT * FROM categoria WHERE seccion='profesional'")or die(mysqli_error($conexion));
+                            <?php $conCat=mysqli_query($conexion, "SELECT * FROM categoria WHERE seccion='profesional'");
                                     while ($CAT=mysqli_fetch_array($conCat)) { ?>
                                         <option value="<?php echo $CAT['categoria'] ?>"><?php echo $CAT['categoria'] ?></option>
                                    <?php }
