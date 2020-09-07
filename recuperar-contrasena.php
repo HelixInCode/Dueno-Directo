@@ -100,7 +100,7 @@ include('conexion.php'); ?>
                         <a class="waves-effect waves-light" href="./servicios.html">Servicios</a>
                     </li>
                     <li>
-                        <a class="waves-effect waves-light" href="#?">Contacto</a>
+                        <a class="waves-effect waves-light" href="index.php#contact">Contacto</a>
                     </li>
                 </ul>
                 <div class="menu-overlay hide d-block d-md-none"></div>

@@ -42,10 +42,10 @@
                         <a class="waves-effect waves-light" href="./servicios.html">Servicios</a>
                     </li>
                     <li>
-                        <a class="waves-effect waves-light" href="#?">Contacto</a>
+                        <a class="waves-effect waves-light" href="index.php#contact">Contacto</a>
                     </li>
                     <li>
-                        <a id="ingresar" class="modal-login showModal waves-effect waves-light" href="#?">Ingresar</a>
+                        <a id="ingresar" class="modal-login showModal waves-effect waves-light" href="">Ingresar</a>
                     </li>
                     <li>
                         <a class="waves-effect waves-light" href="#?">Publicar</a>

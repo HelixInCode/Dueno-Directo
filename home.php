@@ -89,7 +89,7 @@ if (isset($_SESSION['id'])) {
                             <a class="waves-effect waves-light" href="./servicios.html">Servicios</a>
                         </li>
                         <li>
-                            <a class="waves-effect waves-light" href="#?">Contacto</a>
+                            <a class="waves-effect waves-light" href="index.php#contact">Contacto</a>
                         </li>
                         <li>
                             <a class="waves-effect waves-light" href="publicacion.php">Publicar</a>

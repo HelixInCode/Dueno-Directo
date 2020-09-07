@@ -394,7 +394,7 @@ const colocarPagination = (HAY_BUSQUEDAS_DE_LA_HOME) => {
   const printPagination = (container, dato)=>{
     container.innerHTML += publicationTemplate(dato)
   }
-  let NUMERO_RENDERIZADOS =  5;
+  let NUMERO_RENDERIZADOS =  30;
 
   let START_RANGO;
   let END_RANGO;

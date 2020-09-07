@@ -81,10 +81,10 @@ if (isset($_SESSION['id'])) {
               <a class="waves-effect waves-light" href="./servicios.html">Servicios</a>
             </li>
             <li>
-              <a class="waves-effect waves-light" href="#?">Contacto</a>
+              <a class="waves-effect waves-light" href="index.php#contact">Contacto</a>
             </li>
             <li>
-              <a id="ingresar" class="modal-login showModal waves-effect waves-light" href="#?">Ingresar</a>
+              <a id="ingresar" class="modal-login showModal waves-effect waves-light" href="">Ingresar</a>
             </li>
             <li>
               <a class="waves-effect waves-light" href="#?">Publicar</a>
@@ -120,12 +120,50 @@ if (isset($_SESSION['id'])) {
       </nav>
     </header>
     <main>
+      <section id="modal-login" class="modal hide">
+        <div class="login">
+          <div class="title-container p-3">
+            <h5>Ingresar</h5>
+            <i id="close-login" class="closeModal fa fa-times"></i>
+          </div>
+          <form class="main-container p-3" action="" method="POST">
+
+            <div class="input-container">
+              <label for="email">Correo</label>
+              <input name="email" type="email" value="<?php if (isset($_COOKIE["usuario"])) {
+                                                        echo $_COOKIE["usuario"];
+                                                      } ?>">
+            </div>
+
+            <div class="input-container">
+              <label for="password">Contraseña</label>
+              <input name="password" type="password" value="<?php if (isset($_COOKIE["pass"])) {
+                                                              echo $_COOKIE["pass"];
+                                                            } ?>">
+            </div>
+
+            <div class="input-container">
+              <input type="checkbox" name="remember" id="remember" <?php if (isset($_COOKIE["usuario"])) { ?> checked <?php } ?> />
+              <label for="remenber">Recuerdame</label>
+            </div>
+
+            <a href="recuperar-contrasena.php">No recuerdo mi contraseña</a>
+            <div class="login-container">
+
+              <button disabled name="Enviar">Iniciar Sesión</button>
+              <a href="registro.php">¿No te has registrado todavía?</a>
+
+            </div>
+          </form>
+        </div>
+      </section>
+
       <section id="post" class="px-2 px-sm-3">
         <div class="main-container">
 
           <div class="columna-1 columna">
 
-            <h2 class="d-block d-md-none text-center">Título</h2>
+            <h2 class="d-block d-md-none text-center"><?php echo $nombre ?></h2>
 
             <div id="custCarousel" class="carousel slide" data-ride="carousel" align="center">
               <!-- slides -->
