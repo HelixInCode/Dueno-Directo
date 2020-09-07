@@ -6,7 +6,8 @@ $conPropiedades=mysqli_query($conexion, "SELECT * FROM propiedad")or die(mysqli_
 
 while($PRO=mysqli_fetch_array($conPropiedades)){  
     $arrayPro[]=$PRO;
-
+    
 }
+// var_dump($arrayPro);
 echo json_encode($arrayPro);
 ?>

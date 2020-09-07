@@ -175,20 +175,19 @@ include('conexion.php');
       <form id="search-main" action="">
         <div class="form-container">
 
-          <input name="busqueda" type="text" placeholder="Ingresa Zona o palabra">
+          <input name="nombre" type="text" placeholder="Ingresa Zona o palabra">
 
           <div class="input-select">
-            <select name="compraVenta" id="">
+            <select name="finalidad">
               <option style="color: rgba(0, 0, 0, 0.5);" value="">- Operación</option>
               <option value="venta">Venta</option> 
-              <option value="compra">Compra</option>
               <option value="alquiler">Alquiler</option> 
               <option value="alquiler temporal">Alquiler Temporal</option> 
             </select>
           </div>
 
           <div class="input-select">
-            <select name="casaDepartamento" id="">
+            <select name="tipo_propiedad">
               <option style="color: rgba(0, 0, 0, 0.5);" value="">- Inmueble</option>
               <option value="Casa">Casa</option>
               <option value="Departamento">Departamento</option>
@@ -292,7 +291,7 @@ include('conexion.php');
         </div>
 
         <form method="POST" class="filtros-container scrollbar scrollbar-primary">
-
+          
           <div class="rango-container">
             <label for="superfieCubierta">Superficie Cubierta</label>
 
@@ -321,41 +320,27 @@ include('conexion.php');
               <input name="habitaciones" type="radio" value="2">2
             </div>
             <div class="input-container">
-              <input name="habitaciones" type="radio" value="más de 2">más de 2
+              <input name="habitaciones" type="radio" value="3">3
             </div>
             <div class="input-container">
-              <input name="habitaciones" type="radio" value="indistinto">indistinto
-            </div>
-          </div>
-
-          <div class="options-container">
-            <label for="bathrooms">Baños</label>
-    
-            <div class="input-container">
-              <input name="bathrooms" type="radio" value="1">1
-            </div>
-            <div class="input-container">
-              <input name="bathrooms" type="radio" value="2">2
-            </div>
-            <div class="input-container">
-              <input name="bathrooms" type="radio" value="más de 2">más de 2
-            </div>
-            <div class="input-container">
-              <input name="bathrooms" type="radio" value="indistinto">indistinto
+              <input name="habitaciones" type="radio" value="4 o mas">4 o más
             </div>
           </div>
 
           <div class="options-container">
-            <label for="plantas">Plantas</label>
+            <label for="banos">Baños</label>
     
             <div class="input-container">
-              <input name="plantas" type="radio" value="1">1
+              <input name="banos" type="radio" value="1">1
             </div>
             <div class="input-container">
-              <input name="plantas" type="radio" value="2">2
+              <input name="banos" type="radio" value="2">2
             </div>
             <div class="input-container">
-              <input name="plantas" type="radio" value="más de 2">más de 2
+              <input name="banos" type="radio" value="3">3
+            </div>
+            <div class="input-container">
+              <input name="banos" type="radio" value="4 o mas">4 o más
             </div>
           </div>
 
@@ -407,241 +392,9 @@ include('conexion.php');
 
       <h1 class="pt-4 pt-md-0">PUBLICACIONES DESTACADAS</h1>
 
-      <div class="publications-container py-4 px-xl-5">
+      <div data-url="homepage" class="publications-container py-4 px-xl-5">
 
-        <a href="#?" class="publications-item">
-          <div class="img-container">
-
-            <img src="dist/img/publicaciones.jpg" alt="">
-
-            <div class="publications-address">
-              <h5>Calle A, 456. Ciudad</h5>
-            </div>
-            <div class="publications-price">
-              <h6>$25.000</h6>
-            </div>
-
-            <div class="publications-features">
-
-              <div href="#?" class="bedroom-icon">
-                <span>1</span>
-                <!-- icono insertado por svg.js -->
-              </div>
-
-              <div href="#?" class="area-icon">
-                <span>2</span>
-                <!-- icono insertado por svg.js -->
-              </div>
-
-              <div href="#?" class="bathroom-icon">
-                <span>1</span>
-                <!-- icono insertado por svg.js -->
-              </div>
-
-              <div href="#?" class="parking-icon">
-                <span>2</span>
-                <!-- icono insertado por svg.js -->
-              </div>
-
-            </div>
-
-          </div>
-        </a>
-
-        <a href="#?" class="publications-item">
-          <div class="img-container">
-
-            <img src="dist/img/publicaciones.jpg" alt="">
-
-            <div class="publications-address">
-              <h5>Calle A, 456. Ciudad</h5>
-            </div>
-            <div class="publications-price">
-              <h6>$25.000</h6>
-            </div>
-
-            <div class="publications-features">
-
-              <div href="#?" class="bedroom-icon">
-                <span>1</span>
-                <!-- icono insertado por svg.js -->
-              </div>
-
-              <div href="#?" class="area-icon">
-                <span>2</span>
-                <!-- icono insertado por svg.js -->
-              </div>
-
-              <div href="#?" class="bathroom-icon">
-                <span>1</span>
-                <!-- icono insertado por svg.js -->
-              </div>
-
-              <div href="#?" class="parking-icon">
-                <span>2</span>
-                <!-- icono insertado por svg.js -->
-              </div>
-
-            </div>
-
-          </div>
-        </a>
-
-        <a href="#?" class="publications-item">
-          <div class="img-container">
-
-            <img src="dist/img/publicaciones.jpg" alt="">
-
-            <div class="publications-address">
-              <h5>Calle A, 456. Ciudad</h5>
-            </div>
-            <div class="publications-price">
-              <h6>$25.000</h6>
-            </div>
-
-            <div class="publications-features">
-
-              <div href="#?" class="bedroom-icon">
-                <span>1</span>
-                <!-- icono insertado por svg.js -->
-              </div>
-
-              <div href="#?" class="area-icon">
-                <span>2</span>
-                <!-- icono insertado por svg.js -->
-              </div>
-
-              <div href="#?" class="bathroom-icon">
-                <span>1</span>
-                <!-- icono insertado por svg.js -->
-              </div>
-
-              <div href="#?" class="parking-icon">
-                <span>2</span>
-                <!-- icono insertado por svg.js -->
-              </div>
-
-            </div>
-
-          </div>
-        </a>
-
-        <a href="#?" class="publications-item">
-          <div class="img-container">
-
-            <img src="dist/img/publicaciones.jpg" alt="">
-
-            <div class="publications-address">
-              <h5>Calle A, 456. Ciudad</h5>
-            </div>
-            <div class="publications-price">
-              <h6>$25.000</h6>
-            </div>
-
-            <div class="publications-features">
-
-              <div href="#?" class="bedroom-icon">
-                <span>1</span>
-                <!-- icono insertado por svg.js -->
-              </div>
-
-              <div href="#?" class="area-icon">
-                <span>2</span>
-                <!-- icono insertado por svg.js -->
-              </div>
-
-              <div href="#?" class="bathroom-icon">
-                <span>1</span>
-                <!-- icono insertado por svg.js -->
-              </div>
-
-              <div href="#?" class="parking-icon">
-                <span>2</span>
-                <!-- icono insertado por svg.js -->
-              </div>
-
-            </div>
-
-          </div>
-        </a>
-
-        <a href="#?" class="publications-item">
-          <div class="img-container">
-
-            <img src="dist/img/publicaciones.jpg" alt="">
-
-            <div class="publications-address">
-              <h5>Calle A, 456. Ciudad</h5>
-            </div>
-            <div class="publications-price">
-              <h6>$25.000</h6>
-            </div>
-
-            <div class="publications-features">
-
-              <div href="#?" class="bedroom-icon">
-                <span>1</span>
-                <!-- icono insertado por svg.js -->
-              </div>
-
-              <div href="#?" class="area-icon">
-                <span>2</span>
-                <!-- icono insertado por svg.js -->
-              </div>
-
-              <div href="#?" class="bathroom-icon">
-                <span>1</span>
-                <!-- icono insertado por svg.js -->
-              </div>
-
-              <div href="#?" class="parking-icon">
-                <span>2</span>
-                <!-- icono insertado por svg.js -->
-              </div>
-
-            </div>
-
-          </div>
-        </a>
-
-        <a href="#?" class="publications-item">
-          <div class="img-container">
-
-            <img src="dist/img/publicaciones.jpg" alt="">
-
-            <div class="publications-address">
-              <h5>Calle A, 456. Ciudad</h5>
-            </div>
-            <div class="publications-price">
-              <h6>$25.000</h6>
-            </div>
-
-            <div class="publications-features">
-
-              <div href="#?" class="bedroom-icon">
-                <span>1</span>
-                <!-- icono insertado por svg.js -->
-              </div>
-
-              <div href="#?" class="area-icon">
-                <span>2</span>
-                <!-- icono insertado por svg.js -->
-              </div>
-
-              <div href="#?" class="bathroom-icon">
-                <span>1</span>
-                <!-- icono insertado por svg.js -->
-              </div>
-
-              <div href="#?" class="parking-icon">
-                <span>2</span>
-                <!-- icono insertado por svg.js -->
-              </div>
-
-            </div>
-
-          </div>
-        </a>
+        <!-- Insertar Publicaciones -->
 
       </div>
     </section>
@@ -772,11 +525,14 @@ include('conexion.php');
   <script type="text/javascript" src="dist/js/mdb.min.js"></script>
   <!-- Your custom scripts (optional) -->
   <script type="text/javascript" src="src/js/svg.js"></script>
+  <script type="text/javascript" src="src/js/fetch.js"></script>
   <script type="text/javascript" src="src/js/hideShowModals.js"></script>
   <script type="text/javascript" src="src/js/loginValidation.js"></script>
   <script type="text/javascript" src="src/js/filtros.js"></script>
   <script type="text/javascript" src="src/js/filtrosValidation.js"></script>
   <script type="text/javascript" src="src/js/hamburger.js"></script>
+  <!-- Llamado a las publicaciones destacadas -->
+  <script type="text/javascript" src="src/js/fetchFeatured.js"></script>
   <!-- <script type="text/javascript">
     modalError('Mensaje de prueba');
   </script> -->
