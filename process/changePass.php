@@ -1,3 +1,9 @@
+<?php
+ session_start();
+  include('../conexion.php');
+ $us=$_GET['Recuperacion'];
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -32,7 +38,24 @@ if(isset($_POST['Change'])){
 
     $new=mysqli_real_scape_string($conexion, $_POST['new']);
     $re=mysqli_real_scape_string($conexion, $_POST['reNew']);
+    $cantidad=strlen($new);
 
+   if($cantidad>=8){ 
+   
+        if($new == $re){
+            $passUpdate=mysqli_query($conexion, "UPDATE user SET clave='$new' WHERE id='$us'");
+            if($passUpdate){
+                header("Location: ../index.php")
+            }else{
+                echo "Error al guardar los datos";
+            }
+        }else{
+            echo "ERROR: Las contraseñas no coinciden";
+        }
+    }else{
+        echo "ERROR: La contraseña tiene que tener mínimo 8 caracteres";
+
+    }
     
 }
 
