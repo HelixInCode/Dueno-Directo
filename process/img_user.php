@@ -37,13 +37,13 @@ if (isset($_SESSION['id'])) {
    if (isset($_POST['Enviar'])) {
       $imagen = addslashes(file_get_contents($_FILES['imagen']['tmp_name']));
 
-      $query = mysqli_query($conexion, "INSERT INTO user (imagen) VALUES ('$imagen')") or die(mysqli_error($conexion));
+      $query = mysqli_query($conexion, "UPDATE user SET imagen='$imagen' WHERE id='$id_user'");
       if ($query){
          header("location: ../home.php");
          echo '<div class="alert alert-success" role="alert">Imagen guardada correctamente</div>';
        }
        else{
-         echo "Error al guardar imagen propiedad";
+         echo "Error al guardar imagen de Perfil";
        }
      }
     ?>

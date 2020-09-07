@@ -142,13 +142,13 @@
                   <div class="md-form m-0">
                     <input type="text" name="email" id="nombre" class="form-control" value="<?php echo $arrayAd['email']; ?>" placeholder="Email">
                   </div>
-                  <div class="md-form m-0">
-                    <input type="password" name="clave" id="clave" class="form-control" aria-describedby="clave" value="<?php echo "12345678"; ?>" placeholder="Contraseña">
+                 <!-- <div class="md-form m-0">
+                    <input type="password" name="clave" id="clave" class="form-control" aria-describedby="clave" value="<?php echo $arrayAd['clave']; ?>" placeholder="Contraseña">
   
                     <a><small id="clave" class="form-text text-muted m-0">
                       Cambiar contraseña
                     </small></a>
-                  </div>
+                  </div> -->
             </div>
             <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" name="Modificar" type="submit">Modificar</button>
         </form>
