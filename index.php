@@ -27,6 +27,7 @@ include('conexion.php');
   <link rel="stylesheet" href="dist/css/mdb.min.css">
   <!-- Your custom styles (optional) -->
   <link rel="stylesheet" href="dist/css/style.css">
+  <link rel="stylesheet" href="dist/css/servicios.css">
 </head>
 
 <body>
@@ -77,7 +78,7 @@ include('conexion.php');
     }
   }
 
-  
+
 
   ?>
 
@@ -94,10 +95,10 @@ include('conexion.php');
             <a class="waves-effect waves-light" href="index.php">Inicio</a>
           </li>
           <li>
-            <a class="waves-effect waves-light" href="./servicios.html">Servicios</a>
+            <a class="waves-effect waves-light" href="#">Servicios</a>
           </li>
           <li>
-            <a class="waves-effect waves-light" href="#?">Contacto</a>
+            <a class="waves-effect waves-light" href="#contact">Contacto</a>
           </li>
           <li>
             <a id="ingresar" class="modal-login showModal waves-effect waves-light" href="#?">Ingresar</a>
@@ -180,9 +181,9 @@ include('conexion.php');
           <div class="input-select">
             <select name="finalidad">
               <option style="color: rgba(0, 0, 0, 0.5);" value="">- Operación</option>
-              <option value="venta">Venta</option> 
-              <option value="alquiler">Alquiler</option> 
-              <option value="alquiler temporal">Alquiler Temporal</option> 
+              <option value="venta">Venta</option>
+              <option value="alquiler">Alquiler</option>
+              <option value="alquiler temporal">Alquiler Temporal</option>
             </select>
           </div>
 
@@ -291,7 +292,7 @@ include('conexion.php');
         </div>
 
         <form method="POST" class="filtros-container scrollbar scrollbar-primary">
-          
+
           <div class="rango-container">
             <label for="superfieCubierta">Superficie Cubierta</label>
 
@@ -312,7 +313,7 @@ include('conexion.php');
 
           <div class="options-container">
             <label for="habitaciones">Habitaciones</label>
-    
+
             <div class="input-container">
               <input name="habitaciones" type="radio" value="1">1
             </div>
@@ -329,7 +330,7 @@ include('conexion.php');
 
           <div class="options-container">
             <label for="banos">Baños</label>
-    
+
             <div class="input-container">
               <input name="banos" type="radio" value="1">1
             </div>
@@ -418,6 +419,33 @@ include('conexion.php');
           </div>
         </a>
 
+      </div>
+    </section>
+    <section id="cover-services" class="pt-5">
+      <h2>TAMBIEN CONOCÉ NUESTROS</h2>
+
+      <div class="cover-container">
+
+        <div class="item-cover view overlay zoom">
+          <img class="img-fluid" src="./dist/img/img-servicios/serv1.jpg" alt="">
+          <div class="marco text-center">
+            <a href="#?">Profesionales</a>
+          </div>
+        </div>
+
+        <div class="item-cover view overlay zoom">
+          <img class="img-fluid" src="./dist/img/img-servicios/serv2.jpg" alt="">
+          <div class="marco text-center">
+            <a href="#?">Productos</a>
+          </div>
+        </div>
+
+        <div class="item-cover view overlay zoom">
+          <img class="img-fluid" src="./dist/img/img-servicios/serv3.jpg" alt="">
+          <div class="marco text-center">
+            <a href="#?">Servicios</a>
+          </div>
+        </div>
       </div>
     </section>
 
