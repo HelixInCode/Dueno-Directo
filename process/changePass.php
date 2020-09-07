@@ -1,3 +1,9 @@
+<?php
+ session_start();
+  include('../conexion.php');
+ $us=$_GET['Recuperacion'];
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -20,10 +26,10 @@
     <!-- Material Design Bootstrap -->
     <link rel="stylesheet" href="dist/css/mdb.min.css">
     <!-- Your custom styles (optional) -->
-    <link rel="stylesheet" href="dist/css/style.css">
-    <link rel="stylesheet" href="dist/css/registro.css">
-    <link rel="stylesheet" href="dist/css/publicacion-precarga.css">
-    <link rel="stylesheet" href="src/css/contrasena.css">
+    <link rel="stylesheet" href="../dist/css/style.css">
+    <link rel="stylesheet" href="../dist/css/registro.css">
+    <link rel="stylesheet" href="../dist/css/publicacion-precarga.css">
+    <link rel="stylesheet" href="../src/css/contrasena.css">
 </head>
 
 <body>
@@ -32,8 +38,25 @@ if(isset($_POST['Change'])){
 
     $new=mysqli_real_scape_string($conexion, $_POST['new']);
     $re=mysqli_real_scape_string($conexion, $_POST['reNew']);
+    $cantidad=strlen($new);
 
-    if()
+   if($cantidad>=8){ 
+   
+        if($new == $re){
+            $passUpdate=mysqli_query($conexion, "UPDATE user SET clave='$new' WHERE id='$us'");
+            if($passUpdate){
+                header("Location: ../cambio-contrasena-exitoso.php")
+            }else{
+                echo "Error al guardar los datos";
+            }
+        }else{
+            echo "ERROR: Las contraseñas no coinciden";
+        }
+    }else{
+        echo "ERROR: La contraseña tiene que tener mínimo 8 caracteres";
+
+    }
+    
 }
 
 

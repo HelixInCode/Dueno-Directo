@@ -65,6 +65,7 @@ if (isset($_SESSION['id'])) {
         $user_categoria = $consuldates['categoria'];
         $user_descripcion = $consuldates['descripcion'];
         $user = $consuldates['usuario'];
+        $imgPerfil=$consuldates['imagen'];
 
         $conPropiedades= mysqli_query($conexion,"SELECT * FROM propiedad WHERE idUser='$id_user' AND estado='precargada'");
         
@@ -131,10 +132,10 @@ if (isset($_SESSION['id'])) {
                         <i class="closeModal fa fa-times"></i>
                     </div>
 
-                    <form class="main-container p-3" action="" method="POST">
+                    <form class="main-container p-3" action="process/img_user.php" method="POST" enctype="multipart/form-data">
 
                         <div class="input-container py-5">
-                            <input name="imagen" type="file">
+                            <input name="imagen" type="file" accept="image/*">
                         </div>
 
                         <div class="login-container">
@@ -203,14 +204,31 @@ if (isset($_SESSION['id'])) {
 
                                 </div>
                             </div>
-
+                        
                             <div class="columna2 columna px-2 px-sm-0">
+                             <?php 
+                             
+                             if ($imgPerfil == NULL){ ?>
 
-                                <div class="imagen">
-                                    <img src="./dist/img/icons/icons8-camera-100.png" alt="">
+                                <div class="imagen" >
+                                    <img src="./dist/img/icons/icons8-camera-100.png" alt="" >
                                     <!-- <p>Foto del Usuario</p> -->
                                     <a class="modal-input-img showModal">Cargar Imagen</a>
                                 </div>
+                                 <?php }
+
+                            else {  ?>
+
+                                <div class="imagen" >
+                                    <img src="data:image/jpg;base64,<?php echo base64_encode($consuldates['imagen']);?>" alt="" >
+                                    <!-- <p>Foto del Usuario</p> -->
+                                    <a class="modal-input-img showModal">Cargar Imagen</a>
+                                </div>
+                            
+                           <?php }
+
+                             ?>
+                               
 
                                 <div class="descripcion">
 
