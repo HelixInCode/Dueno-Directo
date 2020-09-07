@@ -20,10 +20,10 @@
     <!-- Material Design Bootstrap -->
     <link rel="stylesheet" href="dist/css/mdb.min.css">
     <!-- Your custom styles (optional) -->
-    <link rel="stylesheet" href="dist/css/style.css">
-    <link rel="stylesheet" href="dist/css/registro.css">
-    <link rel="stylesheet" href="dist/css/publicacion-precarga.css">
-    <link rel="stylesheet" href="src/css/contrasena.css">
+    <link rel="stylesheet" href="../dist/css/style.css">
+    <link rel="stylesheet" href="../dist/css/registro.css">
+    <link rel="stylesheet" href="../dist/css/publicacion-precarga.css">
+    <link rel="stylesheet" href="../src/css/contrasena.css">
 </head>
 
 <body>
@@ -33,7 +33,7 @@ if(isset($_POST['Change'])){
     $new=mysqli_real_scape_string($conexion, $_POST['new']);
     $re=mysqli_real_scape_string($conexion, $_POST['reNew']);
 
-    if()
+    
 }
 
 

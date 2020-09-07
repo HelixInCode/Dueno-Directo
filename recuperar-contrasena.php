@@ -38,7 +38,8 @@ include('conexion.php'); ?>
     if (isset($_POST['Correo'])) {
         $email = mysqli_real_escape_string($conexion, $_POST['email']);
 
-        $sel = mysqli_query($conexion, "SELECT email FROM user WHERE email='$email'") or die(mysqli_error($conexion));
+        $sel = mysqli_query($conexion, "SELECT email FROM user WHERE email='$email'");
+
 
 
 
@@ -73,6 +74,7 @@ include('conexion.php'); ?>
         $cod=mysqli_real_escape_string($conexion, $_POST['CoD']);
 
         if ($cod==$num00000){
+            $user=$arrayE[''];
             echo "Código correcto";
             header("Location: process/changePass.php");
         }else {
