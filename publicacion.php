@@ -6,9 +6,9 @@ if (isset($_SESSION['id'])) {
     $id_user = $_SESSION['id'];
     $user = $_SESSION['usuario'];
 
-    $CU=mysqli_query($conexion, "SELECT usuario FROM user WHERE id='$id_user' ");
-    $array=mysqli_fetch_array($CU);
-    $user=$array['usuario'];
+    $CU = mysqli_query($conexion, "SELECT usuario FROM user WHERE id='$id_user' ");
+    $array = mysqli_fetch_array($CU);
+    $user = $array['usuario'];
 
 ?>
 
@@ -98,8 +98,8 @@ if (isset($_SESSION['id'])) {
             <section id="modal-login" class="modal hide">
                 <div class="login">
                     <div class="title-container p-3">
-                    <h5>Ingresar</h5>
-                    <i id="close-login" class="closeModal fa fa-times"></i>
+                        <h5>Ingresar</h5>
+                        <i id="close-login" class="closeModal fa fa-times"></i>
                     </div>
                     <form class="main-container p-3" action="" method="POST">
 
@@ -135,9 +135,9 @@ if (isset($_SESSION['id'])) {
 
             <section id="modal-error" class="modal hide">
                 <div class="login">
-                        <div class="title-container p-3">
+                    <div class="title-container p-3">
                         <!-- <h5>Mensaje Enviado</h5> -->
-                    <i id="close-sent" class="closeModal fa fa-times"></i>
+                        <i id="close-sent" class="closeModal fa fa-times"></i>
                     </div>
                     <div class="main-container error p-3 pb-4">
                         <i class="fas fa-times-circle"></i>
@@ -157,7 +157,7 @@ if (isset($_SESSION['id'])) {
                     <div class="contenedor-tipo">
 
                         <form action="">
-                            <p><?php echo $user." " ?>¿Que publicarás?</p>
+                            <p><?php echo $user . " " ?>¿Que publicarás?</p>
                             <select name="tipo" id="tipo">
                                 <option value="propiedad">Propiedad</option>
                                 <option value="profesional">Profesional</option>
@@ -178,10 +178,10 @@ if (isset($_SESSION['id'])) {
                             <label for="tipo-propiedad">¿Que tipo de Propiedad vas a publicar?</label>
                             <select name="tipo-propiedad" id="tipo-propiedad">
                                 <option value="">Seleccione...</option>
-                            <?php $conCat=mysqli_query($conexion, "SELECT * FROM categoria WHERE seccion='propiedad'");
-                            while ($CAT=mysqli_fetch_array($conCat)) { ?>
-                                <option value="<?php echo $CAT['categoria']?>"><?php echo $CAT['categoria'];?></option>
-                            <?php } ?>
+                                <?php $conCat = mysqli_query($conexion, "SELECT * FROM categoria WHERE seccion='propiedad'");
+                                while ($CAT = mysqli_fetch_array($conCat)) { ?>
+                                    <option value="<?php echo $CAT['categoria'] ?>"><?php echo $CAT['categoria']; ?></option>
+                                <?php } ?>
                                 <option value="Casa">Casa</option>
                                 <option value="Departamento">Departamento</option>
                                 <option value="Loteo y Terreno">Loteo y Terreno</option>
@@ -205,9 +205,9 @@ if (isset($_SESSION['id'])) {
                             <label for="tipo-propiedad">¿Que finalidad deseas con la publicación?</label>
                             <select name="finalidad" id="finalidad">
                                 <option value="">Seleccione...</option>
-                                <option value="venta">Venta</option> 
-                                <option value="alquiler">Alquiler</option> 
-                                <option value="alquiler temporal">Alquiler Temporal</option> 
+                                <option value="venta">Venta</option>
+                                <option value="alquiler">Alquiler</option>
+                                <option value="alquiler temporal">Alquiler Temporal</option>
                             </select>
                         </div>
 
@@ -376,8 +376,8 @@ if (isset($_SESSION['id'])) {
 
                         </div>
 
-                        <div class="form-area">
-                            
+                        <div class="form-area tiempo">
+
                             <div class="tiempo-publicacion">
                                 <p>Duración de la publicacion</p>
                                 <select name="tiempo-publicacion" id="tiempo-publicacion">
@@ -402,13 +402,13 @@ if (isset($_SESSION['id'])) {
                         <div class="form-area contenedor-titulo">
                             <p>Tipo de profesional</p>
                             <select name="profesional" id="profesional">
-                                       <option value="">Selecciona...</option>
-                            <?php $conCat=mysqli_query($conexion, "SELECT * FROM categoria WHERE seccion='profesional'");
-                                    while ($CAT=mysqli_fetch_array($conCat)) { ?>
-                                        <option value="<?php echo $CAT['categoria'] ?>"><?php echo $CAT['categoria'] ?></option>
-                                   <?php }
-                                        
-                                        ?>
+                                <option value="">Selecciona...</option>
+                                <?php $conCat = mysqli_query($conexion, "SELECT * FROM categoria WHERE seccion='profesional'");
+                                while ($CAT = mysqli_fetch_array($conCat)) { ?>
+                                    <option value="<?php echo $CAT['categoria'] ?>"><?php echo $CAT['categoria'] ?></option>
+                                <?php }
+
+                                ?>
                             </select>
                         </div>
 
@@ -425,7 +425,7 @@ if (isset($_SESSION['id'])) {
                             <input type="file" name="imagen3" class="form-control-file" accept="image/*" required>
                             <input type="file" name="imagen4" class="form-control-file" accept="image/*" required>
                             <input type="file" name="imagen5" class="form-control-file" accept="image/*" required>
-                       
+
                         </div>
 
                         <div class="form-area container-ubicacion">
