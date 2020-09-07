@@ -94,6 +94,9 @@
   grid-column: 1 span;
   grid-row: 2 / 3;
 }
+#search-pro > .form-container > [type = "submit"]:hover{
+  background-color: rgb(0, 102, 204);
+}
 
 @media screen and (min-width: 576px){
   #search-pro > .form-container{

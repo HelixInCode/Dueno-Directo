@@ -525,6 +525,7 @@ include('conexion.php');
   <script type="text/javascript" src="dist/js/mdb.min.js"></script>
   <!-- Your custom scripts (optional) -->
   <script type="text/javascript" src="src/js/svg.js"></script>
+  <script type="text/javascript" src="src/js/botones-container.js"></script>
   <script type="text/javascript" src="src/js/fetch.js"></script>
   <script type="text/javascript" src="src/js/hideShowModals.js"></script>
   <script type="text/javascript" src="src/js/loginValidation.js"></script>

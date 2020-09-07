@@ -1,6 +1,8 @@
 const $publicationContainer = document.querySelector('#publications > .publications-container')
 const LA_PAGINA_ESTA_EN_SEARCH_RESULTS = $publicationContainer.dataset.url === 'resultspage';
 const LA_PAGINA_ESTA_EN_INDEX = $publicationContainer.dataset.url === 'homepage';
+const LA_PAGINA_SERVICIOS = $publicationContainer.dataset.url === 'servicepage';
+const LA_PAGINA_PRODUCTOS = $publicationContainer.dataset.url === 'productspage';
 
 const printLoaders = (container, NUMERO_DE_LOADERS) =>{
   const NUMERO_PUBLICACIONES_LOAD = NUMERO_DE_LOADERS;
@@ -233,6 +235,114 @@ const filtrarDatos = (datosFiltros, datos) =>{
   }
   return foundItems;
 }
+const filtrarProductosServicios = (datosFiltros, datos) =>{
+  const  foundItems = [];
+  for(publicacion of datos){
+    const NUMERO_DE_DATOS_FILTRADOS = Object.values(datosFiltros).length;
+
+    let datoEncontrado = {};
+    let busqueda;
+    let verificador = 0;
+
+    const cumpleCondicion = (repeticiones) =>{
+      datoEncontrado = publicacion;
+      // console.log('Cumple la condicion');
+      for (let i = 0; i < repeticiones; i++) {
+        verificador++;
+      }
+    }
+    const verficacionCampo = (campo) =>{
+      if(datosFiltros[campo] !== undefined){
+        
+        busqueda = datosFiltros[campo].toLowerCase();
+        
+        if(publicacion[campo] === busqueda){
+        
+          cumpleCondicion(1)
+        }
+      }
+    }
+
+    if(datosFiltros['nombre'] !== undefined){
+      
+      let matchRate = 0;
+      let palabrasEncontradas = [];
+
+      const limpiarPalabrasBasura = (elemento) =>{
+        // debugger
+        let auxiliar = document.createElement('div')  
+        auxiliar.className = elemento.className.toLowerCase();
+    
+        for(let index = 0; index <= auxiliar.classList.length; index++){
+          if(auxiliar.classList[index] === 'de' ||
+              auxiliar.classList[index] === 'el' ||
+              auxiliar.classList[index] === 'la' ||
+              auxiliar.classList[index] === 'los' ||
+              auxiliar.classList[index] === 'las' ||
+              auxiliar.classList[index] === 'y' ||
+              auxiliar.classList[index] === 'con' ||
+              auxiliar.classList[index] === 'en' ||
+              auxiliar.classList[index] === 'del'){
+              
+            elemento.classList.remove(auxiliar.classList[index])  
+          }
+        }
+        return elemento
+      }
+
+      busqueda = document.createElement('div')  
+      busqueda.className = datosFiltros['nombre'].toLowerCase();
+
+      let html = document.createElement('div')
+      html.className = publicacion['nombre'].toLowerCase();
+
+      busqueda = limpiarPalabrasBasura(busqueda)
+      html = limpiarPalabrasBasura(html)
+
+      if(html.className.includes(busqueda.className)){
+        cumpleCondicion(1)
+        console.log(`la busqueda es exacta`)
+      }else{
+        
+        for(let index = 0; index <= busqueda.classList.length; index++){
+
+          //se verifica si las palabras clave buscada concuerdan con la base de datos
+          if(html.className.includes(busqueda.classList[index])){ 
+            
+            //si reunen la palabras encontradas
+            palabrasEncontradas.push(busqueda.classList[index])
+            matchRate++;
+          }
+        }
+
+        //Si el N° de palabras encontradas no concuerdan con en N° de palabras clave buscadas entonces se tomará como que no cumple con la busqueda
+        if(matchRate === busqueda.classList.length && palabrasEncontradas != []){
+          // console.log(`hubieron ${matchRate} coincidencias`)
+          // console.log(`Las palabras encontradas fueron "${palabrasEncontradas.join(', ')}"`)
+          cumpleCondicion(1)
+
+        }else{
+          console.log('No hubo coincidencias')
+        }
+      }
+
+    }else{
+      console.log('no se busco por nombre')
+    }
+
+    verficacionCampo('provincia')
+    verficacionCampo('titulacion')
+    
+    if(NUMERO_DE_DATOS_FILTRADOS === verificador){
+      foundItems.push(datoEncontrado)
+      console.log('Cumple las condiciones')
+    }else{
+      console.log('No cumple todas las condiciones')
+    }
+    console.log(foundItems)
+  }
+  return foundItems;
+}
 const MENSAJE_DE_NOTIFICACION = (mensaje) =>{
   return `<div class="text-center font-weight-bold errorMessage">${mensaje}</div>`;
 
@@ -269,12 +379,12 @@ const fetchPrintPosts = async (datosFiltros)=>{
     }else{
       modalError('Lo sentimos, no se encontraron con concordancias')
       if(LA_PAGINA_ESTA_EN_SEARCH_RESULTS){
-        $publicationContainer.innerHTML = MENSAJE_DE_NOTIFICACION('No se encontraron busquedas...')
+        $publicationContainer.innerHTML = MENSAJE_DE_NOTIFICACION(NO_FOUND_ITEMS_MESSAGE)
       }
     }
   } catch (error) {
     modalError('Ha habido un error al traer las publicaciones, intentelo de nuevo')
-    $publicationContainer.innerHTML = MENSAJE_DE_NOTIFICACION('Intentelo de nuevo...')
+    $publicationContainer.innerHTML = MENSAJE_DE_NOTIFICACION(TRY_AGAIN_MESSAGE)
   }
 }
 const colocarPagination = (HAY_BUSQUEDAS_DE_LA_HOME) => {
@@ -373,16 +483,37 @@ const colocarPagination = (HAY_BUSQUEDAS_DE_LA_HOME) => {
     })
   }
 }
+const LOOK_FOR_SOMETHING_MESSAGE = '<i class="fas fa-search fa-x3 mb-2"></i><p>Busca algo</p>';
+const NO_FOUND_ITEMS_MESSAGE = '<i class="fas fa-book-dead fa-x3 mb-2"></i><p>No se encontraron busquedas...</p>';
+const TRY_AGAIN_MESSAGE = '<i class="fas fa-exclamation-circle fa-x3 mb-2"></i><p>Intentelo de nuevo...</p>';
 
 // Code execution starts here!
-const HAY_BUSQUEDAS_DE_LA_HOME = JSON.parse(localStorage.getItem('busquedas'));
 
 if(LA_PAGINA_ESTA_EN_SEARCH_RESULTS){
+  let HAY_BUSQUEDAS_DE_LA_HOME = JSON.parse(localStorage.getItem('busquedas'));
   
   if(HAY_BUSQUEDAS_DE_LA_HOME){
     colocarPagination(HAY_BUSQUEDAS_DE_LA_HOME);
 
   }else{
-    $publicationContainer.innerHTML = MENSAJE_DE_NOTIFICACION('Busca algo')
+    $publicationContainer.innerHTML = MENSAJE_DE_NOTIFICACION(LOOK_FOR_SOMETHING_MESSAGE)
+  }
+}else if(LA_PAGINA_SERVICIOS){
+  let HAY_BUSQUEDAS_DE_LA_HOME = JSON.parse(localStorage.getItem('busquedasServicios'));
+
+  if(HAY_BUSQUEDAS_DE_LA_HOME){
+    colocarPagination(HAY_BUSQUEDAS_DE_LA_HOME);
+
+  }else{
+    $publicationContainer.innerHTML = MENSAJE_DE_NOTIFICACION(LOOK_FOR_SOMETHING_MESSAGE)
+  }
+}else if(LA_PAGINA_PRODUCTOS){
+  let HAY_BUSQUEDAS_DE_LA_HOME = JSON.parse(localStorage.getItem('busquedasProductos'));
+
+  if(HAY_BUSQUEDAS_DE_LA_HOME){
+    colocarPagination(HAY_BUSQUEDAS_DE_LA_HOME);
+
+  }else{
+    $publicationContainer.innerHTML = MENSAJE_DE_NOTIFICACION(LOOK_FOR_SOMETHING_MESSAGE)
   }
 }
