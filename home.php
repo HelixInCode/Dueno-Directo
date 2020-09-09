@@ -135,6 +135,7 @@ if (isset($_SESSION['id'])) {
                     <form class="main-container p-3" action="process/img_user.php" method="POST" enctype="multipart/form-data">
 
                         <div class="input-container py-5">
+                            <input name="id" type="hidden" value="<?php echo $consuldates['id']; ?>">
                             <input name="imagen" type="file" accept="image/*">
                         </div>
 
