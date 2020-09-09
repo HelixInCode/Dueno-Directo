@@ -1,15 +1,6 @@
 const $filtros = document.getElementById('filtros')
 const $modalServicios = document.getElementById('submenu')
 
-
-
-const btnFiltros = ($btnFiltros) =>{
-  $btnFiltros.addEventListener('click', () => {
-    $filtros.classList.toggle('showUp')
-    $mainFiltros.classList.toggle('show')
-    $filtrosOverlay.classList.toggle('hide')
-  })
-}
 if($filtros){
   const $filtrosOverlay = $filtros.getElementsByClassName('filtros-overlay')[0]
   const $mainFiltros = $filtros.querySelector('.main-container')
@@ -17,6 +8,14 @@ if($filtros){
 
   const $btnFiltrosDesktop = document.getElementById('btnFiltrosDesktop')
   const $btnFiltrosResponsive = document.getElementById('btnFiltrosResponsive')
+  
+  const btnFiltros = ($btnFiltros) =>{
+    $btnFiltros.addEventListener('click', () => {
+      $filtros.classList.toggle('showUp')
+      $mainFiltros.classList.toggle('show')
+      $filtrosOverlay.classList.toggle('hide')
+    })
+  }
 
   btnFiltros($btnFiltrosDesktop)
   btnFiltros($btnFiltrosResponsive)

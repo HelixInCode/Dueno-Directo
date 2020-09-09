@@ -207,8 +207,13 @@ include('conexion.php');
           </div>
 
           <div id="botones-container">
-            <a href="#?" class="active">ARS</a>
-            <a href="#?" class="">USD</a>
+
+            <input name="precio" checked type="radio" value="pesos" id="pesos">
+            <label for="pesos">ARS</label>
+
+            <input name="precio" type="radio" value="dolares" id="dolares">
+            <label for="dolares">USD</label>
+            
           </div>
         </div>
       </form>

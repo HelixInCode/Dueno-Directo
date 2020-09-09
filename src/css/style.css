@@ -292,7 +292,8 @@ nav > .menu-btns > .user > ul > li > a{
   gap: 5px;
 }
 #search-main > .form-container > [type = "submit"],
-#search-main > .form-container a{
+#search-main > .form-container > #botones-container > label{
+  margin: 0;
   padding: 0 30px;
   border: none;
   border-radius: 5px;
@@ -303,8 +304,12 @@ nav > .menu-btns > .user > ul > li > a{
   background-color: var(--PrimarioOscuro);
   outline: none;
   text-align: center;
+  transition: .3s;
 }
-#botones-container > .active{
+#botones-container > input{
+  display: none;
+}
+#botones-container > input:checked + label{
   background-color: color(var(--PrimarioOscuro) blackness(80%)) !important;
 }
 
