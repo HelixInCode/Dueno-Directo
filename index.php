@@ -101,7 +101,7 @@ include('conexion.php');
             <a class="waves-effect waves-light" href="#contact">Contacto</a>
           </li>
           <li>
-            <a id="ingresar" class="modal-login showModal waves-effect waves-light" href="">Ingresar</a>
+            <a id="ingresar" class="modal-login showModal waves-effect waves-light" href="#">Ingresar</a>
           </li>
           <li>
             <a class="waves-effect waves-light" href="#?">Publicar</a>
