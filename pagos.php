@@ -33,7 +33,7 @@
     require __DIR__ .  '/vendor/autoload.php';
 
     // Agrega credenciales  Credenciales de Ale.. temporales
-    MercadoPago\SDK::setAccessToken('TEST-7573170412114313-082518-fcce2f045bf36dabc67d821efb4a7b69-481211681');
+    MercadoPago\SDK::setAccessToken('APP_USR-4646343415539494-090616-3bfc9f97c465b8fe292097e5e9d44e9e-314675068');
 
     // Crea un objeto de preferencia
     $preference = new MercadoPago\Preference();
