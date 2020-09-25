@@ -17,6 +17,11 @@ const publicationTemplate = (publicacion) => {
     }
     return feature;
   }
+
+  if(publicacion.area_total > 9999){
+    publicacion.area_total = '9999+'
+  }
+  
   // const {nombre} = publicacion;
   // const {peso} = publicacion;
   // const {area_cubierta} = publicacion;
@@ -69,7 +74,7 @@ const printPublications = (container, datos, LIMITE_DE_PUBLICACIONES) => {
   console.log(datos)
   container.innerHTML = "";
   if(!LIMITE_DE_PUBLICACIONES){
-    if(Array.isArray(datos)){
+    if(Array.isArray(datos)){ //Revisa si es un arreglo
       datos.forEach(publicacion => {
         container.innerHTML += publicationTemplate(publicacion)
       });
@@ -77,8 +82,12 @@ const printPublications = (container, datos, LIMITE_DE_PUBLICACIONES) => {
       container.innerHTML += publicationTemplate(datos)
     }
   }else{
-    if(Array.isArray(datos)){
-      for (let index = 0; index < LIMITE_DE_PUBLICACIONES; index++) {
+    if(Array.isArray(datos)){ //Revisa si es un arreglo
+      const ULTIMA_PUBLICACION =  datos.length - 1;
+      const SEXTA_PUBLICACION_RECIENTE =  ULTIMA_PUBLICACION - LIMITE_DE_PUBLICACIONES
+      debugger
+
+      for (let index = ULTIMA_PUBLICACION; index > SEXTA_PUBLICACION_RECIENTE; index--) {
         container.innerHTML += publicationTemplate( datos[index])
       }
     }else{
