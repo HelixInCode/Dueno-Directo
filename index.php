@@ -456,11 +456,11 @@ include('conexion.php');
 
     <section id="contact" class="py-5 px-2 px-lg-5">
       <h2>Contactanos</h2>
-      <form class="py-4 py-lg-5 px-3 px-sm-4 px-lg-5" action="">
+      <form class="py-4 py-lg-5 px-3 px-sm-4 px-lg-5" action="enviar.php" method="POST">
 
         <div class="input-container">
-          <label for="name">Nombre</label>
-          <input name="name" type="text">
+          <label for="nombre">Nombre</label>
+          <input name="nombre" type="text">
         </div>
 
         <div class="input-container">
@@ -469,11 +469,11 @@ include('conexion.php');
         </div>
 
         <div class="input-container">
-          <label for="phone">Telefono</label>
-          <input name="phone" type="tel">
+          <label for="telefono">Telefono</label>
+          <input name="telefono" type="tel">
         </div>
 
-        <textarea name="message" placeholder="Comentanos en qué podemos ayudarte"></textarea>
+        <textarea name="mensaje" placeholder="Comentanos en qué podemos ayudarte"></textarea>
         <button type="submit">Enviar</button>
 
 
