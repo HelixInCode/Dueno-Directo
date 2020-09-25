@@ -13,7 +13,7 @@ const eventoSubmit = ($form1, $form2) =>{
 
     const getInputs = (form) =>{
       for (const input of form.entries()) {
-        if(input[1] !== null && input[1] !== ""){//Si el campo del formuario no está vacio se añade a GottenData
+        if(input[1]){//Si el campo del formuario no está vacio se añade a GottenData
           // console.log(`El input ${input[0]} tiene algo ingresado: ${input[1]}`)
           if(input[0] !== 'precio'){
             verificador++;
@@ -38,17 +38,9 @@ const eventoSubmit = ($form1, $form2) =>{
 
       $form1.reset();
       $form2.reset();
+      
+      fetchPrintPosts(gottenData)
 
-      (async()=>{
-        const response = await fetch('preuba.php',{
-          method: 'POST',
-          body: formToSend
-        });
-        const datos = await response.json();
-        console.log(datos);
-      })();
-
-      // fetchPrintPosts(gottenData)
     }else{
       modalError('¡Error, debe seleccionar al menos un filtro!')
     }
@@ -107,5 +99,3 @@ if($mainForm && $filtrosForm){
 if($proForm){
   eventoSubmitServicios($proForm);
 }
-// eventoSubmit($mainForm, $mainFormInputs, $filtrosForm, $filtrosFormInputs)
-// eventoSubmit($filtrosForm, $filtrosFormInputs, $mainForm, $mainFormInputs)

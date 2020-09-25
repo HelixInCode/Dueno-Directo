@@ -95,7 +95,7 @@ const filtrarDatos = (datosFiltros, datos) =>{
     let datoEncontrado = {};
     let busqueda;
     let busqueda2;
-    let verificador = 0;
+    let verificador = 1;
 
     const cumpleCondicion = (repeticiones) =>{
       datoEncontrado = publicacion;
@@ -116,32 +116,45 @@ const filtrarDatos = (datosFiltros, datos) =>{
       }
     }
     const verficacionCampoTipoRango = (minimo, maximo, campo) =>{
-      if(datosFiltros[minimo] !== undefined && datosFiltros[maximo] !== undefined){
+
+      const INGRESARON_MAXIMO_Y_MINIMO = datosFiltros[minimo] !== undefined && datosFiltros[maximo] !== undefined;
+      const INGRESARON_MINIMO = datosFiltros[minimo] !== undefined;
+      const INGRESARON_MAXIMO = datosFiltros[maximo] !== undefined;
+      const VALOR_DEL_CAMPO = parseInt(publicacion[campo])
+
+      debugger
+
+      if(INGRESARON_MAXIMO_Y_MINIMO){
           
         busqueda = datosFiltros[minimo].toLowerCase();
         busqueda2 = datosFiltros[maximo].toLowerCase();
+
+        const SI_EL_VALOR_ESTA_ENTRE_EL_MAXIMO_Y_MINIMO = parseInt(busqueda) <= VALOR_DEL_CAMPO && VALOR_DEL_CAMPO <= parseInt(busqueda2);
         
-        if(parseInt(busqueda) <= parseInt(publicacion[campo]) && parseInt(publicacion[campo]) <= parseInt(busqueda2)){
+        if(SI_EL_VALOR_ESTA_ENTRE_EL_MAXIMO_Y_MINIMO){
           cumpleCondicion(2)
           console.log('El precio esta entre ambos rangos')
         }else{
           console.log('No cumple la condicion')
         }
-      }else if(datosFiltros[minimo] !== undefined){
+      }else if(INGRESARON_MINIMO){
   
         busqueda = datosFiltros[minimo].toLowerCase();
-        
-        if(parseInt(busqueda) <= publicacion['peso']){
+        const SI_EL_VALOR_ES_MAYOR =  parseInt(busqueda) <= VALOR_DEL_CAMPO;
+
+        if(SI_EL_VALOR_ES_MAYOR){
           cumpleCondicion(1)
         }else{
           console.log('No cumple la condicion')
         }
-      }else if(datosFiltros[maximo] !== undefined){
+      }else if(INGRESARON_MAXIMO){
         
         busqueda = datosFiltros[maximo].toLowerCase();
-        
-        if(publicacion[$mainForm] <= parseInt(busqueda)){
+        const SI_EL_VALOR_ES_MENOR = VALOR_DEL_CAMPO <= parseInt(busqueda);
+
+        if(SI_EL_VALOR_ES_MENOR){
           cumpleCondicion(1);
+          
         }else{
           console.log('No cumple la condicion')
         }
@@ -221,7 +234,15 @@ const filtrarDatos = (datosFiltros, datos) =>{
     verficacionCampo('finalidad')
     verficacionCampo('banos')
     verficacionCampo('habitaciones')
-    verficacionCampoTipoRango('precioMinimo', 'precioMaximo', 'peso')
+
+    if(datosFiltros['precio'] === 'dolares'){
+      
+      verficacionCampoTipoRango('precioMinimo', 'precioMaximo', 'dolar')
+    }else if(datosFiltros['precio'] === 'pesos'){
+      
+      verficacionCampoTipoRango('precioMinimo', 'precioMaximo', 'peso')
+    }
+
     verficacionCampoTipoRango('superfieCubiertaMinima', 'superfieCubiertaMaxima', 'area_cubierta')
     verficacionCampoTipoRango('superfieTotalMinima', 'superfieTotalMaxima', 'area_total')
     
@@ -374,6 +395,7 @@ const fetchPrintPosts = async (datosFiltros)=>{
         const HAY_BUSQUEDAS_DE_LA_HOME = JSON.parse(localStorage.getItem('busquedas'));
         colocarPagination(HAY_BUSQUEDAS_DE_LA_HOME);
         window.location = 'search-results.html';
+
         // printPublications($publicationContainer, foundItems);
       }
     }else{
