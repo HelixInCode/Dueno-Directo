@@ -23,11 +23,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="dist/css/bootstrap.min.css">
   <!-- Material Design Bootstrap -->
   <link rel="stylesheet" href="dist/css/mdb.min.css">
   <!-- Estilos-->
-  <link rel="stylesheet" href="dist/css/master.css">
+  <link rel="stylesheet" href="src/css/master.css">
 </head>
 
 <body>

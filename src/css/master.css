@@ -11,7 +11,7 @@
   --sombraClara: rgba(0, 0, 0, 0.25);
   --radioButtonSpace: 30px;
 
-  --overlay:{
+  /* --overlay:{
     position: fixed;
     top: 0;
     right: 0;
@@ -19,7 +19,7 @@
     left: 0;
     background-color: var(--sombra);
     transition: .3s;
-  }
+  } */
 }
 
 nav{
@@ -43,7 +43,14 @@ nav > .img-container{
   align-items: center;
 } */
 nav > .menu-overlay{
-  @apply --overlay;
+  /* @apply --overlay; */
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: var(--sombra);
+  transition: .3s;
 }
 nav > .menu-overlay.hide{
   transform: translateX(-100%);

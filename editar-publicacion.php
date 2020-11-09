@@ -29,9 +29,9 @@ if (isset($_SESSION['id'])) {
     <!-- Material Design Bootstrap -->
     <link rel="stylesheet" href="dist/css/mdb.min.css">
     <!-- Your custom styles (optional) -->
-    <link rel="stylesheet" href="dist/css/style.css">
-    <link rel="stylesheet" href="dist/css/registro.css">
-    <link rel="stylesheet" href="dist/css/publicacion-precarga.css">
+    <link rel="stylesheet" href="src/css/style.css">
+    <link rel="stylesheet" href="src/css/registro.css">
+    <link rel="stylesheet" href="src/css/publicacion-precarga.css">
   </head>
 
   <body>

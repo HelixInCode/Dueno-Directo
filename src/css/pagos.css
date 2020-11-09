@@ -1,88 +1,79 @@
 *{
-    list-style: none;
-    font-family: 'Ubuntu', sans-serif;
-    margin: 0;
+	list-style: none;
+	font-family: 'Ubuntu', sans-serif;
+	margin: 0;
 }
 :root{
-    --PrimarioClaro: #0075BE;
-    --PrimarioOscuro: #004489;
-    --SecundarioClaro: #E9EBF5;
-    --UbuntuEnlaces: 'Ubuntu', sans-serif; /*italica*/
-    --UbuntuSubtitulos: 'Ubuntu', sans-serif; /*medium*/
-    --UbuntuTitulosPrincipales: 'Ubuntu', sans-serif; /*Bold*/
-    --RobotoParrafos: 'Roboto', sans-serif;/*regular*/
-    --sombra: rgba(0, 0, 0, 0.5);
-
-    --input-text:{
-        width: 100%;
-        padding: 5px;
-        height: 35px;
-        border: none;
-        border: 2px solid var(--PrimarioOscuro);
-        border-radius: 5px;
-    }
+	--PrimarioClaro: #0075BE;
+	--PrimarioOscuro: #004489;
+	--SecundarioClaro: #E9EBF5;
+	--UbuntuEnlaces: 'Ubuntu', sans-serif; /*italica*/
+	--UbuntuSubtitulos: 'Ubuntu', sans-serif; /*medium*/
+	--UbuntuTitulosPrincipales: 'Ubuntu', sans-serif; /*Bold*/
+	--RobotoParrafos: 'Roboto', sans-serif;/*regular*/
+	--sombra: rgba(0, 0, 0, 0.5);
 }  
 
 #pagos > .contenedor-general {
-    color: white;
-    padding-top: 100px;
-    display: grid;
-    grid-template-columns: minmax(300px, 1000px);
-    justify-content: center;
-    padding-bottom: 50px;
+	color: white;
+	padding-top: 100px;
+	display: grid;
+	grid-template-columns: minmax(300px, 1000px);
+	justify-content: center;
+	padding-bottom: 50px;
 }
 #pagos > .contenedor-general > h2{
-    margin-left: auto;
-    margin-right: auto;
+	margin-left: auto;
+	margin-right: auto;
 }
 #pagos > .contenedor-general > .contenedor-especifico{
-    display: grid;
-    grid-template-columns: minmax(250px, 600px);
-    background-color: #e9ebf5e5;
-    color: var(--PrimarioOscuro);
-    padding:20px;
-    border-radius: 10px;
+	display: grid;
+	grid-template-columns: minmax(250px, 600px);
+	background-color: #e9ebf5e5;
+	color: var(--PrimarioOscuro);
+	padding:20px;
+	border-radius: 10px;
 }
 #pagos > .contenedor-general > .contenedor-especifico > .contenedor-detalles{
-    display: grid;
-    grid-template-columns: 1fr;
-    justify-items: center;
-    gap: 10px;
-    text-align: justify;
+	display: grid;
+	grid-template-columns: 1fr;
+	justify-items: center;
+	gap: 10px;
+	text-align: justify;
 }
 #pagos > .contenedor-general > .contenedor-especifico > .contenedor-detalles > img{
-    width: 80%;
-    height: 400px;
+	width: 80%;
+	height: 400px;
 }
 #pagos > .contenedor-general > .contenedor-especifico > .contenedor-detalles > p{
-    padding: 30px;
+	padding: 30px;
 }
 #pagos > .contenedor-general > .contenedor-especifico > .contenedor-pago{
-    display: grid;
-    gap: 20px;
+	display: grid;
+	gap: 20px;
 }
 #pagos > .contenedor-general > .contenedor-especifico > .contenedor-pago > select{
-    border: none;
-    padding: 10px;
+	border: none;
+	padding: 10px;
 } 
 
 #pagos > .contenedor-general > .contenedor-especifico > .contenedor-pago{
-    display: grid;
-    justify-content: center;
-    align-content: center;
+	display: grid;
+	justify-content: center;
+	align-content: center;
 }
 #pagos > .contenedor-general > .contenedor-especifico > .contenedor-pago > form{
-    text-align: center;
+	text-align: center;
 }
 @media screen and (min-width: 650px){
-    #pagos > .contenedor-general > .contenedor-especifico{
-        display: grid;
-        grid-template-columns: minmax(250px, 600px) minmax(250px, 400px);
-        background-color: #e9ebf5e5;
-        color: var(--PrimarioOscuro);
-        padding:20px;
-        border-radius: 10px;
-    }
+	#pagos > .contenedor-general > .contenedor-especifico{
+		display: grid;
+		grid-template-columns: minmax(250px, 600px) minmax(250px, 400px);
+		background-color: #e9ebf5e5;
+		color: var(--PrimarioOscuro);
+		padding:20px;
+		border-radius: 10px;
+	}
 }
 
 
