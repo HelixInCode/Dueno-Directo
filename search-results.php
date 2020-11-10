@@ -1,3 +1,30 @@
+<?php
+  include('conexionPDO.php');
+ 
+  
+  $sql = 'SELECT * FROM propiedad';
+  $sentencia = $pdo->prepare($sql);
+  $sentencia->execute();
+  $publicaciones = $sentencia->fetchAll();
+
+  $total_publicaciones_db = $sentencia->rowCount();
+  $articulos_por_pagina = 20;
+  // echo 'Hay '. $total_publicaciones_db . ' publicaciones en la base de datos';
+  $paginas = $total_publicaciones_db / $articulos_por_pagina;
+  $paginas = ceil($paginas);
+  // echo 'Empieza a renderizar desde la publicacion n° '. $sexta_ultima_publicacion;
+  $primer_articulo_de_pagina = ($_GET['pagina'] - 1) * $articulos_por_pagina; 
+    
+  $sql = 'SELECT * FROM propiedad LIMIT '.$primer_articulo_de_pagina.','.$articulos_por_pagina;
+  $sentencia = $pdo->prepare($sql);
+  $sentencia->execute();
+  $publicaciones = $sentencia->fetchAll();
+  
+  if($_GET['pagina'] > $paginas || $_GET['pagina'] <= 0 || !$_GET){
+    header('location:search-results.php?pagina=1');
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -323,7 +350,142 @@
 
         <!-- Insertar Publicaciones -->
         
+        <?php foreach($publicaciones as $publicacion):?>
+          <a href="publicacion-precarga.php?public=<?php echo $publicacion['idPropiedad'];?>" class="publications-item">
+            <div class="img-container">
+                
+              <img src="dist/images/<?php echo $publicacion['imagen1'];?>" alt="">
+              
+              <div class="publications-address">
+                <h5><?php echo $publicacion['calle'];?></h5>
+              </div>
+              <div class="publications-price">
+                <h6>
+                  $<?php echo $publicacion['peso'];?>
+                </h6>
+              </div>
+
+              <div class="publications-features">
+                
+                <div href="#?" class="bedroom-icon">
+                  <span>
+                  <?php 
+                    if ($publicacion['habitaciones'] == '4 o mas' || $publicacion['habitaciones'] == '4 o más' || $publicacion['habitaciones'] > 4) {
+                      echo '4+';
+                    }else{
+                      if($publicacion['habitaciones'] != ''){
+                        
+                        echo $publicacion['habitaciones'];
+                      }else{
+                        echo 'n/a';
+                      }
+                    }
+                  ?>
+                  </span>
+                  <img src="dist/img/icons/bed-blue.svg" alt="">
+                </div>
+
+                <div href="#?" class="area-icon">
+                  <span>
+                  <?php 
+                    if ($publicacion['area_total'] > 999) {
+                      echo '999+';
+                    }else{
+                      if($publicacion['area_total'] != ''){
+                        
+                        echo $publicacion['area_total'];
+                      }else{
+                        echo 'n/a';
+                      }
+                    }
+                  ?>
+                  </span>
+                  <img src="dist/img/icons//area-blue.svg" alt="">
+                </div>
+                
+                <div href="#?" class="bathroom-icon">
+                  <span>
+                  <?php 
+                    if ($publicacion['banos'] == '4 o mas' || $publicacion['banos'] == '4 o más' || $publicacion['banos'] > 4) {
+                      echo '4+';
+                    }else {
+                      if($publicacion['banos'] != ''){
+                        
+                        echo $publicacion['banos'];
+                      }else{
+                        echo 'n/a';
+                      }
+                    }
+                  ?>
+                  </span>
+                  <img src="dist/img/icons/wc-blue.svg" alt="">
+                </div>
+
+                <div href="#?" class="parking-icon">
+                  <span>
+                    <?php
+                      if ($publicacion['cochera'] == 'si' || $publicacion['cochera'] == 'no') {
+                        echo $publicacion['cochera'];
+                      }else{
+                        echo 'n/a';
+                      }
+                    ?>
+                  </span>
+                  <img src="dist/img/icons/car-parking-blue.svg" alt="">
+                </div>
+
+              </div>
+
+            </div> 
+          </a>
+        <?php endforeach?>
+        
       </div>
+      <?php if($paginas > 1): ?>
+        <div class="nav-pagination d-flex justify-content-center mt-5">
+          <ul class="pagination">
+            <li class="page-item <?php echo $_GET['pagina'] <= 1 ? 'disabled' : '' ?>">
+              <a class="page-link" href="search-results.php?pagina=<?php echo $_GET['pagina']-1; ?>">Anterior</a>
+            </li>
+            <?php if($_GET['pagina'] < 5): ?>
+              <?php 
+                if($paginas > 5){
+                  $limite = 5;
+                }else{
+                  $limite = $paginas;
+                }
+              ?>
+              <?php for ($i=0; $i < $limite; $i++): ?>
+                <li class="page-item <?php echo $_GET['pagina'] == $i+1 ? 'active' : '' ?>">
+                  <a class="page-link" href="search-results.php?pagina=<?php echo $i + 1; ?>">
+                  <?php echo $i + 1; ?></a>
+                </li>
+              <?php endfor?>
+            
+            <?php else: ?>
+            
+              <?php for ($i = $_GET['pagina'] - 3; $i < $_GET['pagina'] + 2; $i++): ?>
+                
+                <?php if($i + 1 <= $paginas):?>
+                  
+                  <li class="page-item <?php echo $_GET['pagina'] == $i+1 ? 'active' : '' ?>">
+                    <a class="page-link" href="search-results.php?pagina=<?php echo $i + 1; ?>">
+                    <?php echo $i + 1; ?></a>
+                  </li>
+                  
+                <?php endif?>
+                
+              <?php endfor?>
+                
+            <?php endif?>
+            
+            <li class="page-item <?php echo $_GET['pagina'] == $paginas ? 'disabled' : '' ?>">
+              <a class="page-link" href="search-results.php?pagina=<?php echo $_GET['pagina']+1; ?>">Siguiente</a>
+            </li>
+          </ul>
+        </div>
+      <?php endif?>
+      
     </section>
     
   </main>
@@ -404,10 +566,10 @@
   <!-- MDB core JavaScript -->
   <script type="text/javascript" src="dist/js/mdb.min.js"></script>
   <!-- Your custom scripts (optional) -->
-  <script type="text/javascript" src="src/js/svg.js"></script>
+  <!-- <script type="text/javascript" src="src/js/svg.js"></script> -->
   <script type="text/javascript" src="src/js/botones-container.js"></script>
   <script type="text/javascript" src="src/js/hideShowModals.js"></script>
-  <script type="text/javascript" src="src/js/fetch.js"></script>
+  <!-- <script type="text/javascript" src="src/js/fetch.js"></script> -->
   <script type="text/javascript" src="src/js/filtros.js"></script>
   <script type="text/javascript" src="src/js/filtrosValidation.js"></script>
   <script type="text/javascript" src="src/js/hamburger.js"></script>

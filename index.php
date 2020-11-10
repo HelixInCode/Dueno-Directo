@@ -1,7 +1,24 @@
 <?php
 session_start();
 include('conexion.php');
+include('conexionPDO.php');
 
+$sql = 'SELECT * FROM propiedad';
+$sentencia = $pdo->prepare($sql);
+$sentencia->execute();
+$publicaciones = $sentencia->fetchAll();
+
+$total_publicaciones_db = $sentencia->rowCount();
+
+// echo 'Hay '. $total_publicaciones_db . ' publicaciones en la base de datos';
+$numero_publicaciones = 6;
+$sexta_ultima_publicacion = $total_publicaciones_db - $numero_publicaciones;
+// echo 'Empieza a renderizar desde la publicacion n° '. $sexta_ultima_publicacion;
+
+$sql = 'SELECT * FROM propiedad LIMIT '.$sexta_ultima_publicacion.',6';
+$sentencia = $pdo->prepare($sql);
+$sentencia->execute();
+$publicaciones = $sentencia->fetchAll();
 
 ?>
 <!DOCTYPE html>
@@ -221,6 +238,7 @@ include('conexion.php');
 
     </section>
   </header>
+  
   <main>
 
     <section id="modal-login" class="modal hide">
@@ -400,10 +418,101 @@ include('conexion.php');
       <h1 class="pt-4 pt-md-0">PUBLICACIONES DESTACADAS</h1>
 
       <div data-url="homepage" class="publications-container py-4 px-xl-5">
-
+                                                                                                  
         <!-- Insertar Publicaciones -->
+        
+        <?php foreach($publicaciones as $publicacion):?>
+          <a href="publicacion-precarga.php?public=<?php echo $publicacion['idPropiedad'];?>" class="publications-item">
+            <div class="img-container">
+                
+              <img src="dist/images/<?php echo $publicacion['imagen1'];?>" alt="">
+              
+              <div class="publications-address">
+                <h5><?php echo $publicacion['calle'];?></h5>
+              </div>
+              <div class="publications-price">
+                <h6>
+                  $<?php echo $publicacion['peso'];?>
+                </h6>
+              </div>
 
+              <div class="publications-features">
+                
+                <div href="#?" class="bedroom-icon">
+                  <span>
+                  <?php 
+                    if ($publicacion['habitaciones'] == '4 o mas' || $publicacion['habitaciones'] == '4 o más' || $publicacion['habitaciones'] > 4) {
+                      echo '4+';
+                    }else{
+                      if($publicacion['habitaciones'] != ''){
+                        
+                        echo $publicacion['habitaciones'];
+                      }else{
+                        echo 'n/a';
+                      }
+                    }
+                  ?>
+                  </span>
+                  <img src="dist/img/icons/bed-blue.svg" alt="">
+                </div>
+
+                <div href="#?" class="area-icon">
+                  <span>
+                  <?php 
+                    if ($publicacion['area_total'] > 999) {
+                      echo '999+';
+                    }else{
+                      if($publicacion['area_total'] != ''){
+                        
+                        echo $publicacion['area_total'];
+                      }else{
+                        echo 'n/a';
+                      }
+                    }
+                  ?>
+                  </span>
+                  <img src="dist/img/icons//area-blue.svg" alt="">
+                </div>
+                
+                <div href="#?" class="bathroom-icon">
+                  <span>
+                  <?php 
+                    if ($publicacion['banos'] == '4 o mas' || $publicacion['banos'] == '4 o más' || $publicacion['banos'] > 4) {
+                      echo '4+';
+                    }else {
+                      if($publicacion['banos'] != ''){
+                        
+                        echo $publicacion['banos'];
+                      }else{
+                        echo 'n/a';
+                      }
+                    }
+                  ?>
+                  </span>
+                  <img src="dist/img/icons/wc-blue.svg" alt="">
+                </div>
+
+                <div href="#?" class="parking-icon">
+                  <span>
+                    <?php
+                      if ($publicacion['cochera'] == 'si' || $publicacion['cochera'] == 'no') {
+                        echo $publicacion['cochera'];
+                      }else{
+                        echo 'n/a';
+                      }
+                    ?>
+                  </span>
+                  <img src="dist/img/icons/car-parking-blue.svg" alt="">
+                </div>
+
+              </div>
+
+            </div> 
+          </a>
+        <?php endforeach?>
+        
       </div>
+      
     </section>
 
     <section id="primera-vez" class="py-0 py-md-3 py-lg-5">
@@ -427,6 +536,7 @@ include('conexion.php');
 
       </div>
     </section>
+    
     <section id="cover-services" class="pt-5">
       <h2>TAMBIEN CONOCÉ NUESTROS</h2>
 
@@ -559,15 +669,14 @@ include('conexion.php');
   <script type="text/javascript" src="dist/js/mdb.min.js"></script>
   <!-- Your custom scripts (optional) -->
   <script type="text/javascript" src="src/js/svg.js"></script>
-  <script type="text/javascript" src="src/js/botones-container.js"></script>
-  <script type="text/javascript" src="src/js/fetch.js"></script>
+  <!-- <script type="text/javascript" src="src/js/fetch.js"></script> -->
   <script type="text/javascript" src="src/js/hideShowModals.js"></script>
   <script type="text/javascript" src="src/js/loginValidation.js"></script>
   <script type="text/javascript" src="src/js/filtros.js"></script>
   <script type="text/javascript" src="src/js/filtrosValidation.js"></script>
   <script type="text/javascript" src="src/js/hamburger.js"></script>
   <!-- Llamado a las publicaciones destacadas -->
-  <script type="text/javascript" src="src/js/fetchFeatured.js"></script>
+  <!-- <script type="text/javascript" src="src/js/fetchFeatured.js"></script> -->
   <!-- <script type="text/javascript">
     modalError('Mensaje de prueba');
   </script> -->

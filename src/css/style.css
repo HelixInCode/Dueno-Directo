@@ -956,7 +956,7 @@ nav > .menu-btns > .user > ul > li > a{
   transition-timing-function: ease-in;
   cursor: pointer;
 }
-#publications > .publications-container > .publications-item > .img-container > .publications-features svg{
+#publications > .publications-container > .publications-item > .img-container > .publications-features img{
   height: 35px;
   width: 35px;
   fill: var(--PrimarioOscuro);
