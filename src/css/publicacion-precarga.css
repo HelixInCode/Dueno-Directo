@@ -256,6 +256,13 @@ main{
   #post > .main-container > .columna-1 > .datos > .valores{
     grid-template-columns: repeat(2, 1fr);
   }
+  #post > .main-container > .columna-1 > .datos > .valores > li{
+    grid-template-columns: repeat(2, auto) 50px;
+  }
+  #post > .main-container > .columna-1 > .datos > .valores > li > a{
+    margin: auto;
+    color: #004489;
+  }
   #post > .main-container > .columna-1 > .datos > .valores > li:nth-last-of-type(2) p{
     margin: 0;
   }
