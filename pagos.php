@@ -29,23 +29,33 @@
 <body>
 
     <?php
-    // SDK de Mercado Pago
     require __DIR__ .  '/vendor/autoload.php';
 
     // Agrega credenciales  Credenciales de Ale.. temporales
-    MercadoPago\SDK::setAccessToken('APP_USR-4646343415539494-090616-3bfc9f97c465b8fe292097e5e9d44e9e-314675068');
+    MercadoPago\SDK::setAccessToken('TEST-8735788668793580-082615-fe32f11376e92aee8a4ff2da0f3ac7d4-481211681');
+
+
+    //traer producto que se va a mostrar, en nuestro caso una publicacion de un mes o 2 o 3 meses
+    $producto = [
+        'precio' => 10,
+        'cantidad' => 1,
+        'titulo' => '1 Mes de publicacion'
+    ];
+
 
     // Crea un objeto de preferencia
     $preference = new MercadoPago\Preference();
 
     // Crea un ítem en la preferencia
     $item = new MercadoPago\Item();
-    $item->title = 'Mi producto';
-    $item->quantity = 1;
-    $item->unit_price = 75.56;
+    $item->title = $producto['titulo']; //$producto['nombre'];
+    $item->quantity = $producto['cantidad'];
+    $item->unit_price = $producto['precio'];
+
     $preference->items = array($item);
     $preference->save();
     ?>
+
 
     <header>
         <nav class="py-2 px-4">

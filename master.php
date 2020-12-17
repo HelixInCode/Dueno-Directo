@@ -173,7 +173,7 @@ if (isset($_SESSION['Nombre'])) {
         modalError('Mensaje de prueba');
     </script> -->
 
-      <div class="tab-pane fade show active px-2 px-sm-3" id="home" role="tabpanel" aria-labelledby="home-tab">
+      <div class="tab-pane d-block active px-2 px-sm-3" id="home" role="tabpanel" aria-labelledby="home-tab">
         <div class="administradores">
           <div class="agregarAdmin">
             <!-- Agregar Administrador -->
@@ -324,7 +324,7 @@ if (isset($_SESSION['Nombre'])) {
         </div>
       </div>
 
-      <div class="tab-pane fade px-2 px-sm-3" id="clientes" role="tabpanel" aria-labelledby="clientes-tab">
+      <div class="tab-pane d-none px-2 px-sm-3" id="clientes" role="tabpanel" aria-labelledby="clientes-tab">
         <div class="clientes">
 
           <div class="table-container">
@@ -395,7 +395,7 @@ if (isset($_SESSION['Nombre'])) {
         </div>
       </div>
 
-      <div class="tab-pane fade px-2 px-sm-3" id="categorias" role="tabpanel" aria-labelledby="categorias-tab">
+      <div class="tab-pane d-none px-2 px-sm-3" id="categorias" role="tabpanel" aria-labelledby="categorias-tab">
         <div class="categoria">
 
           <!-- Cargar Categoria -->
@@ -533,7 +533,7 @@ if (isset($_SESSION['Nombre'])) {
         </div>
       </div>
 
-      <div class="tab-pane fade px-2 px-sm-3" id="promociones" role="tabpanel" aria-labelledby="promociones-tab">
+      <div class="tab-pane d-none px-2 px-sm-3" id="promociones" role="tabpanel" aria-labelledby="promociones-tab">
         <div class="promociones">
 
           <!-- Crear Promocion-->
@@ -690,7 +690,7 @@ if (isset($_SESSION['Nombre'])) {
         </div>
       </div>
 
-      <div class="tab-pane fade px-2 px-sm-3" id="estadisticas" role="tabpanel" aria-labelledby="estadisticas-tab">Bon di
+      <div class="tab-pane d-none px-2 px-sm-3" id="estadisticas" role="tabpanel" aria-labelledby="estadisticas-tab">Bon di
       </div>
 
     </main>
@@ -702,6 +702,7 @@ if (isset($_SESSION['Nombre'])) {
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script type="text/javascript" src="src/js/hideShowModals.js"></script>
     <script type="text/javascript" src="src/js/hamburger.js"></script>
+    <script type="text/javascript" src="src/js/panelMaster.js"></script>
 
   </body>
 
