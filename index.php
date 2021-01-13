@@ -216,17 +216,6 @@ $publicaciones = $sentencia->fetchAll();
               <option value="Cabaña">Cabaña</option>
             </select>
           </div>
-<<<<<<< HEAD
-
-          <button type="submit" name="buscar" value="buscar">Buscar</button>
-
-          <div class="rango-input">
-            <input name="precioMinimo" type="number" placeholder="Precio desde...">
-            <input name="precioMaximo" type="number" placeholder="Precio hasta...">
-          </div>
-
-=======
->>>>>>> 47d543e4e99121a49127701830e8b3a79b68f693
           <div id="botones-container">
 
             <input name="precio" checked type="radio" value="pesos" id="pesos">
