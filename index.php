@@ -15,7 +15,7 @@ $numero_publicaciones = 6;
 $sexta_ultima_publicacion = $total_publicaciones_db - $numero_publicaciones;
 // echo 'Empieza a renderizar desde la publicacion n° '. $sexta_ultima_publicacion;
 
-$sql = 'SELECT * FROM propiedad LIMIT '.$sexta_ultima_publicacion.',6';
+$sql = 'SELECT * FROM propiedad LIMIT ' . $sexta_ultima_publicacion . ',6';
 $sentencia = $pdo->prepare($sql);
 $sentencia->execute();
 $publicaciones = $sentencia->fetchAll();
@@ -216,6 +216,7 @@ $publicaciones = $sentencia->fetchAll();
               <option value="Cabaña">Cabaña</option>
             </select>
           </div>
+<<<<<<< HEAD
 
           <button type="submit" name="buscar" value="buscar">Buscar</button>
 
@@ -224,6 +225,8 @@ $publicaciones = $sentencia->fetchAll();
             <input name="precioMaximo" type="number" placeholder="Precio hasta...">
           </div>
 
+=======
+>>>>>>> 47d543e4e99121a49127701830e8b3a79b68f693
           <div id="botones-container">
 
             <input name="precio" checked type="radio" value="pesos" id="pesos">
@@ -231,14 +234,20 @@ $publicaciones = $sentencia->fetchAll();
 
             <input name="precio" type="radio" value="dolares" id="dolares">
             <label for="dolares">USD</label>
-            
+
           </div>
+          <div class="rango-input">
+            <input name="precioMinimo" type="number" placeholder="Precio desde...">
+            <input name="precioMaximo" type="number" placeholder="Precio hasta...">
+          </div>
+
+          <button type="submit">Buscar</button>
         </div>
       </form>
 
     </section>
   </header>
-  
+
   <main>
 
     <section id="modal-login" class="modal hide">
@@ -418,76 +427,76 @@ $publicaciones = $sentencia->fetchAll();
       <h1 class="pt-4 pt-md-0">PUBLICACIONES DESTACADAS</h1>
 
       <div data-url="homepage" class="publications-container py-4 px-xl-5">
-                                                                                                  
+
         <!-- Insertar Publicaciones -->
-        
-        <?php foreach($publicaciones as $publicacion):?>
-          <a href="publicacion-precarga.php?public=<?php echo $publicacion['idPropiedad'];?>" class="publications-item">
+
+        <?php foreach ($publicaciones as $publicacion) : ?>
+          <a href="publicacion-precarga.php?public=<?php echo $publicacion['idPropiedad']; ?>" class="publications-item">
             <div class="img-container">
-                
-              <img src="dist/images/<?php echo $publicacion['imagen1'];?>" alt="">
-              
+
+              <img src="dist/images/<?php echo $publicacion['imagen1']; ?>" alt="">
+
               <div class="publications-address">
-                <h5><?php echo $publicacion['calle'];?></h5>
+                <h5><?php echo $publicacion['calle']; ?></h5>
               </div>
               <div class="publications-price">
                 <h6>
-                  $<?php echo $publicacion['peso'];?>
+                  $<?php echo $publicacion['peso']; ?>
                 </h6>
               </div>
 
               <div class="publications-features">
-                
+
                 <div href="#?" class="bedroom-icon">
                   <span>
-                  <?php 
+                    <?php
                     if ($publicacion['habitaciones'] == '4 o mas' || $publicacion['habitaciones'] == '4 o más' || $publicacion['habitaciones'] > 4) {
                       echo '4+';
-                    }else{
-                      if($publicacion['habitaciones'] != ''){
-                        
+                    } else {
+                      if ($publicacion['habitaciones'] != '') {
+
                         echo $publicacion['habitaciones'];
-                      }else{
+                      } else {
                         echo 'n/a';
                       }
                     }
-                  ?>
+                    ?>
                   </span>
                   <img src="dist/img/icons/bed-blue.svg" alt="">
                 </div>
 
                 <div href="#?" class="area-icon">
                   <span>
-                  <?php 
+                    <?php
                     if ($publicacion['area_total'] > 999) {
                       echo '999+';
-                    }else{
-                      if($publicacion['area_total'] != ''){
-                        
+                    } else {
+                      if ($publicacion['area_total'] != '') {
+
                         echo $publicacion['area_total'];
-                      }else{
+                      } else {
                         echo 'n/a';
                       }
                     }
-                  ?>
+                    ?>
                   </span>
                   <img src="dist/img/icons//area-blue.svg" alt="">
                 </div>
-                
+
                 <div href="#?" class="bathroom-icon">
                   <span>
-                  <?php 
+                    <?php
                     if ($publicacion['banos'] == '4 o mas' || $publicacion['banos'] == '4 o más' || $publicacion['banos'] > 4) {
                       echo '4+';
-                    }else {
-                      if($publicacion['banos'] != ''){
-                        
+                    } else {
+                      if ($publicacion['banos'] != '') {
+
                         echo $publicacion['banos'];
-                      }else{
+                      } else {
                         echo 'n/a';
                       }
                     }
-                  ?>
+                    ?>
                   </span>
                   <img src="dist/img/icons/wc-blue.svg" alt="">
                 </div>
@@ -495,11 +504,11 @@ $publicaciones = $sentencia->fetchAll();
                 <div href="#?" class="parking-icon">
                   <span>
                     <?php
-                      if ($publicacion['cochera'] == 'si' || $publicacion['cochera'] == 'no') {
-                        echo $publicacion['cochera'];
-                      }else{
-                        echo 'n/a';
-                      }
+                    if ($publicacion['cochera'] == 'si' || $publicacion['cochera'] == 'no') {
+                      echo $publicacion['cochera'];
+                    } else {
+                      echo 'n/a';
+                    }
                     ?>
                   </span>
                   <img src="dist/img/icons/car-parking-blue.svg" alt="">
@@ -507,12 +516,12 @@ $publicaciones = $sentencia->fetchAll();
 
               </div>
 
-            </div> 
+            </div>
           </a>
-        <?php endforeach?>
-        
+        <?php endforeach ?>
+
       </div>
-      
+
     </section>
 
     <section id="primera-vez" class="py-0 py-md-3 py-lg-5">
@@ -536,7 +545,7 @@ $publicaciones = $sentencia->fetchAll();
 
       </div>
     </section>
-    
+
     <section id="cover-services" class="pt-5">
       <h2>TAMBIEN CONOCÉ NUESTROS</h2>
 
@@ -673,7 +682,7 @@ $publicaciones = $sentencia->fetchAll();
   <script type="text/javascript" src="src/js/hideShowModals.js"></script>
   <script type="text/javascript" src="src/js/loginValidation.js"></script>
   <script type="text/javascript" src="src/js/filtros.js"></script>
-  <script type="text/javascript" src="src/js/filtrosValidation.js"></script>
+  <!--   <script type="text/javascript" src="src/js/filtrosValidation.js"></script> -->
   <script type="text/javascript" src="src/js/hamburger.js"></script>
   <!-- Llamado a las publicaciones destacadas -->
   <!-- <script type="text/javascript" src="src/js/fetchFeatured.js"></script> -->
