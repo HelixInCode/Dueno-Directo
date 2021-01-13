@@ -4,14 +4,15 @@ include('conexion.php');
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>Dueño Directo</title>
-  
+
   <!-- icono de la pestaña -->
-  <link rel="icon" href="dist/img/logo-icon.png"> 
+  <link rel="icon" href="dist/img/logo-icon.png">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
   <!-- Google Fonts Roboto -->
@@ -26,27 +27,26 @@ include('conexion.php');
   <link rel="stylesheet" href="src/css/style.css">
   <link rel="stylesheet" href="src/css/search-results.css">
 </head>
+
 <body>
-<?php
-if(isset($_POST['Buscar'])) { 
-  $zona=mysqli_real_escape_string($conexion, $_POST['nombre']);
-  $finalidad=mysqli_real_escape_string($conexion, $_POST['finalidad']);
-  $tipoPropiedad=mysqli_real_escape_string($conexion, $_POST['tipoPropiedad']);
-  $min=mysqli_real_escape_string($conexion, $_POST['precioMinimo']);
-  $max=mysqli_real_escape_string($conexion, $_POST['precioMaximo']);
-  $moneda=mysqli_real_escape_string($conexion, $_POST['precio']);
-  
-  if($moneda == 'pesos'){ 
-  $principal=mysqli_query($conexion, "SELECT * FROM propiedad WHERE provincia LIKE '%".$zona."%' OR municipalidad LIKE '%".$zona."%' AND finalidad LIKE '%".$finalidad."%' AND tipo_propiedad LIKE '%".$tipoPropiedad."%' AND peso BETWEEN '$min' AND '$max' ORDER BY id DESC");
-  }else {
-    $principal=mysqli_query($conexion, "SELECT * FROM propiedad WHERE provincia LIKE '%".$zona."%' OR municipalidad LIKE '%".$zona."%' AND finalidad LIKE '%".$finalidad."%' AND tipo_propiedad LIKE '%".$tipoPropiedad."%' AND dolar BETWEEN '$min' AND '$max'  ORDER BY id DESC");
+  <?php
+  if (isset($_POST['Buscar'])) {
+    $zona = mysqli_real_escape_string($conexion, $_POST['nombre']);
+    $finalidad = mysqli_real_escape_string($conexion, $_POST['finalidad']);
+    $tipoPropiedad = mysqli_real_escape_string($conexion, $_POST['tipoPropiedad']);
+    $min = mysqli_real_escape_string($conexion, $_POST['precioMinimo']);
+    $max = mysqli_real_escape_string($conexion, $_POST['precioMaximo']);
+    $moneda = mysqli_real_escape_string($conexion, $_POST['precio']);
+
+    if ($moneda == 'pesos') {
+      $principal = mysqli_query($conexion, "SELECT * FROM propiedad WHERE provincia LIKE '%" . $zona . "%' OR municipalidad LIKE '%" . $zona . "%' AND finalidad LIKE '%" . $finalidad . "%' AND tipo_propiedad LIKE '%" . $tipoPropiedad . "%' AND peso BETWEEN '$min' AND '$max' ORDER BY id DESC");
+    } else {
+      $principal = mysqli_query($conexion, "SELECT * FROM propiedad WHERE provincia LIKE '%" . $zona . "%' OR municipalidad LIKE '%" . $zona . "%' AND finalidad LIKE '%" . $finalidad . "%' AND tipo_propiedad LIKE '%" . $tipoPropiedad . "%' AND dolar BETWEEN '$min' AND '$max'  ORDER BY id DESC");
+    }
+
+    $busqueda1 = mysqli_fetch_array($principal);
   }
-
-  $busqueda1=mysqli_fetch_array($principal);
-
-
-}
-?>
+  ?>
   <header>
     <nav class="py-2 px-4">
       <div class="img-container">
@@ -81,41 +81,41 @@ if(isset($_POST['Buscar'])) {
             <i class="fas fa-angle-down"></i>
           </div>
           <ul class="hide">
-              <li>
-                <span>Nombre de Usuario</span>
-              </li>
-              <li>
-                <a href="#?">Panel</a>
-              </li>
-              <li>
-                <a href="#?">Cerrar Sesion</a>
-              </li>
+            <li>
+              <span>Nombre de Usuario</span>
+            </li>
+            <li>
+              <a href="#?">Panel</a>
+            </li>
+            <li>
+              <a href="#?">Cerrar Sesion</a>
+            </li>
           </ul>
         </div>
-        
+
         <div class="menu-overlay hide d-block d-md-none"></div>
-  
+
         <div id="hamburger" class="hamburger-btn d-flex d-md-none">
           <i id="ham-icon" class="fas fa-bars fa-1-3x"></i>
         </div>
       </div>
     </nav>
-    
+
     <section id="carouselExampleFade" class="carousel slide pro search-result-carousel carousel-fade" data-ride="carousel">
       <div class="carousel-inner">
-  
+
         <div class="carousel-item active">
           <img src="dist/img/cover-1.jpg" class="d-block w-100" alt="...">
         </div>
-  
+
         <div class="carousel-item">
           <img src="dist/img/cover-2.jpg" class="d-block w-100" alt="...">
         </div>
-  
+
         <div class="carousel-item">
           <img src="dist/img/cover-3.jpg" class="d-block w-100" alt="...">
         </div>
-  
+
       </div>
       <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -125,7 +125,7 @@ if(isset($_POST['Buscar'])) {
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
       </a>
-  
+
       <form id="search-main" action="">
         <div class="form-container">
 
@@ -166,15 +166,15 @@ if(isset($_POST['Buscar'])) {
 
             <input name="precio" type="radio" value="dolares" id="dolares">
             <label for="dolares">USD</label>
-            
+
           </div>
         </div>
       </form>
     </section>
   </header>
-  
+
   <main>
-    
+
     <section id="modal-login" class="modal hide">
       <div class="login">
         <div class="title-container p-3">
@@ -237,7 +237,7 @@ if(isset($_POST['Buscar'])) {
         </div>
 
         <form method="POST" class="filtros-container scrollbar scrollbar-primary">
-          
+
           <div class="rango-container">
             <label for="superfieCubierta">Superficie Cubierta</label>
 
@@ -258,7 +258,7 @@ if(isset($_POST['Buscar'])) {
 
           <div class="options-container">
             <label for="habitaciones">Habitaciones</label>
-    
+
             <div class="input-container">
               <input name="habitaciones" type="radio" value="1">1
             </div>
@@ -275,7 +275,7 @@ if(isset($_POST['Buscar'])) {
 
           <div class="options-container">
             <label for="bathrooms">Baños</label>
-    
+
             <div class="input-container">
               <input name="bathrooms" type="radio" value="1">1
             </div>
@@ -295,7 +295,7 @@ if(isset($_POST['Buscar'])) {
 
       <div class="filtros-overlay hide d-block d-md-none"></div>
     </section>
-    
+
     <div id="modal-servicios" class="">
       <h5>Profesionales, Productos y Servicios</h5>
 
@@ -322,7 +322,7 @@ if(isset($_POST['Buscar'])) {
     </div>
 
     <section id="publications" class="py-5 px-3 px-lg-5">
-      
+
       <div class="publications-nav mb-4 d-md-none">
 
         <div id="btnFiltrosResponsive" class="waves-effect waves-dark">
@@ -338,82 +338,76 @@ if(isset($_POST['Buscar'])) {
 
       <h1 class="pt-4 pt-md-0">Resultados de Busqueda</h1>
 
-      <div data-url="productspage" class="publications-container py-4 px-xl-5">
-        
-        <!-- Insertar Publicaciones -->
-        <?php while($publicacion=mysqli_fetch_array($principal)){
-               if($moneda == 'pesos'){ 
-                 $precio= $publicacion['peso'];
-                }else {
-                  $precio= $publicacion['peso']; 
-                } 
-          ?>
-          <a href="publicacion-precarga.php?public=<?php echo $publicacion['idPropiedad'];?>" class="publications-item">
+      <div id="busqueda-products-page" data-url="productspage" class=" py-4 px-xl-5">
+
+        <!--=========ESTRUCTURA PUBLICACIONES INSERTADO POR ALE========================================================-->
+        <?php foreach ($publicaciones as $publicacion) : ?>
+          <a href="publicacion-precarga.php?public=<?php echo $publicacion['idPropiedad']; ?>" class="publications-item">
             <div class="img-container">
-                
-              <img src="dist/images/<?php echo $publicacion['imagen1'];?>" alt="">
-              
+
+              <img src="dist/images/<?php echo $publicacion['imagen1']; ?>" alt="">
+
               <div class="publications-address">
-                <h5><?php echo $publicacion['calle'];?></h5>
+                <h5><?php echo $publicacion['calle']; ?></h5>
               </div>
               <div class="publications-price">
                 <h6>
-                  $<?php echo $precio;?>
+                  $<?php echo $publicacion['peso']; ?>
                 </h6>
               </div>
 
               <div class="publications-features">
-                
+
                 <div href="#?" class="bedroom-icon">
                   <span>
-                  <?php 
+                    <?php
                     if ($publicacion['habitaciones'] == '4 o mas' || $publicacion['habitaciones'] == '4 o más' || $publicacion['habitaciones'] > 4) {
                       echo '4+';
-                    }else{
-                      if($publicacion['habitaciones'] != ''){
-                        
+                    } else {
+                      if ($publicacion['habitaciones'] != '') {
+
                         echo $publicacion['habitaciones'];
-                      }else{
-                        echo '-';
+                      } else {
+                        echo 'n/a';
                       }
                     }
-                  ?>
+                    ?>
                   </span>
                   <img src="dist/img/icons/bed-blue.svg" alt="">
                 </div>
 
                 <div href="#?" class="area-icon">
                   <span>
-                  <?php 
+                    <?php
                     if ($publicacion['area_total'] > 999) {
                       echo '999+';
-                    }else{
-                      if($publicacion['area_total'] != ''){
-                        
+                    } else {
+                      if ($publicacion['area_total'] != '') {
+
                         echo $publicacion['area_total'];
-                      }else{
-                        echo '-';
+                      } else {
+                        echo 'n/a';
                       }
                     }
-                  ?>
+                    ?>
                   </span>
                   <img src="dist/img/icons//area-blue.svg" alt="">
                 </div>
-                
+
                 <div href="#?" class="bathroom-icon">
                   <span>
-                  <?php 
+                    <?php
                     if ($publicacion['banos'] == '4 o mas' || $publicacion['banos'] == '4 o más' || $publicacion['banos'] > 4) {
                       echo '4+';
-                    }else {
-                      if($publicacion['banos'] != ''){
-                        
+                    } else {
+                      if ($publicacion['banos'] != '') {
+
                         echo $publicacion['banos'];
-                      }else{
-                        echo '-';
+                      } else {
+                        echo 'n/a';
                       }
                     }
-                  ?>
+                    ?>
                   </span>
                   <img src="dist/img/icons/wc-blue.svg" alt="">
                 </div>
@@ -421,11 +415,11 @@ if(isset($_POST['Buscar'])) {
                 <div href="#?" class="parking-icon">
                   <span>
                     <?php
-                      if ($publicacion['cochera'] == 'si' || $publicacion['cochera'] == 'no') {
-                        echo $publicacion['cochera'];
-                      }else{
-                        echo '-';
-                      }
+                    if ($publicacion['cochera'] == 'si' || $publicacion['cochera'] == 'no') {
+                      echo $publicacion['cochera'];
+                    } else {
+                      echo 'n/a';
+                    }
                     ?>
                   </span>
                   <img src="dist/img/icons/car-parking-blue.svg" alt="">
@@ -433,23 +427,121 @@ if(isset($_POST['Buscar'])) {
 
               </div>
 
-            </div> 
+            </div>
           </a>
-          <?php } 
-          ?>
+        <?php endforeach ?>
+
+        <!--=========ESTRUCTURA PUBLICACIONES INSERTADO POR ALE (FIN)========================================================-->
+        <!-- Insertar Publicaciones -->
+        <?php while ($publicacion = mysqli_fetch_array($principal)) {
+          if ($moneda == 'pesos') {
+            $precio = $publicacion['peso'];
+          } else {
+            $precio = $publicacion['peso'];
+          }
+        ?>
+          <a href="publicacion-precarga.php?public=<?php echo $publicacion['idPropiedad']; ?>" class="publications-item">
+            <div class="img-container">
+
+              <img src="dist/images/<?php echo $publicacion['imagen1']; ?>" alt="">
+
+              <div class="publications-address">
+                <h5><?php echo $publicacion['calle']; ?></h5>
+              </div>
+              <div class="publications-price">
+                <h6>
+                  $<?php echo $precio; ?>
+                </h6>
+              </div>
+
+              <div class="publications-features">
+
+                <div href="#?" class="bedroom-icon">
+                  <span>
+                    <?php
+                    if ($publicacion['habitaciones'] == '4 o mas' || $publicacion['habitaciones'] == '4 o más' || $publicacion['habitaciones'] > 4) {
+                      echo '4+';
+                    } else {
+                      if ($publicacion['habitaciones'] != '') {
+
+                        echo $publicacion['habitaciones'];
+                      } else {
+                        echo '-';
+                      }
+                    }
+                    ?>
+                  </span>
+                  <img src="dist/img/icons/bed-blue.svg" alt="">
+                </div>
+
+                <div href="#?" class="area-icon">
+                  <span>
+                    <?php
+                    if ($publicacion['area_total'] > 999) {
+                      echo '999+';
+                    } else {
+                      if ($publicacion['area_total'] != '') {
+
+                        echo $publicacion['area_total'];
+                      } else {
+                        echo '-';
+                      }
+                    }
+                    ?>
+                  </span>
+                  <img src="dist/img/icons//area-blue.svg" alt="">
+                </div>
+
+                <div href="#?" class="bathroom-icon">
+                  <span>
+                    <?php
+                    if ($publicacion['banos'] == '4 o mas' || $publicacion['banos'] == '4 o más' || $publicacion['banos'] > 4) {
+                      echo '4+';
+                    } else {
+                      if ($publicacion['banos'] != '') {
+
+                        echo $publicacion['banos'];
+                      } else {
+                        echo '-';
+                      }
+                    }
+                    ?>
+                  </span>
+                  <img src="dist/img/icons/wc-blue.svg" alt="">
+                </div>
+
+                <div href="#?" class="parking-icon">
+                  <span>
+                    <?php
+                    if ($publicacion['cochera'] == 'si' || $publicacion['cochera'] == 'no') {
+                      echo $publicacion['cochera'];
+                    } else {
+                      echo '-';
+                    }
+                    ?>
+                  </span>
+                  <img src="dist/img/icons/car-parking-blue.svg" alt="">
+                </div>
+
+              </div>
+
+            </div>
+          </a>
+        <?php }
+        ?>
 
       </div>
     </section>
-    
+
   </main>
 
   <footer id="footer">
 
     <div class="contenedor-central py-4">
-        
+
       <div class="redes">
         <h5>¡Seguínos en nuestras redes!</h5>
-        
+
         <div class="item-redes">
           <img src="./dist/img/icons/whatsapp.svg" alt="">
           <a href="">+54 9 123 4567</a>
@@ -520,11 +612,12 @@ if(isset($_POST['Buscar'])) {
   <script type="text/javascript" src="dist/js/mdb.min.js"></script>
   <!-- Your custom scripts (optional) -->
   <script type="text/javascript" src="src/js/svg.js"></script>
-  <script type="text/javascript" src="src/js/fetch.js"></script>
-  <script type="text/javascript" src="src/js/fetchProducts.js"></script>  
+  <!--   <script type="text/javascript" src="src/js/fetch.js"></script> -->
+  <script type="text/javascript" src="src/js/fetchProducts.js"></script>
   <script type="text/javascript" src="src/js/hideShowModals.js"></script>
   <script type="text/javascript" src="src/js/filtros.js"></script>
   <script type="text/javascript" src="src/js/filtrosValidation.js"></script>
   <script type="text/javascript" src="src/js/hamburger.js"></script>
 </body>
+
 </html>

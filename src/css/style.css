@@ -939,6 +939,7 @@ nav > .menu-btns > .user > ul > li > a{
   transform: translateX(calc(100%));
   transition: .3s;
 }
+
 #publications > .publications-container > .publications-item > .img-container > .publications-features div{
   /* @apply --titulos; */
   font-family: var(--UbuntuTitulosPrincipales);
@@ -1420,6 +1421,9 @@ nav > .menu-btns > .user > ul > li > a{
   }
   #publications > .publications-container > .errorMessage{
     grid-column: 2 / 3;
+  }
+  #busqueda-products-page{
+    border: 1px solid blue;
   }
 }
 @media screen and (min-width: 1600px){
