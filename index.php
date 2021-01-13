@@ -671,7 +671,7 @@ $publicaciones = $sentencia->fetchAll();
   <script type="text/javascript" src="src/js/hideShowModals.js"></script>
   <script type="text/javascript" src="src/js/loginValidation.js"></script>
   <script type="text/javascript" src="src/js/filtros.js"></script>
-  <script type="text/javascript" src="src/js/filtrosValidation.js"></script>
+  <!--   <script type="text/javascript" src="src/js/filtrosValidation.js"></script> -->
   <script type="text/javascript" src="src/js/hamburger.js"></script>
   <!-- Llamado a las publicaciones destacadas -->
   <!-- <script type="text/javascript" src="src/js/fetchFeatured.js"></script> -->
