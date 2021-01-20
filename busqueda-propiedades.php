@@ -44,9 +44,7 @@ include('conexion.php');
       $principal = mysqli_query($conexion, "SELECT * FROM propiedad WHERE provincia LIKE '%" . $zona . "%' OR municipalidad LIKE '%" . $zona . "%' AND finalidad LIKE '%" . $finalidad . "%' AND tipo_propiedad LIKE '%" . $tipoPropiedad . "%' AND dolar BETWEEN '$min' AND '$max'  ORDER BY idPropiedad DESC");
     } else {
       $principal = mysqli_query($conexion, "SELECT * FROM propiedad WHERE provincia LIKE '%" . $zona . "%' OR municipalidad LIKE '%" . $zona . "%' AND finalidad LIKE '%" . $finalidad . "%' AND tipo_propiedad LIKE '%" . $tipoPropiedad . "%' ORDER BY idPropiedad DESC");
-    } 
-
-    
+    }
   }
   ?>
   <header>
@@ -342,7 +340,7 @@ include('conexion.php');
 
       <div id="busqueda-products-page" data-url="productspage" class=" py-4 px-xl-5">
 
-        
+
         <!-- Insertar Publicaciones -->
         <?php while ($publicacion = mysqli_fetch_array($principal)) {
           if ($moneda == 'pesos') {
