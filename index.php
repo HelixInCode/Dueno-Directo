@@ -230,7 +230,7 @@ $publicaciones = $sentencia->fetchAll();
             <input name="precioMaximo" type="number" placeholder="Precio hasta...">
           </div>
 
-          <button type="submit">Buscar</button>
+          <button type="submit" name="Buscar" value="Buscar">Buscar</button>
         </div>
       </form>
 

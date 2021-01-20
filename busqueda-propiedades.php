@@ -39,12 +39,14 @@ include('conexion.php');
     $moneda = mysqli_real_escape_string($conexion, $_POST['precio']);
 
     if ($moneda == 'pesos') {
-      $principal = mysqli_query($conexion, "SELECT * FROM propiedad WHERE provincia LIKE '%" . $zona . "%' OR municipalidad LIKE '%" . $zona . "%' AND finalidad LIKE '%" . $finalidad . "%' AND tipo_propiedad LIKE '%" . $tipoPropiedad . "%' AND peso BETWEEN '$min' AND '$max' ORDER BY id DESC");
+      $principal = mysqli_query($conexion, "SELECT * FROM propiedad WHERE provincia LIKE '%" . $zona . "%' OR municipalidad LIKE '%" . $zona . "%' AND finalidad LIKE '%" . $finalidad . "%' AND tipo_propiedad LIKE '%" . $tipoPropiedad . "%' AND peso BETWEEN '$min' AND '$max' ORDER BY idPropiedad DESC");
+    } elseif ($moneda == 'dolar') {
+      $principal = mysqli_query($conexion, "SELECT * FROM propiedad WHERE provincia LIKE '%" . $zona . "%' OR municipalidad LIKE '%" . $zona . "%' AND finalidad LIKE '%" . $finalidad . "%' AND tipo_propiedad LIKE '%" . $tipoPropiedad . "%' AND dolar BETWEEN '$min' AND '$max'  ORDER BY idPropiedad DESC");
     } else {
-      $principal = mysqli_query($conexion, "SELECT * FROM propiedad WHERE provincia LIKE '%" . $zona . "%' OR municipalidad LIKE '%" . $zona . "%' AND finalidad LIKE '%" . $finalidad . "%' AND tipo_propiedad LIKE '%" . $tipoPropiedad . "%' AND dolar BETWEEN '$min' AND '$max'  ORDER BY id DESC");
-    }
+      $principal = mysqli_query($conexion, "SELECT * FROM propiedad WHERE provincia LIKE '%" . $zona . "%' OR municipalidad LIKE '%" . $zona . "%' AND finalidad LIKE '%" . $finalidad . "%' AND tipo_propiedad LIKE '%" . $tipoPropiedad . "%' ORDER BY idPropiedad DESC");
+    } 
 
-    $busqueda1 = mysqli_fetch_array($principal);
+    
   }
   ?>
   <header>
@@ -340,104 +342,13 @@ include('conexion.php');
 
       <div id="busqueda-products-page" data-url="productspage" class=" py-4 px-xl-5">
 
-        <!--=========ESTRUCTURA PUBLICACIONES INSERTADO POR ALE========================================================-->
-        <?php foreach ($publicaciones as $publicacion) : ?>
-          <a href="publicacion-precarga.php?public=<?php echo $publicacion['idPropiedad']; ?>" class="publications-item">
-            <div class="img-container">
-
-              <img src="dist/images/<?php echo $publicacion['imagen1']; ?>" alt="">
-
-              <div class="publications-address">
-                <h5><?php echo $publicacion['calle']; ?></h5>
-              </div>
-              <div class="publications-price">
-                <h6>
-                  $<?php echo $publicacion['peso']; ?>
-                </h6>
-              </div>
-
-              <div class="publications-features">
-
-                <div href="#?" class="bedroom-icon">
-                  <span>
-                    <?php
-                    if ($publicacion['habitaciones'] == '4 o mas' || $publicacion['habitaciones'] == '4 o más' || $publicacion['habitaciones'] > 4) {
-                      echo '4+';
-                    } else {
-                      if ($publicacion['habitaciones'] != '') {
-
-                        echo $publicacion['habitaciones'];
-                      } else {
-                        echo 'n/a';
-                      }
-                    }
-                    ?>
-                  </span>
-                  <img src="dist/img/icons/bed-blue.svg" alt="">
-                </div>
-
-                <div href="#?" class="area-icon">
-                  <span>
-                    <?php
-                    if ($publicacion['area_total'] > 999) {
-                      echo '999+';
-                    } else {
-                      if ($publicacion['area_total'] != '') {
-
-                        echo $publicacion['area_total'];
-                      } else {
-                        echo 'n/a';
-                      }
-                    }
-                    ?>
-                  </span>
-                  <img src="dist/img/icons//area-blue.svg" alt="">
-                </div>
-
-                <div href="#?" class="bathroom-icon">
-                  <span>
-                    <?php
-                    if ($publicacion['banos'] == '4 o mas' || $publicacion['banos'] == '4 o más' || $publicacion['banos'] > 4) {
-                      echo '4+';
-                    } else {
-                      if ($publicacion['banos'] != '') {
-
-                        echo $publicacion['banos'];
-                      } else {
-                        echo 'n/a';
-                      }
-                    }
-                    ?>
-                  </span>
-                  <img src="dist/img/icons/wc-blue.svg" alt="">
-                </div>
-
-                <div href="#?" class="parking-icon">
-                  <span>
-                    <?php
-                    if ($publicacion['cochera'] == 'si' || $publicacion['cochera'] == 'no') {
-                      echo $publicacion['cochera'];
-                    } else {
-                      echo 'n/a';
-                    }
-                    ?>
-                  </span>
-                  <img src="dist/img/icons/car-parking-blue.svg" alt="">
-                </div>
-
-              </div>
-
-            </div>
-          </a>
-        <?php endforeach ?>
-
-        <!--=========ESTRUCTURA PUBLICACIONES INSERTADO POR ALE (FIN)========================================================-->
+        
         <!-- Insertar Publicaciones -->
         <?php while ($publicacion = mysqli_fetch_array($principal)) {
           if ($moneda == 'pesos') {
             $precio = $publicacion['peso'];
           } else {
-            $precio = $publicacion['peso'];
+            $precio = $publicacion['dolar'];
           }
         ?>
           <a href="publicacion-precarga.php?public=<?php echo $publicacion['idPropiedad']; ?>" class="publications-item">
