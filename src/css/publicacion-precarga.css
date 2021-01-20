@@ -12,27 +12,6 @@
   --UbuntuTitulosPrincipales: 'Ubuntu', sans-serif; /*Bold*/
   --RobotoParrafos: 'Roboto', sans-serif;/*regular*/
   --sombra: rgba(0, 0, 0, 0.5);
-
-  --input-text:{
-      width: 100%;
-      padding: 5px;
-      height: 35px;
-      border: none;
-      border: 2px solid var(--PrimarioOscuro);
-      border-radius: 5px;
-  }
-  --button:{
-      padding: 0 30px;
-      border: none;
-      border-radius: 5px;
-      color: #fff;
-      font-size: 1.5em;
-      font-weight: bold;
-      font-style: italic;
-      background-color: var(--PrimarioOscuro);
-      outline: none;
-      text-align: center;
-  }
 }
 
 .oscuro{
@@ -277,6 +256,13 @@ main{
   #post > .main-container > .columna-1 > .datos > .valores{
     grid-template-columns: repeat(2, 1fr);
   }
+  #post > .main-container > .columna-1 > .datos > .valores > li{
+    grid-template-columns: repeat(2, auto) 50px;
+  }
+  #post > .main-container > .columna-1 > .datos > .valores > li > a{
+    margin: auto;
+    color: #004489;
+  }
   #post > .main-container > .columna-1 > .datos > .valores > li:nth-last-of-type(2) p{
     margin: 0;
   }
@@ -319,8 +305,8 @@ main{
 }
 @media screen and (min-width: 820px){
   #profesionales-post > .main-container > .columna-1 > img{
-      width: 100%;
-      height: 400px;
+    width: 100%;
+    height: 400px;
   }
 }
 @media screen and (min-width: 992px){

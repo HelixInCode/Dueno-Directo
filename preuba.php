@@ -42,5 +42,4 @@ echo '<a href="publicacion-precarga.php" class="publications-item">
 
 
 
-
-?>
+';

@@ -14,5 +14,6 @@ function conectar()
     return $cnx;}
 
 $conexion = conectar();
+$conexion->set_charset('utf8');
     
 ?>

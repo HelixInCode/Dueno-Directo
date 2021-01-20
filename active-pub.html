@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Dueño Directo</title>
+  <!-- icono de la pestaña -->
+  <link rel="icon" href="dist/img/logo-icon.png">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="dist/css/bootstrap.min.css">
+  <!-- Material Design Bootstrap -->
+  <link rel="stylesheet" href="dist/css/mdb.min.css">
+  <!-- Estilos-->
+  <link rel="stylesheet" href="src/css/master.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+  <header class="header">
+
+        <nav class="py-2 px-4">
+            <div class="ml-md-4 img-container">
+                <img class="img-fluid" src="dist/img/DD-LOGO.png" alt="">
+            </div>
+
+            <ul class="menu-items hide py-1 py-md-0">
+                <li>
+                <a class="waves-effect waves-light" href="index.php">Inicio</a>
+                </li>
+                <li>
+                <a class="waves-effect waves-light" href="./master.php">Panel General</a>
+                </li>
+                <li>
+                <a class="waves-effect waves-light" href="./servicios.html">Propiedades</a>
+                </li>
+                <li>
+                <i class="fas fa-sign-out-alt mr-1"></i>
+                <a class="waves-effect waves-light" href="process/close.php">Cerrar Sesión</a>
+                </li>
+                <li class="modal-perfil showModal">
+                <i class="fas fa-user-alt mr-1"></i>
+                <a class="waves-effect waves-light" href="#?">Perfil</a>
+                </li>
+            </ul>
+            
+                <div class="menu-overlay hide d-block d-md-none"></div>
+
+                <div id="hamburger" class="hamburger-btn d-flex d-md-none">
+                    <i id="ham-icon" class="fas fa-bars fa-1-3x"></i>
+                </div>
+        </nav>
+    </header>
+
+    <!-- Intro -->
+    <div class="card card-intro blue-gradient">
+
+        <div class="card-body white-text rgba-black-light text-center">
+
+          <!--Grid row-->
+          <div class="row d-flex justify-content-center">
+
+            <!--Grid column-->
+            <div class="col-md-12">
+
+              <h1 class="h5 mb-2">
+                Publicaciones en Dueño Directo
+              </h1>
+            </div>
+          </div> 
+        </div>
+    </div>
+
+    <main>
+        <section id="lista-act">
+            <div class="lista-publicaciones">
+                
+                <div class="pub">
+                    <img src="./dist/img/back-404.jpg" style="width: 100%;" alt="">
+                    <div class="datos">
+                        <h3>Nombre Publicación</h3>
+                        <p>Status: Activa / Inactiva</p>
+                    </div>
+                    <div class="acciones">
+                        
+                        <!-- Cuando la publicacion NO esté activa se mostrará este boton -->
+                        <button class="btn">Activar</button>
+
+                        <!-- Cuando la publicacion esté activa se mostrará este boton -->
+                        <button class="btn">Desactivar</button>
+                    </div>
+                </div>
+               
+
+            </div>
+
+        </section>
+    </main>
+    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="src/js/hideShowModals.js"></script>
+    <script type="text/javascript" src="src/js/hamburger.js"></script>
+</body>
+</html> 

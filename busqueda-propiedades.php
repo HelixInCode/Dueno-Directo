@@ -1,26 +1,7 @@
 <?php
-session_start();
 include('conexion.php');
-include('conexionPDO.php');
-
-$sql = 'SELECT * FROM propiedad';
-$sentencia = $pdo->prepare($sql);
-$sentencia->execute();
-$publicaciones = $sentencia->fetchAll();
-
-$total_publicaciones_db = $sentencia->rowCount();
-
-// echo 'Hay '. $total_publicaciones_db . ' publicaciones en la base de datos';
-$numero_publicaciones = 6;
-$sexta_ultima_publicacion = $total_publicaciones_db - $numero_publicaciones;
-// echo 'Empieza a renderizar desde la publicacion n° '. $sexta_ultima_publicacion;
-
-$sql = 'SELECT * FROM propiedad LIMIT ' . $sexta_ultima_publicacion . ',6';
-$sentencia = $pdo->prepare($sql);
-$sentencia->execute();
-$publicaciones = $sentencia->fetchAll();
-
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -43,63 +24,29 @@ $publicaciones = $sentencia->fetchAll();
   <!-- Material Design Bootstrap -->
   <link rel="stylesheet" href="dist/css/mdb.min.css">
   <!-- Your custom styles (optional) -->
-  <!-- <link rel="stylesheet" href="src/css/style.css"> -->
   <link rel="stylesheet" href="src/css/style.css">
-  <link rel="stylesheet" href="src/css/servicios.css">
+  <link rel="stylesheet" href="src/css/search-results.css">
 </head>
 
 <body>
   <?php
+  if (isset($_POST['Buscar'])) {
+    $zona = mysqli_real_escape_string($conexion, $_POST['nombre']);
+    $finalidad = mysqli_real_escape_string($conexion, $_POST['finalidad']);
+    $tipoPropiedad = mysqli_real_escape_string($conexion, $_POST['tipoPropiedad']);
+    $min = mysqli_real_escape_string($conexion, $_POST['precioMinimo']);
+    $max = mysqli_real_escape_string($conexion, $_POST['precioMaximo']);
+    $moneda = mysqli_real_escape_string($conexion, $_POST['precio']);
 
-  $user = "";
-  if (isset($_POST['Enviar'])) { // comprobamos que se hayan enviado los datos del formulario
-
-    if (
-      isset($_POST['email']) && !empty($_POST['email']) &&
-      isset($_POST['password']) && !empty($_POST['password'])
-    ) {
-      $usuario = mysqli_real_escape_string($conexion, $_POST['email']);
-      $clave = mysqli_real_escape_string($conexion, $_POST['password']);
-      $clave = crypt($clave, "pass");
-
-      // comprobamos que los datos ingresados en el formulario coincidan con los de la BD
-      $sql = mysqli_query($conexion, "SELECT id, email, clave FROM user WHERE email='$usuario' AND clave='$clave'") or die(mysqli_error($conexion));
-      $resultado = mysqli_num_rows($sql); //cuento el número de coincidencias
-      $row = mysqli_fetch_array($sql);
-      //echo "todavia no entro en el if";
-
-
-      if ($resultado == 1) {
-        $_SESSION['id'] = $row['id']; // creamos la sesion "usuario_id" y le asignamos como valor el campo usuario_id
-        $_SESSION['usuario'] = $row["usuario"]; // creamos la sesion "usuario_nombre" y le asignamos como valor el campo 
-        $user = $_SESSION['usuario'];
-        if (!empty($_POST["remember"])) {
-          setcookie("usuario", $usuario, time() + (10 * 365 * 24 * 60 * 60));
-          setcookie("pass", $clave, time() + (10 * 365 * 24 * 60 * 60));
-        } else {
-          if (isset($_COOKIE["usuario"])) {
-            setcookie("usuario", "");
-          }
-          if (isset($_COOKIE["pass"])) {
-            setcookie("pass", "");
-          }
-        }
-        header("Location: home.php");
-      } else {
-
-  ?>
-        <div class="alerta-error">Usuario o contraseña incorrectos</div>
-  <?php
-      }
+    if ($moneda == 'pesos') {
+      $principal = mysqli_query($conexion, "SELECT * FROM propiedad WHERE provincia LIKE '%" . $zona . "%' OR municipalidad LIKE '%" . $zona . "%' AND finalidad LIKE '%" . $finalidad . "%' AND tipo_propiedad LIKE '%" . $tipoPropiedad . "%' AND peso BETWEEN '$min' AND '$max' ORDER BY id DESC");
     } else {
-      echo "Falta completar campos";
+      $principal = mysqli_query($conexion, "SELECT * FROM propiedad WHERE provincia LIKE '%" . $zona . "%' OR municipalidad LIKE '%" . $zona . "%' AND finalidad LIKE '%" . $finalidad . "%' AND tipo_propiedad LIKE '%" . $tipoPropiedad . "%' AND dolar BETWEEN '$min' AND '$max'  ORDER BY id DESC");
     }
+
+    $busqueda1 = mysqli_fetch_array($principal);
   }
-
-
-
   ?>
-
   <header>
     <nav class="py-2 px-4">
       <div class="img-container">
@@ -110,16 +57,16 @@ $publicaciones = $sentencia->fetchAll();
       <div class="menu-btns">
         <ul class="menu-items hide py-1 py-md-0">
           <li>
-            <a class="waves-effect waves-light" href="index.php">Inicio</a>
+            <a class="waves-effect waves-light" href="index.php">inicio</a>
           </li>
           <li>
-            <a class="waves-effect waves-light" href="#">Servicios</a>
+            <a class="waves-effect waves-light" href="./servicios.html">Servicios</a>
           </li>
           <li>
-            <a class="waves-effect waves-light" href="#contact">Contacto</a>
+            <a class="waves-effect waves-light" href="index.php#contact">Contacto</a>
           </li>
           <li>
-            <a id="ingresar" class="modal-login showModal waves-effect waves-light" href="#">Ingresar</a>
+            <a id="ingresar" class="modal-login showModal waves-effect waves-light" href="">Ingresar</a>
           </li>
           <li>
             <a class="waves-effect waves-light" href="#?">Publicar</a>
@@ -135,13 +82,13 @@ $publicaciones = $sentencia->fetchAll();
           </div>
           <ul class="hide">
             <li>
-              <span><?php echo $user ?></span>
+              <span>Nombre de Usuario</span>
             </li>
             <li>
               <a href="#?">Panel</a>
             </li>
             <li>
-              <a href="process/close.php">Cerrar Sesion</a>
+              <a href="#?">Cerrar Sesion</a>
             </li>
           </ul>
         </div>
@@ -154,44 +101,32 @@ $publicaciones = $sentencia->fetchAll();
       </div>
     </nav>
 
-    <section id="carouselExampleFade" class="carousel slide index-carousel carousel-fade" data-ride="carousel">
-
+    <section id="carouselExampleFade" class="carousel slide pro search-result-carousel carousel-fade" data-ride="carousel">
       <div class="carousel-inner">
 
         <div class="carousel-item active">
           <img src="dist/img/cover-1.jpg" class="d-block w-100" alt="...">
-          <div class="overlay-img justify-content-start px-1 px-sm-5">
-            <p class="mb-5 mb-md-0 pb-5 pb-md-0">Querés alquilar?</p>
-          </div>
         </div>
 
         <div class="carousel-item">
           <img src="dist/img/cover-2.jpg" class="d-block w-100" alt="...">
-          <div class="overlay-img justify-content-end px-1 px-sm-5">
-            <p class="mb-5 mb-md-0 pb-5 pb-md-0">Querés Comprar?</p>
-          </div>
         </div>
 
         <div class="carousel-item">
           <img src="dist/img/cover-3.jpg" class="d-block w-100" alt="...">
-          <div class="overlay-img justify-content-end px-1 px-sm-5">
-            <p class="mb-5 mb-md-0 pb-5 pb-md-0">Te ayudamos</p>
-          </div>
         </div>
 
       </div>
-
       <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
       </a>
-
       <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
       </a>
 
-      <form id="search-main" action="busqueda-propiedades.php" method="POST">
+      <form id="search-main" action="">
         <div class="form-container">
 
           <input name="nombre" type="text" placeholder="Ingresa Zona o palabra">
@@ -206,7 +141,7 @@ $publicaciones = $sentencia->fetchAll();
           </div>
 
           <div class="input-select">
-            <select name="tipoPropiedad">
+            <select name="tipo_propiedad">
               <option style="color: rgba(0, 0, 0, 0.5);" value="">- Inmueble</option>
               <option value="Casa">Casa</option>
               <option value="Departamento">Departamento</option>
@@ -216,6 +151,14 @@ $publicaciones = $sentencia->fetchAll();
               <option value="Cabaña">Cabaña</option>
             </select>
           </div>
+
+          <button type="submit" name="buscar" value="buscar">Buscar</button>
+
+          <div class="rango-input">
+            <input name="precioMinimo" type="number" placeholder="Precio desde...">
+            <input name="precioMaximo" type="number" placeholder="Precio hasta...">
+          </div>
+
           <div id="botones-container">
 
             <input name="precio" checked type="radio" value="pesos" id="pesos">
@@ -225,15 +168,8 @@ $publicaciones = $sentencia->fetchAll();
             <label for="dolares">USD</label>
 
           </div>
-          <div class="rango-input">
-            <input name="precioMinimo" type="number" placeholder="Precio desde...">
-            <input name="precioMaximo" type="number" placeholder="Precio hasta...">
-          </div>
-
-          <button type="submit">Buscar</button>
         </div>
       </form>
-
     </section>
   </header>
 
@@ -274,19 +210,6 @@ $publicaciones = $sentencia->fetchAll();
 
           </div>
         </form>
-      </div>
-    </section>
-
-    <section id="modal-message-sent" class="modal hide">
-      <div class="login">
-        <div class="title-container p-3">
-          <!-- <h5>Mensaje Enviado</h5> -->
-          <i id="close-sent" class="closeModal fa fa-times"></i>
-        </div>
-        <div class="main-container message p-3 pb-4">
-          <i class="fas fa-check-circle"></i>
-          <p>¡Su mensaje ha sido enviado exitosamente!</p>
-        </div>
       </div>
     </section>
 
@@ -343,27 +266,27 @@ $publicaciones = $sentencia->fetchAll();
               <input name="habitaciones" type="radio" value="2">2
             </div>
             <div class="input-container">
-              <input name="habitaciones" type="radio" value="3">3
+              <input name="habitaciones" type="radio" value="más de 2">más de 2
             </div>
             <div class="input-container">
-              <input name="habitaciones" type="radio" value="4 o mas">4 o más
+              <input name="habitaciones" type="radio" value="indistinto">indistinto
             </div>
           </div>
 
           <div class="options-container">
-            <label for="banos">Baños</label>
+            <label for="bathrooms">Baños</label>
 
             <div class="input-container">
-              <input name="banos" type="radio" value="1">1
+              <input name="bathrooms" type="radio" value="1">1
             </div>
             <div class="input-container">
-              <input name="banos" type="radio" value="2">2
+              <input name="bathrooms" type="radio" value="2">2
             </div>
             <div class="input-container">
-              <input name="banos" type="radio" value="3">3
+              <input name="bathrooms" type="radio" value="más de 2">más de 2
             </div>
             <div class="input-container">
-              <input name="banos" type="radio" value="4 o mas">4 o más
+              <input name="bathrooms" type="radio" value="indistinto">indistinto
             </div>
           </div>
 
@@ -413,12 +336,11 @@ $publicaciones = $sentencia->fetchAll();
         </div>
       </div>
 
-      <h1 class="pt-4 pt-md-0">PUBLICACIONES DESTACADAS</h1>
+      <h1 class="pt-4 pt-md-0">Resultados de Busqueda</h1>
 
-      <div data-url="homepage" class="publications-container py-4 px-xl-5">
+      <div id="busqueda-products-page" data-url="productspage" class=" py-4 px-xl-5">
 
-        <!-- Insertar Publicaciones -->
-
+        <!--=========ESTRUCTURA PUBLICACIONES INSERTADO POR ALE========================================================-->
         <?php foreach ($publicaciones as $publicacion) : ?>
           <a href="publicacion-precarga.php?public=<?php echo $publicacion['idPropiedad']; ?>" class="publications-item">
             <div class="img-container">
@@ -509,85 +431,108 @@ $publicaciones = $sentencia->fetchAll();
           </a>
         <?php endforeach ?>
 
+        <!--=========ESTRUCTURA PUBLICACIONES INSERTADO POR ALE (FIN)========================================================-->
+        <!-- Insertar Publicaciones -->
+        <?php while ($publicacion = mysqli_fetch_array($principal)) {
+          if ($moneda == 'pesos') {
+            $precio = $publicacion['peso'];
+          } else {
+            $precio = $publicacion['peso'];
+          }
+        ?>
+          <a href="publicacion-precarga.php?public=<?php echo $publicacion['idPropiedad']; ?>" class="publications-item">
+            <div class="img-container">
+
+              <img src="dist/images/<?php echo $publicacion['imagen1']; ?>" alt="">
+
+              <div class="publications-address">
+                <h5><?php echo $publicacion['calle']; ?></h5>
+              </div>
+              <div class="publications-price">
+                <h6>
+                  $<?php echo $precio; ?>
+                </h6>
+              </div>
+
+              <div class="publications-features">
+
+                <div href="#?" class="bedroom-icon">
+                  <span>
+                    <?php
+                    if ($publicacion['habitaciones'] == '4 o mas' || $publicacion['habitaciones'] == '4 o más' || $publicacion['habitaciones'] > 4) {
+                      echo '4+';
+                    } else {
+                      if ($publicacion['habitaciones'] != '') {
+
+                        echo $publicacion['habitaciones'];
+                      } else {
+                        echo '-';
+                      }
+                    }
+                    ?>
+                  </span>
+                  <img src="dist/img/icons/bed-blue.svg" alt="">
+                </div>
+
+                <div href="#?" class="area-icon">
+                  <span>
+                    <?php
+                    if ($publicacion['area_total'] > 999) {
+                      echo '999+';
+                    } else {
+                      if ($publicacion['area_total'] != '') {
+
+                        echo $publicacion['area_total'];
+                      } else {
+                        echo '-';
+                      }
+                    }
+                    ?>
+                  </span>
+                  <img src="dist/img/icons//area-blue.svg" alt="">
+                </div>
+
+                <div href="#?" class="bathroom-icon">
+                  <span>
+                    <?php
+                    if ($publicacion['banos'] == '4 o mas' || $publicacion['banos'] == '4 o más' || $publicacion['banos'] > 4) {
+                      echo '4+';
+                    } else {
+                      if ($publicacion['banos'] != '') {
+
+                        echo $publicacion['banos'];
+                      } else {
+                        echo '-';
+                      }
+                    }
+                    ?>
+                  </span>
+                  <img src="dist/img/icons/wc-blue.svg" alt="">
+                </div>
+
+                <div href="#?" class="parking-icon">
+                  <span>
+                    <?php
+                    if ($publicacion['cochera'] == 'si' || $publicacion['cochera'] == 'no') {
+                      echo $publicacion['cochera'];
+                    } else {
+                      echo '-';
+                    }
+                    ?>
+                  </span>
+                  <img src="dist/img/icons/car-parking-blue.svg" alt="">
+                </div>
+
+              </div>
+
+            </div>
+          </a>
+        <?php }
+        ?>
+
       </div>
-
     </section>
 
-    <section id="primera-vez" class="py-0 py-md-3 py-lg-5">
-      <h1 class="py-5">¿PRIMERA VEZ? ¡TE AYUDAMOS!</h1>
-
-      <div class="contenedor-opciones px-0 px-md-3 px-lg-5">
-
-        <a href="#?">
-          <img src="./dist/img/paf1.jpg" alt="">
-          <div class="description-container">
-            <p>Quiero Publicar</p>
-          </div>
-        </a>
-
-        <a href="#?">
-          <img src="./dist/img/paf2.jpg" alt="">
-          <div class="description-container">
-            <p>Estoy Buscando</p>
-          </div>
-        </a>
-
-      </div>
-    </section>
-
-    <section id="cover-services" class="pt-5">
-      <h2>TAMBIEN CONOCÉ NUESTROS</h2>
-
-      <div class="cover-container">
-
-        <div class="item-cover view overlay zoom">
-          <img class="img-fluid" src="./dist/img/img-servicios/serv1.jpg" alt="">
-          <div class="marco text-center">
-            <a href="#?">Profesionales</a>
-          </div>
-        </div>
-
-        <div class="item-cover view overlay zoom">
-          <img class="img-fluid" src="./dist/img/img-servicios/serv2.jpg" alt="">
-          <div class="marco text-center">
-            <a href="#?">Productos</a>
-          </div>
-        </div>
-
-        <div class="item-cover view overlay zoom">
-          <img class="img-fluid" src="./dist/img/img-servicios/serv3.jpg" alt="">
-          <div class="marco text-center">
-            <a href="#?">Servicios</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="py-5 px-2 px-lg-5">
-      <h2>Contactanos</h2>
-      <form class="py-4 py-lg-5 px-3 px-sm-4 px-lg-5" action="enviar.php" method="POST">
-
-        <div class="input-container">
-          <label for="nombre">Nombre</label>
-          <input name="nombre" type="text">
-        </div>
-
-        <div class="input-container">
-          <label for="email">Correo</label>
-          <input name="email" type="email">
-        </div>
-
-        <div class="input-container">
-          <label for="telefono">Telefono</label>
-          <input name="telefono" type="tel">
-        </div>
-
-        <textarea name="mensaje" placeholder="Comentanos en qué podemos ayudarte"></textarea>
-        <button type="submit">Enviar</button>
-
-
-      </form>
-    </section>
   </main>
 
   <footer id="footer">
@@ -667,20 +612,12 @@ $publicaciones = $sentencia->fetchAll();
   <script type="text/javascript" src="dist/js/mdb.min.js"></script>
   <!-- Your custom scripts (optional) -->
   <script type="text/javascript" src="src/js/svg.js"></script>
-  <!-- <script type="text/javascript" src="src/js/fetch.js"></script> -->
+  <!--   <script type="text/javascript" src="src/js/fetch.js"></script> -->
+  <script type="text/javascript" src="src/js/fetchProducts.js"></script>
   <script type="text/javascript" src="src/js/hideShowModals.js"></script>
-  <script type="text/javascript" src="src/js/loginValidation.js"></script>
   <script type="text/javascript" src="src/js/filtros.js"></script>
-  <!--   <script type="text/javascript" src="src/js/filtrosValidation.js"></script> -->
+  <script type="text/javascript" src="src/js/filtrosValidation.js"></script>
   <script type="text/javascript" src="src/js/hamburger.js"></script>
-  <!-- Llamado a las publicaciones destacadas -->
-  <!-- <script type="text/javascript" src="src/js/fetchFeatured.js"></script> -->
-  <!-- <script type="text/javascript">
-    modalError('Mensaje de prueba');
-  </script> -->
-  <!-- <script type="text/javascript" src="src/js/modalMessageSentAppears.js"></script> -->
 </body>
 
 </html>
-
-<!-- Imagen de <a href="https://pixabay.com/es/users/PublicDomainPictures-14/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2257">PublicDomainPictures</a> en <a href="https://pixabay.com/es/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2257">Pixabay</a> -->

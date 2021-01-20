@@ -31,9 +31,9 @@ if (isset($_SESSION['id'])) {
         <!-- Material Design Bootstrap -->
         <link rel="stylesheet" href="dist/css/mdb.min.css">
         <!-- Your custom styles (optional) -->
-        <link rel="stylesheet" href="dist/css/style.css">
+        <link rel="stylesheet" href="src/css/style.css">
         <!-- <link rel="stylesheet" href="src/css/registro.css"> -->
-        <link rel="stylesheet" href="dist/css/usuario.css">
+        <link rel="stylesheet" href="src/css/usuario.css">
     </head>
 
     <body>
