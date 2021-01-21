@@ -113,7 +113,7 @@ $publicaciones = $sentencia->fetchAll();
             <a class="waves-effect waves-light" href="index.php">Inicio</a>
           </li>
           <li>
-            <a class="waves-effect waves-light" href="#">Servicios</a>
+            <a class="waves-effect waves-light" href="servicios.html">Servicios</a>
           </li>
           <li>
             <a class="waves-effect waves-light" href="#contact">Contacto</a>
@@ -122,7 +122,7 @@ $publicaciones = $sentencia->fetchAll();
             <a id="ingresar" class="modal-login showModal waves-effect waves-light" href="#">Ingresar</a>
           </li>
           <li>
-            <a class="waves-effect waves-light" href="#?">Publicar</a>
+            <a class="waves-effect waves-light" href="registro.php">Publicar</a>
           </li>
         </ul>
 
@@ -518,14 +518,14 @@ $publicaciones = $sentencia->fetchAll();
 
       <div class="contenedor-opciones px-0 px-md-3 px-lg-5">
 
-        <a href="#?">
+        <a href="registro.php">
           <img src="./dist/img/paf1.jpg" alt="">
           <div class="description-container">
             <p>Quiero Publicar</p>
           </div>
         </a>
 
-        <a href="#?">
+        <a href="#carouselExampleFade">
           <img src="./dist/img/paf2.jpg" alt="">
           <div class="description-container">
             <p>Estoy Buscando</p>
@@ -557,7 +557,7 @@ $publicaciones = $sentencia->fetchAll();
         <div class="item-cover view overlay zoom">
           <img class="img-fluid" src="./dist/img/img-servicios/serv3.jpg" alt="">
           <div class="marco text-center">
-            <a href="#?">Servicios</a>
+            <a href="">Servicios</a>
           </div>
         </div>
       </div>
