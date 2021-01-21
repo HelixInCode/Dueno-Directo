@@ -108,7 +108,7 @@ if (isset($_SESSION['id'])) {
                                 <span><?php echo $user ?></span>
                             </li>
                             <li>
-                                <a href="#?">Panel</a>
+                                <a href="home.php">Panel</a>
                             </li>
                             <li>
                                 <a href="process/close.php">Cerrar Sesion</a>
