@@ -37,15 +37,67 @@ include('conexion.php');
     $min = mysqli_real_escape_string($conexion, $_POST['precioMinimo']);
     $max = mysqli_real_escape_string($conexion, $_POST['precioMaximo']);
     $moneda = mysqli_real_escape_string($conexion, $_POST['precio']);
+    if($min == ""){
+      $min = 1;
+    }
+    if($max == ""){
+      $max = 9999999999999;
+    }
+    
+    if($zona =="" AND $finalidad =="" AND $tipoPropiedad =="" AND $moneda ==""){
+      $principal = mysqli_query($conexion, "SELECT * FROM propiedad");
+    } else{     
+        if ($moneda == 'pesos') {
+          $principalSql = "SELECT * FROM propiedad WHERE provincia LIKE '%" . $zona . "%' OR municipalidad LIKE '%" . $zona . "%' AND";
+          if($finalidad != ""){
+            $principalSql .= " finalidad = '$finalidad' AND";
+          }
+          if($tipoPropiedad != ""){
+            $principalSql .= " tipo_propiedad = '$tipoPropiedad' AND";
+          }
+          if($min != ""){
+            $principalSql .= " peso BETWEEN '$min' AND '$max' ORDER BY idPropiedad DESC";
+          }
+          $finalSql=trim($principalSql, 'AND');
+          
+          $principal = mysqli_query($conexion, $finalSql);
 
-    if ($moneda == 'pesos') {
-      $principal = mysqli_query($conexion, "SELECT * FROM propiedad WHERE provincia LIKE '%" . $zona . "%' OR municipalidad LIKE '%" . $zona . "%' AND finalidad LIKE '%" . $finalidad . "%' AND tipo_propiedad LIKE '%" . $tipoPropiedad . "%' AND peso BETWEEN '$min' AND '$max' ORDER BY idPropiedad DESC");
-    } elseif ($moneda == 'dolar') {
-      $principal = mysqli_query($conexion, "SELECT * FROM propiedad WHERE provincia LIKE '%" . $zona . "%' OR municipalidad LIKE '%" . $zona . "%' AND finalidad LIKE '%" . $finalidad . "%' AND tipo_propiedad LIKE '%" . $tipoPropiedad . "%' AND dolar BETWEEN '$min' AND '$max'  ORDER BY idPropiedad DESC");
-    } else {
-      $principal = mysqli_query($conexion, "SELECT * FROM propiedad WHERE provincia LIKE '%" . $zona . "%' OR municipalidad LIKE '%" . $zona . "%' AND finalidad LIKE '%" . $finalidad . "%' AND tipo_propiedad LIKE '%" . $tipoPropiedad . "%' ORDER BY idPropiedad DESC");
-    } 
 
+        } elseif ($moneda == 'dolar') {
+          $principalSql = "SELECT * FROM propiedad WHERE provincia LIKE '%" . $zona . "%' OR municipalidad LIKE '%" . $zona . "%' AND";
+          if($finalidad != ""){
+            $principalSql .= " finalidad = '$finalidad' AND";
+          }
+          if($tipoPropiedad != ""){
+            $principalSql .= " tipo_propiedad = '$tipoPropiedad' AND";
+          }
+          if($min != ""){
+            $principalSql .= " dolar BETWEEN '$min' AND '$max' ORDER BY idPropiedad DESC";
+          }
+          $finalSql=trim($principalSql, 'AND');
+          
+          $principal = mysqli_query($conexion, $finalSql);
+
+
+        } else {
+          $principalSql = "SELECT * FROM propiedad WHERE provincia LIKE '%" . $zona . "%' OR municipalidad LIKE '%" . $zona . "%' AND";
+          if($finalidad != ""){
+            $principalSql .= " finalidad = '$finalidad' AND";
+          }
+          if($tipoPropiedad != ""){
+            $principalSql .= " tipo_propiedad = '$tipoPropiedad' AND";
+          }
+          if($min != ""){
+            $principalSql .= " ORDER BY idPropiedad DESC";
+          }
+          $finalSql=trim($principalSql, 'AND');
+          
+          $principal = mysqli_query($conexion, $finalSql);
+
+
+        } 
+
+      }
     
   }
   ?>
@@ -344,7 +396,11 @@ include('conexion.php');
 
         
         <!-- Insertar Publicaciones -->
-        <?php while ($publicacion = mysqli_fetch_array($principal)) {
+        <?php
+        echo $finalSql;
+        while ($publicacion = mysqli_fetch_array($principal)) {
+
+          
           if ($moneda == 'pesos') {
             $precio = $publicacion['peso'];
           } else {
