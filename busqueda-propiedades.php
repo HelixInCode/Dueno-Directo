@@ -394,7 +394,7 @@ include('conexion.php');
 
       <div id="busqueda-products-page" data-url="productspage" class=" py-4 px-xl-5">
 
-        
+
         <!-- Insertar Publicaciones -->
         <?php
         echo $finalSql;

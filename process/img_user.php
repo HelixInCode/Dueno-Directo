@@ -36,6 +36,7 @@ if (isset($_SESSION['id'])) {
     
    if (isset($_POST['Enviar'])) {
       $imagen = addslashes(file_get_contents($_FILES['imagen']['tmp_name']));
+      $id_user=$_POST['id'];
 
       $query = mysqli_query($conexion, "UPDATE user SET imagen='$imagen' WHERE id='$id_user'");
       if ($query){

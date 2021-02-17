@@ -520,7 +520,7 @@ if (isset($_SESSION['Nombre'])) {
                         </select></td>
                       <td><input type="text" name="categoria" value="<?php echo $categorydates['categoria'] ?>"></td>
                       <td><input type="text" name="descripcion" value="<?php echo $categorydates['descripcion'] ?>"></td>
-                      <td><a href=""> <button name="editar" value="editar" class="btn btn-info"><span class="oi oi-pencil"></span></button></a></td>
+                      <td><a href=""> <button name="editar" value="editar" class="btn btn-info"><i class="fas fa-edit text-white"></i></button></a></td>
                     </form>
                   </tr>
                 <?php
@@ -676,7 +676,7 @@ if (isset($_SESSION['Nombre'])) {
                       <td><input type="text" name="promociones" value="<?php echo $promodates['promociones'] ?>"></td>
                       <td><input type="text" name="vencimiento" value="<?php echo $promodates['vencimiento'] ?>"></td>
                       <td><input type="text" name="precio" value="<?php echo $promodates['precio'] ?>"></td>
-                      <td><a href=""> <button name="editar" value="editar" class="btn btn-info"><span class="oi oi-pencil"></span></button></a></td>
+                      <td><a href=""> <button name="editar" value="editar" class="btn btn-info"><i class="fas fa-edit text-white"></i></button></a></td>
                     </form>
                   </tr>
                 <?php
