@@ -100,6 +100,37 @@ include('conexion.php');
       }
     
   }
+
+  if (isset($_POST['InFilt'])) {
+    $moneda='pesos';
+    $cubiertaMin = mysqli_real_escape_string($conexion, $_POST['cubiertaMin']);
+    $cubiertaMax = mysqli_real_escape_string($conexion, $_POST['cubiertaMax']);
+    $totalMin = mysqli_real_escape_string($conexion, $_POST['superfieTotalMin']);
+    $totalMax = mysqli_real_escape_string($conexion, $_POST['superfieTotalMax']);
+    $habitaciones = mysqli_real_escape_string($conexion, $_POST['habitaciones']);
+    $banos = mysqli_real_escape_string($conexion, $_POST['banos']);
+
+    if($cubiertaMin == ""){
+      $cubiertaMin = 1;
+    }
+    if($cubiertaMax == ""){
+      $cubiertaMax = 999999999;
+    }
+    if($totalMin == ""){
+      $totalMin = 1;
+    }
+    if($totalMax == ""){
+      $totalMax = 999999999;
+    }
+    if($cubiertaMin =="" AND $cubiertaMax =="" AND $totalMin =="" AND $totalMax =="" AND $habitaciones =="" AND $banos ==""){
+      $principal = mysqli_query($conexion, "SELECT * FROM propiedad");
+    }else{
+      $principal = mysqli_query($conexion, "SELECT * FROM propiedad WHERE area_total BETWEEN '$totalMin' AND '$totalMax' AND area_cubierta BETWEEN '$cubiertaMin' AND '$cubiertaMax' AND habitaciones LIKE '%" . $habitaciones . "%' AND banos LIKE '%" . $banos . "%' ORDER BY idPropiedad DESC");
+    }
+
+
+  }
+
   ?>
   <header>
     <nav class="py-2 px-4">
@@ -397,10 +428,9 @@ include('conexion.php');
 
         <!-- Insertar Publicaciones -->
         <?php
-        echo $finalSql;
+        
         while ($publicacion = mysqli_fetch_array($principal)) {
-
-          
+                   
           if ($moneda == 'pesos') {
             $precio = $publicacion['peso'];
           } else {

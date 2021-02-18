@@ -313,14 +313,14 @@ $publicaciones = $sentencia->fetchAll();
           <i class="fa fa-times"></i>
         </div>
 
-        <form method="POST" class="filtros-container scrollbar scrollbar-primary">
+        <form method="POST" action="busqueda-propiedades.php" class="filtros-container scrollbar scrollbar-primary">
 
           <div class="rango-container">
             <label for="superfieCubierta">Superficie Cubierta</label>
 
             <div class="input-container">
-              <input name="superfieCubiertaMinima" placeholder="Desde..." type="number">
-              <input name="superfieCubiertaMaxima" placeholder="Hasta..." type="number">
+              <input name="cubiertaMin" placeholder="Desde..." type="number">
+              <input name="cubiertaMax" placeholder="Hasta..." type="number">
             </div>
           </div>
 
@@ -328,8 +328,8 @@ $publicaciones = $sentencia->fetchAll();
             <label for="superfieTotal">Superficie Total</label>
 
             <div class="input-container">
-              <input name="superfieTotalMinima" placeholder="Desde..." type="number">
-              <input name="superfieTotalMaxima" placeholder="Hasta..." type="number">
+              <input name="superfieTotalMin" placeholder="Desde..." type="number">
+              <input name="superfieTotalMax" placeholder="Hasta..." type="number">
             </div>
           </div>
 
@@ -348,6 +348,9 @@ $publicaciones = $sentencia->fetchAll();
             <div class="input-container">
               <input name="habitaciones" type="radio" value="4 o mas">4 o más
             </div>
+            <div class="input-container">
+              <input name="habitaciones" type="radio" value="" checked>Todas
+            </div>
           </div>
 
           <div class="options-container">
@@ -365,8 +368,11 @@ $publicaciones = $sentencia->fetchAll();
             <div class="input-container">
               <input name="banos" type="radio" value="4 o mas">4 o más
             </div>
+            <div class="input-container">
+              <input name="banos" type="radio" value="" checked>Todas
+            </div>
           </div>
-
+          <input type="submit" name="InFilt" value="Buscar">
         </form>
       </div>
 
