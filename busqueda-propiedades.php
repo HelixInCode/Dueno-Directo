@@ -423,8 +423,7 @@ include('conexion.php');
 
       <h1 class="pt-4 pt-md-0">Resultados de Busqueda</h1>
 
-      <div id="busqueda-products-page" data-url="productspage" class=" py-4 px-xl-5">
-
+      <div id="busqueda-products-page" data-url="productspage" class="publications-container py-4 px-xl-5">
 
         <!-- Insertar Publicaciones -->
         <?php
