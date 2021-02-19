@@ -549,21 +549,21 @@ $publicaciones = $sentencia->fetchAll();
         <div class="item-cover view overlay zoom">
           <img class="img-fluid" src="./dist/img/img-servicios/serv1.jpg" alt="">
           <div class="marco text-center">
-            <a href="#?">Profesionales</a>
+            <a href="servicios-search-results.html">Profesionales</a>
           </div>
         </div>
 
         <div class="item-cover view overlay zoom">
           <img class="img-fluid" src="./dist/img/img-servicios/serv2.jpg" alt="">
           <div class="marco text-center">
-            <a href="#?">Productos</a>
+            <a href="productos-search-results.html">Productos</a>
           </div>
         </div>
 
         <div class="item-cover view overlay zoom">
           <img class="img-fluid" src="./dist/img/img-servicios/serv3.jpg" alt="">
           <div class="marco text-center">
-            <a href="">Servicios</a>
+            <a href="servicios-search-results.html">Servicios</a>
           </div>
         </div>
       </div>
