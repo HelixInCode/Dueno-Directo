@@ -30,6 +30,77 @@ include('conexion.php');
 
 <body>
   <?php
+if (isset($_POST['BuscProp'])) {
+  $zona = mysqli_real_escape_string($conexion, $_POST['nombre']);
+  $finalidad = mysqli_real_escape_string($conexion, $_POST['finalidad']);
+  $tipoPropiedad = mysqli_real_escape_string($conexion, $_POST['tipoPropiedad']);
+  $min = mysqli_real_escape_string($conexion, $_POST['precioMinimo']);
+  $max = mysqli_real_escape_string($conexion, $_POST['precioMaximo']);
+  $moneda = mysqli_real_escape_string($conexion, $_POST['precio']);
+  if($min == ""){
+    $min = 1;
+  }
+  if($max == ""){
+    $max = 9999999999999;
+  }
+  
+  if($zona =="" AND $finalidad =="" AND $tipoPropiedad =="" AND $moneda ==""){
+    $principal = mysqli_query($conexion, "SELECT * FROM propiedad");
+  } else{     
+      if ($moneda == 'pesos') {
+        $principalSql = "SELECT * FROM propiedad WHERE provincia LIKE '%" . $zona . "%' OR municipalidad LIKE '%" . $zona . "%' AND";
+        if($finalidad != ""){
+          $principalSql .= " finalidad = '$finalidad' AND";
+        }
+        if($tipoPropiedad != ""){
+          $principalSql .= " tipo_propiedad = '$tipoPropiedad' AND";
+        }
+        if($min != ""){
+          $principalSql .= " peso BETWEEN '$min' AND '$max' ORDER BY idPropiedad DESC";
+        }
+        $finalSql=trim($principalSql, 'AND');
+        
+        $principal = mysqli_query($conexion, $finalSql);
+
+
+      } elseif ($moneda == 'dolar') {
+        $principalSql = "SELECT * FROM propiedad WHERE provincia LIKE '%" . $zona . "%' OR municipalidad LIKE '%" . $zona . "%' AND";
+        if($finalidad != ""){
+          $principalSql .= " finalidad = '$finalidad' AND";
+        }
+        if($tipoPropiedad != ""){
+          $principalSql .= " tipo_propiedad = '$tipoPropiedad' AND";
+        }
+        if($min != ""){
+          $principalSql .= " dolar BETWEEN '$min' AND '$max' ORDER BY idPropiedad DESC";
+        }
+        $finalSql=trim($principalSql, 'AND');
+        
+        $principal = mysqli_query($conexion, $finalSql);
+
+
+      } else {
+        $principalSql = "SELECT * FROM propiedad WHERE provincia LIKE '%" . $zona . "%' OR municipalidad LIKE '%" . $zona . "%' AND";
+        if($finalidad != ""){
+          $principalSql .= " finalidad = '$finalidad' AND";
+        }
+        if($tipoPropiedad != ""){
+          $principalSql .= " tipo_propiedad = '$tipoPropiedad' AND";
+        }
+        if($min != ""){
+          $principalSql .= " ORDER BY idPropiedad DESC";
+        }
+        $finalSql=trim($principalSql, 'AND');
+        
+        $principal = mysqli_query($conexion, $finalSql);
+
+
+      } 
+
+    }
+  
+}
+
   if (isset($_POST['Buscar'])) {
     $zona = mysqli_real_escape_string($conexion, $_POST['nombre']);
     $finalidad = mysqli_real_escape_string($conexion, $_POST['finalidad']);
@@ -49,14 +120,18 @@ include('conexion.php');
     } else{     
         if ($moneda == 'pesos') {
           $principalSql = "SELECT * FROM propiedad WHERE provincia LIKE '%" . $zona . "%' OR municipalidad LIKE '%" . $zona . "%' AND";
+          $principalFil = "SELECT * FROM propiedad WHERE provincia LIKE '%" . $zona . "%' OR municipalidad LIKE '%" . $zona . "%' AND";
           if($finalidad != ""){
             $principalSql .= " finalidad = '$finalidad' AND";
+            $principalFil .= " finalidad = '$finalidad' AND";
           }
           if($tipoPropiedad != ""){
             $principalSql .= " tipo_propiedad = '$tipoPropiedad' AND";
+            $principalFil .= " tipo_propiedad = '$tipoPropiedad' AND";
           }
           if($min != ""){
             $principalSql .= " peso BETWEEN '$min' AND '$max' ORDER BY idPropiedad DESC";
+            $principalFil .= " peso BETWEEN '$min' AND '$max'";
           }
           $finalSql=trim($principalSql, 'AND');
           
@@ -67,12 +142,15 @@ include('conexion.php');
           $principalSql = "SELECT * FROM propiedad WHERE provincia LIKE '%" . $zona . "%' OR municipalidad LIKE '%" . $zona . "%' AND";
           if($finalidad != ""){
             $principalSql .= " finalidad = '$finalidad' AND";
+            $principalFil .= " finalidad = '$finalidad' AND";
           }
           if($tipoPropiedad != ""){
             $principalSql .= " tipo_propiedad = '$tipoPropiedad' AND";
+            $principalFil .= " tipo_propiedad = '$tipoPropiedad' AND";
           }
           if($min != ""){
             $principalSql .= " dolar BETWEEN '$min' AND '$max' ORDER BY idPropiedad DESC";
+            $principalFil .= " dolar BETWEEN '$min' AND '$max'";
           }
           $finalSql=trim($principalSql, 'AND');
           
@@ -81,16 +159,21 @@ include('conexion.php');
 
         } else {
           $principalSql = "SELECT * FROM propiedad WHERE provincia LIKE '%" . $zona . "%' OR municipalidad LIKE '%" . $zona . "%' AND";
+          $principalFil = "SELECT * FROM propiedad WHERE provincia LIKE '%" . $zona . "%' OR municipalidad LIKE '%" . $zona . "%' AND";
           if($finalidad != ""){
             $principalSql .= " finalidad = '$finalidad' AND";
+            $principalFil .= " finalidad = '$finalidad' AND";
           }
           if($tipoPropiedad != ""){
             $principalSql .= " tipo_propiedad = '$tipoPropiedad' AND";
+            $principalFil .= " tipo_propiedad = '$tipoPropiedad' AND";
           }
           if($min != ""){
             $principalSql .= " ORDER BY idPropiedad DESC";
           }
           $finalSql=trim($principalSql, 'AND');
+
+          $finalSqlFil=trim($principalFil, 'AND');
           
           $principal = mysqli_query($conexion, $finalSql);
 
@@ -99,6 +182,41 @@ include('conexion.php');
 
       }
     
+  }
+
+  
+
+  if (isset($_POST['Filt1'])) {
+    $principalFil=$principalFil;
+    $moneda='pesos';
+    $cubiertaMin = mysqli_real_escape_string($conexion, $_POST['cubiertaMin']);
+    $cubiertaMax = mysqli_real_escape_string($conexion, $_POST['cubiertaMax']);
+    $totalMin = mysqli_real_escape_string($conexion, $_POST['superfieTotalMin']);
+    $totalMax = mysqli_real_escape_string($conexion, $_POST['superfieTotalMax']);
+    $habitaciones = mysqli_real_escape_string($conexion, $_POST['habitaciones']);
+    $banos = mysqli_real_escape_string($conexion, $_POST['banos']);
+
+    if($cubiertaMin == ""){
+      $cubiertaMin = 1;
+    }
+    if($cubiertaMax == ""){
+      $cubiertaMax = 999999999;
+    }
+    if($totalMin == ""){
+      $totalMin = 1;
+    }
+    if($totalMax == ""){
+      $totalMax = 999999999;
+    }
+    if($cubiertaMin =="" AND $cubiertaMax =="" AND $totalMin =="" AND $totalMax =="" AND $habitaciones =="" AND $banos ==""){
+      $principal = mysqli_query($conexion, "SELECT * FROM propiedad");
+    }else{
+      $principalFil .="area_total BETWEEN '$totalMin' AND '$totalMax' AND area_cubierta BETWEEN '$cubiertaMin' AND '$cubiertaMax' AND habitaciones LIKE '%" . $habitaciones . "%' AND banos LIKE '%" . $banos . "%' ORDER BY idPropiedad DESC";
+    }
+      $finalSql=trim($principalFil, 'AND');
+            
+      $principal = mysqli_query($conexion, $finalSql);
+
   }
 
   if (isset($_POST['InFilt'])) {
@@ -211,7 +329,7 @@ include('conexion.php');
         <span class="sr-only">Next</span>
       </a>
 
-      <form id="search-main" action="">
+      <form id="search-main" action="busqueda-propiedades.php" method="POST">
         <div class="form-container">
 
           <input name="nombre" type="text" placeholder="Ingresa Zona o palabra">
@@ -226,7 +344,7 @@ include('conexion.php');
           </div>
 
           <div class="input-select">
-            <select name="tipo_propiedad">
+            <select name="tipoPropiedad">
               <option style="color: rgba(0, 0, 0, 0.5);" value="">- Inmueble</option>
               <option value="Casa">Casa</option>
               <option value="Departamento">Departamento</option>
@@ -236,14 +354,6 @@ include('conexion.php');
               <option value="Cabaña">Cabaña</option>
             </select>
           </div>
-
-          <button type="submit" name="buscar" value="buscar">Buscar</button>
-
-          <div class="rango-input">
-            <input name="precioMinimo" type="number" placeholder="Precio desde...">
-            <input name="precioMaximo" type="number" placeholder="Precio hasta...">
-          </div>
-
           <div id="botones-container">
 
             <input name="precio" checked type="radio" value="pesos" id="pesos">
@@ -253,6 +363,12 @@ include('conexion.php');
             <label for="dolares">USD</label>
 
           </div>
+          <div class="rango-input">
+            <input name="precioMinimo" type="number" placeholder="Precio desde...">
+            <input name="precioMaximo" type="number" placeholder="Precio hasta...">
+          </div>
+
+          <button type="submit" name="BuscProp" value="Buscar">Buscar</button>
         </div>
       </form>
     </section>
@@ -321,14 +437,14 @@ include('conexion.php');
           <i class="fa fa-times"></i>
         </div>
 
-        <form method="POST" class="filtros-container scrollbar scrollbar-primary">
+        <form method="POST" class="filtros-container scrollbar scrollbar-primary" action="">
 
           <div class="rango-container">
             <label for="superfieCubierta">Superficie Cubierta</label>
 
             <div class="input-container">
-              <input name="superfieCubiertaMinima" placeholder="Desde..." type="number">
-              <input name="superfieCubiertaMaxima" placeholder="Hasta..." type="number">
+              <input name="cubiertaMin" placeholder="Desde..." type="number">
+              <input name="cubiertaMax" placeholder="Hasta..." type="number">
             </div>
           </div>
 
@@ -336,8 +452,8 @@ include('conexion.php');
             <label for="superfieTotal">Superficie Total</label>
 
             <div class="input-container">
-              <input name="superfieTotalMinima" placeholder="Desde..." type="number">
-              <input name="superfieTotalMaxima" placeholder="Hasta..." type="number">
+              <input name="superfieTotalMin" placeholder="Desde..." type="number">
+              <input name="superfieTotalMax" placeholder="Hasta..." type="number">
             </div>
           </div>
 
@@ -351,30 +467,34 @@ include('conexion.php');
               <input name="habitaciones" type="radio" value="2">2
             </div>
             <div class="input-container">
-              <input name="habitaciones" type="radio" value="más de 2">más de 2
+              <input name="habitaciones" type="radio" value="3">3
             </div>
             <div class="input-container">
-              <input name="habitaciones" type="radio" value="indistinto">indistinto
+              <input name="habitaciones" type="radio" value="4 o mas">4 o más
+            </div>
+            <div class="input-container">
+              <input name="habitaciones" type="radio" value="" checked>Todas
             </div>
           </div>
 
           <div class="options-container">
-            <label for="bathrooms">Baños</label>
+            <label for="banos">Baños</label>
 
             <div class="input-container">
-              <input name="bathrooms" type="radio" value="1">1
+              <input name="banos" type="radio" value="1">1
             </div>
             <div class="input-container">
-              <input name="bathrooms" type="radio" value="2">2
+              <input name="banos" type="radio" value="2">2
             </div>
             <div class="input-container">
-              <input name="bathrooms" type="radio" value="más de 2">más de 2
+              <input name="banos" type="radio" value="más de 2">más de 2
             </div>
             <div class="input-container">
-              <input name="bathrooms" type="radio" value="indistinto">indistinto
+              <input name="banos" type="radio" value="indistinto">indistinto
             </div>
           </div>
 
+          <input type="submit" name="Filt1" value="Aplicar">
         </form>
       </div>
 
@@ -421,7 +541,7 @@ include('conexion.php');
         </div>
       </div>
 
-      <h1 class="pt-4 pt-md-0">Resultados de Busqueda</h1>
+      <h1 class="pt-4 pt-md-0">Resultados de Busqueda<?php echo $principalFil ?> </h1>
 
       <div id="busqueda-products-page" data-url="productspage" class="publications-container py-4 px-xl-5">
 
@@ -429,6 +549,8 @@ include('conexion.php');
         <?php
         
         while ($publicacion = mysqli_fetch_array($principal)) {
+
+         
                    
           if ($moneda == 'pesos') {
             $precio = $publicacion['peso'];
@@ -609,10 +731,10 @@ include('conexion.php');
   <!-- Your custom scripts (optional) -->
   <script type="text/javascript" src="src/js/svg.js"></script>
   <!--   <script type="text/javascript" src="src/js/fetch.js"></script> -->
-  <script type="text/javascript" src="src/js/fetchProducts.js"></script>
+   <!-- <script type="text/javascript" src="src/js/fetchProducts.js"></script> -->
   <script type="text/javascript" src="src/js/hideShowModals.js"></script>
   <script type="text/javascript" src="src/js/filtros.js"></script>
-  <script type="text/javascript" src="src/js/filtrosValidation.js"></script>
+  <!--<script type="text/javascript" src="src/js/filtrosValidation.js"></script>-->
   <script type="text/javascript" src="src/js/hamburger.js"></script>
 </body>
 
