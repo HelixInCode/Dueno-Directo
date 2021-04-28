@@ -46,6 +46,7 @@ if (isset($_POST['BuscProp'])) {
   
   if($zona =="" AND $finalidad =="" AND $tipoPropiedad =="" AND $moneda ==""){
     $principal = mysqli_query($conexion, "SELECT * FROM propiedad");
+
   } else{     
       if ($moneda == 'pesos') {
         $principalSql = "SELECT * FROM propiedad WHERE provincia LIKE '%" . $zona . "%' OR municipalidad LIKE '%" . $zona . "%' AND";
@@ -59,9 +60,10 @@ if (isset($_POST['BuscProp'])) {
           $principalSql .= " peso BETWEEN '$min' AND '$max' ORDER BY idPropiedad DESC";
         }
         $finalSql=trim($principalSql, 'AND');
-        
+        $his= mysqli_real_escape_string($conexion,$finalSql);
+        $history = mysqli_query($conexion, "UPDATE history SET lastConsult='$his', tipo='propiedad' WHERE idHist='1'")or die("problemas actualizando la informacion:".mysqli_error($conexion));
         $principal = mysqli_query($conexion, $finalSql);
-
+   
 
       } elseif ($moneda == 'dolar') {
         $principalSql = "SELECT * FROM propiedad WHERE provincia LIKE '%" . $zona . "%' OR municipalidad LIKE '%" . $zona . "%' AND";
@@ -75,9 +77,9 @@ if (isset($_POST['BuscProp'])) {
           $principalSql .= " dolar BETWEEN '$min' AND '$max' ORDER BY idPropiedad DESC";
         }
         $finalSql=trim($principalSql, 'AND');
-        
+        $his= mysqli_real_escape_string($conexion,$finalSql);
+        $history = mysqli_query($conexion, "UPDATE history SET lastConsult='$his', tipo='propiedad' WHERE idHist='1'")or die("problemas actualizando la informacion:".mysqli_error($conexion));
         $principal = mysqli_query($conexion, $finalSql);
-
 
       } else {
         $principalSql = "SELECT * FROM propiedad WHERE provincia LIKE '%" . $zona . "%' OR municipalidad LIKE '%" . $zona . "%' AND";
@@ -91,9 +93,10 @@ if (isset($_POST['BuscProp'])) {
           $principalSql .= " ORDER BY idPropiedad DESC";
         }
         $finalSql=trim($principalSql, 'AND');
-        
+        $his= mysqli_real_escape_string($conexion,$finalSql);
+        $history = mysqli_query($conexion, "UPDATE history SET lastConsult='$his', tipo='propiedad' WHERE idHist='1'")or die("problemas actualizando la informacion:".mysqli_error($conexion));
         $principal = mysqli_query($conexion, $finalSql);
-
+       
 
       } 
 
@@ -117,67 +120,69 @@ if (isset($_POST['BuscProp'])) {
     
     if($zona =="" AND $finalidad =="" AND $tipoPropiedad =="" AND $moneda ==""){
       $principal = mysqli_query($conexion, "SELECT * FROM propiedad");
+     
     } else{     
         if ($moneda == 'pesos') {
           $principalSql = "SELECT * FROM propiedad WHERE provincia LIKE '%" . $zona . "%' OR municipalidad LIKE '%" . $zona . "%' AND";
-          $principalFil = "SELECT * FROM propiedad WHERE provincia LIKE '%" . $zona . "%' OR municipalidad LIKE '%" . $zona . "%' AND";
-          if($finalidad != ""){
+           if($finalidad != ""){
             $principalSql .= " finalidad = '$finalidad' AND";
-            $principalFil .= " finalidad = '$finalidad' AND";
+          
           }
           if($tipoPropiedad != ""){
             $principalSql .= " tipo_propiedad = '$tipoPropiedad' AND";
-            $principalFil .= " tipo_propiedad = '$tipoPropiedad' AND";
+         
           }
           if($min != ""){
             $principalSql .= " peso BETWEEN '$min' AND '$max' ORDER BY idPropiedad DESC";
-            $principalFil .= " peso BETWEEN '$min' AND '$max'";
+
           }
           $finalSql=trim($principalSql, 'AND');
           
           $principal = mysqli_query($conexion, $finalSql);
-
-
+       
+          $his= mysqli_real_escape_string($conexion,$finalSql);
+          $history = mysqli_query($conexion, "UPDATE history SET lastConsult='$his', tipo='propiedad' WHERE idHist='1'")or die("problemas actualizando la informacion:".mysqli_error($conexion));
+      
         } elseif ($moneda == 'dolar') {
           $principalSql = "SELECT * FROM propiedad WHERE provincia LIKE '%" . $zona . "%' OR municipalidad LIKE '%" . $zona . "%' AND";
           if($finalidad != ""){
             $principalSql .= " finalidad = '$finalidad' AND";
-            $principalFil .= " finalidad = '$finalidad' AND";
+            
           }
           if($tipoPropiedad != ""){
             $principalSql .= " tipo_propiedad = '$tipoPropiedad' AND";
-            $principalFil .= " tipo_propiedad = '$tipoPropiedad' AND";
+            
           }
           if($min != ""){
             $principalSql .= " dolar BETWEEN '$min' AND '$max' ORDER BY idPropiedad DESC";
-            $principalFil .= " dolar BETWEEN '$min' AND '$max'";
+           
           }
           $finalSql=trim($principalSql, 'AND');
           
+          $his= mysqli_real_escape_string($conexion,$finalSql);
+          $history = mysqli_query($conexion, "UPDATE history SET lastConsult='$his', tipo='propiedad' WHERE idHist='1'")or die("problemas actualizando la informacion:".mysqli_error($conexion));
+        
           $principal = mysqli_query($conexion, $finalSql);
-
+        
 
         } else {
           $principalSql = "SELECT * FROM propiedad WHERE provincia LIKE '%" . $zona . "%' OR municipalidad LIKE '%" . $zona . "%' AND";
-          $principalFil = "SELECT * FROM propiedad WHERE provincia LIKE '%" . $zona . "%' OR municipalidad LIKE '%" . $zona . "%' AND";
           if($finalidad != ""){
             $principalSql .= " finalidad = '$finalidad' AND";
-            $principalFil .= " finalidad = '$finalidad' AND";
-          }
+             }
           if($tipoPropiedad != ""){
             $principalSql .= " tipo_propiedad = '$tipoPropiedad' AND";
-            $principalFil .= " tipo_propiedad = '$tipoPropiedad' AND";
-          }
+             }
           if($min != ""){
             $principalSql .= " ORDER BY idPropiedad DESC";
           }
           $finalSql=trim($principalSql, 'AND');
 
-          $finalSqlFil=trim($principalFil, 'AND');
-          
+          $his= mysqli_real_escape_string($conexion,$finalSql);
+          $history = mysqli_query($conexion, "UPDATE history SET lastConsult='$his', tipo='propiedad' WHERE idHist='1'")or die("problemas actualizando la informacion:".mysqli_error($conexion));
+        
           $principal = mysqli_query($conexion, $finalSql);
-
-
+       
         } 
 
       }
@@ -187,7 +192,17 @@ if (isset($_POST['BuscProp'])) {
   
 
   if (isset($_POST['Filt1'])) {
-    $principalFil=$principalFil;
+    //traigo la ultima consulta registrada
+    $previewSearch=mysqli_query($conexion, "SELECT * FROM history WHERE idHist='1'")or die(mysqli_error($conexion));
+    $hisArray=mysqli_fetch_array($previewSearch);
+    $lastConsul=$hisArray['lastConsult'];
+    //Encuentro el la última porcion de string de la que necesito encontrar la posición
+    $findme   = "peso BETWEEN '1' AND '9999999999999' ORDER BY idPropiedad DESC";
+    $pos = strpos($lastConsul, $findme);
+    //Mido el string
+    $length=strlen($lastConsul);
+    //Corto la ultima consulta desde la posición cero hasta la posición del texto que quiero cortar
+    $principalFil= substr($lastConsul,0,$pos); 
     $moneda='pesos';
     $cubiertaMin = mysqli_real_escape_string($conexion, $_POST['cubiertaMin']);
     $cubiertaMax = mysqli_real_escape_string($conexion, $_POST['cubiertaMax']);
@@ -208,16 +223,39 @@ if (isset($_POST['BuscProp'])) {
     if($totalMax == ""){
       $totalMax = 999999999;
     }
-    if($cubiertaMin =="" AND $cubiertaMax =="" AND $totalMin =="" AND $totalMax =="" AND $habitaciones =="" AND $banos ==""){
-      $principal = mysqli_query($conexion, "SELECT * FROM propiedad");
-    }else{
-      $principalFil .="area_total BETWEEN '$totalMin' AND '$totalMax' AND area_cubierta BETWEEN '$cubiertaMin' AND '$cubiertaMax' AND habitaciones LIKE '%" . $habitaciones . "%' AND banos LIKE '%" . $banos . "%' ORDER BY idPropiedad DESC";
+    if($habitaciones == ""){
+      $principalFil .=" area_total BETWEEN '$totalMin' AND '$totalMax' AND area_cubierta BETWEEN '$cubiertaMin' AND '$cubiertaMax' ";
     }
-      $finalSql=trim($principalFil, 'AND');
-            
-      $principal = mysqli_query($conexion, $finalSql);
+    if($habitaciones != "4+" AND $habitaciones != "" ){
+      $principalFil .=" area_total BETWEEN '$totalMin' AND '$totalMax' AND area_cubierta BETWEEN '$cubiertaMin' AND '$cubiertaMax' AND habitaciones = '$habitaciones' ";
+    }
+    if($habitaciones == "4+"){
+      $principalFil .=" area_total BETWEEN '$totalMin' AND '$totalMax' AND area_cubierta BETWEEN '$cubiertaMin' AND '$cubiertaMax' AND habitaciones >= '4' ";
+    }
 
-  }
+    if($banos == ""){
+      $principalFil .=" ORDER BY idPropiedad DESC";
+    }
+    if($banos != "2+" AND $banos != "" ){
+      $principalFil .=" AND banos = '$banos' ORDER BY idPropiedad DESC ";
+    }
+    if($banos == "2+"){
+      $principalFil .=" AND banos > '2' ORDER BY idPropiedad DESC";
+    }
+
+    $finalSql=trim($principalFil, 'AND');
+    $principal = mysqli_query($conexion, $finalSql);
+
+    //else{
+      //$principalFil .=" area_total BETWEEN '$totalMin' AND '$totalMax' AND area_cubierta BETWEEN '$cubiertaMin' AND '$cubiertaMax' AND habitaciones LIKE '%" . $habitaciones . "%' AND banos LIKE '%" . $banos . "%' ORDER BY idPropiedad DESC";
+    //}
+      
+      //$principal = mysqli_query($conexion, "SELECT * FROM propiedad area_total BETWEEN '$totalMin' AND '$totalMax' AND area_cubierta BETWEEN '$cubiertaMin' AND '$cubiertaMax' AND habitaciones LIKE '%" . $habitaciones . "%' AND banos LIKE '%" . $banos . "%' " IN($principalFil1));
+     
+        }
+    
+
+  
 
   if (isset($_POST['InFilt'])) {
     $moneda='pesos';
@@ -242,8 +280,10 @@ if (isset($_POST['BuscProp'])) {
     }
     if($cubiertaMin =="" AND $cubiertaMax =="" AND $totalMin =="" AND $totalMax =="" AND $habitaciones =="" AND $banos ==""){
       $principal = mysqli_query($conexion, "SELECT * FROM propiedad");
+    
     }else{
       $principal = mysqli_query($conexion, "SELECT * FROM propiedad WHERE area_total BETWEEN '$totalMin' AND '$totalMax' AND area_cubierta BETWEEN '$cubiertaMin' AND '$cubiertaMax' AND habitaciones LIKE '%" . $habitaciones . "%' AND banos LIKE '%" . $banos . "%' ORDER BY idPropiedad DESC");
+ 
     }
 
 
@@ -437,7 +477,7 @@ if (isset($_POST['BuscProp'])) {
           <i class="fa fa-times"></i>
         </div>
 
-        <form method="POST" class="filtros-container scrollbar scrollbar-primary" action="">
+        <form method="POST" class="filtros-container scrollbar scrollbar-primary" action="busqueda-propiedades.php">
 
           <div class="rango-container">
             <label for="superfieCubierta">Superficie Cubierta</label>
@@ -470,7 +510,7 @@ if (isset($_POST['BuscProp'])) {
               <input name="habitaciones" type="radio" value="3">3
             </div>
             <div class="input-container">
-              <input name="habitaciones" type="radio" value="4 o mas">4 o más
+              <input name="habitaciones" type="radio" value="4+">4 o más
             </div>
             <div class="input-container">
               <input name="habitaciones" type="radio" value="" checked>Todas
@@ -487,10 +527,10 @@ if (isset($_POST['BuscProp'])) {
               <input name="banos" type="radio" value="2">2
             </div>
             <div class="input-container">
-              <input name="banos" type="radio" value="más de 2">más de 2
+              <input name="banos" type="radio" value="2+">más de 2
             </div>
             <div class="input-container">
-              <input name="banos" type="radio" value="indistinto">indistinto
+              <input name="banos" type="radio" value=""  checked>indistinto
             </div>
           </div>
 
@@ -541,111 +581,118 @@ if (isset($_POST['BuscProp'])) {
         </div>
       </div>
 
-      <h1 class="pt-4 pt-md-0">Resultados de Busqueda<?php echo $principalFil ?> </h1>
+      <h1 class="pt-4 pt-md-0">Resultados de Busqueda <?php echo $finalSql ?>  </h1>
 
       <div id="busqueda-products-page" data-url="productspage" class="publications-container py-4 px-xl-5">
 
         <!-- Insertar Publicaciones -->
         <?php
+
+        if(!$principal){ echo "no hubo resultados sorry";}
         
-        while ($publicacion = mysqli_fetch_array($principal)) {
+        else {
 
-         
-                   
-          if ($moneda == 'pesos') {
-            $precio = $publicacion['peso'];
-          } else {
-            $precio = $publicacion['dolar'];
+        
+            while ($publicacion = mysqli_fetch_array($principal)) {
+
+            
+                      
+              if ($moneda == 'pesos') {
+                $precio = $publicacion['peso'];
+              } else {
+                $precio = $publicacion['dolar'];
+              }
+            ?>
+              <a href="publicacion-precarga.php?public=<?php echo $publicacion['idPropiedad']; ?>" class="publications-item">
+                <div class="img-container">
+
+                  <img src="dist/images/<?php echo $publicacion['imagen1']; ?>" alt="">
+
+                  <div class="publications-address">
+                    <h5><?php echo $publicacion['calle']; ?></h5>
+                  </div>
+                  <div class="publications-price">
+                    <h6>
+                      $<?php echo $precio; ?>
+                    </h6>
+                  </div>
+
+                  <div class="publications-features">
+
+                    <div href="#?" class="bedroom-icon">
+                      <span>
+                        <?php
+                        if ($publicacion['habitaciones'] == '4+' || $publicacion['habitaciones'] > 4) {
+                          echo '4+';
+                        } else {
+                          if ($publicacion['habitaciones'] != '') {
+
+                            echo $publicacion['habitaciones'];
+                          } else {
+                            echo '-';
+                          }
+                        }
+                        ?>
+                      </span>
+                      <img src="dist/img/icons/bed-blue.svg" alt="">
+                    </div>
+
+                    <div href="#?" class="area-icon">
+                      <span>
+                        <?php
+                        if ($publicacion['area_total'] > 999) {
+                          echo '999+';
+                        } else {
+                          if ($publicacion['area_total'] != '') {
+
+                            echo $publicacion['area_total'];
+                          } else {
+                            echo '-';
+                          }
+                        }
+                        ?>
+                      </span>
+                      <img src="dist/img/icons//area-blue.svg" alt="">
+                    </div>
+
+                    <div href="#?" class="bathroom-icon">
+                      <span>
+                        <?php
+                        if ($publicacion['banos'] == '4 o mas' || $publicacion['banos'] == '4 o más' || $publicacion['banos'] > 4) {
+                          echo '4+';
+                        } else {
+                          if ($publicacion['banos'] != '') {
+
+                            echo $publicacion['banos'];
+                          } else {
+                            echo '-';
+                          }
+                        }
+                        ?>
+                      </span>
+                      <img src="dist/img/icons/wc-blue.svg" alt="">
+                    </div>
+
+                    <div href="#?" class="parking-icon">
+                      <span>
+                        <?php
+                        if ($publicacion['cochera'] == 'si' || $publicacion['cochera'] == 'no') {
+                          echo $publicacion['cochera'];
+                        } else {
+                          echo '-';
+                        }
+                        ?>
+                      </span>
+                      <img src="dist/img/icons/car-parking-blue.svg" alt="">
+                    </div>
+
+                  </div>
+
+                </div>
+              </a>
+            <?php }
           }
-        ?>
-          <a href="publicacion-precarga.php?public=<?php echo $publicacion['idPropiedad']; ?>" class="publications-item">
-            <div class="img-container">
 
-              <img src="dist/images/<?php echo $publicacion['imagen1']; ?>" alt="">
-
-              <div class="publications-address">
-                <h5><?php echo $publicacion['calle']; ?></h5>
-              </div>
-              <div class="publications-price">
-                <h6>
-                  $<?php echo $precio; ?>
-                </h6>
-              </div>
-
-              <div class="publications-features">
-
-                <div href="#?" class="bedroom-icon">
-                  <span>
-                    <?php
-                    if ($publicacion['habitaciones'] == '4 o mas' || $publicacion['habitaciones'] == '4 o más' || $publicacion['habitaciones'] > 4) {
-                      echo '4+';
-                    } else {
-                      if ($publicacion['habitaciones'] != '') {
-
-                        echo $publicacion['habitaciones'];
-                      } else {
-                        echo '-';
-                      }
-                    }
-                    ?>
-                  </span>
-                  <img src="dist/img/icons/bed-blue.svg" alt="">
-                </div>
-
-                <div href="#?" class="area-icon">
-                  <span>
-                    <?php
-                    if ($publicacion['area_total'] > 999) {
-                      echo '999+';
-                    } else {
-                      if ($publicacion['area_total'] != '') {
-
-                        echo $publicacion['area_total'];
-                      } else {
-                        echo '-';
-                      }
-                    }
-                    ?>
-                  </span>
-                  <img src="dist/img/icons//area-blue.svg" alt="">
-                </div>
-
-                <div href="#?" class="bathroom-icon">
-                  <span>
-                    <?php
-                    if ($publicacion['banos'] == '4 o mas' || $publicacion['banos'] == '4 o más' || $publicacion['banos'] > 4) {
-                      echo '4+';
-                    } else {
-                      if ($publicacion['banos'] != '') {
-
-                        echo $publicacion['banos'];
-                      } else {
-                        echo '-';
-                      }
-                    }
-                    ?>
-                  </span>
-                  <img src="dist/img/icons/wc-blue.svg" alt="">
-                </div>
-
-                <div href="#?" class="parking-icon">
-                  <span>
-                    <?php
-                    if ($publicacion['cochera'] == 'si' || $publicacion['cochera'] == 'no') {
-                      echo $publicacion['cochera'];
-                    } else {
-                      echo '-';
-                    }
-                    ?>
-                  </span>
-                  <img src="dist/img/icons/car-parking-blue.svg" alt="">
-                </div>
-
-              </div>
-
-            </div>
-          </a>
-        <?php }
         ?>
 
       </div>
